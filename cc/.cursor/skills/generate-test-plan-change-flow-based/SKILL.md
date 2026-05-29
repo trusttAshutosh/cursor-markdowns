@@ -234,3 +234,79 @@ Test plan must be:
 - Change-impact driven  
 - Fully executable  
 - Zero fluff  
+
+## Debugging Addendum (MANDATORY for bank-dependent status flows)
+
+When generating plans for any flow that depends on partner/bank callbacks or downstream status fetch:
+
+- Seed all mandatory preconditions for partner call (for example: non-blank external reference fields, required status keys, required identifiers) in insert SQL if the flow checks them before partner call.
+- Add a **Pre-API DB Check** step in the scenario:
+  - verify row exists for the request identifier used by the flow
+  - verify required preconditions for partner call are non-blank/present
+  - verify query method can return row (status filters/flags).
+- Add a **Breakpoint Playbook** section with exact checkpoints:
+  1) around DAO/repository fetch result (`null` guard),
+  2) before partner call,
+  3) at persistence/update method.
+- Explicitly list null/blank short-circuit points (example: fetched entity null, required external reference blank) and their error codes if known.
+- Provide a **bank-response mimic step** for local/offline runs:
+  - set success/error keys expected by the flow in `executionContext` (or equivalent context object),
+  - set domain-specific response fields required for persistence logic,
+  - then continue from just before persistence call.
+- Always include expected DB attributes/row updates after mimic run to prove scenario validity.
+
+### Debugger Rescue Procedure (REQUIRED when bank call is unavailable)
+
+In generated test plans, include this as an explicit, copy-paste runbook (not optional):
+
+1. Place breakpoints:
+   - In entry processor/service around DAO/repository fetch + precondition null/blank guards.
+   - Immediately before partner call.
+   - Immediately before persistence/update method call.
+   - First line inside `catch`/error handler.
+2. Start API call in debug mode.
+3. If flow enters `catch` before persistence:
+   - Open **Evaluate Expression**.
+   - Evaluate EXACT statements one by one (flow-specific keys from code trace), for example:
+     - set success envelope keys (e.g., `errorCode`, `errorMessage`)
+     - set domain response fields consumed by persistence logic (status/category/date/etc.)
+   - Evaluate persistence call directly (actual method from flow under test).
+4. Continue execution till API completes (end of request/response lifecycle).
+5. Run DB verification queries after API completion:
+   - Query base transaction/entity row by request identifier to fetch actual row id.
+   - Query affected audit/attribute/history tables by that id for fields changed by the flow.
+6. Compare with expected values and record pass/fail conclusion.
+
+### Must include short-circuit checks in plan
+
+- repository fetch returned null -> expected error code and no partner call.
+- required external/reference field blank -> expected error code and no partner call.
+- identifier length/DB truncation risk (e.g., STAN/request IDs) -> mention max length validation before run.
+
+### Non-negotiable wording rule for generated plans
+
+Do not say only “set values in debugger.”  
+Always provide:
+- exact breakpoint location intent,
+- exact Evaluate Expression commands,
+- explicit “continue flow to end of API,”
+- exact post-run DB queries.
+
+## Kafka Addendum (CONDITIONAL - include only if flow actually uses Kafka)
+
+Before adding Kafka validation to a test plan, confirm from code trace that the impacted flow has:
+
+- Kafka producer/publish in the same path, or
+- Kafka consumer/listener as an execution step (`@KafkaListener`, queue consumer class), or
+- explicit dependency on queue-handler handoff for that API path.
+
+If Kafka is **not** in the traced flow, do **not** add Kafka setup, topic, consumer, or fallback steps.
+
+If Kafka **is** in the traced flow, test plan must include:
+
+1. What is published (topic/payload/headers/keys).
+2. What is consumed (consumer class + expected mapped fields).
+3. Failure behavior when Kafka/queue is down.
+4. A direct API bypass step (if supported) to continue functional validation when queue infra is unavailable.
+5. Observability checks (producer log + consumer log + downstream DB/API effect).
+
