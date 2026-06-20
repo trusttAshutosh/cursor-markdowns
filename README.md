@@ -1,6 +1,8 @@
 # Cursor markdowns (full .cursor backup)
 
-Personal git backup of **every `.cursor` config tree** used for Novopay work (global + local), plus related orchestrator docs.
+Personal git backup of **every `.cursor` config tree** used for Novopay work (global + local).
+
+**Start here:** [WORKFLOW.md](WORKFLOW.md) - one-page visual cheat sheet (ticket -> Bob -> review -> pre-ship -> PR).
 
 Run sync after any hooks/rules/skills/commands change:
 

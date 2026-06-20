@@ -32,12 +32,28 @@ flowchart TD
 | Full incident doc (git history, when it broke) | Ask: "root cause for ..." (incident rule applies) |
 | Unit tests for CC change | `/cc-backend-test-generation` (optional) |
 
+## Prod incident (side path)
+
+```mermaid
+flowchart LR
+  P[Prod symptom] -->|"/rca-logs"| Q[grep command pack]
+  Q --> R["Ask: root cause / when did it work"]
+  R --> S[Incident write-up with commit history]
+  S --> T[Fix ticket - then happy path above]
+```
+
 ## Rules you do not need to remember
 
 - Bob **never** auto-runs after a code fix - only when you ask to test.
 - Hooks handle chat hygiene / memory - no commands for that.
-- Ignore `novopay/.cursor/automations/` unless you saved Glass webhooks yourself.
+- Glass automations under `novopay/.cursor/automations/` are optional - use `/` commands instead.
 
-## Backup copy
+## Where config lives (this repo)
 
-Same file mirrored in `Desktop/cursor-markdowns/WORKFLOW.md`.
+| Need | Path in cursor-markdowns |
+|------|--------------------------|
+| This cheat sheet | `WORKFLOW.md` |
+| Slash commands | `novopay/.cursor/commands/` |
+| Incident RCA format | `user/.cursor/rules/incident-analysis-format.mdc` |
+| Orchestrator prefs | `user/.cursor/rules/novopay-orchestrator.mdc` |
+| Sync backup | `python sync-cursor-backup.py` |

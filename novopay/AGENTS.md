@@ -33,7 +33,7 @@ Plain bullets below are for Continual Learning. Keep section names exactly as na
 - Gateway stays generic; domain-specific auth and business rules belong in domain services (e.g. actor).
 - Use ASCII hyphens in markdown docs, not em dashes.
 - Before quality review on a diff, use `/thermo-nuclear-code-quality-review`.
-- Day-to-day workflows: type `/` in Agent chat (`ticket-kickoff`, `prove-ticket`, `pre-ship`, `rca-logs`) - see `novopay/.cursor/WORKFLOWS.md`.
+- Day-to-day workflows: see `novopay/.cursor/WORKFLOWS.md` or `Desktop/cursor-markdowns/WORKFLOW.md` (visual one-pager).
 - Keep pinned+today+yesterday Cursor chats at ~6-8 active; archive stale chats (7+ days) via `bob chat-hygiene`, never delete; periodically run `/workflow-from-chats` and then `/agents-memory-updater` to convert recent chat deltas into durable memory.
 - For SQL migration sequence numbers, first check the latest seq on each repo's common-scripts branch (branch name may differ slightly, e.g. `ddp-fea-common-script` vs `ddp-fea-common-scripts`), then use next seq.
 - Root-cause / incident analysis must follow `~/.cursor/rules/incident-analysis-format.mdc`: phased history tables, mermaid flow, commit link + author + date on every commit, working-vs-broken timeline, numbered why/fix/ops sections, one-line summary.
