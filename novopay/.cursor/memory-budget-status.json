@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-20 16:38:23 UTC",
+  "status": "critical",
+  "active_chats": 168,
+  "active_regular_chats": 8,
+  "active_subagent_chats": 160,
+  "active_high_count": 3,
+  "worst_active_pct": 83.795,
+  "alerts": [
+    "160 active subagent thread(s) (excluded from chat-hygiene cap; normal when using Task/subagents).",
+    "3 active chat(s) at >= 60% context.",
+    "Worst active chat at 84% - start a fresh chat for the next task.",
+    "37 MCP tools flagged for disable - `bob prune-overhead --dry-run`."
+  ],
+  "commands": [
+    "bob memory-budget",
+    "bob chat-hygiene --auto",
+    "bob context-audit",
+    "bob prune-overhead --dry-run"
+  ]
+}

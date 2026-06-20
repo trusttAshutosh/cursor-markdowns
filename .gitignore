@@ -1,0 +1,2 @@
+# Nested git repos inside Cursor plugin cache (do not submodule)
+user/.cursor/plugins/**/.git/

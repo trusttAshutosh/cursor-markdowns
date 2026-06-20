@@ -1,0 +1,44 @@
+---
+description: Format for root-cause, incident, and regression analysis (Novopay tickets)
+alwaysApply: true
+---
+
+# Incident / root-cause analysis format
+
+When the user asks for root cause, regression analysis, "what broke", "when did it work", or similar investigation, use this structure unless they ask for something shorter.
+
+## Required sections (in order)
+
+1. **Title** - Clear issue name (e.g. "Root cause - file_code / download failure")
+
+2. **What happened** - Symptom with concrete evidence (log snippet, STAN, user id, error code). Quote the smoking-gun payload.
+
+3. **End-to-end flow** - Mermaid sequence or flow diagram showing services/tables and where the failure occurs.
+
+4. **Complete history** - Phased timeline tables:
+   - Group by phase (backend created, hardening, frontend wired, etc.)
+   - Every commit row MUST include: **When (date)** | **Commit link** | **Author** | **What changed**
+   - GitHub link format: `https://github.com/khoslalabs/<repo>/commit/<full-sha>`
+   - Short sha in link text is OK; full sha in URL
+
+5. **When was it working vs broken** - Summary table by period with status (worked / latent / visible / broken).
+
+6. **Why it breaks** - Numbered layers (Primary, Secondary, Frontend/other). Include code snippet for the defect. Tie each layer to a commit link + author + date.
+
+7. **How we are fixing it** - Numbered fixes with file names; note if local/uncommitted/PR/deployed.
+
+8. **After deploy - ops cleanup** - SQL, log greps, Redis/JTF refresh, data cleanup if applicable.
+
+9. **One-line summary** - Bug since [commit link] (author, date); visible since [commit link]; not a frontend regression (if true); fix status.
+
+## Commit citation rules (always)
+
+- Never cite a commit without **link + author + date**.
+- Distinguish **introduced** vs **made user-visible** vs **regression** (many bugs are latent from birth, not a later break).
+- Say explicitly when **no commit changed X since date Y** (searched git history).
+
+## Tone
+
+- Complete sentences; precise; no telegraphic lists without context.
+- ASCII hyphens only in markdown (no em dashes).
+- Separate backend vs frontend verdict with evidence, not assumption.

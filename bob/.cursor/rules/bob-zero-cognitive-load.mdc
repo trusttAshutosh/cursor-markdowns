@@ -1,0 +1,59 @@
+---
+description: Bob the Builder — agent reminds user; user does not memorize workflows
+globs:
+  - "**/*"
+alwaysApply: false
+---
+
+# Bob — zero cognitive load (agent duty)
+
+The user does **not** memorize Bob habits. **You** (the agent) handle reminders, peer services, and doc upkeep.
+
+## Before any git commit or push in `bob-the-builder/`
+
+1. **You do not need to refresh `docs/NEXT.md` manually** — run `bob install-hooks` once; after each `git commit`, Bob adds a small `[bob]` docs commit automatically.
+2. After **doc, skill, or contract YAML edits**, run `python bob.py verify-all`.
+3. Before **push**, run: `python bob.py remind` (optional sanity check)
+4. Tell the user in **one sentence** what you did — no checklists unless they ask
+
+## When implementing / reading code / writing tests / stubs — peer services
+
+Bob can **bootRun Novopay microservices on its own**. No `deploy/tdd/workspace-services.yaml` entry is required.
+
+**Default agent behaviour** — run proactively when you notice another service is needed (imports, Feign clients, localhost URLs, config keys like `notification`, `consent`, `masterdata`):
+
+```bash
+cd ~/Desktop/novopay/bob-the-builder   # or product root from bob setup
+python bob.py ensure-peers
+```
+
+That scans host **Java + properties + session registry**, registers peers, and boots only what is not already healthy.
+
+For a **single** known peer:
+
+```bash
+python bob.py need-service notifications --reason "SMS in consent flow"
+python bob.py need-service consents
+python bob.py need-service masterdata
+```
+
+List without booting: `python bob.py discover-services`  
+Force re-boot: add `--force`
+
+**Never** bootRun bank/HDFC partner APIs — those stay on **WireMock**.
+
+## When user finishes Bob product work
+
+- Run `python bob.py remind` and relay the single line Bob prints
+- Do **not** ask them to remember `verify-product`, stamp hashes, or CI flags
+
+## Bob auto-behaviour (product CLI)
+
+- After most commands, Bob auto-refreshes stale `docs/NEXT.md` when hooks are **not** installed
+- **`bob install-hooks`**: post-commit hook auto-commits NEXT.md refresh after every git commit
+- CI **blocks** only if a registered feature was removed (`docs/product-features.yaml`)
+- `validate-ticket` auto-boots when `run.auto_boot_services: true` (default) and discovers peers when `run.auto_discover_services: true` (default)
+
+## User-facing phrase
+
+Prefer: *"Say commit or push and I'll handle Bob docs"* — not a list of commands.

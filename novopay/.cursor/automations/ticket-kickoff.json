@@ -1,0 +1,20 @@
+{
+  "name": "Novopay Ticket Kickoff",
+  "description": "Input ticket id -> bob context pack + Plan gate checklist and repo map.",
+  "workflow": {
+    "triggers": [{ "webhook": {} }],
+    "actions": [],
+    "prompts": [
+      {
+        "content": "You are Novopay Ticket Kickoff.\n\nInput: ticket_id (required), optional title.\n\nSteps:\n1. Run from novopay workspace: `bob context --ticket <id>` (or read existing `docs/tdd-runs/<id>/CONTEXT_PACK.md`).\n2. If folder missing, note `bob init-ticket <id> \"title\"`.\n3. Output Plan gate checklist: scope, assumptions, impacted repos (CC/lib/gateway/actor), open questions.\n4. Pin only ticket-spec + 1-2 files; no full repo @.\n5. Do NOT run `bob validate-ticket` or implement code — kickoff only.\n\nWorkspace root: Desktop/novopay. One ticket per chat."
+      }
+    ],
+    "model": "",
+    "agentOptions": { "skipInstall": false },
+    "memoryEnabled": true,
+    "gitConfig": {
+      "repo": "khoslalabs/novopay-platform-creditcard-management",
+      "branch": "ddp-prod"
+    }
+  }
+}

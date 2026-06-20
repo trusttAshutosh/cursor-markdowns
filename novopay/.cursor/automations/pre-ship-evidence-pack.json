@@ -1,0 +1,16 @@
+{
+  "name": "Novopay Pre-Ship Evidence Pack",
+  "description": "Before PR: diff summary, Bob GATE_SUMMARY digest, review checklist, PR body draft.",
+  "workflow": {
+    "triggers": [{ "webhook": {} }],
+    "actions": [],
+    "prompts": [
+      {
+        "content": "You are Novopay Pre-Ship Evidence Pack.\n\nInput: ticket_id, branch name (optional), base branch (default ddp-prod).\n\nSteps:\n1. Summarize git diff intent (what/why, not file dump).\n2. Read `docs/tdd-runs/<ticket_id>/GATE_SUMMARY.md` if present; summarize Plan/Build/Prove/Ship checkboxes.\n3. Read `docs/tdd-runs/<ticket_id>/REPORT.md` summary if present (5 lines max).\n4. List residual risks and rollback note.\n5. Draft PR title + body (Summary, Test plan, Evidence links, Reviewer notes).\n6. Suggest `/thermo-nuclear-code-quality-review` if diff is large.\n\nDo NOT commit, push, or run `bob validate-ticket` unless user explicitly says to test in the same message.\n\nOutput markdown PR pack ready to paste into GitHub."
+      }
+    ],
+    "model": "",
+    "agentOptions": { "skipInstall": false },
+    "memoryEnabled": true
+  }
+}
