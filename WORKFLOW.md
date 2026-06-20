@@ -1,21 +1,21 @@
 # Ashutosh - Novopay workflow (one page)
 
-**Type `/` in Agent chat** for commands. Everything else is normal chat.
+**Flowchart legend:** `/command` = slash command (exact sample) | **Say ...** = type in chat (natural language)
 
 ## Happy path (ticket to PR)
 
 ```mermaid
 flowchart TD
-  A[New ticket] -->|/ticket-kickoff ID| B[Plan scope repos questions]
+  A[New ticket] -->|/ticket-kickoff PE-123| B[Plan scope repos questions]
   B --> C[Implement in chat]
   C --> D{Want proof?}
   D -->|No| C
-  D -->|bob validate ID| E[Bob validate-ticket E2E evidence]
+  D -->|Say bob validate PE-123| E[Bob E2E evidence]
   E --> F{Ready to ship?}
   C --> F
   F -->|/thermo-nuclear-code-quality-review| G[Code quality on diff]
-  G -->|/pre-ship ID| H[PRE_SHIP md per repo]
-  H --> I[You ask commit push open PR]
+  G -->|/pre-ship PE-123| H[PRE_SHIP md per repo]
+  H -->|Say commit and push open PR| I[Done]
 ```
 
 ## If you want this, use this
@@ -24,12 +24,12 @@ flowchart TD
 |--------------|---------|
 | Start a ticket | `/ticket-kickoff PE-123` |
 | Explain scope / raw idea | Normal chat, or kickoff above |
-| Prove it works (API + DB + logs) | **Only when you choose:** "bob validate PE-123" or "bob let's test" |
+| Prove it works (API + DB + logs) | Say **"bob validate PE-123"** or **"bob let's test"** |
 | Big diff before merge | `/thermo-nuclear-code-quality-review` |
 | PR description files (diagrams, UTs, cross-repo) | `/pre-ship PE-123` |
-| Commit / push / PR | Ask explicitly - agent never auto-commits |
-| Prod logs grep pack | `/rca-logs` + service, date, mobile/stan |
-| Full incident doc (git history, when it broke) | Ask: "root cause for ..." (incident rule applies) |
+| Commit / push / PR | Say **"commit and push"** or **"open PR"** |
+| Prod logs grep pack | `/rca-logs` then describe issue in same message |
+| Full incident doc (git history, when it broke) | Say **"root cause for PE-123"** |
 | Unit tests for CC change | `/cc-backend-test-generation` (optional) |
 
 ## Prod incident (side path)
@@ -37,9 +37,8 @@ flowchart TD
 ```mermaid
 flowchart LR
   P[Prod symptom] -->|/rca-logs| Q[grep command pack]
-  Q --> R[Ask root cause in chat]
-  R --> S[Incident doc with git history]
-  S --> T[Fix then happy path]
+  Q -->|Say root cause for PE-123| R[Incident doc with git history]
+  R --> S[Fix then happy path]
 ```
 
 ## Rules you do not need to remember
