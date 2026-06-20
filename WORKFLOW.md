@@ -6,16 +6,16 @@
 
 ```mermaid
 flowchart TD
-  A[New ticket] -->|"/ticket-kickoff ID"| B[Plan: scope, repos, open questions]
-  B --> C[Implement in chat - one ticket per chat]
+  A[New ticket] -->|ticket-kickoff| B[Plan scope repos questions]
+  B --> C[Implement in chat]
   C --> D{Want proof?}
   D -->|No| C
-  D -->|"bob let's test" or "/prove-ticket ID"| E[Bob E2E + evidence in docs/tdd-runs/ID/]
+  D -->|bob validate| E[Bob E2E evidence]
   E --> F{Ready to ship?}
   C --> F
-  F -->|"/thermo-nuclear-code-quality-review"| G[Code quality pass on diff]
-  G -->|"/pre-ship ID"| H[PRE_SHIP_*.md per repo - paste into GitHub PR]
-  H --> I[You say: commit / push / open PR]
+  F -->|thermo-nuclear review| G[Code quality on diff]
+  G -->|pre-ship| H[PRE_SHIP md per repo]
+  H --> I[commit push open PR]
 ```
 
 ## If you want this, use this
@@ -36,10 +36,10 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  P[Prod symptom] -->|"/rca-logs"| Q[grep command pack]
-  Q --> R["Ask: root cause / when did it work"]
-  R --> S[Incident write-up with commit history]
-  S --> T[Fix ticket - then happy path above]
+  P[Prod symptom] -->|rca-logs| Q[grep command pack]
+  Q --> R[Ask root cause]
+  R --> S[Incident doc with git history]
+  S --> T[Fix then happy path]
 ```
 
 ## Rules you do not need to remember
