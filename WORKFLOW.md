@@ -6,16 +6,16 @@
 
 ```mermaid
 flowchart TD
-  A[New ticket] -->|ticket-kickoff| B[Plan scope repos questions]
+  A[New ticket] -->|/ticket-kickoff ID| B[Plan scope repos questions]
   B --> C[Implement in chat]
   C --> D{Want proof?}
   D -->|No| C
-  D -->|bob validate| E[Bob E2E evidence]
+  D -->|/prove-ticket ID| E[Bob validate-ticket E2E evidence]
   E --> F{Ready to ship?}
   C --> F
-  F -->|thermo-nuclear review| G[Code quality on diff]
-  G -->|pre-ship| H[PRE_SHIP md per repo]
-  H --> I[commit push open PR]
+  F -->|/thermo-nuclear-code-quality-review| G[Code quality on diff]
+  G -->|/pre-ship ID| H[PRE_SHIP md per repo]
+  H --> I[You ask commit push open PR]
 ```
 
 ## If you want this, use this
@@ -36,8 +36,8 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  P[Prod symptom] -->|rca-logs| Q[grep command pack]
-  Q --> R[Ask root cause]
+  P[Prod symptom] -->|/rca-logs| Q[grep command pack]
+  Q --> R[Ask root cause in chat]
   R --> S[Incident doc with git history]
   S --> T[Fix then happy path]
 ```
