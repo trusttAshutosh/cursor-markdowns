@@ -10,7 +10,7 @@ flowchart TD
   B --> C[Implement in chat]
   C --> D{Want proof?}
   D -->|No| C
-  D -->|/prove-ticket ID| E[Bob validate-ticket E2E evidence]
+  D -->|bob validate ID| E[Bob validate-ticket E2E evidence]
   E --> F{Ready to ship?}
   C --> F
   F -->|/thermo-nuclear-code-quality-review| G[Code quality on diff]
@@ -24,7 +24,7 @@ flowchart TD
 |--------------|---------|
 | Start a ticket | `/ticket-kickoff PE-123` |
 | Explain scope / raw idea | Normal chat, or kickoff above |
-| Prove it works (API + DB + logs) | **Only when you choose:** "bob validate PE-123" or `/prove-ticket PE-123` |
+| Prove it works (API + DB + logs) | **Only when you choose:** "bob validate PE-123" or "bob let's test" |
 | Big diff before merge | `/thermo-nuclear-code-quality-review` |
 | PR description files (diagrams, UTs, cross-repo) | `/pre-ship PE-123` |
 | Commit / push / PR | Ask explicitly - agent never auto-commits |

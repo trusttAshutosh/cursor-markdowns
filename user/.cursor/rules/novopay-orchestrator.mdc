@@ -34,9 +34,10 @@ Postman plugin is optional and redundant with Bob for local TDD unless the user 
 User discovers workflows by typing **`/`** in Agent chat. Commands live in `novopay/.cursor/commands/` (see `novopay/.cursor/WORKFLOWS.md`):
 
 - `/ticket-kickoff` - Plan gate
-- `/prove-ticket` - Bob E2E (explicit only)
 - `/pre-ship` - Ship / PR pack
 - `/rca-logs` - prod grep pack
+
+Bob E2E proof: say **bob validate ID** or **bob let's test** in chat (no slash command).
 
 Do **not** create new Bob CLI commands, skills, or Glass automations for ops unless the user asks. Do not duplicate these in rules or AGENTS.md tables.
 
