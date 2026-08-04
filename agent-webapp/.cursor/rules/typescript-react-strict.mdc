@@ -1,0 +1,56 @@
+---
+description: TypeScript standards on helpers, hooks, interceptors, api, context, and services (new/modified code)
+globs: src/helpers/**,src/hooks/**,src/Config/customHooks/**,src/**/hooks/**,src/Config/axios/requestInterceptor/**,src/api/**,src/context/**,src/**/services/**,src/**/*Service.ts
+alwaysApply: false
+---
+
+# TypeScript — Infrastructure (Strict)
+
+Apply to **new or modified** code in scoped files. Do not mass-refactor untouched legacy `any`.
+
+## Required
+
+| Rule | Rationale |
+|------|-----------|
+| **No new `any` or `as any`** | Use `unknown` + narrowing, generics, or a named interface. Exception: unavoidable third-party gaps — add a one-line comment explaining why. |
+| **Redux: `RootState` / `AppDispatch`** | `useSelector((state: RootState) => ...)` and `useDispatch<AppDispatch>()` — never `state: any` in new code. |
+| **No bare `Function` type** | Use explicit signatures: `(value: string) => void`, not `onChange?: Function`. |
+| **Explicit return types on exports** | All exported functions, hooks, and service methods declare return type (`: Promise<T>`, `: UseXReturn`, `: void`). |
+| **Axios interceptors typed** | Use `InternalAxiosRequestConfig` / `AxiosResponse` from `axios`, not `request: any`. |
+| **API payloads as interfaces** | Define `*Request` / `*Response` interfaces in the same file or colocated `*.types.ts` — avoid `requestBody: any` on new endpoints. |
+| **`interface` vs `type`** | `interface` for object shapes and extendable props; `type` for unions, literals, and aliases. |
+| **Prefer `readonly` on config objects** | Immutable config/constants use `as const` or `readonly` fields where the codebase already does. |
+
+## Examples
+
+```typescript
+// Redux — required in new/modified hooks/components using store
+import { RootState, AppDispatch } from "../../Config/store";
+
+const actorId = useSelector((state: RootState) => state.loginDetails.actorId);
+const dispatch = useDispatch<AppDispatch>();
+
+// Hook return type — required on export
+interface UseApiReturn {
+  isLoading: boolean;
+  error: unknown;
+  doGet: (url: string) => Promise<ApiResponse>;
+  doPost: (url: string, body: Record<string, unknown>, headers?: RequestHeaders) => Promise<ApiResponse>;
+}
+const useApi = (): UseApiReturn => { ... };
+
+// Helper — no any
+export const getRequestBodyHeaders = (
+  functionCode: string,
+  functionSubCode: string,
+): RequestHeaders => { ... };
+
+// Interceptor
+import type { InternalAxiosRequestConfig } from "axios";
+
+const interceptor = async (config: InternalAxiosRequestConfig): Promise<InternalAxiosRequestConfig> => { ... };
+```
+
+## Legacy touch-only paths
+
+If a file is edited for a one-line bugfix unrelated to types, do not refactor the whole file to remove existing `any`.

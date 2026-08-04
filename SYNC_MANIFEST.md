@@ -1,13 +1,34 @@
-# Last sync: 2026-06-20T18:15:16Z
+# Last sync: 2026-08-04T19:16:55Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 288 | `user\.cursor` |
-| novopay-workspace | 28 | `novopay\.cursor` |
-| cc | 12 | `cc\.cursor` |
+| user | 378 | `user\.cursor` |
+| novopay-workspace | 32 | `novopay\.cursor` |
+| cc | 7 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
+| bob-skills | 5 | `bob\skills` |
 | bob-template-host-cc | 6 | `bob-templates\host-cc\.cursor` |
 | bob-template-novopay | 13 | `bob-templates\novopay\.cursor` |
-| actor | 1 | `actor\.cursor` |
-| gateway | 1 | `gateway\.cursor` |
+| actor | 0 | `missing source` |
+| gateway | 0 | `missing source` |
+| agent-webapp | 8 | `agent-webapp\.cursor` |
 | bob-onboarding-cursor | 3 | `bob-templates\onboarding-cursor` |
+| cc-skills-into-novopay | 2 | `novopay\.cursor\skills (merged from CC)` |
+| novopay-AGENTS | 1 | `novopay\AGENTS.md` |
+| novopay-README | 1 | `novopay\README.md` |
+| novopay-package | 1 | `novopay\package.json` |
+| novopay-Makefile | 1 | `novopay\Makefile` |
+| novopay-validate-script | 1 | `novopay\scripts\validate-change.py` |
+| novopay-workspace-file | 1 | `novopay\novopay.code-workspace` |
+| bob-boot-remediation | 1 | `novopay\bob-boot-remediation.yaml` |
+| bob-CURSOR_PLUGINS | 1 | `bob\CURSOR_PLUGINS.md` |
+| bob-README | 1 | `bob\README.md` |
+| bob-KT | 1 | `bob\docs\KT_CURSOR_AND_BOB.md` |
+| bob-GUIDE | 1 | `bob\docs\BOB_GUIDE.md` |
+| bob-MCP_TOOL_BRIDGE | 1 | `bob\docs\MCP_TOOL_BRIDGE.md` |
+| bob-docs-README | 1 | `bob\docs\README.md` |
+| bob-ONBOARDING_DEVELOPER | 1 | `bob\docs\ONBOARDING_DEVELOPER.md` |
+| bob-CHEATSHEET | 1 | `bob\docs\BOB_CHEATSHEET.md` |
+| bob-mcp-servers | 1 | `bob\config\mcp-servers.yaml` |
+| bob-tool-bridge | 1 | `bob\config\tool-bridge.yaml` |
+| workflow-mirror | 1 | `WORKFLOW.md` |

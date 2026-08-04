@@ -55,7 +55,7 @@ Do **not** create new Bob CLI commands, skills, or Glass automations for ops unl
 - No commit/push unless explicitly asked.
 - Stay on the active ticket; no unrelated ticket docs.
 - Security: prove vuln before fix, re-prove after.
-- Fix tests not prod classes when tests fail (unless prod is wrong).
+- Fix tests not prod classes when tests fail (unless prod is wrong). Before inventing a test fix, check remote `origin/ddp-qa` and `origin/ddp-uat` for the same test class/method and port/reuse if present (avoids merge conflicts in test classes); only fix from scratch when neither has it.
 - No one-line helpers; constants in constants classes.
 - Gateway generic; domain logic in actor/CC/lib as appropriate.
 - ASCII hyphens in markdown, not em dashes.

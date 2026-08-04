@@ -26,6 +26,7 @@ flowchart TD
 |--------------|---------|
 | Start a ticket | `/ticket-kickoff PE-123` |
 | Explain scope / raw idea | Normal chat, or kickoff above |
+| Scoped compile/lint (no full rebuild) | `npm run validate -- <service-dir>` or `npm run lint -- <webapp-dir>` (see root README) |
 | Prove it works (API + DB + logs) | Say **"bob validate PE-123"** or **"bob let's test"** |
 | Big diff before merge | `/thermo-nuclear-code-quality-review` |
 | PR description files (diagrams, UTs, cross-repo) | `/pre-ship PE-123` |
@@ -33,6 +34,18 @@ flowchart TD
 | Prod logs grep pack | `/rca-logs` then describe issue in same message |
 | Full incident doc (git history, when it broke) | Say **"root cause for PE-123"** |
 | Unit tests for CC change | `/cc-backend-test-generation` (optional) |
+| View agent output / approve from phone | **Cursor Mobile Relay** - see `Desktop/cursor-mobile-relay` |
+
+## Mobile: view and approve Cursor from phone ($0)
+
+All execution stays on your PC. Phone is read + approve only.
+
+1. Cursor shortcut: append `--remote-debugging-port=9222`
+2. Run relay: `Desktop/cursor-mobile-relay/scripts/start.ps1`
+3. Tailscale + `tailscale serve --bg --https=443 http://127.0.0.1:8787`
+4. Phone: `https://YOUR-PC.tailnet.ts.net/?token=RELAY_PASSWORD`
+
+Full doc: `cursor-markdowns/MOBILE_RELAY.md` (mirrored from relay README).
 
 ## Prod incident (side path)
 

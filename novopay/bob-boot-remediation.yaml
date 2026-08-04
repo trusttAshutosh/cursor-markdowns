@@ -39,6 +39,12 @@ services:
     notes:
       - Same as notifications — service.name placeholder must be set for local boot.
 
+  banking_origination:
+    repo_dir: novopay-platform-banking-origination
+    notes:
+      - Port 8182, context /banking-origination. Required for H8 mode-switch proof (CcKycInitiatePolicy).
+      - Bob syncs spring.datasource.* from user.env like masterdata.
+
 # Optional log patterns (merged with built-in _LOG_PATTERNS in boot_remediation.py).
 log_patterns:
   - name: cc_dist_props_missing

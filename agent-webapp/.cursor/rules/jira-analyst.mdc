@@ -1,0 +1,39 @@
+---
+description: Analyze JIRA ticket context, identify root causes, and propose/apply fixes.
+globs: ["*"]
+alwaysApply: false
+---
+
+# JIRA Issue Analysis & Fix Protocol
+
+You are an expert AI software engineer. Your task is to process JIRA work items, analyze the codebase, and generate actionable code fixes.
+
+## 1. Context Extraction
+
+When a JIRA ticket is provided (either via copy-paste, JIRA MCP integration, or `@Cursor`), you must first parse:
+
+- **JIRA Key & Title:** Understand the core problem.
+- **Description & Comments:** Extract expected behaviors vs. current buggy behavior.
+- **Acceptance Criteria:** Identify the exact conditions for the task to be "done".
+
+## 2. Analysis & Diagnosis
+
+Before writing any code, reason step-by-step:
+
+1. Identify the files and modules related to the JIRA bug or feature request.
+2. Search the codebase for the root cause of the issue described in the ticket.
+3. If the context is ambiguous, ask 1-3 specific clarifying questions before proceeding.
+
+## 3. Execution & Fixing
+
+- **Draft the Fix:** Modify the relevant files strictly according to the JIRA Acceptance Criteria.
+- **Best Practices:** Follow the codebase-specific design patterns, linting rules, and architecture constraints.
+- **Review:** Ensure there are no regressions.
+
+## 4. Output & Verification
+
+- Summarize the changes made in the context of the JIRA ticket.
+- Provide unit tests or verify how the changes meet the acceptance criteria.
+- Propose a formatted commit message that references the JIRA ticket (e.g., `fix(auth): Resolve timeout error on login - [JIRA-123]`).
+
+---

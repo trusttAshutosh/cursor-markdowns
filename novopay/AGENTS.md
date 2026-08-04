@@ -1,52 +1,55 @@
 # Novopay workspace
 
+## Quick start (agents)
+
+- Open `novopay.code-workspace`. Workflows: `.cursor/WORKFLOWS.md`. Skills: `.cursor/skills/`.
+- Bob: `python bob.py` / `bob.cmd`. `bob validate-ticket` only when asked to prove.
+- Scoped check: `npm run validate -- <service-dir>` (README). No full monorepo rebuild.
+- SQL: fully qualified `schema_name.table_name`. Prefer `.cursor/memory/prod-ddl/`. No `/actuator/health`.
+
 ## Orchestrator model (fixed - do not let Continual Learning edit this section)
 
 **You (human):** approve or reject at four gates only - Plan, Build, Prove, Ship.
 
 **Agent:** everything else - workspace, memory, skills, Bob runs, boot fixes, hygiene.
 
-**Bob:** proof engine (not redundant). Agent implements; Bob produces `REPORT.md` evidence.
+**Bob:** proof engine. Agent implements; Bob produces `REPORT.md` evidence.
 
 Do not ask the human to pin files, switch workspace, or run memory chores.
 
 ### Gate checklist for the human
 
-1. **Plan** - Is scope right? Any client questions?
-2. **Build** - Does the diff match the plan?
-3. **Prove** - Does Bob `GATE_SUMMARY.md` show PASS on Plan/Build/Prove for the right ticket?
+1. **Plan** - scope right?
+2. **Build** - diff matches plan?
+3. **Prove** - Bob `GATE_SUMMARY.md` PASS for the ticket?
 4. **Ship** - OK to commit/PR?
+
+### Agent self-check (fixed - do not let Continual Learning edit this section)
+
+1. **Scope** - Diff matches plan/ticket; no drive-by edits.
+2. **Compile** - `npm run validate -- <touched-dir>` when feasible.
+3. **SQL / DB** - Fully qualified names; prefer ticket verify SQL.
+4. **No actuator health** - Use Bob / boot logs / real API answers.
+5. **Bob stays explicit** - No `bob validate-ticket` unless asked to prove.
+6. **Risk spot-check** - Read riskiest changed files once.
+7. **Report briefly** - What was self-checked; what still needs Prove.
 
 ---
 
 Plain bullets below are for Continual Learning. Keep section names exactly as named.
+Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/tdd-runs/<ticket-id>/`, not here.
 
 ## Learned User Preferences
 
-- Do not commit or push Novopay changes unless explicitly asked.
-- Run `bob validate-ticket <ticket-id>` only when explicitly asked to test/prove ("bob let's test", "validate", "test this ticket", "bob validate-ticket", "Bob to test") — never auto-run Bob after every code fix. Default proof when asked is **E2E** (API + DB + logs), not Gradle unit tests. Bob autoboot should be true; boot fixes go in `bob-the-builder/runner/config/boot-remediation.yaml` or host `deploy/tdd/`, not chat-only workarounds.
-- Stay on the active ticket; do not mix docs or test artifacts from unrelated tickets (e.g. LOC jumbo vs SQLi).
-- For security fixes, prove the vulnerability with reproducible queries or API calls before fixing, then re-run the same checks after.
-- PE-PQ jumbo: case-insensitive compare, skip jumbo offer inquiry, treat as no jumbo offer; no CBCI, MIS, or Insta-loan scope creep.
-- Fix failing unit tests by updating tests, not production classes, unless prod code is genuinely wrong.
-- No one-line helper methods; put constants in the appropriate constants class.
-- Gateway stays generic; domain-specific auth and business rules belong in domain services (e.g. actor).
-- Use ASCII hyphens in markdown docs, not em dashes.
-- Before quality review on a diff, use `/thermo-nuclear-code-quality-review`.
-- Day-to-day workflows: see `novopay/.cursor/WORKFLOWS.md` or `Desktop/cursor-markdowns/WORKFLOW.md` (visual one-pager).
-- Keep pinned+today+yesterday Cursor chats at ~6-8 active; archive stale chats (7+ days) via `bob chat-hygiene`, never delete; periodically run `/workflow-from-chats` and then `/agents-memory-updater` to convert recent chat deltas into durable memory.
-- For SQL migration sequence numbers, first check the latest seq on each repo's common-scripts branch (branch name may differ slightly, e.g. `ddp-fea-common-script` vs `ddp-fea-common-scripts`), then use next seq.
-- Root-cause / incident analysis must follow `~/.cursor/rules/incident-analysis-format.mdc`: phased history tables, mermaid flow, commit link + author + date on every commit, working-vs-broken timeline, numbered why/fix/ops sections, one-line summary.
+- No commit/push unless asked; paste-ready commit when asked (`/babysit` may ship scoped PR fixes).
+- Subjects: `fix: ...` — no service-name scopes. Bob only when asked; E2E proof default; autoboot.
+- One ticket per chat. Prove vulns before/after. Prefer test fixes; port from `ddp-qa`/`ddp-uat` when present.
+- Surgical reuse; constants classes; gateway stays generic. CodeAnt + RCA rules under `~/.cursor/rules/`.
+- SQL fully qualified; call out env drift; lock Flyway seq from common-scripts. Log greps: `grep` on `/apps/applogs/...` only.
+- Sync backend on `ddp-qa`; frontend `dsa-qa` when needed. `/thermo-nuclear-code-quality-review` on big diffs. Prefer source-of-truth rules over FE copies.
 
 ## Learned Workspace Facts
 
-- Primary monorepo root: `Desktop/novopay` with services including `novopay-platform-creditcard-management`, `novopay-platform-lib`, `novopay-platform-api-gateway`, `novopay-platform-actor`, and `bob-the-builder`.
-- Canonical agent skills live at `Desktop/novopay/.cursor/skills/`; CC repo `.cursor/skills` is a junction to the same folder.
-- Bob TDD artifacts live under each service's `docs/tdd-runs/<ticket-id>/` (REPORT.md, postman collections, DB verify SQL).
-- Local DB for Bob/CC is typically `root`/`root` per `application.properties`; CC needs `application.properties` on bootRun classpath; consents/notifications need `novopay.service.name`.
-- CC health endpoint: `http://localhost:8016/cc-mgmt/actuator/health`.
-- Backend baseline branch is often `ddp-prod`; lib changes use composite `includeBuild` from CC.
-- Single orchestrator rule: `~/.cursor/rules/novopay-orchestrator.mdc` (always applies, even from home workspace).
-- One-click workspace: `novopay.code-workspace` (root + bob + CC + lib + gateway + actor).
-- Bob orchestrator checklist per ticket: `docs/tdd-runs/<ticket-id>/GATE_SUMMARY.md` (Plan / Build / Prove / Ship).
-- Monthly: stop hook auto-runs `bob meta-review --hook stop` every 30d (or run `bob meta-review` manually) -> human reviews `bob-the-builder/docs/META_REVIEW.md` + `CONTEXT_USAGE_AUDIT.md` -> approve rule/skill/Bob changes manually or `bob onboard --force` for rule sync.
+- Root `Desktop/novopay`; skills `.cursor/skills/`; `novopay.code-workspace`; orchestrator `novopay-orchestrator.mdc`.
+- Bob artifacts `docs/tdd-runs/<id>/`. Local DB often `root`/`root`. Tenants `ddp,dsa,kp,ra,rbg,bb`; schema `{tenant}_{service}` (confirm DDL).
+- Logs `/apps/applogs/{common|tenant}/`. Branches: backend `ddp-*`, frontend `dsa-*`. Lib via CC `includeBuild`.

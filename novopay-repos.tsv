@@ -1,0 +1,40 @@
+# Novopay workspace repos for new-laptop setup.
+# Format: folder<TAB>git_url<TAB>preferred_branch
+# preferred_branch is checked out when it exists on origin; otherwise clone default branch.
+# Generated from Desktop/novopay inventory (stable branches, not feature branches).
+bob-the-builder	https://github.com/trusttAshutosh/bob-the-builder.git	main
+novopay-payments	https://github.com/khoslalabs/novopay-payments.git	ddp-qa
+novopay-platform-accounting-v2	https://github.com/khoslalabs/novopay-platform-accounting-v2.git	ddp-qa
+novopay-platform-actor	https://github.com/khoslalabs/novopay-platform-actor.git	ddp-qa
+novopay-platform-agent-webapp	https://github.com/khoslalabs/novopay-platform-agent-webapp.git	dsa-qa
+novopay-platform-api-gateway	https://github.com/khoslalabs/novopay-platform-api-gateway.git	ddp-qa
+novopay-platform-approval	https://github.com/khoslalabs/novopay-platform-approval.git	ddp-qa
+novopay-platform-audit	https://github.com/khoslalabs/novopay-platform-audit.git	ddp-qa
+novopay-platform-authorization	https://github.com/khoslalabs/novopay-platform-authorization.git	ddp-qa
+novopay-platform-banking-origination	https://github.com/khoslalabs/novopay-platform-banking-origination.git	ddp-qa
+novopay-platform-banking-transaction	https://github.com/khoslalabs/novopay-platform-banking-transaction.git	ddp-qa
+novopay-platform-batch	https://github.com/khoslalabs/novopay-platform-batch.git	ddp-qa
+novopay-platform-callbacks	https://github.com/khoslalabs/novopay-platform-callbacks.git	ddp-qa
+novopay-platform-complaint-mgmt	https://github.com/khoslalabs/novopay-platform-complaint-mgmt.git	ddp-qa
+novopay-platform-consents	https://github.com/khoslalabs/novopay-platform-consents.git	ddp-qa
+novopay-platform-consents-webapp	https://github.com/khoslalabs/novopay-platform-consents-webapp.git	dsa-qa
+novopay-platform-creditcard-management	https://github.com/khoslalabs/novopay-platform-creditcard-management.git	ddp-qa
+novopay-platform-creditcard-management-ddp-uat	https://github.com/khoslalabs/novopay-platform-creditcard-management.git	ddp-uat
+novopay-platform-ddp-utility	https://github.com/khoslalabs/novopay-platform-ddp-utility.git	ddp-qa
+novopay-platform-dms	https://github.com/khoslalabs/novopay-platform-dms.git	ddp-qa
+novopay-platform-india-stack	https://github.com/khoslalabs/novopay-platform-india-stack.git	ddp-qa
+novopay-platform-initial-setup	https://github.com/khoslalabs/novopay-platform-initial-setup.git	ddp-qa
+novopay-platform-lib	https://github.com/khoslalabs/novopay-platform-lib.git	ddp-qa
+novopay-platform-limits	https://github.com/khoslalabs/novopay-platform-limits.git	ddp-qa
+novopay-platform-masterdata-management	https://github.com/khoslalabs/novopay-platform-masterdata-management.git	ddp-qa
+novopay-platform-masters-mgmt	https://github.com/khoslalabs/novopay-platform-masters-mgmt.git	ddp-qa
+novopay-platform-notifications	https://github.com/khoslalabs/novopay-platform-notifications.git	ddp-qa
+novopay-platform-payments	https://github.com/khoslalabs/novopay-platform-payments.git	ddp-qa
+novopay-platform-simulators	https://github.com/khoslalabs/novopay-platform-simulators.git	ddp-qa
+novopay-platform-slate	https://github.com/khoslalabs/novopay-platform-slate.git	master
+novopay-platform-webapp	https://github.com/khoslalabs/novopay-platform-webapp.git	dsa-qa
+sb-library	https://github.com/khoslalabs/sb-library.git	master
+trustt-platform-ddp-automation	https://github.com/khoslalabs/trustt-platform-ddp-automation.git	ddp-automation
+trustt-platform-ddp-manual-report-queries	https://github.com/khoslalabs/trustt-platform-ddp-manual-report-queries.git	master
+trustt-platform-reporting	https://github.com/khoslalabs/trustt-platform-reporting.git	master
+trustt-platform-term-deposit	https://github.com/khoslalabs/trustt-platform-term-deposit.git	ddp-qa

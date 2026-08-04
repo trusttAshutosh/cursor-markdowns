@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mirror all Novopay-related .cursor config into cursor-markdowns."""
+"""Mirror all Novopay-related agent config into cursor-markdowns (laptop migrate backup)."""
 from __future__ import annotations
 
 import os
@@ -79,14 +79,26 @@ def copy_tree(src: Path, dst: Path) -> int:
                 if target.is_dir():
                     count += copy_tree(target, t)
                 elif target.is_file():
-                    _writable(t) if t.exists() else None
+                    if t.exists():
+                        _writable(t)
                     shutil.copy2(target, t)
                     count += 1
             elif s.is_file():
-                _writable(t) if t.exists() else None
+                if t.exists():
+                    _writable(t)
                 shutil.copy2(s, t)
                 count += 1
     return count
+
+
+def copy_file(src: Path, dst: Path) -> bool:
+    if not src.exists() or not src.is_file():
+        return False
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if dst.exists():
+        _writable(dst)
+    shutil.copy2(src, dst)
+    return True
 
 
 def sync_pair(label: str, src: Path, dst: Path, results: list[tuple[str, int, str]]) -> None:
@@ -117,6 +129,11 @@ def main() -> int:
         ("cc", NOVOPAY / "novopay-platform-creditcard-management" / ".cursor", ROOT / "cc" / ".cursor"),
         ("bob", NOVOPAY / "bob-the-builder" / ".cursor", ROOT / "bob" / ".cursor"),
         (
+            "bob-skills",
+            NOVOPAY / "bob-the-builder" / "skills",
+            ROOT / "bob" / "skills",
+        ),
+        (
             "bob-template-host-cc",
             NOVOPAY / "bob-the-builder/templates/onboarding/host-cc/.cursor",
             ROOT / "bob-templates" / "host-cc" / ".cursor",
@@ -128,6 +145,11 @@ def main() -> int:
         ),
         ("actor", NOVOPAY / "novopay-platform-actor" / ".cursor", ROOT / "actor" / ".cursor"),
         ("gateway", NOVOPAY / "novopay-platform-api-gateway" / ".cursor", ROOT / "gateway" / ".cursor"),
+        (
+            "agent-webapp",
+            NOVOPAY / "novopay-platform-agent-webapp" / ".cursor",
+            ROOT / "agent-webapp" / ".cursor",
+        ),
     ]
     for label, src, dst in mappings:
         sync_pair(label, src, dst, results)
@@ -137,18 +159,107 @@ def main() -> int:
     if onboarding.exists():
         sync_pair("bob-onboarding-cursor", onboarding, ROOT / "bob-templates" / "onboarding-cursor", results)
 
-    # CC skills junction: ensure cc backup has resolved skill files
-    cc_skills_src = NOVOPAY / ".cursor" / "skills"
-    cc_skills_dst = ROOT / "cc" / ".cursor" / "skills"
-    if cc_skills_src.exists():
-        copy_tree(cc_skills_src, cc_skills_dst)
+    # CC keeps its own skills on disk (not always a junction). Keep `cc/.cursor/skills`
+    # intact from the CC mapping above, and also merge those skills into the novopay
+    # backup skills tree so a laptop restore of canonical `novopay/.cursor/skills/`
+    # still has CC test/plan skills.
+    cc_skills_live = NOVOPAY / "novopay-platform-creditcard-management" / ".cursor" / "skills"
+    novopay_skills_backup = ROOT / "novopay" / ".cursor" / "skills"
+    if cc_skills_live.exists():
+        merged = 0
+        for skill_dir in cc_skills_live.iterdir():
+            if not skill_dir.is_dir():
+                continue
+            merged += copy_tree(skill_dir, novopay_skills_backup / skill_dir.name)
+        if merged:
+            results.append(
+                ("cc-skills-into-novopay", merged, "novopay\\.cursor\\skills (merged from CC)")
+            )
 
-    # Related non-.cursor docs
-    shutil.copy2(NOVOPAY / "AGENTS.md", ROOT / "novopay" / "AGENTS.md")
-    shutil.copy2(
-        NOVOPAY / "bob-the-builder/runner/config/boot-remediation.yaml",
-        ROOT / "novopay" / "bob-boot-remediation.yaml",
-    )
+    # Related non-.cursor docs / agent entrypoints (laptop migrate essentials)
+    extras: list[tuple[str, Path, Path]] = [
+        ("novopay-AGENTS", NOVOPAY / "AGENTS.md", ROOT / "novopay" / "AGENTS.md"),
+        ("novopay-README", NOVOPAY / "README.md", ROOT / "novopay" / "README.md"),
+        ("novopay-package", NOVOPAY / "package.json", ROOT / "novopay" / "package.json"),
+        ("novopay-Makefile", NOVOPAY / "Makefile", ROOT / "novopay" / "Makefile"),
+        (
+            "novopay-validate-script",
+            NOVOPAY / "scripts" / "validate-change.py",
+            ROOT / "novopay" / "scripts" / "validate-change.py",
+        ),
+        (
+            "novopay-workspace-file",
+            NOVOPAY / "novopay.code-workspace",
+            ROOT / "novopay" / "novopay.code-workspace",
+        ),
+        (
+            "bob-boot-remediation",
+            NOVOPAY / "bob-the-builder/runner/config/boot-remediation.yaml",
+            ROOT / "novopay" / "bob-boot-remediation.yaml",
+        ),
+        (
+            "bob-CURSOR_PLUGINS",
+            NOVOPAY / "bob-the-builder/docs/CURSOR_PLUGINS.md",
+            ROOT / "bob" / "CURSOR_PLUGINS.md",
+        ),
+        (
+            "bob-README",
+            NOVOPAY / "bob-the-builder/README.md",
+            ROOT / "bob" / "README.md",
+        ),
+        (
+            "bob-KT",
+            NOVOPAY / "bob-the-builder/docs/KT_CURSOR_AND_BOB.md",
+            ROOT / "bob" / "docs" / "KT_CURSOR_AND_BOB.md",
+        ),
+        (
+            "bob-GUIDE",
+            NOVOPAY / "bob-the-builder/docs/BOB_GUIDE.md",
+            ROOT / "bob" / "docs" / "BOB_GUIDE.md",
+        ),
+        (
+            "bob-MCP_TOOL_BRIDGE",
+            NOVOPAY / "bob-the-builder/docs/MCP_TOOL_BRIDGE.md",
+            ROOT / "bob" / "docs" / "MCP_TOOL_BRIDGE.md",
+        ),
+        (
+            "bob-docs-README",
+            NOVOPAY / "bob-the-builder/docs/README.md",
+            ROOT / "bob" / "docs" / "README.md",
+        ),
+        (
+            "bob-ONBOARDING_DEVELOPER",
+            NOVOPAY / "bob-the-builder/docs/ONBOARDING_DEVELOPER.md",
+            ROOT / "bob" / "docs" / "ONBOARDING_DEVELOPER.md",
+        ),
+        (
+            "bob-CHEATSHEET",
+            NOVOPAY / "bob-the-builder/docs/BOB_CHEATSHEET.md",
+            ROOT / "bob" / "docs" / "BOB_CHEATSHEET.md",
+        ),
+        (
+            "bob-mcp-servers",
+            NOVOPAY / "bob-the-builder/runner/config/mcp-servers.yaml",
+            ROOT / "bob" / "config" / "mcp-servers.yaml",
+        ),
+        (
+            "bob-tool-bridge",
+            NOVOPAY / "bob-the-builder/runner/config/tool-bridge.yaml",
+            ROOT / "bob" / "config" / "tool-bridge.yaml",
+        ),
+        (
+            "workflow-mirror",
+            NOVOPAY / ".cursor" / "WORKFLOWS.md",
+            ROOT / "WORKFLOW.md",
+        ),
+    ]
+    extra_count = 0
+    for label, src, dst in extras:
+        if copy_file(src, dst):
+            extra_count += 1
+            results.append((label, 1, str(dst.relative_to(ROOT))))
+        else:
+            results.append((label, 0, "missing source"))
 
     stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     lines = [f"# Last sync: {stamp}", "", "| Source | Files | Backup path |", "|--------|-------|-------------|"]
@@ -158,6 +269,7 @@ def main() -> int:
 
     total = sum(n for _, n, _ in results)
     print(f"Synced {total} files across {len(results)} trees -> {ROOT}")
+    print(f"  (including {extra_count} workspace entrypoint extras)")
     for label, n, path in results:
         print(f"  {label}: {n} files -> {path}")
     return 0

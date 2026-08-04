@@ -1,16 +1,4 @@
 {
   "version": 1,
-  "hooks": {
-    "postToolUse": [
-      {
-        "command": "pythonw .cursor/hooks/cc-backend-test-nudge.py"
-      }
-    ],
-    "stop": [
-      {
-        "command": "pythonw .cursor/hooks/cc-backend-test-stop-followup.py",
-        "loop_limit": 1
-      }
-    ]
-  }
+  "hooks": {}
 }

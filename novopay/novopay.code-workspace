@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "name": "novopay (root)",
+      "path": "."
+    },
+    {
+      "name": "bob-the-builder",
+      "path": "bob-the-builder"
+    },
+    {
+      "name": "credit-card-management",
+      "path": "novopay-platform-creditcard-management"
+    },
+    {
+      "name": "platform-lib",
+      "path": "novopay-platform-lib"
+    },
+    {
+      "name": "api-gateway",
+      "path": "novopay-platform-api-gateway"
+    },
+    {
+      "name": "actor",
+      "path": "novopay-platform-actor"
+    }
+  ],
+  "settings": {
+    "files.autoSave": "afterDelay"
+  }
+}

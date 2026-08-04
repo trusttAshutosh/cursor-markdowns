@@ -1,0 +1,43 @@
+---
+description: Incremental JSDoc on shared common components (warn tier, new/modified code)
+globs: src/components/common/**
+alwaysApply: false
+---
+
+# JSDoc — Common Components (Warn)
+
+Apply when touching files under `src/components/common/**`. Document **new or modified** exports only.
+
+## Required
+
+- Exported component function — one-line summary above the component
+- Exported props interfaces — per-prop `/** */` on non-obvious fields (match `DiyVerificationScreenView.tsx`)
+- Exported utility functions co-located in common components (e.g. `*Util.ts`, `*.utils.ts`)
+
+## Not required
+
+- Private styled components, inline handlers, or internal subcomponents
+- Obvious props where the name and type are self-explanatory (e.g. `disabled: boolean`)
+- Journey screens under `src/components/Screens/**` (out of scope)
+
+## Examples
+
+```typescript
+export interface NPSelectProps {
+  /** Label shown above the select field. */
+  label: string;
+  /** Called when the selected option changes. */
+  onChange: (value: string) => void;
+  options: Option[];
+}
+
+/**
+ * Renders a styled MUI select with project-standard error display.
+ */
+export const NPSelect = ({ label, onChange, options }: NPSelectProps) => { ... };
+```
+
+## Pattern
+
+- Prefer prop-level JSDoc on the interface over repeating `@param` on the component when props are a single object
+- Keep summaries action-oriented: what the component renders or does, not implementation details

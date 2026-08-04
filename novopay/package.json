@@ -1,0 +1,10 @@
+{
+  "name": "novopay-workspace",
+  "private": true,
+  "description": "Workspace-level scripts for scoped agent validation (not an app package).",
+  "scripts": {
+    "validate": "python scripts/validate-change.py",
+    "lint": "python scripts/validate-change.py --lint",
+    "format": "python scripts/validate-change.py --format"
+  }
+}

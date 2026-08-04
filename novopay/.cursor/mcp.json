@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mysql": {
+      "command": "python",
+      "args": ["runner/mcp/bob_tools_server.py"],
+      "cwd": "bob-the-builder"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"]
+    }
+  }
+}

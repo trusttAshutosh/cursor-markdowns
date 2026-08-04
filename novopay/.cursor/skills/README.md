@@ -7,7 +7,7 @@
 | `ticket-breakdown-planning` | Jira-ready ticket breakdown, estimation, epic vs story judgment |
 | `cc-backend-test-generation` | Unit/journey tests for CC backend changes |
 | `generate-test-plan-change-flow-based` | QA test plans with API + DB verification matrices |
-| `novopay-cursor-automations` | RCA log pack, proof checker, pre-ship pack, ticket kickoff |
+| `novopay-cursor-automations` | Deprecated - use `/ticket-kickoff`, `/pre-ship`, `/rca-logs` |
 
 ## Layout
 

@@ -1,0 +1,39 @@
+---
+description: TypeScript standards on shared common components — props, callbacks, events (new/modified code)
+globs: src/components/common/**
+alwaysApply: false
+---
+
+# TypeScript — Common Components (Warn)
+
+Apply when touching files under `src/components/common/**`. Type **new or modified** exports only.
+
+## Required
+
+| Rule | Rationale |
+|------|-----------|
+| **Props named `ComponentNameProps`** | Prefer `NPSelectProps` over `PropsType` (existing inconsistency in `NPOTPField`, `LoanSelectionScreen`). |
+| **No `any` in new props** | Use unions, generics, or `unknown` with guards. |
+| **Typed callbacks** | `(value: string) => void` instead of `Function`; MUI/React events use proper types (`SelectChangeEvent`, `ChangeEvent<HTMLInputElement>`). |
+| **Extend shared form types** | Common inputs extend `NPInputType` via `interface XProps extends NPInputType` rather than duplicating fields. |
+| **Discriminated unions for variants** | Multi-mode components use `type Step = "select" \| "loading"` (see `DiyVerificationScreenView.tsx`). |
+
+## Example
+
+```typescript
+import { SelectChangeEvent } from "@mui/material";
+
+export interface NPSelectProps {
+  label: string;
+  value: string;
+  options: { code: string; label: string }[];
+  onChange: (event: SelectChangeEvent<string>) => void;
+  disabled?: boolean;
+}
+
+export const NPSelect = ({ label, value, options, onChange, disabled }: NPSelectProps) => { ... };
+```
+
+## Legacy touch-only paths
+
+When fixing an unrelated bug, do not refactor the entire component to replace existing `Function` or `any` props.

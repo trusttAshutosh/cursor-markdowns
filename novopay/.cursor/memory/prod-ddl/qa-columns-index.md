@@ -1,0 +1,1699 @@
+# QA column dump index
+
+Updated: 2026-07-14
+Source: `Downloads/dump 2.csv` -> `qa-columns.csv`
+
+- Schemas: 91
+- Tables: 2209
+- Columns: 25922
+
+## Priority schemas (CC / BO / actor / related)
+
+### `bb_actor` (102 tables)
+
+- `bb_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `bb_actor.actor` (3): id, type, is_deleted
+- `bb_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `bb_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `bb_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `bb_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `bb_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `bb_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `bb_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `bb_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `bb_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `bb_actor.agent_details` (3): id, agent_id, category
+- `bb_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `bb_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `bb_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `bb_actor.agent_lead_file` (17): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, matched_records, total_records, checker_doc_code, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `bb_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `bb_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_actor.bank_product_branch_attributes` (10): id, product_branch_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `bb_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `bb_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `bb_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `bb_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `bb_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `bb_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `bb_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.customer_check` (14): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on
+- `bb_actor.customer_details` (4): id, customer_id, customer_name, vle_code
+- `bb_actor.customer_offers` (7): id, customer_name, customer_mobile_number, product_code, offer_amount, corporate_id, is_available
+- `bb_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `bb_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `bb_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `bb_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `bb_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `bb_actor.device_type` (4): id, type, description, is_deleted
+- `bb_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `bb_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `bb_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `bb_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `bb_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `bb_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `bb_actor.employer_name` (12): id, company_id, company_code, company_name, company_display_name, is_active, created_on, created_by, updated_on, updated_by, product_code, company_category
+- `bb_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `bb_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `bb_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `bb_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `bb_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `bb_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `bb_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `bb_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `bb_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `bb_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `bb_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `bb_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `bb_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.offer_details` (11): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name
+- `bb_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `bb_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `bb_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `bb_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `bb_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `bb_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `bb_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `bb_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `bb_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `bb_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `bb_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `bb_actor.temp_required_employee_for_dormant` (1): employee_id
+- `bb_actor.tid_master` (13): id, tid_number, tid_status, tid_activation_date, tid_deactivation_date, tid_reactivation_date, created_on, updated_on, created_by, updated_by, is_file_generated, corporate_id, previous_status
+- `bb_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `bb_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `bb_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `bb_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `bb_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `bb_actor.user_auth_type` (3): id, type, description
+- `bb_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `bb_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `bb_actor.user_channel` (4): id, user_id, code, is_deleted
+- `bb_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `bb_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `bb_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `bb_actor.user_handle_type` (4): id, type, description, is_deleted
+- `bb_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `bb_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `bb_actor.visit_reassign` (9): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on
+
+### `bb_approval` (4 tables)
+
+- `bb_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `bb_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `bb_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `bb_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `bb_authorization` (14 tables)
+
+- `bb_authorization.category` (4): id, code, display_name, is_deleted
+- `bb_authorization.epic` (4): id, code, display_name, description
+- `bb_authorization.feature` (5): id, code, display_name, description, epic_id
+- `bb_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `bb_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `bb_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `bb_authorization.role_group` (3): id, role_group_code, role_group_value
+- `bb_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `bb_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `bb_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `bb_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `bb_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `bb_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `bb_banking_origination` (31 tables)
+
+- `bb_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `bb_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `bb_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `bb_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `bb_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `bb_banking_origination.ccavenue_batch_details` (12): id, pay_id, utr_number, batch_date, batch_settlement_amount, failed_order_id, knock_off_status, created_on, created_by, updated_on, updated_by, product_type
+- `bb_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `bb_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `bb_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `bb_banking_origination.draft_application` (19): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on, client_reference_number, stage, client_code, channel_source, journey, is_resume_enabled
+- `bb_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `bb_banking_origination.fd_transaction_details` (37): id, transaction_audit_id, funding_order_id, funding_type, funding_bank_name, funding_from_account, fd_additional_details, fd_maturity_amount, fd_maturity_date, fd_tenure, fd_rate_of_interest, funding_mode, funding_amount, funding_date, payment_gateway, funding_status, gateway_reference_number, gateway_txn_status_desc, funding_settlement_status, funding_settlement_date, settlement_reference_number, mft_to_account, mft_date, mft_status, fd_booking_amount, fd_booking_status, fd_booking_date, fd_booking_amount_hold_status, fd_booking_amount_hold_date, fd_account_number, failure_code, failure_reason, remarks, created_on, created_by, updated_on, updated_by
+- `bb_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_banking_origination.kyc_detail` (19): id, client_reference_number, reference_number, kyc_number, next_journey_step, journey_id, kyc_url, s3_identifier, STATUS, response_description, created_on, updated_on, kyc_type, product_source, kyc_status, is_kyc_changed, document_type, document_id, bank_external_ref_no
+- `bb_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `bb_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `bb_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `bb_banking_origination.pool_account_statement_data` (13): id, settlement_reference_number, settlement_amt, settlement_mode, settlement_desc, settlement_date, order_id, order_amount, txn_type, product_type, created_on, updated_on, order_id_unique_helper
+- `bb_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `bb_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `bb_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `bb_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `bb_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `bb_banking_origination.transaction_audit` (49): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, ifsc, journey_step
+- `bb_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `bb_banking_origination.transaction_audit_funding` (15): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_response_code, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `bb_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `bb_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `bb_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `bb_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `bb_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `bb_gateway` (11 tables)
+
+- `bb_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `bb_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `bb_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `bb_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `bb_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `bb_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `bb_gateway.request_response_log_extension` (9): id, client_code, stan, request_data, response_data, created_on, created_by, updated_on, updated_by
+- `bb_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `bb_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `bb_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `bb_masterdata` (20 tables)
+
+- `bb_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `bb_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `bb_masterdata.bank_master_iin` (6): id, iin, name, created_by, created_on, is_deleted
+- `bb_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `bb_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `bb_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `bb_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `bb_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `bb_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `bb_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `bb_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+
+### `bb_notifications` (17 tables)
+
+- `bb_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `bb_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `bb_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `bb_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `bb_notifications.fcm_master` (3): id, channel_code, server_key
+- `bb_notifications.fcm_notification_list` (8): id, user_id, notification_handle_type, notification_handle_value, notification_title, notificatiion_message, notification_time, created_on
+- `bb_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `bb_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `bb_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `bb_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `bb_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `bb_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `bb_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `bb_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `bb_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `bb_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `bb_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+
+### `ddp_actor` (201 tables)
+
+- `ddp_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `ddp_actor.active_agent` (15): id, corporate_name, vle_code, ac_number, vlc_name, bcbf_reject, mobile_number, state, email_id, pan_number, created_by, created_on, updated_by, updated_on, is_deleted
+- `ddp_actor.actor` (3): id, type, is_deleted
+- `ddp_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `ddp_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `ddp_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `ddp_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `ddp_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `ddp_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `ddp_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `ddp_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `ddp_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `ddp_actor.agent_details` (3): id, agent_id, category
+- `ddp_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `ddp_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `ddp_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `ddp_actor.agent_lead_account_mapping` (7): id, agent_lead_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `ddp_actor.agent_lead_action_audit` (8): id, agent_lead_id, action, stage, action_date, remarks, description, action_taken_by
+- `ddp_actor.agent_lead_address_mapping` (5): id, agent_lead_id, address_id, is_deleted, is_edited
+- `ddp_actor.agent_lead_attribute` (9): id, agent_lead_id, attribute, value, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.agent_lead_document_mapping` (11): id, document_id, agent_lead_id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, stage
+- `ddp_actor.agent_lead_file` (18): id, corporate_id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, checker_doc_code, matched_records, total_records, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `ddp_actor.agent_lead_report_ack` (17): id, corporate_report_ack_id, corporate_code, corporate_name, corporate_agent_code, ddp_agent_id, type_of_agent, agent_name, mobile_number, pan, created_employee_name, updated_date, status, reason, description, created_date, created_on
+- `ddp_actor.agent_login_logout` (10): id, agent_code, vle_code, corporate_report_ack_id, login_date_time, otp_auth_date, logout_date_time, logoff_mode, system_id, created_on
+- `ddp_actor.agent_login_logout_report_ack` (10): id, agent_code, vle_code, corporate_report_ack_id, login_date_time, otp_auth_date, logout_date_time, logoff_mode, system_id, created_on
+- `ddp_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `ddp_actor.agent_profile_update` (11): id, corporate_id, status, description, created_on, created_by, updated_by, updated_on, field_name, old_value, new_value
+- `ddp_actor.agent_reactivation` (16): id, user_id, generated_agent_code, use_case, status, reason_for_reactivation, state_head_user_id, state_head_updated_on, product_checker_user_id, product_checker_updated_on, created_on, created_by, updated_on, updated_by, is_deleted, data
+- `ddp_actor.agent_review_by_bank` (12): id, corporate_name, vle_code, ac_number, vle_name, bcbf_reject, mobile_number, state, email_id, pan_number, reject_reason, reject_reason_details
+- `ddp_actor.agent_weekly_attendance_report_ack` (25): id, corporate_report_ack_id, month, week, corporate_code, corporate_name, linked_branch_state, linked_branch_name, linked_branch_code, type_of_agent, tid_number, corp_agent_code, ddp_agent_code, agent_name, agent_mobile, no_of_hr_logged_in, weekly_hr_met, weekly_day_count, weekly_hr_day_met, area_head, territory_head, state_head, zonal_head, business_head, created_on
+- `ddp_actor.attendance` (13): id, user_id, corporate_code, corporate_name, actor_type, external_id, agent_code, name, handle_value, first_login, latest_login, last_logout, total_logged_in_hrs
+- `ddp_actor.attribute_definition` (12): id, key, type, description, validation_expression, min_length, max_length, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.attribute_entity_mapping` (10): id, attribute_def_id, entity_type, entity_id, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_actor.bank_product_branch_attributes` (10): id, product_branch_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `ddp_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `ddp_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.bc_agent_info` (13): id, mobile, aadhaar_reference, status, terminal_id, batch_id, agent_name, username, agentcode, address, pincode, created_by, created_on
+- `ddp_actor.bcms_extract` (192): VLETYPE, VLE_CODE, ID, TITLE, FIRST_NAME, MIDDLE_NAME, LAST_NAME, DOB, GENDER, MOTHER_NAME, SPOUSE_NAME, EDUCATION, ANNUAL_INCOME, NO_OF_STAFF, ALT_OCCUPATION_TYPE, NEAREST_BRANCH_CODE, BRANCH_NAME, DISTANCE, ADDRESSLINE_1, ADDRESSLINE_2, ADDRESSLINE_3, PINCODE, CITY, STATE_NAME, LATITUDE, LONGITUDE, CP_ADDRESSLINE_1, CP_ADDRESSLINE_2, CP_ADDRESSLINE_3, CP2_ADDRESSLINE_1, CP2_ADDRESSLINE_2, CP2_ADDRESSLINE_3, CP_PIN_CODE_ID, CP2_PIN_CODE_ID, CP_CITY, CP_STATE_ID, CP2_STATE_ID, CONTACT_NUMBER, CP2_CONTACT_NUMBER, EMAIL, CP2_EMAIL, REFERER1_NAME, REFERER1_NUMBER, REFERER2_NAME, REFERER2_NUMBER, PASSPORT, CIBIL_SCORE, CIBIL_STATUS, VOTER_ID, PAN_NUMBER, DRIVING_LICENSE, ACC_NUMBER, IFSC_CODE, AGENT_STATUS, IIBF_CERT_NO, TID, TID_ACTIVATION_DATE, DECLARATION, RECOMMENDATION, REJECT_REASONS, IIBF_CERT_DATE, IIBF_CERT, IIBF_PV, ACTIVATION_DATE, AC_OPENING_DATE, AGRI_LAND, BANKED_REGION, BCMS_EXTRACTED_DATE, BC_BF_FLAG, BC_REPLACEMENT, BRANCH_CODE, BRANCH_REJECT_REASON, CATEGORY, CBC_CODE, VILLAGE_CENSUS_CODE, CIBIL_INPUT_FILE, CIBIL_RESPONSE_FILE, CIBIL_UPLOADED_BY, CIBIL_UPLOADED_DATE, COMPLIANCE_VISIT_STATUS, CONNECTIVITY_TYPE, COUNTRY, CP_CONTACT_NUMBER, CP2_CONTACT_NUMBER_1, CP_COUNTRY, CP_EMAIL, CP_LANDMARK, CREATED_DATE, CREATED_ON, CSC_STAFF_CODE, CSC_STAFF_DESIGNATION, CSC_STAFF_NAME, CUST_ID, DEVICE_CODE, DEVICE_NAME, DM_CODE, GUARDIAN_NAME, HANDICAPPED, IBA_REASON, IBA_STATUS, IDEA_REJECT_REASON, IS_MIGRATED, KBS_ACTIVATION_DATE, KBS_ACTIVATION_DATE_DEACT, KBS_ACTIVATION_STATUS, KBS_ACTIVATION_STATUS_DEACT, KBS_ACT_REQ_FILE, KBS_ACT_REQ_FILE_SUB_BC_DEACT, KBS_ACT_RES_FILE, KBS_ACT_RES_FILE_DEACTIVATION, KBS_DEACTIVATION_DATE, KBS_DEACTIVATION_DATE_DEACT, KBS_DEACTIVATION_REQ_FILE, KBS_DEACTIVATION_RES_FILE, KBS_DEACTIVATION_STATUS, KBS_DEACTIVATION_STATUS_DEACT, KBS_DEACT_REQ_FILE_SUBBC_DEACT, KBS_DEACT_RES_FILE_SUBBC_DEACT, KBS_REACTIVATION_DATE, LANDLINE_PRESENT, LAND_MARK, LAST_MODIFIED_BY, LAST_MODIFIED_ON, LC_CODE, LEAD_NAME, LEAD_NUMBER, LG_CODE, MAIN_BC_CODE, MANAGEMENT_VISIT_STATUS, MIGRATED_DATE, MIGRATED_STATUS, NOC_AVAILABLE, NO_OF_DEPENDANT, NREGA_CARD, ONBOARDING_STATUS, POLICE_VERIFICAION, POSIDEX_INPUT_FILE, POSIDEX_RESPONSE_FILE, POSIDEX_STATUS, POSIDEX_UPLOADED_BY, POXIDEX_UPLOADED_DATE, PO_BOX_LOCATION, PO_BOX_NUMBER, PO_TYPE, PREMISES, PREVIOUS_COMPANY, PRE_COMP_FROM_DATE, PRE_COMP_TO_DATE, PRODUCT, PRODUCT_CODE, PROMO_CODE, RBI_CLASSIFICATION, REASON_FOR_LEAVING, RIC_CIBIL_INPUT_FILE, RIC_POSIDEX_INPUT_FILE, RIC_REASON, RIC_RESPONSE_FILE, RIC_STATUS, RIC_UPLOADED_BY, RIC_UPLOADED_DATE, SERVICE_PROVIDER, SSA_CODE, SSA_NAME, STATUS_CODE, SUB_BC_ACTIVATION_DATE, SUB_BC_DEACTIVATION_DATE, TID_ACTIVATION_STATUS, TID_DEACTIVATION_DATE, VLE_DEBOARDING_DATE, DEBOARDING_TYPE, DETAILED_REASON, TID_DEACTIVATION_REQ_DT, TID_DEACTIVATION_REQ_DT_DEACT, TID_GENERATION_DATE, TID_REACTIVATION_DATE, TID_REJECTION_REASON, TID_REQ_FILE, TID_RES_FILE, URC, VLE_ACTIVATION_DATE, VLE_ACTIVATION_DATE_DEACT, VLE_CODE_UPDATED, VLE_FILE_NAME, VLE_REQUEST_FILE, VLE_RESPONSE_FILE, YEARS_RESIDING, DEBOARDING_REASON_DESC, VILLAGE_NAME, SUB_DISTRICT_NAME, DISTRICT_NAME, TIER, POST_OFFICE_NAME
+- `ddp_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `ddp_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `ddp_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `ddp_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `ddp_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `ddp_actor.corporate_report_ack` (9): id, agent_code, report_type, record_id, ack_status, retry_count, remarks, created_on, updated_on
+- `ddp_actor.crilic_data` (5): id, pan_number, is_deleted, created_on, updated_on
+- `ddp_actor.crop_master` (9): id, crop_name_ls, crop_name, code, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.customer_check` (15): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on, internal_status
+- `ddp_actor.customer_details` (5): id, customer_id, customer_name, vle_code, ddp_agent_code
+- `ddp_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `ddp_actor.daily_corporate_attendance_report_ack` (19): id, corporate_report_ack_id, date, corporate_code, corporate_name, linked_branch_state, linked_branch_name, linked_branch_code, type_of_agent, corp_agent_code, ddp_agent_code, agent_name, agent_mobile, no_of_hr_logged_in, daily_hr_meet, first_login, last_logout, bio_auth_time, created_on
+- `ddp_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `ddp_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `ddp_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `ddp_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `ddp_actor.device_type` (4): id, type, description, is_deleted
+- `ddp_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `ddp_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `ddp_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `ddp_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `ddp_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `ddp_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `ddp_actor.employer_name` (12): id, company_id, company_code, company_name, company_display_name, is_active, created_on, created_by, updated_on, updated_by, product_code, company_category
+- `ddp_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `ddp_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_actor.hdb_employee_details` (12): id, emp_code, emp_name, emp_status, pan_number, mobile_number, email_id, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `ddp_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `ddp_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.hspl_migrated_agent` (22): id, vle_code, emp_name, agent_name, mobile_number, date_of_birth, father_name, mother_name, marital_status, spouse_name, gender, email, linked_branch_code, linked_branch_name, bank_account_number, bank_name, ifsc_code, created_on, created_by, migrated_on, migration_status, status_reason
+- `ddp_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `ddp_actor.iba_caution_agent` (3): id, address, pan
+- `ddp_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `ddp_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `ddp_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `ddp_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `ddp_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `ddp_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `ddp_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `ddp_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.migrated_agent_data` (31): id, first_name, last_name, mobile_number, terminal_id, agent_vle_code, business_name, branch_code, onboarding_date, deboarding_date, terminal_id_activation_date, terminal_id_deactivation_date, address_line_1, address_line_2, address_line_3, country, state, pincode, latitude, longitude, account_number, account_holder_name, bsms_status, ddp_status, status_reason, created_on, created_by, updated_on, updated_by, file_name, ifsc
+- `ddp_actor.migrated_agent_data_1k` (30): id, first_name, last_name, mobile_number, terminal_id, agent_vle_code, business_name, branch_code, onboarding_date, deboarding_date, terminal_id_activation_date, terminal_id_deactivation_date, address_line_1, address_line_2, address_line_3, country, state, pincode, latitude, longitude, account_number, account_holder_name, bsms_status, ddp_status, status_reason, created_on, created_by, updated_on, updated_by, file_name
+- `ddp_actor.migrated_agent_data_1kk` (30): id, first_name, last_name, mobile_number, terminal_id, agent_vle_code, business_name, branch_code, onboarding_date, deboarding_date, terminal_id_activation_date, terminal_id_deactivation_date, address_line_1, address_line_2, address_line_3, country, state, pincode, latitude, longitude, account_number, account_holder_name, bsms_status, ddp_status, status_reason, created_on, created_by, updated_on, updated_by, file_name
+- `ddp_actor.migrated_agent_data_2k` (30): id, first_name, last_name, mobile_number, terminal_id, agent_vle_code, business_name, branch_code, onboarding_date, deboarding_date, terminal_id_activation_date, terminal_id_deactivation_date, address_line_1, address_line_2, address_line_3, country, state, pincode, latitude, longitude, account_number, account_holder_name, bsms_status, ddp_status, status_reason, created_on, created_by, updated_on, updated_by, file_name
+- `ddp_actor.migrated_agent_data_backup` (30): id, first_name, last_name, mobile_number, terminal_id, agent_vle_code, business_name, branch_code, onboarding_date, deboarding_date, terminal_id_activation_date, terminal_id_deactivation_date, address_line_1, address_line_2, address_line_3, country, state, pincode, latitude, longitude, account_number, account_holder_name, bsms_status, ddp_status, status_reason, created_on, created_by, updated_on, updated_by, file_name
+- `ddp_actor.migrated_agent_data_v2` (86): id, vletype, vle_code, title, first_name, middle_name, last_name, dob, gender, guardian_name, mother_name, spouse_name, education, annual_income, no_of_staff, alt_occupation_type, branch_code, branch_name, distance, addressline_1, addressline_2, addressline_3, pin_code_id, city, landmark, state_name, latitude, longitude, cp_addressline_1, cp_addressline_2, cp_addressline_3, cp_pin_code_id, cp_city, cp_state_id, cp_landmark, contact_number, email, cp2_addressline_1, cp2_addressline_2, cp2_addressline_3, cp2_pin_code_id, cp2_state_id, cp2_contact_number, cp2_email, referer1_name, referer1_number, referer2_name, referer2_number, passport, voter_id, pan_number, driving_license, cibil_score, cibil_status, posidex_status, acc_number, first_name_1, middle_name_1, last_name_1, ifsc_code, ifsc_branch_code, agent_status, iibf_cert_no, iibf_cert_date, tid, tid_activation_date, country, vle_activation_date, iibf_cert, iibf_pv, cust_id, tid_deactivation_date, tid_reactivation_date, village_name, sub_district_name, district_name, village_census_code, deboarding_type, deboarding_reason_desc, detailed_reason, migration_date, created_on, ddp_status, status_reason, updated_on, vle_deboarding_date
+- `ddp_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `ddp_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.offer_details` (12): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name, lead_count
+- `ddp_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `ddp_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `ddp_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `ddp_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `ddp_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `ddp_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `ddp_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `ddp_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `ddp_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `ddp_actor.partner_action_audit` (7): id, partner_document_id, action, stage, action_date, remarks, action_taken_by
+- `ddp_actor.partner_cumulative_report_configuration` (6): id, report_type, last_report_ack_date, created_on, updated_on, remarks
+- `ddp_actor.partner_document_details` (13): id, partner_id, document_id, document_type, address_id, status, stage, remarks, created_by, updated_by, created_on, updated_on, is_deleted
+- `ddp_actor.product_master_details` (4): id, source_name, product_name, product_code
+- `ddp_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `ddp_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_actor.temp_masters_agent_active_1738240481092` (9): CorporateName, VLECode, AcNumber, NameofVLE, BCBFReject, Mobile, State, EmailID, PANNo
+- `ddp_actor.temp_masters_agent_active_1738244665158` (9): CorporateName, VLECode, AcNumber, NameofVLE, BCBFReject, Mobile, State, EmailID, PANNo
+- `ddp_actor.temp_masters_agent_active_1738246398003` (9): CorporateName, VLECode, AcNumber, NameofVLE, BCBFReject, Mobile, State, EmailID, PANNo
+- `ddp_actor.temp_masters_agent_active_1738574569556` (9): CorporateName, VLECode, AcNumber, NameofVLE, BCBFReject, Mobile, State, EmailID, PANNo
+- `ddp_actor.temp_masters_agent_active_1738583724939` (9): CorporateName, VLECode, AcNumber, NameofVLE, BCBFReject, Mobile, State, EmailID, PANNo
+- `ddp_actor.temp_masters_bank_territory_1734683627120` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1734689912379` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1734693499462` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1734694987029` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1738063148968` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1738153232349` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1738327391403` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1738582099410` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_bank_territory_1738582982187` (17): ID, CODE, NAME, FOCUSEDBRANCH, ISACTIVE, CITYID, STATEID, DESCRIPTION, CLASSIFICATION, SMCODE, CREATEDBY, CREATEDON, MODIFIEDBY, MODIFIEDON, IFSC, PINCODE, TERRITORYKEY
+- `ddp_actor.temp_masters_branch_for_all_jars_1738241700042` (2): Pin_Code, Branch_code
+- `ddp_actor.temp_masters_branch_for_all_jars_1738564577824` (2): Pin_Code, Branch_code
+- `ddp_actor.temp_masters_cecv_hierarchy_1738240860520` (5): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MODEL_ASSET
+- `ddp_actor.temp_masters_cecv_hierarchy_1738568921718` (5): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MODEL_ASSET
+- `ddp_actor.temp_masters_channel_hierarchy_1738246735444` (43): Branch_Code, Branch_Name, City, Type_of_Branch, District_as_per_census_data_2011, Geographical_State, RBI_Class, Cluster, Zone, Circle, BBH_Region, AH_Joining_Date_with_CSC, AH_Offical_Email_Id, CSC_AH_Emp_Code, CSC_Area_Head, AH_Mobile_No, TH_Emp_Code, CSC_Territory_Head, TH_Mobile_No, SH_Emp_Code, CSC_State_Head, SH_Mobile_No, ZH_Emp_Code, CSC_ZoNal_Head, ZH_Mob_No, BH_Emp_Code, CSC_Bussiness_Head, CSC_Zone, CSC_ZoNal_CoordiNator_Emp_Code, CSC_ZoNal_CoordiNator, ZoNal_CoordiNator_Mob_No, SO1_Emp_Code, CSC_SO_Name1, SO_Mob_No1, SO2_Emp_Code, CSC_SO_Name2, SO_Mob_No2, SO3_Emp_Code, CSC_SO_Name3, SO_Mob_No3, SO4_Emp_Code, CSC_SO_Name4, SO_Mob_No4
+- `ddp_actor.temp_masters_channel_hierarchy_1738574880896` (43): Branch_Code, Branch_Name, City, Type_of_Branch, District_as_per_census_data_2011, Geographical_State, RBI_Class, Cluster, Zone, Circle, BBH_Region, AH_Joining_Date_with_CSC, AH_Offical_Email_Id, CSC_AH_Emp_Code, CSC_Area_Head, AH_Mobile_No, TH_Emp_Code, CSC_Territory_Head, TH_Mobile_No, SH_Emp_Code, CSC_State_Head, SH_Mobile_No, ZH_Emp_Code, CSC_ZoNal_Head, ZH_Mob_No, BH_Emp_Code, CSC_Bussiness_Head, CSC_Zone, CSC_ZoNal_CoordiNator_Emp_Code, CSC_ZoNal_CoordiNator, ZoNal_CoordiNator_Mob_No, SO1_Emp_Code, CSC_SO_Name1, SO_Mob_No1, SO2_Emp_Code, CSC_SO_Name2, SO_Mob_No2, SO3_Emp_Code, CSC_SO_Name3, SO_Mob_No3, SO4_Emp_Code, CSC_SO_Name4, SO_Mob_No4
+- `ddp_actor.temp_masters_hierarchy_builder_cc_1738241637672` (5): CITY_CODE, LMC_CITYNAME_CITY, ZIPCODE, STATEID, STATEDESC
+- `ddp_actor.temp_masters_hierarchy_builder_cc_1738577445173` (5): CITY_CODE, LMC_CITYNAME_CITY, ZIPCODE, STATEID, STATEDESC
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1734699981628` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738067300835` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738232135079` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738234504110` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738234616460` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738235471257` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738236021312` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738236110661` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738236537186` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738246670533` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_geo_1738577155884` (5): STCode, DTCode, SDCode, TownVillgCode, TownVillgName
+- `ddp_actor.temp_masters_hierarchy_builder_village_1734700054097` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_hierarchy_builder_village_1738067712332` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_hierarchy_builder_village_1738234570298` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_hierarchy_builder_village_1738235262142` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_hierarchy_builder_village_1738241724122` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_hierarchy_builder_village_1738577291551` (13): VILLAGE_CENSUS_CODE, VILLAGE_NAME, POPULATION, POPULATION_GROUP, URC, SUB_DISTRICT_CODE, CENSUS_CENTRE_CODE, SUB_DISTRICT_NAME, DISTRICT_CODE, DISTRICT_NAME, STATE_CODE, STATE_NAME, TIER
+- `ddp_actor.temp_masters_iba_1738247025383` (3): Sr_No, BC_Name, Mobile_No
+- `ddp_actor.temp_masters_iba_1738247118825` (3): Sr_No, BC_Name, Mobile_No
+- `ddp_actor.temp_masters_iba_1738584125063` (3): Sr_No, BC_Name, Mobile_No
+- `ddp_actor.temp_masters_pincodeservice_1738241558639` (6): CITY_NAME, FRST_THREE_DIG_PIN, COMMON_REGION, STATE_NAME, STATE_ID, CC_ELIGIBLE
+- `ddp_actor.temp_masters_pincodeservice_1738576688359` (6): CITY_NAME, FRST_THREE_DIG_PIN, COMMON_REGION, STATE_NAME, STATE_ID, CC_ELIGIBLE
+- `ddp_actor.temp_masters_smse_auto_loan_1738241195991` (6): Branch_Code, Branch_Name, SM_Name, SM_Code, BDR_Name, BDR_Emp_Code
+- `ddp_actor.temp_masters_smse_auto_loan_1738575720125` (6): Branch_Code, Branch_Name, SM_Name, SM_Code, BDR_Name, BDR_Emp_Code
+- `ddp_actor.temp_masters_smse_business_loan_1738241170573` (50): Branch_Code, Branch_Name, City, Geographical_State, RBI_Class, RRH, Opened_in_FY, Branch_Opening_Date, NEW_Vintage, RBB_Head, RBB, BBH_Region, Branch_Banking_Head_BBH, Regional_Head, Regional_Head_EMP_Code, Zonal_Head, Zonal_Head_EMP_Code, Circle_Head, Cluster_State_Head, Branch_Manager, Emp_ID_BM, RH_ZH, PL_Vertical, BH_BM, PL_NSM, Vertical_Head, PL_NSM_Reportees, ZSM_Region, PL_ZSM_EMP_Code, PL_RSM, PL_Supervisor, PL_Supervisor_Code, PL_SM_Name, PL_SM_Code, BDR_1_Name, BDR_1_Code, BL_Vertical, BL_BH_BM, BL_NSM, BL_Vertical_Head, BL_NSM_Reportees, BL_ZSM_Name, BL_ZSM_EMP_Code, BL_RSM, BL_Supervisor, BL_Supervisor_Code, BL_SM_Name, BL_SM_Code, BDR_2_Name, BDR_2_Code
+- `ddp_actor.temp_masters_smse_business_loan_1738575155023` (50): Branch_Code, Branch_Name, City, Geographical_State, RBI_Class, RRH, Opened_in_FY, Branch_Opening_Date, NEW_Vintage, RBB_Head, RBB, BBH_Region, Branch_Banking_Head_BBH, Regional_Head, Regional_Head_EMP_Code, Zonal_Head, Zonal_Head_EMP_Code, Circle_Head, Cluster_State_Head, Branch_Manager, Emp_ID_BM, RH_ZH, PL_Vertical, BH_BM, PL_NSM, Vertical_Head, PL_NSM_Reportees, ZSM_Region, PL_ZSM_EMP_Code, PL_RSM, PL_Supervisor, PL_Supervisor_Code, PL_SM_Name, PL_SM_Code, BDR_1_Name, BDR_1_Code, BL_Vertical, BL_BH_BM, BL_NSM, BL_Vertical_Head, BL_NSM_Reportees, BL_ZSM_Name, BL_ZSM_EMP_Code, BL_RSM, BL_Supervisor, BL_Supervisor_Code, BL_SM_Name, BL_SM_Code, BDR_2_Name, BDR_2_Code
+- `ddp_actor.temp_masters_tractor_hierarchy_1734696150334` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738064918478` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738233522931` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738246776996` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738569478739` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738570213433` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738570585703` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738570872026` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738571295447` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738583236436` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738583275916` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_masters_tractor_hierarchy_1738583376633` (23): MODELID, MODELNO, MANUFACTURERID, MANUFACTURERDESC, MAKERID, MAKEDATE, AUTHID, AUTHDATE, LTV, VARIENCE, BODY_FUNDING, BODY_FUNDING_PER, CHASSIS_FUNDING, CHASSIS_FUNDING_PER, MAX_FUNDING, NLTV, MAKE_MODEL_FLAG, LMM_LCM_CATGID, MODEL_ASSET, LM_START_DATE, LM_END_DATE, MODEL_CATEGORY, MODEL_CATEGORY_UC
+- `ddp_actor.temp_required_employee_for_dormant` (1): employee_id
+- `ddp_actor.tid_master` (13): id, tid_number, tid_status, tid_activation_date, tid_deactivation_date, tid_reactivation_date, created_on, updated_on, created_by, updated_by, is_file_generated, corporate_id, previous_status
+- `ddp_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `ddp_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `ddp_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `ddp_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `ddp_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `ddp_actor.user_auth_type` (3): id, type, description
+- `ddp_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `ddp_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `ddp_actor.user_channel` (4): id, user_id, code, is_deleted
+- `ddp_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `ddp_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `ddp_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_actor.user_handle_type` (4): id, type, description, is_deleted
+- `ddp_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `ddp_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `ddp_actor.user_notification_events` (7): id, user_id, event_code, reminder_type, is_deleted, created_on, updated_on
+- `ddp_actor.visit` (18): id, agent_lead_id, visitor_id, visit_checklist, visit_date_time, is_deboarding_suggested, deboarding_type, deboarding_reason, created_on, created_by, updated_on, updated_by, latitude_longitude, visit_type, agent_code, visit_status, rescheduled_Date, financial_year
+- `ddp_actor.visit_checklist_attribute` (16): id, visit_id, question_key, question_value, answer_key, answer_value, mandate_required, mandate_provided, POSITION, created_on, created_by, updated_on, updated_by, is_deleted, complied, complied_since
+- `ddp_actor.visit_history` (5): id, visit_id, visit_action, created_on, created_by
+- `ddp_actor.visit_reassign` (10): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on, is_deleted
+- `ddp_actor.visitor_checklist_attribute` (12): id, visitor_id, question_value, answer_value, created_on, created_by, updated_on, updated_by, is_deleted, question_key, answer_key, position
+
+### `ddp_approval` (4 tables)
+
+- `ddp_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `ddp_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `ddp_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `ddp_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `ddp_authorization` (14 tables)
+
+- `ddp_authorization.category` (4): id, code, display_name, is_deleted
+- `ddp_authorization.epic` (4): id, code, display_name, description
+- `ddp_authorization.feature` (5): id, code, display_name, description, epic_id
+- `ddp_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `ddp_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `ddp_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `ddp_authorization.role_group` (3): id, role_group_code, role_group_value
+- `ddp_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `ddp_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `ddp_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `ddp_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `ddp_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `ddp_banking_origination` (43 tables)
+
+- `ddp_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `ddp_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `ddp_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `ddp_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `ddp_banking_origination.ccavenue_batch_details` (12): id, pay_id, utr_number, batch_date, batch_settlement_amount, failed_order_id, knock_off_status, created_on, created_by, updated_on, updated_by, product_type
+- `ddp_banking_origination.corporate_cumulative_callback_log` (13): id, transaction_audit_id, external_reference_number, status, report_type, payload, remarks, created_on, created_by, updated_on, updated_by, retry_count, corporate_code
+- `ddp_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, callback_status, retry_count, created_on, updated_on, external_reference_number
+- `ddp_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `ddp_banking_origination.customer_additional_details_backup` (4): id, customer_backup_id, label, value
+- `ddp_banking_origination.customer_backup` (20): id, transaction_audit_backup_id, customer_identifier_type, customer_identifier_value, customer_name, customer_type, kyc_type, product_type, product_code, product_name, lead_id, lead_number, cif, account_number, email, status, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `ddp_banking_origination.customer_documents` (12): id, customer_id, document_purpose, document_type, document_identifier, document_code, status, retry_count, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.draft_application` (13): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on
+- `ddp_banking_origination.ekyc_es_data` (23): id, client_reference_number, logged_in_as, kyc_time, aadhar_number, aadhar_vault_ref_number, txn, code, name, date_of_birth, gender, email, address, state, pincode, latitude_longitude, rrn, dbt_consent, device_name, device_id, previous_bank, customer_photo, status
+- `ddp_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `ddp_banking_origination.fd_transaction_details` (37): id, transaction_audit_id, funding_order_id, funding_type, funding_bank_name, funding_from_account, fd_additional_details, fd_maturity_amount, fd_maturity_date, fd_tenure, fd_rate_of_interest, funding_mode, funding_amount, funding_date, payment_gateway, funding_status, gateway_reference_number, gateway_txn_status_desc, funding_settlement_status, funding_settlement_date, settlement_reference_number, mft_to_account, mft_date, mft_status, fd_booking_amount, fd_booking_status, fd_booking_date, fd_booking_amount_hold_status, fd_booking_amount_hold_date, fd_account_number, failure_code, failure_reason, remarks, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_banking_origination.kyc_detail` (19): id, client_reference_number, reference_number, kyc_number, next_journey_step, journey_id, kyc_url, s3_identifier, status, response_description, created_on, updated_on, kyc_type, product_source, kyc_status, is_kyc_changed, document_type, document_id, bank_external_ref_no
+- `ddp_banking_origination.ltd_casa_file` (9): id, file_audit_id, account_number, customer_id, customer_name, lead_id, customer_type, product_type, loan_agreement_number
+- `ddp_banking_origination.ltd_crm_file` (8): id, file_audit_id, account_number, lead_number, customer_name, created_on, product_type, loan_agreement_number
+- `ddp_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `ddp_banking_origination.payout_commission_data` (33): id, file_audit_id, agent_name, agent_type, agent_status, corporate_name, lg_code, ddp_agent_code, corporate_agent_code, corp_ddp_code_match, product_type, product_code, mgml_group_id, ddp_reference_no, bank_lead_number, lead_generation_date, core_reference_number, conversion_date, customer_name, initial_payin_details, eop_amb_requirement_met, loan_disbursal_amount, loan_processing_fees, transaction_amount, payout_processing_month, payout_amount, payout_made, exception_reason, final_vle_code, ddp_generated_code, state, processing_status, tenure
+- `ddp_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `ddp_banking_origination.pool_account_statement_data` (13): id, settlement_reference_number, settlement_amt, settlement_mode, settlement_desc, settlement_date, order_id, order_amount, txn_type, product_type, created_on, updated_on, order_id_unique_helper
+- `ddp_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `ddp_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `ddp_banking_origination.redirection_report_data` (79): id, client_reference_number, corporate_code, corporate_name, agent_type, product_name, ddp_agent_code, corporate_agent_code, agent_name, transaction_reference_number, lead_reference_no, customer_name, lead_amount, lead_creation_date_time, transaction_status, lead_status, branch_code, last_updated_date, agent_mapped_branch_code, agent_mapped_branch_name, agent_branch_state, area_head_code, area_head_name, territory_head_code, territory_head_name, state_head_code, state_head_name, zone_head_code, zone_head_name, business_head_code, business_head_name, aadhaar_flag, applicant_type, stp_manual, application_status, application_stage, cancelled_reason, cancelled_date_and_time, dde_completed_timestamp, credit_status, ric_status, ops_decision, is_ekyc_done, underwriter_approval_remark, lms_agreement_no, lms_agreement_no_updation_date, disbursement_date, net_disbursal_amount, loan_amt, ftnr_reason_1, ftnr_reason_2, ftnr_reason_3, ftnr_reason_4, ftnr_reason_5, pre_approved_offer_availed, branch_name, rm_code, rm_name, sales_user_id, sales_manager_code, ah_code, zm_code, do_date, dsa, channel_id, video_kyc_status, do_id, gng_ddp_flag, dde_bre_completed_flag, qde_bre_stp_status, qde_bre_stp_reason, dde_bre_stp_status, dde_bre_stp_reason, qde_dde_bre_stp_declined_reason, lts_no, created_at, updated_at, created_by, updated_by
+- `ddp_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `ddp_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `ddp_banking_origination.report_file_audit_log` (6): id, filename, created_on, processed_on, total_row_count, processed_row_count
+- `ddp_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_banking_origination.temp_master_details` (5): id, CODE, value, is_deleted, json_file
+- `ddp_banking_origination.transaction_audit` (50): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, ifsc, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, core_system_status, journey_step
+- `ddp_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `ddp_banking_origination.transaction_audit_backup` (26): id, transaction_type, transaction_sub_type, novopay_reference_code, client_code, client_reference_code, terminal_id, stan, channel, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, branch_id, transaction_amount, total_charge_amount, device_status, status, response_code, response_description, latlong, created_by, created_on, updated_by, updated_on
+- `ddp_banking_origination.transaction_audit_funding` (15): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_response_code, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `ddp_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `ddp_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `ddp_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `ddp_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `ddp_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `ddp_credit_card_mgmt` (34 tables)
+
+- `ddp_credit_card_mgmt.agent_url_mapping` (12): id, uuid, agent_id, campaign_name, url, status, agent_ip_address, expiry_at, created_by, updated_by, created_at, updated_at
+- `ddp_credit_card_mgmt.bank_masters` (17): id, institution_id, institution_name, popular_bank, default_bank, isaa, isnetbanking, isstatement, aa_recommendation, netbanking_recommendation, statement_recommendation, is_anumati, created_by, created_on, updated_by, updated_on, is_deleted
+- `ddp_credit_card_mgmt.bkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_name, empl_code
+- `ddp_credit_card_mgmt.bkyc_lead` (11): id, bkyc_lead_file_id, arn_number, arn_status, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ddp_credit_card_mgmt.branch_details` (7): ID, BRANCH_ID, BRANCH_CODE, BRANCH_NAME, CITY_ID, CITY_NAME, STATE_NAME
+- `ddp_credit_card_mgmt.cc_additional_txn_data` (14): id, transaction_audit_id, vkyc_eligibility, vkyc_status, vkyc_link, vkyc_expiry_time, bkyc_status, dkyc_status, idcom_status, ipa_status, is_hybrid_journey, bulk_lead_file_ingest, created_at, updated_at
+- `ddp_credit_card_mgmt.channel_details` (12): id, client_reference_code, channel, sm_code, lc1, lc2, lg_code, branch_code, branch_name, branch_city, dsa_code, dsa_name
+- `ddp_credit_card_mgmt.co_brand_master` (14): id, co_brand_name, partner_co_name, is_active, source_code, banner_image_name, allow_perfios, allow_income, is_ltf, capture_membership_id, source_identifier, created_on, updated_on, is_deleted
+- `ddp_credit_card_mgmt.company_masters` (13): id, code, name, category, created_by, created_on, updated_by, updated_on, is_deleted, ltf_cards, start_date, end_date, domain_id
+- `ddp_credit_card_mgmt.corporate_insurance_mapper` (7): id, corporate_code, corporate_name, LOAN_PROTECT, HEALTH_INSURANCE, updated_on, updated_by_emp
+- `ddp_credit_card_mgmt.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `ddp_credit_card_mgmt.credit_card_masters` (24): id, code, product_id, name, card_image, details, annual_fee, renewal_fee, joining_fee, category_id, category_name, category_type, orientation, alignment, is_rupay, is_ltf, color_code, stroke_color_code, created_by, created_on, updated_by, updated_on, is_active, is_deleted
+- `ddp_credit_card_mgmt.customer_relationship_details` (16): id, UUID, transaction_audit_id, name, mobile_number, pan, dob, relation_ship_type, email_id, gender, address, customer_type, created_on, updated_on, add_on_card_submission_status, customer_id
+- `ddp_credit_card_mgmt.demog_kyc_routing_config` (18): id, demog_identifier, is_etb_customer, kyc_route, kyc_type, lms_check_required, lms_status, is_address_edited, is_email_edited, is_mobile_match, idcom_fintech_id, allowed_kyc_modes, terminate_journey, termination_message_code, remarks, is_active, created_on, updated_on
+- `ddp_credit_card_mgmt.draft_application` (11): id, client_reference_number, stage, created_by, created_on, updated_by, updated_on, initial_consent_attempts, preview_consent_attempts, initial_consent_ref_key, preview_consent_ref_key
+- `ddp_credit_card_mgmt.dse_reassign_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `ddp_credit_card_mgmt.dse_reassign_lead` (11): id, dse_reassign_file_id, client_reference_code, dse_code, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ddp_credit_card_mgmt.dvkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `ddp_credit_card_mgmt.dvkyc_lead` (10): id, dvkyc_lead_file_id, arn_number, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ddp_credit_card_mgmt.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_credit_card_mgmt.insurance_masters` (6): id, type, name, image_url, benefits, note
+- `ddp_credit_card_mgmt.insurance_price_masters` (7): id, limit_type, price, adults, childrens, type, iteration
+- `ddp_credit_card_mgmt.insurance_transaction` (13): id, transaction_audit_id, insurance_id, gender, no_of_adults, no_of_childrens, nominee_name, nominee_relationship, price, created_by, created_on, updated_on, updated_by
+- `ddp_credit_card_mgmt.key_store` (11): id, alias, secret_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ddp_credit_card_mgmt.loan_transactions` (16): id, transaction_audit_id, loan_amount, account_number, tenure, emi, net_payable, interest_rate, processing_fee, created_on, created_by, updated_on, updated_by, billing_cycle, dob, loan_number
+- `ddp_credit_card_mgmt.logo_master` (13): id, org_code, logo_code, series, bin, product_description, product_type, segment, variant, logo_status, flagging, created_on, updated_on
+- `ddp_credit_card_mgmt.pacc_card_prefix_mapping` (4): id, business_prefix, retail_prefix, created_on
+- `ddp_credit_card_mgmt.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_credit_card_mgmt.transaction_audit` (39): id, transaction_type, transaction_sub_type, client_reference_code, additional_reference_code, external_application_reference_code, hierarchy_log_id, client_code, terminal_id, channel, channel_source, customer_identifier_type, customer_identifier_value, customer_full_name, customer_id, customer_type, kyc_type, product_code, product_name, is_assisted, assistor_type, assistor_id, assistor_code, assistor_name, bank_iin, bank_name, application_status, txn_status, txn_result_code, txn_result_description, latlong, created_by, created_on, updated_by, updated_on, stan, internal_txn_desc, api_channel, work_email_id
+- `ddp_credit_card_mgmt.transaction_audit_attributes` (8): id, transaction_audit_id, attr_key, attr_value, created_on, updated_on, created_by, updated_by
+- `ddp_credit_card_mgmt.transaction_audit_logs` (10): id, transaction_audit_id, state, status, created_by, created_on, updated_by, updated_on, attempt, stan
+- `ddp_credit_card_mgmt.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `ddp_credit_card_mgmt.transaction_hierarchy_log` (33): id, dse_name, dse_code, dse_id, dse_type, dse_handle_value, uploaded_agent_code, partner_id, channel_source, dsa_name, dsa_code, office_name, office_code, dsa_admin_name, dsa_admin_code, sales_manager_name, sales_manager_code, cluster_head_name, cluster_head_code, regional_head_name, regional_head_code, unit_head_name, unit_head_code, vertical_head_name, vertical_head_code, channel_head_name, channel_head_code, national_sales_manager_name, national_sales_manager_code, national_sales_head_name, national_sales_head_code, created_on, updated_on
+- `ddp_credit_card_mgmt.transaction_report` (9): id, file_code, employee_code, employee_type, product_type, file_name, status, created_on, updated_on
+
+### `ddp_gateway` (10 tables)
+
+- `ddp_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `ddp_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `ddp_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `ddp_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `ddp_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `ddp_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `ddp_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `ddp_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `ddp_masterdata` (31 tables)
+
+- `ddp_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `ddp_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `ddp_masterdata.bank_master_iin` (6): id, iin, name, created_by, created_on, is_deleted
+- `ddp_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `ddp_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ddp_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `ddp_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `ddp_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `ddp_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `ddp_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `ddp_masterdata.masters_audit` (8): id, service, file_name, temp_table_name, created_by, created_date, approved_by, approved_date
+- `ddp_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `ddp_masterdata.temp_masters_ifsc_1738246710241` (11): BANK, CHECK, IFSC, MICRCODE, BRANCH, ADDRESS, CONTACT, CITY, DISTRICT, STATE, BANK_NAME
+- `ddp_masterdata.temp_masters_ifsc_1738576122482` (11): BANK, CHECK, IFSC, MICRCODE, BRANCH, ADDRESS, CONTACT, CITY, DISTRICT, STATE, BANK_NAME
+- `ddp_masterdata.temp_masters_junk_domain_master_1738231833166` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738240728502` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738327554444` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738327575971` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738327638632` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738328304821` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_domain_master_1738564377937` (2): TYPE, DOMAIN
+- `ddp_masterdata.temp_masters_junk_email_master_1738567452405` (1): EMAIL
+
+### `ddp_notifications` (17 tables)
+
+- `ddp_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `ddp_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `ddp_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `ddp_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `ddp_notifications.fcm_master` (3): id, channel_code, server_key
+- `ddp_notifications.fcm_notification_log` (22): id, user_id, notification_handle_type, notification_handle_value, notification_title, notification_message, notification_time, user_token, custom_data_string, app_name, receiver_device_type, image_url, ttl_millis, click_action, response_message_id, status, response_error_code, response_error_message, is_deleted, deleted_on, is_read, read_on
+- `ddp_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ddp_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `ddp_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `ddp_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `ddp_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `ddp_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ddp_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `ddp_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `ddp_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `ddp_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `ddp_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+
+### `dsa_actor` (106 tables)
+
+- `dsa_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `dsa_actor.actor` (3): id, type, is_deleted
+- `dsa_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `dsa_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `dsa_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `dsa_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `dsa_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `dsa_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `dsa_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `dsa_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `dsa_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `dsa_actor.agent_details` (3): id, agent_id, category
+- `dsa_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `dsa_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `dsa_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `dsa_actor.agent_lead_attribute` (9): id, agent_lead_id, attribute, value, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.agent_lead_file` (18): id, corporate_id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, matched_records, total_records, checker_doc_code, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `dsa_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `dsa_actor.agent_remap_file` (10): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records
+- `dsa_actor.agent_remap_lead` (10): id, agent_remap_file_id, code, status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `dsa_actor.agent_review_by_bank` (12): id, corporate_name, vle_code, ac_number, vle_name, bcbf_reject, mobile_number, state, email_id, pan_number, reject_reason, reject_reason_details
+- `dsa_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `dsa_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `dsa_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `dsa_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `dsa_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `dsa_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `dsa_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `dsa_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.customer_check` (14): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on
+- `dsa_actor.customer_details` (4): id, customer_id, customer_name, vle_code
+- `dsa_actor.customer_offers` (7): id, customer_name, customer_mobile_number, product_code, offer_amount, corporate_id, is_available
+- `dsa_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `dsa_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `dsa_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `dsa_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `dsa_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `dsa_actor.device_type` (4): id, type, description, is_deleted
+- `dsa_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `dsa_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `dsa_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `dsa_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `dsa_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `dsa_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `dsa_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `dsa_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_actor.hdb_employee_details` (12): id, emp_code, emp_name, emp_status, pan_number, mobile_number, email_id, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `dsa_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `dsa_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.hierarchy_remap_logs` (11): id, type, hierarchy_element_id, old_parent_code, new_parent_code, old_office_code, new_office_code, created_by, created_on, updated_by, updated_on
+- `dsa_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `dsa_actor.iba_caution_agent` (3): id, address, pan
+- `dsa_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `dsa_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `dsa_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `dsa_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `dsa_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `dsa_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `dsa_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `dsa_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `dsa_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.offer_details` (11): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name
+- `dsa_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `dsa_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `dsa_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `dsa_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `dsa_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `dsa_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `dsa_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `dsa_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `dsa_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `dsa_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `dsa_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_actor.temp_required_employee_for_dormant` (1): employee_id
+- `dsa_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `dsa_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `dsa_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `dsa_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `dsa_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `dsa_actor.user_auth_type` (3): id, type, description
+- `dsa_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `dsa_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `dsa_actor.user_channel` (4): id, user_id, code, is_deleted
+- `dsa_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `dsa_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `dsa_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_actor.user_handle_type` (4): id, type, description, is_deleted
+- `dsa_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `dsa_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `dsa_actor.visit_reassign` (9): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on
+
+### `dsa_approval` (4 tables)
+
+- `dsa_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `dsa_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `dsa_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `dsa_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `dsa_authorization` (14 tables)
+
+- `dsa_authorization.category` (4): id, code, display_name, is_deleted
+- `dsa_authorization.epic` (4): id, code, display_name, description
+- `dsa_authorization.feature` (5): id, code, display_name, description, epic_id
+- `dsa_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `dsa_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `dsa_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `dsa_authorization.role_group` (3): id, role_group_code, role_group_value
+- `dsa_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `dsa_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `dsa_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `dsa_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `dsa_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `dsa_banking_origination` (33 tables)
+
+- `dsa_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `dsa_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `dsa_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `dsa_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `dsa_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `dsa_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `dsa_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `dsa_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `dsa_banking_origination.draft_application` (13): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on
+- `dsa_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `dsa_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_banking_origination.insurance_corporate_mapping` (3): id, insurance_id, dsa_code
+- `dsa_banking_origination.insurance_masters` (6): id, type, name, image_url, benefits, note
+- `dsa_banking_origination.insurance_price_masters` (7): id, limit_type, price, adults, childrens, type, iteration
+- `dsa_banking_origination.insurance_transaction` (14): id, transaction_audit_id, insurance_id, dob, gender, no_of_adults, no_of_childrens, nominee_name, nominee_relationship, price, created_by, created_on, updated_on, updated_by
+- `dsa_banking_origination.kyc_detail` (19): id, client_reference_number, reference_number, kyc_number, next_journey_step, journey_id, kyc_url, s3_identifier, status, response_description, created_on, updated_on, kyc_type, product_source, kyc_status, is_kyc_changed, document_id, document_type, bank_external_ref_no
+- `dsa_banking_origination.loan_transactions` (12): id, transaction_audit_id, loan_amount, tenure, emi, net_payable, interest_rate, processing_fee, created_on, created_by, updated_on, updated_by
+- `dsa_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `dsa_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `dsa_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `dsa_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `dsa_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `dsa_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `dsa_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `dsa_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_banking_origination.transaction_audit` (50): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, ifsc, journey_step, dob
+- `dsa_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `dsa_banking_origination.transaction_audit_funding` (14): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `dsa_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `dsa_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `dsa_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `dsa_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `dsa_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `dsa_credit_card_mgmt` (38 tables)
+
+- `dsa_credit_card_mgmt.agent_url_mapping` (12): id, uuid, agent_id, campaign_name, url, status, agent_ip_address, expiry_at, created_by, updated_by, created_at, updated_at
+- `dsa_credit_card_mgmt.bank_masters` (17): id, institution_id, institution_name, popular_bank, default_bank, isaa, isnetbanking, isstatement, aa_recommendation, netbanking_recommendation, statement_recommendation, is_anumati, created_by, created_on, updated_by, updated_on, is_deleted
+- `dsa_credit_card_mgmt.bkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_name, empl_code
+- `dsa_credit_card_mgmt.bkyc_lead` (11): id, bkyc_lead_file_id, arn_number, arn_status, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `dsa_credit_card_mgmt.branch_details` (7): ID, BRANCH_ID, BRANCH_CODE, BRANCH_NAME, CITY_ID, CITY_NAME, STATE_NAME
+- `dsa_credit_card_mgmt.branch_master` (7): id, branch_code, branch_name, city_name, is_deleted, created_on, updated_on
+- `dsa_credit_card_mgmt.cc_additional_txn_data` (15): id, transaction_audit_id, vkyc_eligibility, vkyc_status, vkyc_link, vkyc_expiry_time, bkyc_status, dkyc_status, idcom_status, ipa_status, is_hybrid_journey, bulk_lead_file_ingest, created_at, updated_at, link_journey
+- `dsa_credit_card_mgmt.channel_details` (12): id, client_reference_code, channel, sm_code, lc1, lc2, lg_code, branch_code, branch_name, branch_city, dsa_code, dsa_name
+- `dsa_credit_card_mgmt.co_brand_master` (14): id, co_brand_name, partner_co_name, is_active, source_code, banner_image_name, allow_perfios, allow_income, is_ltf, capture_membership_id, source_identifier, created_on, updated_on, is_deleted
+- `dsa_credit_card_mgmt.company_masters` (13): id, code, name, category, created_by, created_on, updated_by, updated_on, is_deleted, ltf_cards, start_date, end_date, domain_id
+- `dsa_credit_card_mgmt.corporate_insurance_mapper` (7): id, corporate_code, corporate_name, LOAN_PROTECT, HEALTH_INSURANCE, updated_on, updated_by_emp
+- `dsa_credit_card_mgmt.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `dsa_credit_card_mgmt.credit_card_masters` (24): id, code, product_id, name, card_image, details, annual_fee, renewal_fee, joining_fee, category_id, category_name, category_type, orientation, alignment, is_rupay, is_ltf, color_code, stroke_color_code, created_by, created_on, updated_by, updated_on, is_active, is_deleted
+- `dsa_credit_card_mgmt.customer_relationship_details` (19): id, UUID, transaction_audit_id, name, mobile_number, pan, dob, relation_ship_type, email_id, gender, address, customer_type, created_on, updated_on, add_on_card_submission_status, consent_code, external_ref_number, customer_id, rating
+- `dsa_credit_card_mgmt.demog_kyc_routing_config` (18): id, demog_identifier, is_etb_customer, kyc_route, kyc_type, lms_check_required, lms_status, is_address_edited, is_email_edited, is_mobile_match, idcom_fintech_id, allowed_kyc_modes, terminate_journey, termination_message_code, remarks, is_active, created_on, updated_on
+- `dsa_credit_card_mgmt.draft_application` (11): id, client_reference_number, stage, created_by, created_on, updated_by, updated_on, initial_consent_attempts, preview_consent_attempts, initial_consent_ref_key, preview_consent_ref_key
+- `dsa_credit_card_mgmt.dsa_master` (6): id, dsa_code, dsa_name, is_deleted, created_on, updated_on
+- `dsa_credit_card_mgmt.dse_reassign_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `dsa_credit_card_mgmt.dse_reassign_lead` (11): id, dse_reassign_file_id, client_reference_code, dse_code, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `dsa_credit_card_mgmt.dvkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `dsa_credit_card_mgmt.dvkyc_lead` (10): id, dvkyc_lead_file_id, arn_number, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `dsa_credit_card_mgmt.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_credit_card_mgmt.industry_master` (7): id, industry_code, industry_type, business_nature, is_deleted, created_on, updated_on
+- `dsa_credit_card_mgmt.insurance_masters` (6): id, type, name, image_url, benefits, note
+- `dsa_credit_card_mgmt.insurance_price_masters` (7): id, limit_type, price, adults, childrens, type, iteration
+- `dsa_credit_card_mgmt.insurance_transaction` (13): id, transaction_audit_id, insurance_id, gender, no_of_adults, no_of_childrens, nominee_name, nominee_relationship, price, created_by, created_on, updated_on, updated_by
+- `dsa_credit_card_mgmt.key_store` (11): id, alias, secret_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `dsa_credit_card_mgmt.loan_transactions` (16): id, transaction_audit_id, loan_amount, account_number, tenure, emi, net_payable, interest_rate, processing_fee, created_on, created_by, updated_on, updated_by, billing_cycle, dob, loan_number
+- `dsa_credit_card_mgmt.logo_master` (13): id, org_code, logo_code, series, bin, product_description, product_type, segment, variant, logo_status, flagging, created_on, updated_on
+- `dsa_credit_card_mgmt.pacc_card_prefix_mapping` (4): id, business_prefix, retail_prefix, created_on
+- `dsa_credit_card_mgmt.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_credit_card_mgmt.transaction_audit` (39): id, transaction_type, transaction_sub_type, client_reference_code, additional_reference_code, external_application_reference_code, hierarchy_log_id, client_code, terminal_id, channel, channel_source, customer_identifier_type, customer_identifier_value, customer_full_name, customer_id, customer_type, kyc_type, product_code, product_name, is_assisted, assistor_type, assistor_id, assistor_code, assistor_name, bank_iin, bank_name, application_status, txn_status, txn_result_code, txn_result_description, latlong, created_by, created_on, updated_by, updated_on, stan, internal_txn_desc, api_channel, work_email_id
+- `dsa_credit_card_mgmt.transaction_audit_attributes` (8): id, transaction_audit_id, attr_key, attr_value, created_on, updated_on, created_by, updated_by
+- `dsa_credit_card_mgmt.transaction_audit_consent` (12): id, transaction_audit_id, consent_phase, attempt_no, consent_code, client_reference_code, template_code, consent_status, response_description, event_source, created_on, updated_on
+- `dsa_credit_card_mgmt.transaction_audit_logs` (10): id, transaction_audit_id, state, status, created_by, created_on, updated_by, updated_on, attempt, stan
+- `dsa_credit_card_mgmt.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `dsa_credit_card_mgmt.transaction_hierarchy_log` (33): id, dse_name, dse_code, dse_id, dse_type, dse_handle_value, uploaded_agent_code, partner_id, channel_source, dsa_name, dsa_code, office_name, office_code, dsa_admin_name, dsa_admin_code, sales_manager_name, sales_manager_code, cluster_head_name, cluster_head_code, regional_head_name, regional_head_code, unit_head_name, unit_head_code, vertical_head_name, vertical_head_code, channel_head_name, channel_head_code, national_sales_manager_name, national_sales_manager_code, national_sales_head_name, national_sales_head_code, created_on, updated_on
+- `dsa_credit_card_mgmt.transaction_report` (9): id, file_code, employee_code, employee_type, product_type, file_name, status, created_on, updated_on
+
+### `dsa_gateway` (77 tables)
+
+- `dsa_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `dsa_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `dsa_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240514` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240517` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240518` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240523` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240524` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240525` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240526` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240527` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240529` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240530` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240604` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240605` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240606` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240607` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240611` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240612` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240613` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240614` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240703` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240705` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240708` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240709` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240717` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240811` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240812` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240813` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240814` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240920` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240924` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240925` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240926` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240927` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240928` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240929` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20240930` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241001` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241002` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241003` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241004` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241005` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241006` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241007` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241008` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241028` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241203` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20241210` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250109` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250201` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250212` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250223` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250328` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250402` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250403` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250405` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250409` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250410` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250412` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250416` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250417` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250418` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250420` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250422` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250423` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250424` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250425` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_20250427` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.request_response_log_extension` (9): id, client_code, stan, request_data, response_data, created_on, created_by, updated_on, updated_by
+- `dsa_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `dsa_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `dsa_masterdata` (20 tables)
+
+- `dsa_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `dsa_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `dsa_masterdata.bank_master_iin` (6): id, iin, name, created_by, created_on, is_deleted
+- `dsa_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `dsa_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `dsa_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `dsa_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `dsa_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `dsa_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `dsa_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `dsa_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+
+### `dsa_notifications` (17 tables)
+
+- `dsa_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `dsa_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `dsa_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `dsa_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `dsa_notifications.fcm_master` (3): id, channel_code, server_key
+- `dsa_notifications.fcm_notification_list` (8): id, user_id, notification_handle_type, notification_handle_value, notification_title, notificatiion_message, notification_time, created_on
+- `dsa_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `dsa_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `dsa_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `dsa_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `dsa_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `dsa_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `dsa_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `dsa_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `dsa_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `dsa_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `dsa_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+
+### `kp_actor` (108 tables)
+
+- `kp_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `kp_actor.active_agent` (15): id, corporate_name, vle_code, ac_number, vlc_name, bcbf_reject, mobile_number, state, email_id, pan_number, created_by, created_on, updated_by, updated_on, is_deleted
+- `kp_actor.actor` (3): id, type, is_deleted
+- `kp_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `kp_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `kp_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `kp_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `kp_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `kp_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `kp_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `kp_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `kp_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `kp_actor.agent_details` (3): id, agent_id, category
+- `kp_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `kp_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `kp_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `kp_actor.agent_lead_attribute` (9): id, agent_lead_id, attribute, value, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.agent_lead_file` (18): id, corporate_id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, matched_records, total_records, checker_doc_code, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `kp_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `kp_actor.agent_review_by_bank` (12): id, corporate_name, vle_code, ac_number, vle_name, bcbf_reject, mobile_number, state, email_id, pan_number, reject_reason, reject_reason_details
+- `kp_actor.agreement_renewal` (8): id, corporate_id, status, description, created_on, created_by, updated_by, updated_on
+- `kp_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_actor.bank_product_branch_attributes` (10): id, product_branch_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `kp_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `kp_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `kp_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `kp_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `kp_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `kp_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `kp_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.customer_check` (14): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on
+- `kp_actor.customer_details` (4): id, customer_id, customer_name, vle_code
+- `kp_actor.customer_offers` (7): id, customer_name, customer_mobile_number, product_code, offer_amount, corporate_id, is_available
+- `kp_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `kp_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `kp_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `kp_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `kp_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `kp_actor.device_type` (4): id, type, description, is_deleted
+- `kp_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `kp_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `kp_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `kp_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `kp_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `kp_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `kp_actor.employer_name` (12): id, company_id, company_code, company_name, company_display_name, is_active, created_on, created_by, updated_on, updated_by, product_code, company_category
+- `kp_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `kp_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_actor.hdb_employee_details` (12): id, emp_code, emp_name, emp_status, pan_number, mobile_number, email_id, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `kp_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `kp_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `kp_actor.iba_caution_agent` (3): id, address, pan
+- `kp_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `kp_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `kp_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `kp_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `kp_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `kp_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `kp_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `kp_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.kp_migrated_agent` (26): id, vle_code, dsa_code, agent_name, first_name, middle_name, last_name, mobile_number, pan, date_of_birth, father_name, mother_name, marital_status, spouse_name, gender, email, linked_branch_code, linked_branch_name, bank_account_number, bank_name, ifsc_code, created_on, migrated_on, migration_status, status_reason, created_by
+- `kp_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `kp_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.offer_details` (11): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name
+- `kp_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `kp_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `kp_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `kp_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `kp_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `kp_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `kp_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `kp_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `kp_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `kp_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `kp_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `kp_actor.temp_required_employee_for_dormant` (1): employee_id
+- `kp_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `kp_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `kp_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `kp_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `kp_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `kp_actor.user_auth_type` (3): id, type, description
+- `kp_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `kp_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `kp_actor.user_channel` (4): id, user_id, code, is_deleted
+- `kp_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `kp_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `kp_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `kp_actor.user_handle_type` (4): id, type, description, is_deleted
+- `kp_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `kp_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `kp_actor.visit_reassign` (9): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on
+
+### `kp_approval` (4 tables)
+
+- `kp_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `kp_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `kp_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `kp_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `kp_authorization` (14 tables)
+
+- `kp_authorization.category` (4): id, code, display_name, is_deleted
+- `kp_authorization.epic` (4): id, code, display_name, description
+- `kp_authorization.feature` (5): id, code, display_name, description, epic_id
+- `kp_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `kp_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `kp_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `kp_authorization.role_group` (3): id, role_group_code, role_group_value
+- `kp_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `kp_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `kp_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `kp_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `kp_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `kp_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `kp_banking_origination` (29 tables)
+
+- `kp_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `kp_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `kp_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `kp_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `kp_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `kp_banking_origination.ccavenue_batch_details` (12): id, pay_id, utr_number, batch_date, batch_settlement_amount, failed_order_id, knock_off_status, created_on, created_by, updated_on, updated_by, product_type
+- `kp_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `kp_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `kp_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `kp_banking_origination.draft_application` (13): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on
+- `kp_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `kp_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_banking_origination.kyc_detail` (19): id, client_reference_number, reference_number, kyc_number, next_journey_step, journey_id, kyc_url, s3_identifier, STATUS, response_description, created_on, updated_on, kyc_type, product_source, kyc_status, is_kyc_changed, document_type, document_id, bank_external_ref_no
+- `kp_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `kp_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `kp_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `kp_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `kp_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `kp_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `kp_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `kp_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `kp_banking_origination.transaction_audit` (49): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, ifsc, journey_step
+- `kp_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `kp_banking_origination.transaction_audit_funding` (15): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_response_code, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `kp_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `kp_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `kp_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `kp_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `kp_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `kp_gateway` (11 tables)
+
+- `kp_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `kp_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `kp_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `kp_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `kp_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `kp_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `kp_gateway.request_response_log_extension` (9): id, client_code, stan, request_data, response_data, created_on, created_by, updated_on, updated_by
+- `kp_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `kp_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `kp_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `kp_masterdata` (19 tables)
+
+- `kp_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `kp_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `kp_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `kp_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `kp_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `kp_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `kp_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `kp_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `kp_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `kp_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+
+### `kp_notifications` (17 tables)
+
+- `kp_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `kp_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `kp_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `kp_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `kp_notifications.fcm_master` (3): id, channel_code, server_key
+- `kp_notifications.fcm_notification_list` (8): id, user_id, notification_handle_type, notification_handle_value, notification_title, notificatiion_message, notification_time, created_on
+- `kp_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `kp_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `kp_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `kp_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `kp_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `kp_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `kp_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `kp_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `kp_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `kp_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `kp_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+
+### `ra_actor` (102 tables)
+
+- `ra_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `ra_actor.active_agent` (15): id, corporate_name, vle_code, ac_number, vlc_name, bcbf_reject, mobile_number, state, email_id, pan_number, created_by, created_on, updated_by, updated_on, is_deleted
+- `ra_actor.actor` (3): id, type, is_deleted
+- `ra_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `ra_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `ra_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `ra_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `ra_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `ra_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `ra_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `ra_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `ra_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `ra_actor.agent_details` (3): id, agent_id, category
+- `ra_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `ra_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `ra_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `ra_actor.agent_lead_file` (18): id, corporate_id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, matched_records, total_records, checker_doc_code, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `ra_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `ra_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `ra_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `ra_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `ra_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `ra_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `ra_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `ra_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `ra_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.customer_check` (15): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on, internal_status
+- `ra_actor.customer_details` (4): id, customer_id, customer_name, vle_code
+- `ra_actor.customer_offers` (7): id, customer_name, customer_mobile_number, product_code, offer_amount, corporate_id, is_available
+- `ra_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `ra_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `ra_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `ra_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `ra_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `ra_actor.device_type` (4): id, type, description, is_deleted
+- `ra_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `ra_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `ra_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `ra_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `ra_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `ra_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `ra_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `ra_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_actor.hdb_employee_details` (12): id, emp_code, emp_name, emp_status, pan_number, mobile_number, email_id, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `ra_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `ra_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `ra_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `ra_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `ra_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `ra_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `ra_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `ra_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `ra_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `ra_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `ra_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.offer_details` (11): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name
+- `ra_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `ra_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `ra_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `ra_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `ra_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `ra_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `ra_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `ra_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `ra_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `ra_actor.product_master_details` (4): id, source_name, product_name, product_code
+- `ra_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `ra_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_actor.temp_required_employee_for_dormant` (1): employee_id
+- `ra_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `ra_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `ra_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `ra_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `ra_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `ra_actor.user_auth_type` (3): id, type, description
+- `ra_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `ra_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `ra_actor.user_channel` (4): id, user_id, code, is_deleted
+- `ra_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `ra_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `ra_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_actor.user_handle_type` (4): id, type, description, is_deleted
+- `ra_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `ra_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `ra_actor.visit_reassign` (9): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on
+
+### `ra_approval` (4 tables)
+
+- `ra_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `ra_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `ra_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `ra_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `ra_authorization` (14 tables)
+
+- `ra_authorization.category` (4): id, code, display_name, is_deleted
+- `ra_authorization.epic` (4): id, code, display_name, description
+- `ra_authorization.feature` (5): id, code, display_name, description, epic_id
+- `ra_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `ra_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `ra_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `ra_authorization.role_group` (3): id, role_group_code, role_group_value
+- `ra_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `ra_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `ra_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `ra_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `ra_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `ra_banking_origination` (27 tables)
+
+- `ra_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `ra_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `ra_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `ra_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `ra_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `ra_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `ra_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `ra_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `ra_banking_origination.draft_application` (13): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on
+- `ra_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `ra_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `ra_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `ra_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `ra_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `ra_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `ra_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `ra_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `ra_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_banking_origination.transaction_audit` (49): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, journey_step, ifsc
+- `ra_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `ra_banking_origination.transaction_audit_funding` (14): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `ra_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `ra_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `ra_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `ra_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `ra_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `ra_credit_card_mgmt` (35 tables)
+
+- `ra_credit_card_mgmt.agent_url_mapping` (12): id, uuid, agent_id, campaign_name, url, status, agent_ip_address, expiry_at, created_by, updated_by, created_at, updated_at
+- `ra_credit_card_mgmt.bank_masters` (17): id, institution_id, institution_name, popular_bank, default_bank, isaa, isnetbanking, isstatement, aa_recommendation, netbanking_recommendation, statement_recommendation, is_anumati, created_by, created_on, updated_by, updated_on, is_deleted
+- `ra_credit_card_mgmt.bkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_name, empl_code
+- `ra_credit_card_mgmt.bkyc_lead` (11): id, bkyc_lead_file_id, arn_number, arn_status, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ra_credit_card_mgmt.branch_details` (7): ID, BRANCH_ID, BRANCH_CODE, BRANCH_NAME, CITY_ID, CITY_NAME, STATE_NAME
+- `ra_credit_card_mgmt.cc_additional_txn_data` (13): id, transaction_audit_id, vkyc_eligibility, vkyc_status, vkyc_link, vkyc_expiry_time, bkyc_status, dkyc_status, idcom_status, ipa_status, is_hybrid_journey, created_at, updated_at
+- `ra_credit_card_mgmt.channel_details` (12): id, client_reference_code, channel, sm_code, lc1, lc2, lg_code, branch_code, branch_name, branch_city, dsa_code, dsa_name
+- `ra_credit_card_mgmt.co_brand_master` (14): id, co_brand_name, partner_co_name, is_active, source_code, banner_image_name, allow_perfios, allow_income, is_ltf, capture_membership_id, source_identifier, created_on, updated_on, is_deleted
+- `ra_credit_card_mgmt.company_masters` (13): id, code, name, category, created_by, created_on, updated_by, updated_on, is_deleted, ltf_cards, start_date, end_date, domain_id
+- `ra_credit_card_mgmt.corporate_insurance_mapper` (7): id, corporate_code, corporate_name, LOAN_PROTECT, HEALTH_INSURANCE, updated_on, updated_by_emp
+- `ra_credit_card_mgmt.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `ra_credit_card_mgmt.credit_card_masters` (24): id, code, product_id, name, card_image, details, annual_fee, renewal_fee, joining_fee, category_id, category_name, category_type, orientation, alignment, is_rupay, is_ltf, color_code, stroke_color_code, created_by, created_on, updated_by, updated_on, is_active, is_deleted
+- `ra_credit_card_mgmt.customer_relationship_details` (16): id, UUID, transaction_audit_id, name, mobile_number, pan, dob, relation_ship_type, email_id, gender, address, customer_type, created_on, updated_on, add_on_card_submission_status, customer_id
+- `ra_credit_card_mgmt.demog_kyc_routing_config` (18): id, demog_identifier, is_etb_customer, kyc_route, kyc_type, lms_check_required, lms_status, is_address_edited, is_email_edited, is_mobile_match, idcom_fintech_id, allowed_kyc_modes, terminate_journey, termination_message_code, remarks, is_active, created_on, updated_on
+- `ra_credit_card_mgmt.draft_application` (11): id, client_reference_number, stage, created_by, created_on, updated_by, updated_on, initial_consent_attempts, preview_consent_attempts, initial_consent_ref_key, preview_consent_ref_key
+- `ra_credit_card_mgmt.dse_reassign_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `ra_credit_card_mgmt.dse_reassign_lead` (11): id, dse_reassign_file_id, client_reference_code, dse_code, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ra_credit_card_mgmt.dvkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `ra_credit_card_mgmt.dvkyc_lead` (10): id, dvkyc_lead_file_id, arn_number, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `ra_credit_card_mgmt.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_credit_card_mgmt.insurance_masters` (6): id, type, name, image_url, benefits, note
+- `ra_credit_card_mgmt.insurance_price_masters` (7): id, limit_type, price, adults, childrens, type, iteration
+- `ra_credit_card_mgmt.insurance_transaction` (13): id, transaction_audit_id, insurance_id, gender, no_of_adults, no_of_childrens, nominee_name, nominee_relationship, price, created_by, created_on, updated_on, updated_by
+- `ra_credit_card_mgmt.key_store` (11): id, alias, secret_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `ra_credit_card_mgmt.loan_transactions` (16): id, transaction_audit_id, loan_amount, account_number, tenure, emi, net_payable, interest_rate, processing_fee, created_on, created_by, updated_on, updated_by, billing_cycle, dob, loan_number
+- `ra_credit_card_mgmt.logo_master` (13): id, org_code, logo_code, series, bin, product_description, product_type, segment, variant, logo_status, flagging, created_on, updated_on
+- `ra_credit_card_mgmt.pacc_card_prefix_mapping` (4): id, business_prefix, retail_prefix, created_on
+- `ra_credit_card_mgmt.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_credit_card_mgmt.transaction_audit` (39): id, transaction_type, transaction_sub_type, client_reference_code, additional_reference_code, external_application_reference_code, hierarchy_log_id, client_code, terminal_id, channel, channel_source, customer_identifier_type, customer_identifier_value, customer_full_name, customer_id, customer_type, kyc_type, product_code, product_name, is_assisted, assistor_type, assistor_id, assistor_code, assistor_name, bank_iin, bank_name, application_status, txn_status, txn_result_code, txn_result_description, latlong, created_by, created_on, updated_by, updated_on, stan, internal_txn_desc, api_channel, work_email_id
+- `ra_credit_card_mgmt.transaction_audit_attributes` (8): id, transaction_audit_id, attr_key, attr_value, created_on, updated_on, created_by, updated_by
+- `ra_credit_card_mgmt.transaction_audit_consent` (12): id, transaction_audit_id, consent_phase, attempt_no, consent_code, client_reference_code, template_code, consent_status, response_description, event_source, created_on, updated_on
+- `ra_credit_card_mgmt.transaction_audit_logs` (10): id, transaction_audit_id, state, status, created_by, created_on, updated_by, updated_on, attempt, stan
+- `ra_credit_card_mgmt.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `ra_credit_card_mgmt.transaction_hierarchy_log` (33): id, dse_name, dse_code, dse_id, dse_type, dse_handle_value, uploaded_agent_code, partner_id, channel_source, dsa_name, dsa_code, office_name, office_code, dsa_admin_name, dsa_admin_code, sales_manager_name, sales_manager_code, cluster_head_name, cluster_head_code, regional_head_name, regional_head_code, unit_head_name, unit_head_code, vertical_head_name, vertical_head_code, channel_head_name, channel_head_code, national_sales_manager_name, national_sales_manager_code, national_sales_head_name, national_sales_head_code, created_on, updated_on
+- `ra_credit_card_mgmt.transaction_report` (9): id, file_code, employee_code, employee_type, product_type, file_name, status, created_on, updated_on
+
+### `ra_gateway` (11 tables)
+
+- `ra_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `ra_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `ra_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `ra_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `ra_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `ra_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `ra_gateway.request_response_log_extension` (9): id, client_code, stan, request_data, response_data, created_on, created_by, updated_on, updated_by
+- `ra_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `ra_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `ra_masterdata` (20 tables)
+
+- `ra_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `ra_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `ra_masterdata.bank_master_iin` (6): id, iin, name, created_by, created_on, is_deleted
+- `ra_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `ra_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `ra_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `ra_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `ra_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `ra_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `ra_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `ra_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+
+### `ra_notifications` (17 tables)
+
+- `ra_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `ra_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `ra_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `ra_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `ra_notifications.fcm_master` (3): id, channel_code, server_key
+- `ra_notifications.fcm_notification_list` (8): id, user_id, notification_handle_type, notification_handle_value, notification_title, notificatiion_message, notification_time, created_on
+- `ra_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `ra_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `ra_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `ra_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `ra_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `ra_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `ra_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `ra_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `ra_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `ra_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `ra_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+
+### `rbg_actor` (119 tables)
+
+- `rbg_actor.account_details` (14): id, type, account_number, product_type, routing_type, routing_value, external_account_number, external_account_type, external_account_holder_name, cancelled_cheque_image, external_ref_number, validation_status, is_deleted, external_account_customer_id
+- `rbg_actor.active_agent` (15): id, corporate_name, vle_code, ac_number, vlc_name, bcbf_reject, mobile_number, state, email_id, pan_number, created_by, created_on, updated_by, updated_on, is_deleted
+- `rbg_actor.actor` (3): id, type, is_deleted
+- `rbg_actor.actor__address__mapping` (4): id, actor_id, address_id, is_deleted
+- `rbg_actor.actor__contact_detail__mapping` (4): id, actor_id, contact_detail_id, is_deleted
+- `rbg_actor.actor__document__mapping` (10): id, actor_id, document_id, purpose, description, version, status, status_changed_on, status_change_remarks, is_deleted
+- `rbg_actor.actor_account` (7): id, actor_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `rbg_actor.actor_account_van` (9): id, actor_account_id, bank_code, van, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.actor_geo_tracking_failure_data` (9): id, actor_id, captured_on, live_latitude, live_longitude, base_latitude, base_longitude, distance_km, failure_reason
+- `rbg_actor.actor_reversible_status_change_details` (5): id, action, action_performed_on_entity_type, action_performed_on_entity_id, previous_status
+- `rbg_actor.address` (17): id, type, address_line_1, address_line_2, pincode, geo_element_id, locality, landmark, address_geocoded_lat_long, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.address__contact_detail__mapping` (4): id, address_id, contact_detail_id, is_deleted
+- `rbg_actor.address_geo_detail` (10): id, address_id, geo_level_id, geo_level_code, geo_level_name, geo_element_id, geo_element_parent_id, geo_element_code, geo_element_name, is_deleted
+- `rbg_actor.agent_attendance` (7): id, user_id, attendance_date, start_time, end_time, created_on, created_by
+- `rbg_actor.agent_details` (3): id, agent_id, category
+- `rbg_actor.agent_events_history` (14): id, agent_code, application_id, attribute_key, attribute_value, created_reason, updated_reason, created_remarks, updated_remarks, action_status, created_on, created_by, updated_on, updated_by
+- `rbg_actor.agent_fc_audit_log` (7): id, corporate_id, COLUMN_NAME, old_value, new_value, created_on, updated_on
+- `rbg_actor.agent_lead` (22): id, agent_lead_file_id, corporate_id, agent_code, generated_agent_code, agent_name, mobile_number, pan_number, office_code, status, created_by, created_on, updated_by, updated_on, is_deleted, status_description, status_internal, application_id, application_type, document_status, visit_status, max_status
+- `rbg_actor.agent_lead_account_mapping` (7): id, agent_lead_id, purpose, is_deleted, same_as_parent, account_details_id, parent_id
+- `rbg_actor.agent_lead_action_audit` (8): id, agent_lead_id, action, stage, action_date, remarks, description, action_taken_by
+- `rbg_actor.agent_lead_address_mapping` (5): id, agent_lead_id, address_id, is_deleted, is_edited
+- `rbg_actor.agent_lead_attribute` (9): id, agent_lead_id, attribute, value, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.agent_lead_document_mapping` (11): id, document_id, agent_lead_id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, stage
+- `rbg_actor.agent_lead_file` (18): id, corporate_id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, application_type, matched_records, total_records, checker_doc_code, maker_user_id, checker_user_id, maker_declaration, checker_declaration, checker_created_on
+- `rbg_actor.agent_onboarding_history` (9): id, template_name, template_value, mobile_number, status, agent_type, created_on, created_by, journey_type
+- `rbg_actor.agent_review_by_bank` (12): id, corporate_name, vle_code, ac_number, vle_name, bcbf_reject, mobile_number, state, email_id, pan_number, reject_reason, reject_reason_details
+- `rbg_actor.agent_tid_lifecycle` (10): id, corporate_id, usecase, flag, STATUS, retry_count, created_on, updated_on, created_by, updated_by
+- `rbg_actor.attendance` (13): id, user_id, corporate_code, corporate_name, actor_type, external_id, agent_code, name, handle_value, first_login, latest_login, last_logout, total_logged_in_hrs
+- `rbg_actor.bank_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_actor.bank_product_branch_attributes` (10): id, product_branch_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_actor.bank_product_branch_mapping` (11): id, product_id, branch_code, pincode, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted
+- `rbg_actor.bank_product_master` (12): id, name, code, bank_product_type, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by, bank_product_sub_type
+- `rbg_actor.bank_statement_details` (15): id, entity_type, entity_id, account_type, bank_name, ifsc_code, email_id, mobile_number, mobile_number_code, bank_statement_tenure, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.business_details` (15): id, actor_id, name, gstin, udyam_aadhar, business_vintage, itr_year, annual_sales, annual_income, industry_type, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.business_details__address` (4): id, business_id, address_id, is_deleted
+- `rbg_actor.coborrower` (10): id, actor_id, name, mobile_number, mobile_number_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.coborrower__address` (4): id, coborrower_id, address_id, is_deleted
+- `rbg_actor.contact_detail` (17): id, name, mobile_number, mobile_country_code, alternate_contact_number, alternate_contact_country_code, primary_email, alternate_email, landline, landline_country_code, fax, fax_country_code, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.corporate` (31): id, actor_id, parent_id, base_office_id, locale, code, business_type, tax_identification_number, trade_license_number, trade_license_expiry_date, trade_license_issuing_authority, business_registration_number, business_registration_authority, business_registration_country, vat_registration_number_or_bin, external_id, name, classification, logo, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, approved_on, approved_by, is_deleted, type
+- `rbg_actor.corporate__partner__mapping` (4): id, corporate_id, partner_id, is_deleted
+- `rbg_actor.corporate_attribute` (11): id, corporate_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.corporate_details` (7): id, corporate_id, profit_center_code, nature_of_business, age_of_business, annual_turnover, no_of_employee
+- `rbg_actor.customer` (34): id, actor_id, corporate_id, base_office_id, formatted_id, external_id, customer_type, salutation, first_name, middle_name, last_name, mother_name, father_name, physically_challenged, marital_status, residential_status, education, photo, gender, preferred_language, date_of_birth, nationality, occupation, annual_income, source_of_funds, kyc_stage, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.customer_check` (15): id, ack_id, type, status, customer_identifier_type, customer_identifier_value, document_code, score, score_date, data, retry_count, input_req, created_on, updated_on, internal_status
+- `rbg_actor.customer_details` (4): id, customer_id, customer_name, vle_code
+- `rbg_actor.customer_offers` (7): id, customer_name, customer_mobile_number, product_code, offer_amount, corporate_id, is_available
+- `rbg_actor.customer_onboarding_history` (8): id, customer_id, action, status, new_status, remarks, created_on, created_by
+- `rbg_actor.device` (14): id, serial_number, terminal_id, device_type_id, manufacturer_name, model_number, status, status_changed_on, status_change_remarks, created_by, created_on, last_updated_by, last_updated_on, is_deleted
+- `rbg_actor.device__key__mapping` (4): id, device_id, key_id, is_deleted
+- `rbg_actor.device_manufacturer` (4): id, manufacturer_name, description, is_deleted
+- `rbg_actor.device_model` (7): id, device_type_id, device_manufacturer_id, model_name, model_number, description, is_deleted
+- `rbg_actor.device_type` (4): id, type, description, is_deleted
+- `rbg_actor.document` (14): id, document_store_urn, mime_type, document_type, document_identifier, issue_date, issuing_authority, issuiing_place, expiry_date, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.document_file` (5): id, document_id, name, file_number, is_deleted
+- `rbg_actor.employee` (27): id, parent_id, actor_id, corporate_id, formatted_id, external_id, photo_document_id, image_document_id, salutation, first_name, middle_name, last_name, gender, preferred_language, date_of_birth, status, status_change_reason, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, office_id, previous_status, previous_status_changed_on
+- `rbg_actor.employee__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, employee_id, document_id
+- `rbg_actor.employee__user__mapping` (4): id, is_deleted, user_id, employee_id
+- `rbg_actor.employee_attribute` (5): id, employee_id, key, value, is_deleted
+- `rbg_actor.employee_change_logs` (15): id, actor_id, action, created_by, created_on, approved_by, approved_on, old_actor_name, new_actor_name, old_branch_name, new_branch_name, old_role_code, new_role_code, old_role_name, new_role_name
+- `rbg_actor.employer_name` (12): id, company_id, company_code, company_name, company_display_name, is_active, created_on, created_by, updated_on, updated_by, product_code, company_category
+- `rbg_actor.employment_details` (7): id, employment_type, designation, department, start_date, is_deleted, employee_id
+- `rbg_actor.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_actor.generic_agent_migration` (26): id, vle_code, dsa_code, agent_name, first_name, middle_name, last_name, mobile_number, pan, date_of_birth, father_name, mother_name, marital_status, spouse_name, gender, email, linked_branch_code, linked_branch_name, bank_account_number, bank_name, ifsc_code, created_on, migrated_on, migration_status, status_reason, created_by
+- `rbg_actor.hdb_employee_details` (12): id, emp_code, emp_name, emp_status, pan_number, mobile_number, email_id, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.hierarchy_element` (15): id, name, code, hierarchy_level_id, parent_id, parent, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted, pincode
+- `rbg_actor.hierarchy_element__entity__mapping` (5): id, hierarchy_element_id, entity_type, entity_id, is_deleted
+- `rbg_actor.hierarchy_element_attribute` (9): id, hierarchy_element_id, attribute_key, attribute_value, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.hierarchy_level` (17): id, name, code, description, hierarchy_template_id, parent_id, is_mandatory, is_leaf, display_flag, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.hierarchy_template` (12): id, name, code, description, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.iba` (15): id, sr_no, bank_name, mobile_no, dob, state, district, sub_district, pin_code, created_on, created_by, updated_on, updated_by, is_deleted, bc_name
+- `rbg_actor.iba_caution_agent` (3): id, address, pan
+- `rbg_actor.inventory_item` (15): id, name, serial_number, inventory_item_number, inventory_item_product_id, office_id, corporate_id, description, status, byod, is_deleted, created_on, created_by, updated_by, updated_on
+- `rbg_actor.inventory_item_assignment` (9): id, actor_type, inventory_item_id, actor_id, is_deleted, created_on, created_by, updated_on, updated_by
+- `rbg_actor.inventory_item_attributes` (4): id, inventory_item_id, attr_key, attr_value
+- `rbg_actor.inventory_item_brand` (10): id, code, name, inventory_item_manufacturer_id, description, logo_url, created_by, created_on, updated_by, updated_on
+- `rbg_actor.inventory_item_manufacturer` (9): id, code, name, description, logo_url, created_by, created_on, updated_by, updated_on
+- `rbg_actor.inventory_item_product` (12): id, code, name, description, brand_id, item_type_code, item_sub_type_code, logo_url, created_by, created_on, updated_by, updated_on
+- `rbg_actor.key` (7): id, type, value, status, status_changed_on, status_change_remarks, is_deleted
+- `rbg_actor.key_store` (11): id, alias, p12_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.mobile_device` (13): id, device_id, imei, mac_address, mobile_os, os_id, gcm_id, fcm_id, sim_number, msisdn, last_login_time, last_location_lat_long, is_deleted
+- `rbg_actor.npci` (25): id, sr_no, agent_name, address, city, state, pin_code, aadhar_no, pan_no, mobile_no, date_blacklist, reason_blacklist, corporate, bank_name, ifsc_code, accno_linked_blacklisted_merchant, police_complaint, police_complaint_no, date_of_complaint, bc_arrested, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.offer_details` (11): id, product_code, customer_id, mobile_no, transaction_audit_id, sms_sent, sms_count, sms_sent_date, lead_generated, lead_generated_date, product_name
+- `rbg_actor.offer_type` (4): id, offer_details_id, offer_type, offer_decile
+- `rbg_actor.office` (19): id, parent_id, name, corporate_id, formatted_id, level_code, external_code, description, status, status_changed_on, status_changed_remarks, opened_on, closed_on, created_on, created_by, updated_on, updated_by, is_deleted, territory_key
+- `rbg_actor.office__address__mapping` (4): id, office_id, address_id, is_deleted
+- `rbg_actor.office__contact_detail__mapping` (4): id, office_id, contact_detail_id, is_deleted
+- `rbg_actor.office__device__mapping` (5): id, office_id, device_id, status, is_deleted
+- `rbg_actor.office_attribute` (11): id, office_id, attribute_key, attribute_value, status, description, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.partner` (26): id, salutation, first_name, middle_name, last_name, gender, date_of_birth, residential_status, country_of_residence, country_of_birth, nationality, relationship_with_entity, occupation, percentage_of_partnership, image_document_code, locale, authorized_signatory, status, status_changed_on, status_change_remarks, is_deleted, created_on, created_by, updated_on, updated_by, designation
+- `rbg_actor.partner__address__mapping` (4): id, partner_id, address_id, is_deleted
+- `rbg_actor.partner__contact_detail__mapping` (4): id, partner_id, contact_detail_id, is_deleted
+- `rbg_actor.partner__document__mapping` (10): id, purpose, version, description, status, status_changed_on, status_change_remarks, is_deleted, partner_id, document_id
+- `rbg_actor.product_master_details` (4): id, source_name, product_name, product_code
+- `rbg_actor.river_state` (3): river_name, last_execution_start_time, last_execution_end_time
+- `rbg_actor.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_actor.temp_required_employee_for_dormant` (1): employee_id
+- `rbg_actor.tid_master` (13): id, tid_number, tid_status, tid_activation_date, tid_deactivation_date, tid_reactivation_date, created_on, updated_on, created_by, updated_by, is_file_generated, corporate_id, previous_status
+- `rbg_actor.user` (18): id, actor_id, formatted_id, type, salutation, first_name, middle_name, last_name, gender, dob, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.user__address__mapping` (4): id, user_id, address_id, is_deleted
+- `rbg_actor.user__contact_detail__mapping` (4): id, user_id, contact_detail_id, is_deleted
+- `rbg_actor.user__device__mapping` (7): id, user_id, device_id, status, status_changed_on, status_change_remarks, is_deleted
+- `rbg_actor.user__office__mapping` (11): id, user_id, office_id, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.user_attribute` (5): id, user_id, attr_key, attr_value, is_deleted
+- `rbg_actor.user_auth` (10): id, user_id, auth_type_id, value, is_deleted, expires_on, created_on, created_by, updated_on, updated_by
+- `rbg_actor.user_auth_type` (3): id, type, description
+- `rbg_actor.user_auth_type_configuration` (4): id, user_auth_type_id, prop_key, prop_value
+- `rbg_actor.user_auth_value_history` (6): id, user_id, auth_value, user_auth_type_id, created_on, updated_on
+- `rbg_actor.user_channel` (4): id, user_id, code, is_deleted
+- `rbg_actor.user_device_attribute` (5): id, user_device_id, key, value, is_deleted
+- `rbg_actor.user_fcm_details` (5): id, channel_code, fcm_token, is_deleted, user_id
+- `rbg_actor.user_handle` (12): id, user_id, handle_type_id, value, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.user_handle_type` (4): id, type, description, is_deleted
+- `rbg_actor.user_login_details` (13): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode
+- `rbg_actor.user_login_tracking` (16): id, handle_type, handle_value, user_id, latlong, apk_version, client_ip, login_datetime, logout_datetime, operation_mode, actor_type, status, logout_mode, employee_id, first_login_today, session_expiry_time
+- `rbg_actor.user_notification_events` (7): id, user_id, event_code, reminder_type, is_deleted, created_on, updated_on
+- `rbg_actor.visit` (18): id, agent_lead_id, visitor_id, visit_date_time, created_on, created_by, updated_on, updated_by, latitude_longitude, visit_type, agent_code, visit_status, rescheduled_date, is_deboarding_suggested, deboarding_reason, deboarding_type, financial_year, visit_checklist
+- `rbg_actor.visit_checklist_attribute` (14): id, visit_id, question_key, question_value, answer_key, answer_value, mandate_required, mandate_provided, POSITION, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_actor.visit_reassign` (10): id, visit_id, reassigned_to, reassigned_on, remarks, created_by, created_on, updated_by, updated_on, is_deleted
+- `rbg_actor.visitor_checklist_attribute` (12): id, visitor_id, question_value, answer_value, question_key, answer_key, created_on, created_by, updated_on, updated_by, is_deleted, position
+
+### `rbg_approval` (4 tables)
+
+- `rbg_approval.application` (22): id, office_id, corporate_id, target_api_name, target_api_version, target_function_code, target_function_sub_code, usecase, assigned_permission, DATA, status, notes, created_by, created_on, updated_by, updated_on, approved_by, approved_on, assigned_user_id, identifier, reason, user_story
+- `rbg_approval.application_attachment` (3): id, application_id, attachment_document_id
+- `rbg_approval.draft_application` (5): id, usecase, data, created_by, created_on
+- `rbg_approval.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+
+### `rbg_authorization` (14 tables)
+
+- `rbg_authorization.category` (4): id, code, display_name, is_deleted
+- `rbg_authorization.epic` (4): id, code, display_name, description
+- `rbg_authorization.feature` (5): id, code, display_name, description, epic_id
+- `rbg_authorization.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_authorization.permission` (7): id, code, display_name, display_flag, parent_id, category_id, role_right
+- `rbg_authorization.role` (16): id, display_name, code, description, is_deleted, status, status_changed_on, status_change_remarks, created_on, created_by, updated_on, updated_by, parent_id, role_group, is_implicit, department
+- `rbg_authorization.role__permission__mapping` (3): id, role_id, permission_id
+- `rbg_authorization.role_group` (3): id, role_group_code, role_group_value
+- `rbg_authorization.role_group__feature__mapping` (3): id, feature_id, role_group_id
+- `rbg_authorization.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_authorization.usecase` (7): id, code, display_name, required_permission_id, maker_checker_enabled, approval_permission_id, user_story_id
+- `rbg_authorization.user__role__mapping` (4): id, user_id, role_id, is_deleted
+- `rbg_authorization.user_story` (5): id, code, display_name, description, feature_id
+- `rbg_authorization.user_story__permission__mapping` (3): id, user_story_id, permission_id
+
+### `rbg_banking_origination` (28 tables)
+
+- `rbg_banking_origination.agent_account_audit` (16): id, external_ref_number, rrn_number, beneficiary_name, beneficiary_account_number, beneficiary_mobile_number, beneficiary_ifsc, imps_response_code, response_message, name_matched, matched_name_percentage, status, created_on, created_by, updated_on, updated_by
+- `rbg_banking_origination.apy_contribution` (11): id, age_at_entry, vesting_period, pension_amount, corpus_amount, monthly_contribution, quarterly_contribution, half_yearly_contribution, is_active, created_at, updated_at
+- `rbg_banking_origination.asset_acquisition_ytd_dump` (43): id, branch_code, lead_number, customer_name, final_status, lc_date, lc_month1, disbursed_amount, value_in_crs, product, sub_product, loan_agreement_no, cases, lg_code, source, shadow_lg_code, final_vle_code, vle_name, ro_code, ro_name, vle_branch_code, zone_circle, bbh_region, csc_state, csc_zone, csc_area_head_emp_code, csc_area_head, csc_th_code, csc_territory_head, csc_sh_code, csc_state_head, csc_zh_code, zh, csc_bh_code, bh, category, dd, mm, yyyy, partner, vle_type, created_on, filename
+- `rbg_banking_origination.bre_reports` (188): id, mob_cust_count, pan_ucic_count, is_etb_flag, mobile_ucic_count, liability_aadhar_linked_cust_count, limited_kyc_flag, email_ucic_count, pan_cust_count, bsbdaflag, cust_deceased_flag, bre1_report_type, bre1_context_parameter_partner_id, bre1_user_index, bre1_user_type, bre1_status_message, bre1_status_code, bre1a_context_parameter_partner_id, bre1a_context_parameter_channel_id, bre1a_context_parameter_product_name, bre1a_bre_response_applicant_id, bre1a_bre_response_application_id, bre1a_bre_response_mha_mobile_match_flag, bre1a_bre_response_mha_email_match_flag, bre1a_bre_response_dow_jones_factiva_dow_jones_risk_category, bre1a_bre_response_mha_factiva_mha_risk_category, bre1a_bre_response_mha_pan_match_flag, bre1a_bre_response_factiva_do_t_base_name, bre1a_bre_response_do_t_address_match_flag, bre1a_bre_response_dow_jones_gst_match_flag, bre1a_bre_response_bre1_remarks, bre1a_bre_response_do_t_dob_match_flag, bre1a_bre_response_mha_dob_match_flag, bre1a_bre_response_do_t_factiva_do_t_risk_category, bre1a_bre_response_posidex_negbase_ml0_posidex_risk_category, bre1a_bre_response_posidex_negbase_match_list_0_base_name, bre1a_bre_response_posidex_negbase_match_list_0_match_paramter, bre1a_bre_response_mha_name_match_flag, bre1a_bre_response_dow_jones_pan_match_flag, bre1a_bre_response_dow_jones_name_match_flag, bre1a_bre_response_filler1, bre1a_bre_response_filler2, bre1a_bre_response_factiva_dow_jones_base_name, bre1a_bre_response_customer_segment, bre1a_bre_response_mha_address_match_flag, bre1a_bre_response_dow_jones_address_match_flag, bre1a_bre_response_factiva_mha_base_name, bre1a_bre_response_mha_gst_match_flag, bre1a_bre_response_do_t_name_match_flag, bre1a_bre_response_do_t_pan_match_flag, bre1a_bre_response_applicant_risk_category, bre1a_bre_response_do_t_email_match_flag, bre1a_bre_response_dow_jones_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_pan_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_gst_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_mobile_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_address_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_negbase_base_name, bre1a_bre_response_factiva_negbase_0_negbase_dob_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_email_match_flag, bre1a_bre_response_factiva_negbase_0_negbase_name_match_flag, bre1a_bre_response_factiva_negbase_0_factiva_nb_risk_category, bre1a_bre_response_do_t_mobile_match_flag, bre1a_bre_response_dow_jones_mobile_match_flag, bre1a_bre_response_do_t_gst_match_flag, bre1a_bre_response_dow_jones_email_match_flag, bre1a_bre_context_ack_id, bre1a_bre_context_error_message, bre1a_bre_context_message, bre1a_bre_context_error, bre1a_bre_context_bre_type, bre1a_bre_context_status, bre2_report_type, bre2_context_parameter_channel_id, bre2_user_index, bre2_user_type, bre2_status_message, bre2_status_code, bre2a_context_parameter_orc_journey_id, bre2a_context_parameter_partner_id, bre2a_context_parameter_channel_id, bre2a_context_parameter_product_name, bre2a_bre_response_applicant_id, bre2a_bre_response_master_rag, bre2a_bre_response_application_id, bre2a_bre_response_entity_name, bre2a_bre_response_declared_annual_turnover, bre2a_bre_response_com_cat, bre2a_bre_response_channel, bre2a_bre_response_data_sutram_filler30, bre2a_bre_response_data_sutram_ds_risk_category, bre2a_bre_response_data_sutram_filler29, bre2a_bre_response_data_sutram_ds_score_bin, bre2a_bre_response_data_sutram_filler28, bre2a_bre_response_overall_unicode, bre2a_bre_response_bid_epfo_uan_aadhar_link_flag, bre2a_bre_response_bid_epfo_epfo_risk_reason, bre2a_bre_response_bid_epfo_epfo_rag, bre2a_bre_response_bid_epfo_dob_match, bre2a_bre_response_bid_epfo_epfo_hit_flag, bre2a_bre_response_bid_epfo_filler27, bre2a_bre_response_bid_epfo_epfo_risk_category, bre2a_bre_response_bid_epfo_filler26, bre2a_bre_response_bid_epfo_match_score_name, bre2a_bre_response_bid_epfo_epfo_name_match_flag, bre2a_bre_response_bid_epfo_single_uan_flag, bre2a_bre_response_bid_epfo_filler25, bre2a_bre_response_branch_code_risk_category, bre2a_bre_response_sourcing_type, bre2a_bre_response_bid_gst_gst_risk_reason, bre2a_bre_response_bid_gst_gst_risk_category, bre2a_bre_response_bid_gst_gst_est_mon_income, bre2a_bre_response_bid_gst_gst_hit_flag, bre2a_bre_response_bid_gst_gst_active_flag, bre2a_bre_response_bid_gst_filler23, bre2a_bre_response_bid_gst_filler22, bre2a_bre_response_bid_gst_filler24, bre2a_bre_response_negative_base_dns_co_code_hit, bre2a_bre_response_negative_base_risky_pin_hit, bre2a_bre_response_occupation_type, bre2a_bre_response_bid_mule_profile_bid_score_bin, bre2a_bre_response_bid_mule_profile_filler32, bre2a_bre_response_bid_mule_profile_filler31, bre2a_bre_response_bid_mule_profile_bid_risk_category, bre2a_bre_response_bid_mule_profile_filler33, bre2a_bre_response_filler19, bre2a_bre_response_partner_journey_id, bre2a_bre_response_bre2a_unicode, bre2a_bre_response_bureau_hit, bre2a_bre_response_declared_annual_income, bre2a_bre_response_credit_bureau_lite_criteria_on_cc_od, bre2a_bre_response_credit_bureau_lite_exposure_flag, bre2a_bre_response_credit_bureau_lite_tbe_bucket, bre2a_bre_response_ca_sa_flag, bre2a_bre_response_bid_mca_mca_risk_reason, bre2a_bre_response_bid_mca_mca_hit, bre2a_bre_response_bid_mca_filler34, bre2a_bre_response_bid_mca_mca_risk_category, bre2a_bre_response_bid_mca_filler36, bre2a_bre_response_bid_mca_filler35, bre2a_bre_response_age, bre2a_bre_response_credit_bureau_segment_camp2, bre2a_bre_response_credit_bureau_segment, bre2a_bre_response_credit_bureau_bureau_score, bre2a_bre_response_credit_bureau_predicted_salary, bre2a_bre_response_credit_bureau_predicted_income, bre2a_bre_response_credit_bureau_bureau_hit, bre2a_bre_response_credit_bureau_crif_scr_risk_category, bre2a_bre_response_filler41, bre2a_bre_response_filler40, bre2a_bre_response_filler21, bre2a_bre_response_filler43, bre2a_bre_response_filler20, bre2a_bre_response_filler42, bre2a_bre_response_bre1_rag, bre2a_bre_response_fraudnet_system_response, bre2a_bre_response_fraudnet_score, bre2a_bre_response_fraudnet_rules_triggered, bre2a_bre_response_fraudnet_filler38, bre2a_bre_response_fraudnet_filler37, bre2a_bre_response_fraudnet_filler39, bre2a_bre_response_fraudnet_fraudnet_reason, bre2a_bre_response_cod_utl_comp, bre2a_bre_response_message, bre2a_bre_response_overlay_tag, bre2a_bre_response_branch_code, bre2a_bre_response_nam_cust_full, bre2a_bre_response_estd_income_bur_income_est_risk_category, bre2a_bre_response_estd_income_bur_income_est, bre2a_bre_response_estd_income_least_est_gst, bre2a_bre_response_short_remarks, bre2a_bre_response_dat_birth_cust, bre2a_bre_response_branch_action_level_branch_action, bre2a_bre_response_ref_cust_it_num, bre2a_bre_response_application_date, bre2a_bre_response_detailed_remarks, bre2a_bre_response_final_rag, bre2a_bre_response_status, bre2a_bre_context_ack_id, bre2a_bre_context_error_message, bre2a_bre_context_message, bre2a_bre_context_error, bre2a_bre_context_bre_type, bre2a_bre_context_status, transaction_audit_id, client_reference_code, created_on, updated_on
+- `rbg_banking_origination.casa_ytd_dump` (70): id, lead_id, customer_account_no, customer_id, branch_code_of_customer, customer_name, customer_type, product_code, product, sub_product, product_name, mis_date, mis1, lg_code, lc_code, promo_code, smart, co_code, flag, cust_type_desc, final_vle, vle_br_code, partner_name, ro_self_sourcing, ah_self_sourcing, ro_code, ro_name, ah_code, ah_name, th_code, th_name, sh_code, sh_name, zh_code, zh_name, bh_code, bh_name, month_on_month_eop, month_on_month_amb, month_on_month_bal_book, amb_maintenance, ip_met, req_balance, rbi_class, eop_balance_bucket, amb_balance_bucket, latest_amb, latest_ayb, od_limit, credit_transaction_cnt, credit_transaction_amt, debit_transaction_cnt, debit_transaction_amt, m3sal_credit, m2sal_credit, m1sal_credit, sal_flag, latest_bal_book, lead_source, arn, arn_bucketing, customer_account_status_latest, status_latest, ethnic_code, depletion_request_balance, depletion_flag, account_type, addition, created_on, filename
+- `rbg_banking_origination.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `rbg_banking_origination.crm_lead_queue` (6): id, transaction_audit_id, document_id, status, created_on, updated_on
+- `rbg_banking_origination.customer_check` (13): id, ack_id, type, status, journey_type, journey_type_value, document_code, score, score_date, data, retry_count, created_on, updated_on
+- `rbg_banking_origination.draft_application` (13): id, transaction_type, transaction_sub_type, assistor_type, assistor_id, customer_identifier_type, customer_identifier_value, status, data, created_by, created_on, updated_by, updated_on
+- `rbg_banking_origination.external_fund_ifsc_master` (6): ID, BANK_CODE, BANK_NAME, IFSC_CODE, ADDRESS, STATUS
+- `rbg_banking_origination.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_banking_origination.kyc_detail` (19): id, client_reference_number, reference_number, kyc_number, next_journey_step, journey_id, kyc_url, s3_identifier, STATUS, response_description, created_on, updated_on, kyc_type, product_source, kyc_status, is_kyc_changed, document_type, document_id, bank_external_ref_no
+- `rbg_banking_origination.mandate_details` (16): id, reference_number, mandate_id, customer_id, amount, account_number, account_status, mandate_status, response_log, expiry_date, last_execution_date, execution_count, created_on, created_by, updated_on, updated_by
+- `rbg_banking_origination.nominee_relation_code_master` (4): id, rel_code, rel_value, is_deleted
+- `rbg_banking_origination.pmjjby_premium` (9): id, start_month, end_month, enrollment_period, first_premium, renewal_premium, is_active, created_at, updated_at
+- `rbg_banking_origination.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `rbg_banking_origination.redirection_link_template` (8): id, template_code, url, expiry_time, time_units, notification_code, created_on, updated_on
+- `rbg_banking_origination.redirection_txn_link_details` (11): id, client_reference_code, transaction_sub_type, template_code, generated_link, status, retry_count, identifier_code, created_on, updated_on, expiry_time
+- `rbg_banking_origination.rekyc_account_details` (7): id, transaction_audit_id, account_number, code_for_dormancy_removal, status, reject_description, reject_code
+- `rbg_banking_origination.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_banking_origination.transaction_audit` (49): id, transaction_type, transaction_sub_type, client_reference_code, novopay_reference_code, client_code, assistor_type, assistor_id, assistor_code, assistor_name, assistor_corporate_code, terminal_id, stan, channel, customer_identifier_type, customer_identifier_value, customer_full_name, customer_type, customer_id, email, entity_name, lead_id, lead_number, product_code, product_name, account_number, kyc_type, branch_id, branch_code, branch_name, transaction_amount, charge_amount, total_amount, status, lead_status, batch_status, funding_retry_attempts, device_status, recon_status, response_code, response_description, latlong, lead_status_date, created_on, created_by, updated_on, updated_by, journey_step, ifsc
+- `rbg_banking_origination.transaction_audit_attributes` (4): id, transaction_audit_id, attr_key, attr_value
+- `rbg_banking_origination.transaction_audit_funding` (14): id, transaction_audit_id, order_id, vpa, txn_reference_no, amount, mode_of_payment, status, gateway, gateway_txn_status, gateway_txn_status_desc, created_on, updated_on, report_generated
+- `rbg_banking_origination.transaction_audit_log` (12): id, transaction_audit_id, request_reference_number, response_reference_number, service_type, status, created_on, created_by, updated_on, updated_by, retry_count, max_retry_count_allowed
+- `rbg_banking_origination.transaction_components_details` (12): id, transaction_audit_id, reference_code, component_name, amount, debit_account_number, credit_account_number, debit_account_type, credit_account_type, debit_part_info_1, credit_part_info_1, display_flag
+- `rbg_banking_origination.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `rbg_banking_origination.transaction_event_log` (5): id, transaction_audit_id, event, created_on, created_by
+- `rbg_banking_origination.transaction_utrn_number` (7): id, transaction_audit_id, utr_number, amount, bank_name, STATUS, created_on
+
+### `rbg_credit_card_mgmt` (35 tables)
+
+- `rbg_credit_card_mgmt.agent_url_mapping` (12): id, uuid, agent_id, campaign_name, url, status, agent_ip_address, expiry_at, created_by, updated_by, created_at, updated_at
+- `rbg_credit_card_mgmt.bank_masters` (17): id, institution_id, institution_name, popular_bank, default_bank, isaa, isnetbanking, isstatement, aa_recommendation, netbanking_recommendation, statement_recommendation, is_anumati, created_by, created_on, updated_by, updated_on, is_deleted
+- `rbg_credit_card_mgmt.bkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_name, empl_code
+- `rbg_credit_card_mgmt.bkyc_lead` (11): id, bkyc_lead_file_id, arn_number, arn_status, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `rbg_credit_card_mgmt.branch_details` (7): ID, BRANCH_ID, BRANCH_CODE, BRANCH_NAME, CITY_ID, CITY_NAME, STATE_NAME
+- `rbg_credit_card_mgmt.cc_additional_txn_data` (14): id, transaction_audit_id, vkyc_eligibility, vkyc_status, vkyc_link, vkyc_expiry_time, bkyc_status, dkyc_status, idcom_status, ipa_status, is_hybrid_journey, bulk_lead_file_ingest, created_at, updated_at
+- `rbg_credit_card_mgmt.channel_details` (12): id, client_reference_code, channel, sm_code, lc1, lc2, lg_code, branch_code, branch_name, branch_city, dsa_code, dsa_name
+- `rbg_credit_card_mgmt.co_brand_master` (14): id, co_brand_name, partner_co_name, is_active, source_code, banner_image_name, allow_perfios, allow_income, is_ltf, capture_membership_id, source_identifier, created_on, updated_on, is_deleted
+- `rbg_credit_card_mgmt.company_masters` (13): id, code, name, category, created_by, created_on, updated_by, updated_on, is_deleted, ltf_cards, start_date, end_date, domain_id
+- `rbg_credit_card_mgmt.corporate_insurance_mapper` (7): id, corporate_code, corporate_name, LOAN_PROTECT, HEALTH_INSURANCE, updated_on, updated_by_emp
+- `rbg_credit_card_mgmt.corporate_transaction_callback_log` (8): id, corporate_id, transaction_audit_id, external_reference_number, callback_status, retry_count, created_on, updated_on
+- `rbg_credit_card_mgmt.credit_card_masters` (24): id, code, product_id, name, card_image, details, annual_fee, renewal_fee, joining_fee, category_id, category_name, category_type, orientation, alignment, is_rupay, is_ltf, color_code, stroke_color_code, created_by, created_on, updated_by, updated_on, is_active, is_deleted
+- `rbg_credit_card_mgmt.customer_relationship_details` (16): id, UUID, transaction_audit_id, name, mobile_number, pan, dob, relation_ship_type, email_id, gender, address, customer_type, created_on, updated_on, add_on_card_submission_status, customer_id
+- `rbg_credit_card_mgmt.demog_kyc_routing_config` (18): id, demog_identifier, is_etb_customer, kyc_route, kyc_type, lms_check_required, lms_status, is_address_edited, is_email_edited, is_mobile_match, idcom_fintech_id, allowed_kyc_modes, terminate_journey, termination_message_code, remarks, is_active, created_on, updated_on
+- `rbg_credit_card_mgmt.draft_application` (11): id, client_reference_number, stage, created_by, created_on, updated_by, updated_on, initial_consent_attempts, preview_consent_attempts, initial_consent_ref_key, preview_consent_ref_key
+- `rbg_credit_card_mgmt.dse_reassign_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `rbg_credit_card_mgmt.dse_reassign_lead` (11): id, dse_reassign_file_id, client_reference_code, dse_code, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `rbg_credit_card_mgmt.dvkyc_file` (12): id, file_name, document_code, status, created_by, created_on, updated_by, updated_on, matched_records, total_records, empl_code, empl_name
+- `rbg_credit_card_mgmt.dvkyc_lead` (10): id, dvkyc_lead_file_id, arn_number, lead_status, description, created_on, created_by, updated_by, updated_on, is_deleted
+- `rbg_credit_card_mgmt.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_credit_card_mgmt.insurance_masters` (6): id, type, name, image_url, benefits, note
+- `rbg_credit_card_mgmt.insurance_price_masters` (7): id, limit_type, price, adults, childrens, type, iteration
+- `rbg_credit_card_mgmt.insurance_transaction` (13): id, transaction_audit_id, insurance_id, gender, no_of_adults, no_of_childrens, nominee_name, nominee_relationship, price, created_by, created_on, updated_on, updated_by
+- `rbg_credit_card_mgmt.key_store` (11): id, alias, secret_key, password, purpose, type, created_on, created_by, updated_on, updated_by, is_deleted
+- `rbg_credit_card_mgmt.loan_transactions` (16): id, transaction_audit_id, loan_amount, account_number, tenure, emi, net_payable, interest_rate, processing_fee, created_on, created_by, updated_on, updated_by, billing_cycle, dob, loan_number
+- `rbg_credit_card_mgmt.logo_master` (13): id, org_code, logo_code, series, bin, product_description, product_type, segment, variant, logo_status, flagging, created_on, updated_on
+- `rbg_credit_card_mgmt.pacc_card_prefix_mapping` (4): id, business_prefix, retail_prefix, created_on
+- `rbg_credit_card_mgmt.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_credit_card_mgmt.transaction_audit` (39): id, transaction_type, transaction_sub_type, client_reference_code, additional_reference_code, external_application_reference_code, hierarchy_log_id, client_code, terminal_id, channel, channel_source, customer_identifier_type, customer_identifier_value, customer_full_name, customer_id, customer_type, kyc_type, product_code, product_name, is_assisted, assistor_type, assistor_id, assistor_code, assistor_name, bank_iin, bank_name, application_status, txn_status, txn_result_code, txn_result_description, latlong, created_by, created_on, updated_by, updated_on, stan, internal_txn_desc, api_channel, work_email_id
+- `rbg_credit_card_mgmt.transaction_audit_attributes` (8): id, transaction_audit_id, attr_key, attr_value, created_on, updated_on, created_by, updated_by
+- `rbg_credit_card_mgmt.transaction_audit_consent` (12): id, transaction_audit_id, consent_phase, attempt_no, consent_code, client_reference_code, template_code, consent_status, response_description, event_source, created_on, updated_on
+- `rbg_credit_card_mgmt.transaction_audit_logs` (10): id, transaction_audit_id, state, status, created_by, created_on, updated_by, updated_on, attempt, stan
+- `rbg_credit_card_mgmt.transaction_documents` (13): id, transaction_audit_id, document_purpose, document_type, document_identifier, document_code, no_of_files, status, retry_count, created_on, created_by, updated_on, updated_by
+- `rbg_credit_card_mgmt.transaction_hierarchy_log` (33): id, dse_name, dse_code, dse_id, dse_type, dse_handle_value, uploaded_agent_code, partner_id, channel_source, dsa_name, dsa_code, office_name, office_code, dsa_admin_name, dsa_admin_code, sales_manager_name, sales_manager_code, cluster_head_name, cluster_head_code, regional_head_name, regional_head_code, unit_head_name, unit_head_code, vertical_head_name, vertical_head_code, channel_head_name, channel_head_code, national_sales_manager_name, national_sales_manager_code, national_sales_head_name, national_sales_head_code, created_on, updated_on
+- `rbg_credit_card_mgmt.transaction_report` (9): id, file_code, employee_code, employee_type, product_type, file_name, status, created_on, updated_on
+
+### `rbg_gateway` (11 tables)
+
+- `rbg_gateway.api_usecase_mapping` (5): id, api_name, function_code, function_sub_code, usecase
+- `rbg_gateway.client` (8): id, code, name, authentication_type, created_on, created_by, updated_on, updated_by
+- `rbg_gateway.client_key` (8): id, client_code, key_type, key_value, created_on, created_by, updated_on, updated_by
+- `rbg_gateway.employee_request_response_log` (12): id, ticket_number, employee_id, request_data, response_data, api_name, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `rbg_gateway.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_gateway.request_forward` (7): id, timeout, request_name, content_type, request_type, service_name, forward_url
+- `rbg_gateway.request_response_log` (23): id, client_code, channel_code, end_channel_code, stan, api_name, api_version, client_ip, transmission_datetime, operation_mode, run_mode, retry_count, actor_type, user_id, location, function_code, function_sub_code, response_status, response_code, created_on, created_by, updated_on, updated_by
+- `rbg_gateway.request_response_log_extension` (9): id, client_code, stan, request_data, response_data, created_on, created_by, updated_on, updated_by
+- `rbg_gateway.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_gateway.session` (6): id, token, user_id, created_on, expiry, preferred_language
+- `rbg_gateway.session_audit` (9): id, session_token, user_id, logged_in_at, expected_expiry_at, ended_at, end_reason, preferred_language, session_timeout_sec
+
+### `rbg_masterdata` (28 tables)
+
+- `rbg_masterdata.account_product_additional_scheme_mapping` (10): id, product_id, scheme_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_additional_scheme_master` (14): id, name, code, description, premium_amount, min_age, max_age, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_attributes` (10): id, product_id, attr_key, attr_value, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_branch_mapping` (9): id, product_id, branch_code, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_debit_card_mapping` (10): id, product_id, card_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_debit_card_master` (11): id, name, code, card_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_master` (11): id, name, code, account_product_type_code, is_active, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.account_product_services_mapping` (10): id, product_id, service_id, is_preselected, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.aeps_bank_master` (8): id, iin, bank_name, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled
+- `rbg_masterdata.bank_master` (11): id, iin, name, ifsc, aeps_wc_enabled, aeps_dc_enabled, aeps_be_enabled, aeps_ms_enabled, aeps_ft_enabled, imps_enabled, bene_check_supported
+- `rbg_masterdata.bank_master_iin` (6): id, iin, name, created_by, created_on, is_deleted
+- `rbg_masterdata.branch_master` (13): id, bank_master_id, ifsc_code, micr_code, branch, address, contact, city, district, state, imps_supported, neft_supported, bene_check_supported
+- `rbg_masterdata.code_master` (12): id, data_type, data_sub_type, editable, description, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by
+- `rbg_masterdata.code_master_details` (7): id, code_master_id, position, locale, code, VALUE, is_deleted
+- `rbg_masterdata.configuration` (14): id, prop_key, prop_value, description, service, is_editable, is_deleted, created_on, created_by, updated_on, updated_by, approved_on, approved_by, permission_code
+- `rbg_masterdata.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_masterdata.holidays` (7): id, date, partner_code, created_on, created_by, updated_on, updated_by
+- `rbg_masterdata.junk_domain_masters` (8): id, type, domain_name, is_deleted, updated_on, updated_by, created_on, created_by
+- `rbg_masterdata.junk_email_masters` (7): id, email, is_deleted, updated_on, updated_by, created_on, created_by
+- `rbg_masterdata.masters_audit` (8): id, service, file_name, temp_table_name, created_by, created_date, approved_by, approved_date
+- `rbg_masterdata.program_parameters` (8): id, param_key, param_value, created_by, created_on, updated_by, updated_on, is_deleted
+- `rbg_masterdata.temp_masters_ifsc_1738246710241` (11): BANK, CHECK, IFSC, MICRCODE, BRANCH, ADDRESS, CONTACT, CITY, DISTRICT, STATE, BANK_NAME
+- `rbg_masterdata.temp_masters_junk_domain_master_1738231833166` (2): TYPE, DOMAIN
+- `rbg_masterdata.temp_masters_junk_domain_master_1738240728502` (2): TYPE, DOMAIN
+- `rbg_masterdata.temp_masters_junk_domain_master_1738327554444` (2): TYPE, DOMAIN
+- `rbg_masterdata.temp_masters_junk_domain_master_1738327575971` (2): TYPE, DOMAIN
+- `rbg_masterdata.temp_masters_junk_domain_master_1738327638632` (2): TYPE, DOMAIN
+- `rbg_masterdata.temp_masters_junk_domain_master_1738328304821` (2): TYPE, DOMAIN
+
+### `rbg_notifications` (17 tables)
+
+- `rbg_notifications.bank_response_code_config` (8): id, bank_api_name, bank_response_code, platform_response_code, created_by, created_on, updated_by, updated_on
+- `rbg_notifications.bank_sms_template_notification_code_mapping` (8): id, notification_message_id, bank_template_id, dynamic_values, created_on, created_by, updated_on, updated_by
+- `rbg_notifications.code__notification_code__mapping` (8): id, service_name, code, notification_code, created_on, created_by, updated_on, updated_by
+- `rbg_notifications.email_template` (8): id, template_code, subject_code, body_code, created_on, created_by, updated_on, updated_by
+- `rbg_notifications.fcm_master` (3): id, channel_code, server_key
+- `rbg_notifications.fcm_notification_log` (22): id, user_id, notification_handle_type, notification_handle_value, notification_title, notification_message, notification_time, user_token, custom_data_string, app_name, receiver_device_type, image_url, ttl_millis, click_action, response_message_id, status, response_error_code, response_error_message, is_deleted, deleted_on, is_read, read_on
+- `rbg_notifications.flyway_schema_history` (10): installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+- `rbg_notifications.masking_pattern` (5): id, code, placeholder, regex, replacement
+- `rbg_notifications.notification_matrix` (5): id, use_case, sub_use_case, timeline_action, response_code
+- `rbg_notifications.notification_message` (8): id, locale, code, message, created_on, created_by, updated_on, updated_by
+- `rbg_notifications.notification_tracker` (11): id, handle_type, handle_value, message, subject, sent_on, status, code, sender_code, retry_count, stan
+- `rbg_notifications.sequences` (10): sequence_name, prefix, len, pad_char, increment_by, min_value, max_value, cur_value, is_reset_daily, sequence_date
+- `rbg_notifications.sms_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, gateway_response_code, sender_code, notification_code, scenario_id, stan
+- `rbg_notifications.sms_scenario` (5): id, code, description, priority, sender_code
+- `rbg_notifications.sms_scenario__masking_pattern` (3): id, sms_scenario_id, masking_pattern_id
+- `rbg_notifications.user_fcm_mapping` (11): id, channel_code, fcm_token, is_deleted, expires_on, created_on, created_by, updated_on, updated_by, user_handle_type, user_handle_value
+- `rbg_notifications.whatsapp_log` (11): id, msisdn, message, gateway_reference_code, sent_on, status, sender_code, notification_code, scenario_id, stan, gateway_response_code
+

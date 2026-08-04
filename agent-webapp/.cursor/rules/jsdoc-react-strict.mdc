@@ -1,0 +1,64 @@
+---
+description: Required JSDoc on helpers, hooks, interceptors, api, and context (new/modified code)
+globs: src/helpers/**,src/hooks/**,src/Config/customHooks/**,src/**/hooks/**,src/Config/axios/requestInterceptor/**,src/api/**,src/context/**
+alwaysApply: false
+---
+
+# JSDoc — Infrastructure (Strict)
+
+Apply to **new or modified** exported/public symbols in scoped files. No backfill of untouched code.
+
+## Required
+
+- Exported functions and constants with non-trivial behavior
+- Custom hooks (`use*`) — hook-level summary + `@returns` describing the return object/methods
+- Context providers — summary of what context value they expose
+- Interceptor functions — summary + `@param` when non-obvious (e.g. `request` / `config`)
+
+## Rules
+
+- Use `/** */` block comments, not `//`
+- First line: one-sentence summary
+- `@param` for each parameter when non-obvious
+- `@returns` when the function/hook returns a value
+- No JSDoc on trivial one-liners already self-explanatory from name + types (e.g. `const db = firebaseDB`)
+
+## Examples
+
+```typescript
+// Helper
+/**
+ * Builds standardized request headers including stan and session token.
+ * @param functionCode - API function code from request constants.
+ * @param functionSubCode - API function sub-code.
+ * @returns Request header object for API payloads.
+ */
+export const getRequestBodyHeaders = (...) => { ... };
+
+// Hook
+/**
+ * Provides GET/POST helpers with session-timeout and diagnostic logging.
+ * @returns API client methods plus loading and error state.
+ */
+const useApi = (): UseApiReturnType => { ... };
+
+// Context
+/**
+ * Supplies co-browsing encryption keys and session flags to journey screens.
+ */
+export const CoBrowsingProvider = ({ children }: Props) => { ... };
+
+// Interceptor
+/**
+ * Bundles custom x- headers into a single x-app-context header for WAF limits.
+ * @param config - Axios request config with headers and metadata.
+ * @returns Modified request config.
+ */
+const headerConsolidationInterceptor = async (config: any) => { ... };
+```
+
+## Do not document
+
+- Private/internal helpers unless modified and non-obvious
+- Re-exports in barrel `index.ts` — document at the definition site
+- Type-only exports unless the type encodes non-obvious business meaning

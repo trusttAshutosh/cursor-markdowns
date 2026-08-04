@@ -1,0 +1,66 @@
+---
+description: CodeAnt/Sonar recurring quality-gate fixes - apply in all repos; append when user fixes a repeat finding
+alwaysApply: true
+---
+
+# CodeAnt / Sonar guardrails (recurring)
+
+Apply these **before** handing code back or suggesting a commit, in **any** repository. When the user asks to fix a CodeAnt finding and it is likely to recur, **append it to this rule** - do not wait for the gate to fail again.
+
+## Pre-submit self-check
+
+1. Scan new/edited Java (especially tests) for duplicated string literals.
+2. **When editing any test class:** if a literal appears **3+ times** in that class after your change, extract `private static final` constants in the same test class before handoff (do not leave for CodeAnt to catch later).
+3. Scan new/edited regex for Sonar complexity (`java:S5843`) when adding security validators.
+4. Prefer fixing the pattern in code; do not suppress Sonar unless the user explicitly asks.
+
+## Known recurring rules
+
+### `java:S1192` - duplicated string literals
+
+**Trigger:** Same string literal appears **3+ times** in a class (common in tests).
+
+**Fix:** Extract a `private static final` constant (tests) or move to the appropriate constants class (production).
+
+```java
+// BAD
+SupersetUtil.applyValidatedGuestTokenHeader(headers, "validated-jwt");
+assertEquals("validated-jwt", headers.getFirst(...));
+SupersetUtil.applyValidatedGuestTokenHeader(headers, "validated-jwt");
+
+// GOOD
+private static final String VALIDATED_JWT = "validated-jwt";
+SupersetUtil.applyValidatedGuestTokenHeader(headers, VALIDATED_JWT);
+assertEquals(VALIDATED_JWT, headers.getFirst(...));
+```
+
+**Applies to:** test fixtures, JWT/token samples, repeated error messages, header names already on a constants class (reuse, do not duplicate), **test CRN/client ref codes** (`"CRN-7"`, `"DSA123..."`) reused in `setClientReferenceCode`, `when(...).thenReturn(...)`, and `findByClientReferenceCode(...)`.
+
+**Test anti-pattern (do not introduce in new tests):**
+
+```java
+// BAD - same CRN literal 3+ times in one test method/class
+audit.setClientReferenceCode("CRN-7");
+when(executionContext.getStringValue(...)).thenReturn("CRN-7");
+when(dao.findByClientReferenceCode("CRN-7")).thenReturn(audit);
+
+// GOOD
+private static final String CRN_7 = "CRN-7";
+audit.setClientReferenceCode(CRN_7);
+when(executionContext.getStringValue(...)).thenReturn(CRN_7);
+when(dao.findByClientReferenceCode(CRN_7)).thenReturn(audit);
+```
+
+**Agent habit:** On any touch to an existing `*Test.java`, grep that file for literals repeated 3+ times and fix in the same diff. This includes **porting/checkout from `origin/ddp-qa` or `origin/ddp-uat`** - remote tests are not CodeAnt-clean by default; extract constants before staging/handoff. Prefer reusing existing production constants (e.g. `TransactionAuditConstants.ACTOR_ID`) over redefining the same string in the test.
+
+### `java:S5843` - regex complexity too high
+
+**Trigger:** Single `Pattern` exceeds Sonar complexity budget (~20).
+
+**Fix:** Split into multiple focused patterns and iterate (see gateway `BLOCKED_SQL_PATTERNS` split). Do not weaken security to satisfy Sonar.
+
+## When user reports a new recurring CodeAnt issue
+
+1. Fix minimally in code.
+2. Add a new `### rule-id - summary` section above with trigger, fix, and a short example.
+3. Do not duplicate the same guidance in chat-only form - the rule is the source of truth.
