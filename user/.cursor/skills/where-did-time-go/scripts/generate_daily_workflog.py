@@ -23,11 +23,22 @@ LOG_DIR = Path.home() / "Desktop" / "worklogs" / "_runner_logs"
 TS_RE = re.compile(r"<timestamp>([^<]+)</timestamp>", re.I)
 UQ_RE = re.compile(r"<user_query>\s*(.*?)\s*</user_query>", re.S | re.I)
 JIRA_RE = re.compile(r"\b([A-Z]{2,10}-\d+)\b")
+# Only count real Novopay-ish keys; log pastes invent XX-/FEB-/JAN- noise.
+JIRA_ALLOW = re.compile(
+    r"^(HDP|AAN|FEB|EXTN|UC|TA|ADM|AGT|BE|CC)-\d+$"
+)
 FAKE_JIRA = {
     "PROJ-123", "CR-501", "CR-502", "ST-3", "STAGE-1", "CR-1", "PRN-1",
     "REF-0", "REF-2", "ST-1", "ST-4", "REF-001", "TEST-001", "UTF-8",
-    "XX-1971", "AAN-601", "STAGE-2",
+    "XX-1971", "STAGE-2", "XX-1988", "XX-1995", "XX-1996",
+    "XX-00", "FEB-1991", "JAN-2000", "DEC-1998", "TN-10", "CR-601",
 }
+# Idle gap (minutes) between activity stamps → start a new block.
+IDLE_GAP_MIN = 45
+# Cap a single contiguous block so mega-chats cannot claim a full day.
+MAX_BLOCK_MIN = 180
+# Single-stamp user turns get this default duration.
+SINGLE_TURN_MIN = 15
 MONTHS = {
     n: i
     for i, n in enumerate(
@@ -123,7 +134,7 @@ META_HINTS = re.compile(
     r"(?i)\b("
     r"where-did-time-go|workflog|atlassian plugin|agent compatibility|"
     r"how many cursor agents|which all agents|work-capture|what-did-i-get-done|"
-    r"cursor agents active|skill so that"
+    r"cursor agents active|skill so that|unused agents|cleared from m+emory"
     r")\b"
 )
 
@@ -150,14 +161,46 @@ def tickets_from_queries(queries: list[str]) -> str:
     found: list[str] = []
     for q in queries:
         for j in JIRA_RE.findall(q):
-            if j not in FAKE_JIRA and j not in found:
+            if j in FAKE_JIRA:
+                continue
+            if not JIRA_ALLOW.match(j):
+                continue
+            if j not in found:
                 found.append(j)
-    return ", ".join(found)
+    return ", ".join(found[:5])
+
+
+def cluster_activity(
+    stamps: list[datetime],
+    gap_min: int = IDLE_GAP_MIN,
+) -> list[tuple[datetime, datetime, int | None]]:
+    """Split sorted stamps into contiguous windows; return (start, end, mins)."""
+    if not stamps:
+        return []
+    stamps = sorted(stamps)
+    clusters: list[list[datetime]] = [[stamps[0]]]
+    for t in stamps[1:]:
+        prev = clusters[-1][-1]
+        if (t - prev).total_seconds() > gap_min * 60:
+            clusters.append([t])
+        else:
+            clusters[-1].append(t)
+    out: list[tuple[datetime, datetime, int | None]] = []
+    for c in clusters:
+        start, end = c[0], c[-1]
+        if len(c) == 1:
+            mins: int | None = SINGLE_TURN_MIN
+        else:
+            mins = int((end - start).total_seconds() // 60)
+            if mins == 0:
+                mins = SINGLE_TURN_MIN
+            mins = min(mins, MAX_BLOCK_MIN)
+        out.append((start, end, mins))
+    return out
 
 
 def collect_day_sessions(work_day: date) -> list[dict]:
     day_s = work_day.isoformat()
-    next_day = (work_day + timedelta(days=1)).isoformat()
     mon = work_day.strftime("%b")  # Aug
     day_label = f"{mon} {work_day.day}, {work_day.year}"  # Aug 4, 2026
     by_uuid: dict[str, Path] = {}
@@ -183,8 +226,10 @@ def collect_day_sessions(work_day: date) -> list[dict]:
 
     sessions: list[dict] = []
     for uuid, path in by_uuid.items():
-        day_ts: list[datetime] = []
+        # Prefer user-turn activity (realistic); fall back to all day stamps.
+        user_activity: list[datetime] = []
         day_queries: list[tuple[datetime, str]] = []
+        all_day_ts: list[datetime] = []
         try:
             lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
         except Exception:
@@ -200,44 +245,138 @@ def collect_day_sessions(work_day: date) -> list[dict]:
             text = extract_text(obj)
             tss = [parse_ts(m.group(1)) for m in TS_RE.finditer(text or "")]
             tss = [t for t in tss if t and t.strftime("%Y-%m-%d") == day_s]
-            day_ts.extend(tss)
+            all_day_ts.extend(tss)
             if obj.get("role") == "user":
-                uqs = [re.sub(r"\s+", " ", m.group(1)).strip() for m in UQ_RE.finditer(text or "")]
-                if uqs and tss:
-                    for q in uqs:
-                        if q:
-                            day_queries.append((tss[0], q))
-        if not day_ts:
+                uqs = [
+                    re.sub(r"\s+", " ", m.group(1)).strip()
+                    for m in UQ_RE.finditer(text or "")
+                ]
+                if not uqs:
+                    continue
+                stamp = tss[0] if tss else None
+                if stamp is None:
+                    continue
+                user_activity.append(stamp)
+                for q in uqs:
+                    if q:
+                        day_queries.append((stamp, q))
+
+        day_queries = [
+            (t, q)
+            for t, q in day_queries
+            if t.strftime("%Y-%m-%d") == day_s
+        ]
+        # Prefer user stamps; if sparse, fall back to all day stamps (still idle-split + cap).
+        activity = sorted(user_activity)
+        if len(activity) < 2 and all_day_ts:
+            activity = sorted(all_day_ts)
+        if not activity:
             continue
-        day_ts.sort()
-        start, end = day_ts[0], day_ts[-1]
-        mins = int((end - start).total_seconds() // 60)
-        if mins == 0 and len(day_ts) == 1:
-            mins = None
-        queries = [q for _, q in sorted(day_queries, key=lambda x: x[0])]
-        # Drop pure meta where-did-time-go skill dumps as sole activity
-        if len(queries) == 1 and "Session start" in queries[0] and "timestamp" in queries[0].lower():
+
+        queries_all = [q for _, q in sorted(day_queries, key=lambda x: x[0])]
+        if not queries_all:
+            try:
+                raw = path.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                raw = ""
+            for m in UQ_RE.finditer(raw):
+                q = re.sub(r"\s+", " ", m.group(1)).strip()
+                if q and "Session start" not in q:
+                    queries_all.append(q)
+                    if len(queries_all) >= 5:
+                        break
+        if (
+            len(queries_all) == 1
+            and "Session start" in queries_all[0]
+            and "timestamp" in queries_all[0].lower()
+        ):
             continue
-        sessions.append(
-            {
-                "uuid": uuid,
-                "start": start,
-                "end": end,
-                "mins": mins,
-                "queries": queries,
-                "title": topic_from_queries(queries),
-                "tickets": tickets_from_queries(queries),
-            }
-        )
+
+        for start, end, mins in cluster_activity(activity):
+            slack = timedelta(minutes=5)
+            qs = [
+                q
+                for t, q in day_queries
+                if (start - slack) <= t <= (end + slack)
+            ]
+            if not qs:
+                qs = queries_all[:2] if queries_all else ["Cursor chat activity"]
+            sessions.append(
+                {
+                    "uuid": uuid,
+                    "start": start,
+                    "end": end,
+                    "mins": mins,
+                    "queries": qs,
+                    "title": topic_from_queries(qs),
+                    "tickets": tickets_from_queries(qs),
+                }
+            )
     sessions.sort(key=lambda s: (s["start"], s["end"]))
-    return sessions
+    return dedupe_overlap_sessions(sessions)
+
+
+def _title_key(title: str) -> str:
+    t = re.sub(r"\s+", " ", (title or "").lower())[:50]
+    return t
+
+
+def dedupe_overlap_sessions(sessions: list[dict]) -> list[dict]:
+    """Drop near-duplicate blocks (same uuid or same title + overlapping window)."""
+    if not sessions:
+        return sessions
+    kept: list[dict] = []
+    for s in sessions:
+        dup = False
+        for k in kept:
+            same_chat = s["uuid"] == k["uuid"]
+            same_topic = _title_key(s.get("title", "")) == _title_key(k.get("title", ""))
+            overlaps = s["start"] <= k["end"] and k["start"] <= s["end"]
+            if overlaps and (same_chat or same_topic):
+                if (s.get("mins") or 0) > (k.get("mins") or 0) or len(
+                    s.get("queries") or []
+                ) > len(k.get("queries") or []):
+                    kept.remove(k)
+                    kept.append(s)
+                dup = True
+                break
+        if not dup:
+            kept.append(s)
+    kept.sort(key=lambda s: (s["start"], s["end"]))
+    return kept
+
+
+def merged_active_minutes(sessions: list[dict]) -> int:
+    """Union of session intervals so parallel chats do not inflate the total."""
+    intervals: list[tuple[datetime, datetime]] = []
+    for s in sessions:
+        mins = s.get("mins")
+        if not isinstance(mins, int) or mins <= 0:
+            continue
+        start = s["start"]
+        end = start + timedelta(minutes=mins)
+        # Prefer explicit end if later
+        if s["end"] > end:
+            end = min(s["end"], start + timedelta(minutes=MAX_BLOCK_MIN))
+        intervals.append((start, end))
+    if not intervals:
+        return 0
+    intervals.sort()
+    merged: list[list[datetime]] = [[intervals[0][0], intervals[0][1]]]
+    for a, b in intervals[1:]:
+        if a <= merged[-1][1]:
+            if b > merged[-1][1]:
+                merged[-1][1] = b
+        else:
+            merged.append([a, b])
+    total = 0
+    for a, b in merged:
+        total += int((b - a).total_seconds() // 60)
+    return total
 
 
 def split_long_session(session: dict) -> list[dict]:
-    """Split one session when query gaps exceed 90 minutes."""
-    queries = session["queries"]
-    # We only have query texts, not per-query times in this simplified path
-    # Keep as one block; agent skill does smarter splits when run interactively.
+    """Legacy no-op; clustering happens in collect_day_sessions."""
     return [session]
 
 
@@ -276,9 +415,9 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         "| # | Time | Duration | Work | Ticket | Chat |",
         "|---|------|----------|------|--------|------|",
     ]
-    total_mins = 0
     mix = {"build": 0, "ops": 0, "meta": 0}
     work_cells: list[str] = []
+    naive_sum = 0
     for i, s in enumerate(sessions, 1):
         t0 = s["start"].strftime("%H:%M")
         t1 = s["end"].strftime("%H:%M")
@@ -287,7 +426,7 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         work_cells.append(work)
         tag = work.split(":", 1)[0].lower()
         if isinstance(s["mins"], int):
-            total_mins += s["mins"]
+            naive_sum += s["mins"]
             if tag in mix:
                 mix[tag] += s["mins"]
         ticket = s["tickets"]
@@ -299,12 +438,24 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         lines.append("| 1 | — | unknown | meta: No Cursor chat activity found | | |")
         work_cells.append("meta: No Cursor chat activity found")
 
+    total_mins = merged_active_minutes(sessions)
+    # Scale mix to merged total so Mix adds up to Total (avoid parallel double-count).
+    if naive_sum > 0 and total_mins > 0 and naive_sum != total_mins:
+        scale = total_mins / naive_sum
+        mix = {k: int(round(v * scale)) for k, v in mix.items()}
+        # Fix rounding drift on the largest bucket
+        drift = total_mins - sum(mix.values())
+        if drift and mix:
+            top = max(mix, key=lambda k: mix[k])
+            mix[top] += drift
+
     lines.append("")
     if total_mins:
-        lines.append(
-            f"**Total duration:** {fmt_dur(total_mins)} "
-            "*(estimates from chat timestamps; auto-generated daily run)*"
+        note = (
+            f"*(user-activity clusters; 45m idle split; {MAX_BLOCK_MIN // 60}h block cap; "
+            "parallel overlap not double-counted; auto-generated)*"
         )
+        lines.append(f"**Total duration:** {fmt_dur(total_mins)} {note}")
     else:
         lines.append(
             "**Total duration:** unknown *(auto-generated daily run; sparse timestamps)*"

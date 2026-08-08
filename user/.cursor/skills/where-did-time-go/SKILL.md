@@ -67,15 +67,19 @@ For each matching `.jsonl`:
 1. Pull every `<timestamp>...` and every `<user_query>...`.
 2. **Session start** = earliest timestamp that day (else first user turn that day).
 3. **Session end** = latest timestamp that day (else file mtime if same day).
-4. **Duration** = end − start (label `~`). If only one stamp → `duration unknown`.
+4. **Duration** = end − start within an **active** window (label `~`).
+   Split when idle gap between user activity stamps exceeds ~45 minutes.
+   Cap any single contiguous block at ~3h so mega-chats cannot inflate a full day.
+   If only one stamp → `~15m` default (or `unknown` if truly empty).
 5. **Topic** = short outcome from user queries + final assistant conclusion
    (what was worked on — not tool spam). Prefer functional wording.
 6. **Tag** the topic as `build:` / `ops:` / `meta:` (see Work tags in step 6).
-7. Note Jira keys if present (`PROJ-123` pattern only); leave **Ticket** blank when none.
+7. Note Jira keys if present (`HDP-`/`AAN-`/… only); leave **Ticket** blank when none.
+   Ignore fake keys scraped from log pastes (`XX-`, random `FEB-1991`, etc.).
 8. Cite `[title](uuid)` with transcript uuid (folder/stem).
 
-Split one long chat into multiple blocks **only** when the topic clearly changes
-(new problem / new ticket) with timestamps far apart; otherwise one block per session.
+Split one long chat into multiple blocks when idle gaps exceed ~45 minutes
+or the topic clearly changes (new problem / new ticket).
 
 ### 4. One timeline across all chats
 
@@ -344,7 +348,7 @@ Manual run:
 
 Notes:
 
-- Auto output is heuristic (timestamps + user queries). Re-run
-  `/where-did-time-go` in Cursor when you want a polished table.
+- Auto output uses user-activity clustering (45m idle split, ~3h block cap).
+  Re-run `/where-did-time-go` in Cursor when you want a polished table.
 - Task must run while the user is logged in (`Interactive` logon).
 - If the PC is asleep at 23:59, `StartWhenAvailable` runs it after wake.
