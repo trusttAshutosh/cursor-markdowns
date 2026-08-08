@@ -111,6 +111,41 @@ def topic_from_queries(queries: list[str]) -> str:
     return (q[:90] + ("…" if len(q) > 90 else ""))
 
 
+# Heuristic Work tags for auto-runner (agent polish can override).
+OPS_HINTS = re.compile(
+    r"(?i)\b("
+    r"flyway|checksum|jenkins|deploy|merge.?conflict|/fix-merge-conflicts|"
+    r"branch sync|checkout to|take latest pull|ddp-bkup|platform_master|"
+    r"validate failure|repair/validate|env drift|actuator"
+    r")\b"
+)
+META_HINTS = re.compile(
+    r"(?i)\b("
+    r"where-did-time-go|workflog|atlassian plugin|agent compatibility|"
+    r"how many cursor agents|which all agents|work-capture|what-did-i-get-done|"
+    r"cursor agents active|skill so that"
+    r")\b"
+)
+
+
+def classify_work(topic: str, queries: list[str] | None = None) -> str:
+    """Return build: / ops: / meta: prefix for a Work cell."""
+    blob = " ".join([topic or ""] + (queries or [])[:5])
+    if META_HINTS.search(blob) or topic.startswith("/where-did-time-go"):
+        return "meta"
+    if OPS_HINTS.search(blob) or topic.startswith("/fix-merge-conflicts"):
+        return "ops"
+    return "build"
+
+
+def tagged_work(topic: str, queries: list[str] | None = None) -> str:
+    tag = classify_work(topic, queries)
+    phrase = topic.strip()
+    if phrase.lower().startswith(("build:", "ops:", "meta:")):
+        return phrase
+    return f"{tag}: {phrase}"
+
+
 def tickets_from_queries(queries: list[str]) -> str:
     found: list[str] = []
     for q in queries:
@@ -215,19 +250,24 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         "|---|------|----------|------|--------|------|",
     ]
     total_mins = 0
+    mix = {"build": 0, "ops": 0, "meta": 0}
     for i, s in enumerate(sessions, 1):
         t0 = s["start"].strftime("%H:%M")
         t1 = s["end"].strftime("%H:%M")
         dur = fmt_dur(s["mins"])
+        work = tagged_work(s["title"].replace("|", "/"), s.get("queries")).replace("|", "/")
+        tag = work.split(":", 1)[0].lower()
         if isinstance(s["mins"], int):
             total_mins += s["mins"]
-        work = s["title"].replace("|", "/")
+            if tag in mix:
+                mix[tag] += s["mins"]
         ticket = s["tickets"]
-        chat = f"[{s['title'][:40]}]({s['uuid']})"
+        chat_title = s["title"][:40].replace("|", "/")
+        chat = f"[{chat_title}]({s['uuid']})"
         lines.append(f"| {i} | {t0}–{t1} | {dur} | {work} | {ticket} | {chat} |")
 
     if not sessions:
-        lines.append("| 1 | — | unknown | No Cursor chat activity found | | |")
+        lines.append("| 1 | — | unknown | meta: No Cursor chat activity found | | |")
 
     lines.append("")
     if total_mins:
@@ -239,6 +279,10 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         lines.append(
             "**Total duration:** unknown *(auto-generated daily run; sparse timestamps)*"
         )
+    lines.append(
+        f"**Mix:** build {fmt_dur(mix['build'])} · ops {fmt_dur(mix['ops'])} · "
+        f"meta {fmt_dur(mix['meta'])}"
+    )
     if sessions:
         wall0 = sessions[0]["start"].strftime("%H:%M")
         wall1 = sessions[-1]["end"].strftime("%H:%M")

@@ -1,8 +1,8 @@
-# Last sync: 2026-08-08T21:43:41Z
+# Last sync: 2026-08-08T22:13:50Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 398 | `user\.cursor` |
+| user | 399 | `user\.cursor` |
 | novopay-workspace | 38 | `novopay\.cursor` |
 | cc | 8 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |

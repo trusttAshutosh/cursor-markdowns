@@ -26,10 +26,10 @@ Default window: **today** (local timezone). Also: yesterday, last N days, a date
 ```
 - [ ] 1. Resolve day + person
 - [ ] 2. Collect sessions for that day
-- [ ] 3. Build time blocks (start → end → topic)
+- [ ] 3. Build time blocks (start → end → topic + build/ops/meta tag)
 - [ ] 4. Sort chronologically; merge overlaps
 - [ ] 5. Optionally attach commits to blocks
-- [ ] 6. Emit workflog (table + total duration footer)
+- [ ] 6. Emit workflog (table + total duration + Mix footer)
 - [ ] 7. Persist run to Desktop worklogs (required)
 ```
 
@@ -70,8 +70,9 @@ For each matching `.jsonl`:
 4. **Duration** = end − start (label `~`). If only one stamp → `duration unknown`.
 5. **Topic** = short outcome from user queries + final assistant conclusion
    (what was worked on — not tool spam). Prefer functional wording.
-6. Note Jira keys if present (`PROJ-123` pattern only); leave **Ticket** blank when none.
-7. Cite `[title](uuid)` with transcript uuid (folder/stem).
+6. **Tag** the topic as `build:` / `ops:` / `meta:` (see Work tags in step 6).
+7. Note Jira keys if present (`PROJ-123` pattern only); leave **Ticket** blank when none.
+8. Cite `[title](uuid)` with transcript uuid (folder/stem).
 
 Split one long chat into multiple blocks **only** when the topic clearly changes
 (new problem / new ticket) with timestamps far apart; otherwise one block per session.
@@ -105,11 +106,13 @@ Always end with a **total duration** line.
 
 | # | Time | Duration | Work | Ticket | Chat |
 |---|------|----------|------|--------|------|
-| 1 | 08:10–08:55 | ~45m | OTP RCA | | [OTP RCA](uuid) |
-| 2 | 09:05–09:25 | ~20m | DSA report DAO fix | PROJ-123 | [DSA report fix](uuid) |
-| 3 | 14:05–14:45 | ~40m | Atlassian capture design | | [Work capture design](uuid) |
+| 1 | 08:10–08:55 | ~45m | build: OTP RCA | | [OTP RCA](uuid) |
+| 2 | 09:05–09:25 | ~20m | build: DSA report DAO fix | PROJ-123 | [DSA report fix](uuid) |
+| 3 | 14:05–14:45 | ~40m | meta: Atlassian capture design | | [Work capture design](uuid) |
 
 **Total duration:** ~1h 45m *(estimates from chat timestamps)*
+
+**Mix:** build ~1h 5m · ops ~0m · meta ~40m
 
 **Wall clock:** 08:10–14:45 (~6h 35m span) — optional; include when gaps between blocks are large.
 ```
@@ -121,11 +124,31 @@ Always end with a **total duration** line.
 | **#** | Row number, sort key = start time |
 | **Time** | `HH:MM–HH:MM` block start–end |
 | **Duration** | `~Xm` or `~Xh Ym`; use `unknown` if only one stamp |
-| **Work** | One short phrase — what was done (outcome, not tool spam) |
+| **Work** | **Required tag** + one short phrase — see Work tags below |
 | **Ticket** | Jira ID(s) only (e.g. `PROJ-123`, `AAN-601`); **leave blank** when none — never `no ticket`, prose, or repo names |
 | **Chat** | `[title](uuid)` transcript cite |
 
-Mark overlapping different-topic blocks with `(overlap)` in the **Work** cell.
+Mark overlapping different-topic blocks with `(overlap)` in the **Work** cell
+(after the tag), e.g. `ops: Jenkins deploy watch (overlap)`.
+
+#### Work tags (required)
+
+Every **Work** cell **must** start with exactly one of these prefixes
+(`tag:` + space + phrase):
+
+| Tag | Use for | Examples |
+|-----|---------|----------|
+| `build:` | Shipping product/ticket work - implement, fix, test, Bob prove, commit, ticket RCA toward a change | Feature/bug code, Sonar on feature tests, UAT RCA for a ticket, QA handoff for a feature |
+| `ops:` | Env / deploy / infra / branch hygiene - firefighting that is not the feature itself | Flyway checksum repair, Jenkins watch, merge-conflict resolve, branch sync/pull, DB/env drift checks |
+| `meta:` | Tooling, process, skills, non-ticket analysis | `/where-did-time-go`, plugin how-tos, agent hygiene, work-capture design, Jira insights canvases |
+
+Rules for tagging:
+
+- Pick **one** primary tag (the dominant purpose of the block).
+- Ticket-linked investigation that aims to ship a fix → `build:` (even if mostly logs).
+- Pure deploy/Flyway/merge/branch work with no feature outcome → `ops:`.
+- Skills, Cursor tooling, standup capture, product-insight docs with no code → `meta:`.
+- Never invent other prefixes (`fix:`, `qa:`, etc.).
 
 #### Total duration (required footer)
 
@@ -137,27 +160,42 @@ Mark overlapping different-topic blocks with `(overlap)` in the **Work** cell.
 4. Format total as `~Xh Ym` (or `~Xm` if under 1h).
 5. Always note estimates when timestamps are sparse: *(estimates from chat timestamps)*.
 
+#### Mix footer (required)
+
+After **Total duration**, always emit a **Mix** line that sums minutes by Work tag
+(same overlap rules as the total - do not double-count shared windows):
+
+```markdown
+**Mix:** build ~Xh Ym · ops ~Ym · meta ~Zm
+```
+
+Omit a category only if its sum is 0 (`ops ~0m` is fine to keep for scanability).
+Unknown-duration rows do not contribute to Mix (same as Total).
+
 Example footer:
 
 ```markdown
 **Total duration:** ~7h 20m *(estimates from chat timestamps; 31m overlap not double-counted)*
+
+**Mix:** build ~4h 10m · ops ~2h 30m · meta ~40m
 ```
 
 #### Spoken shape (optional, after the table)
 
-> Ashutosh — 2026-07-31 — **~1h 45m total**  
-> 08:10–08:55 OTP RCA · 09:05–09:25 DSA report DAO fix · 14:05–14:45 Atlassian capture design
+> Ashutosh — 2026-07-31 — **~1h 45m total** (build ~1h 5m / meta ~40m)  
+> 08:10–08:55 build: OTP RCA · 09:05–09:25 build: DSA report DAO fix · 14:05–14:45 meta: Atlassian capture design
 
 Wrong: sections per chat (“Chat 1… Chat 2…”).  
 Wrong: numbered list instead of table.  
-Right: one table from earliest start to latest end, total at the bottom.
+Wrong: Work cell without `build:` / `ops:` / `meta:` prefix.  
+Right: one table from earliest start to latest end, total + Mix at the bottom.
 
 Rules:
 
 - Sort key = block start time only (cross-chat).
-- One row per block; keep **Work** to one line.
+- One row per block; keep **Work** to one line starting with `build:` / `ops:` / `meta:`.
 - **Ticket** column: Jira IDs only; blank cell if no linked ticket.
-- Always state the date and **Total duration** footer.
+- Always state the date, **Total duration**, and **Mix** footer.
 - Durations are estimates from chat timestamps — say so if sparse.
 - Do not create Jira unless explicitly asked this turn.
 - No secrets, full logs, or stack traces.
