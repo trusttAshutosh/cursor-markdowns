@@ -10,6 +10,7 @@ User may explain the issue in **normal chat** after `/rca-logs` - ticket id, sym
 
 Rules:
 - **grep only** (never rg) for `/apps/applogs/dsa/*-dsa.log*` and `/apps/applogs/common/*-common.log*`.
+- If user **pastes** a large log blob into chat, run `bob shrink-logs` first; analyze digest only (full preserved on disk).
 - Include rotated logs (`*.log*`).
 - Blocks: txn correlation, request-out, response-in, crash/error, plus live `tail -F` with `grep --line-buffered`.
 - Return JSON: status, command_pack, evidence_checklist (6 items), next_action.

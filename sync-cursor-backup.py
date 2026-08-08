@@ -252,6 +252,16 @@ def main() -> int:
             NOVOPAY / ".cursor" / "WORKFLOWS.md",
             ROOT / "WORKFLOW.md",
         ),
+        (
+            "bob-shrink-logs",
+            NOVOPAY / "bob-the-builder/runner/lib/shrink_logs.py",
+            ROOT / "bob" / "runner" / "lib" / "shrink_logs.py",
+        ),
+        (
+            "bob-shrink-logs-test",
+            NOVOPAY / "bob-the-builder/runner/tests/test_shrink_logs.py",
+            ROOT / "bob" / "runner" / "tests" / "test_shrink_logs.py",
+        ),
     ]
     extra_count = 0
     for label, src, dst in extras:

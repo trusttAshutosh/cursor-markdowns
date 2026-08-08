@@ -1,10 +1,10 @@
-# Last sync: 2026-08-04T19:16:55Z
+# Last sync: 2026-08-08T21:38:47Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 378 | `user\.cursor` |
-| novopay-workspace | 32 | `novopay\.cursor` |
-| cc | 7 | `cc\.cursor` |
+| user | 398 | `user\.cursor` |
+| novopay-workspace | 36 | `novopay\.cursor` |
+| cc | 8 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |
 | bob-template-host-cc | 6 | `bob-templates\host-cc\.cursor` |
@@ -32,3 +32,5 @@
 | bob-mcp-servers | 1 | `bob\config\mcp-servers.yaml` |
 | bob-tool-bridge | 1 | `bob\config\tool-bridge.yaml` |
 | workflow-mirror | 1 | `WORKFLOW.md` |
+| bob-shrink-logs | 1 | `bob\runner\lib\shrink_logs.py` |
+| bob-shrink-logs-test | 1 | `bob\runner\tests\test_shrink_logs.py` |

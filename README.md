@@ -62,6 +62,9 @@ See `SYNC_MANIFEST.md` for last run file counts.
 | `actor/.cursor/` | `novopay-platform-actor/.cursor/` |
 | `gateway/.cursor/` | `novopay-platform-api-gateway/.cursor/` |
 | `WORKFLOW.md` | Mirror of `novopay/.cursor/WORKFLOWS.md` |
+| `TOKEN_HYGIENE.md` | Token-saving workflow (shrink-logs, prompt-hygiene skill) |
+| `user/CURSOR_USER_RULES.md` | Cursor Settings user rules offline snapshot |
+| `bob/runner/lib/shrink_logs.py` | Bob log shrink command (restore into live bob-the-builder) |
 
 ## What is included (all `.cursor` file types)
 

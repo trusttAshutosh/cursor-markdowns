@@ -21,6 +21,7 @@ Treat the context window as a fixed budget (~200K). Squad target: **stay under ~
 - **One ticket per chat.** Archive when switching tickets (`bob chat-hygiene --auto`).
 - **Pin sparingly:** ticket-spec + 1-2 files max.
 - **Bob proof stays in files:** read `GATE_SUMMARY.md` / `REPORT.md` paths; summarize in ~5 lines, do not paste logs.
+- **Pasted logs:** run `bob shrink-logs`; digest first; if insufficient, agent reads `full.log` via `latest.json` - user never supplies paths.
 - **Start heavy work fresh:** if context feels full, new chat + `docs/tdd-runs/<id>/TICKET_RESUME.md`.
 - **Run once per ticket:** `bob context --ticket <id>` - link paths, do not dump the whole CONTEXT_PACK.
 
@@ -30,4 +31,4 @@ If `{workspace}/.cursor/memory-budget-status.json` shows `"status": "critical"` 
 
 ## Commands
 
-`bob memory-budget` · `bob context-audit` · `bob chat-hygiene --auto` · `bob prune-overhead --apply`
+`bob memory-budget` · `bob chat-hygiene --auto` · `bob context-audit` · `bob prune-overhead --apply` · `bob shrink-logs [file]`
