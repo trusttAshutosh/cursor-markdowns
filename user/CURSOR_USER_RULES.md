@@ -11,6 +11,19 @@ Paste logs directly into chat as you do today. Agent runs `bob shrink-logs`, ans
 
 ---
 
+## Backup skills/rules to cursor-markdowns
+
+After any create/edit of Cursor skills, rules, slash commands, hooks, WORKFLOWS, user rules, or other agent-facing config (`~/.cursor`, `novopay/.cursor`, service `.cursor` overlays): before finishing the task, backup and push to cursor-markdowns.
+
+Steps (agent-owned):
+1. `cd Desktop/cursor-markdowns && python sync-cursor-backup.py`
+2. `git add` relevant paths; commit with clear message (what + why)
+3. `git push origin main`
+
+Skip only if user explicitly says not to commit/push. Update `user/CURSOR_USER_RULES.md` when Cursor Settings user rules change.
+
+---
+
 ## SQL FQ names + server grep only
 
 SQL: Always use fully qualified schema_name.table_name. Prefer pasted prod DDL under novopay/.cursor/memory/prod-ddl/ when present. Before sharing queries, check for env-specific schema drift (QA vs UAT vs prod / recent Flyway) and explicitly call out columns or tables that may not exist on the target env.

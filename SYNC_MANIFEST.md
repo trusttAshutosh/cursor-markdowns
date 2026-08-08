@@ -1,16 +1,16 @@
-# Last sync: 2026-08-08T21:38:47Z
+# Last sync: 2026-08-08T21:43:41Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
 | user | 398 | `user\.cursor` |
-| novopay-workspace | 36 | `novopay\.cursor` |
+| novopay-workspace | 38 | `novopay\.cursor` |
 | cc | 8 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |
 | bob-template-host-cc | 6 | `bob-templates\host-cc\.cursor` |
 | bob-template-novopay | 13 | `bob-templates\novopay\.cursor` |
-| actor | 0 | `missing source` |
-| gateway | 0 | `missing source` |
+| actor | 1 | `actor\.cursor` |
+| gateway | 1 | `gateway\.cursor` |
 | agent-webapp | 8 | `agent-webapp\.cursor` |
 | bob-onboarding-cursor | 3 | `bob-templates\onboarding-cursor` |
 | cc-skills-into-novopay | 2 | `novopay\.cursor\skills (merged from CC)` |

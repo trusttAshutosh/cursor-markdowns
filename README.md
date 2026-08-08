@@ -110,6 +110,7 @@ Hook throttle timestamps (e.g. `posttool-nudge-ts`) **are** backed up when prese
 
 ## Policy
 
+- **After any skills/rules/hooks/commands change:** agent runs sync + commit + push to this repo (see [BACKUP_POLICY.md](BACKUP_POLICY.md)). User should not need to ask.
 - Canonical skills: edit only `novopay/.cursor/skills/`; CC uses a junction on disk.
 - Re-run `sync-cursor-backup.py` before committing this repo.
 - Do not commit secrets from `user/.cursor` plans/mcp if they contain tokens - review before push.
