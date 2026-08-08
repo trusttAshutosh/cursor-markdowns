@@ -206,8 +206,118 @@ def restore_novopay_workspace(backup: Path, novopay: Path) -> None:
                 _copy_file(s, bob / "runner" / "config" / name)
                 print(f"  bob config {name}")
 
+    restore_bob_shrink_logs(backup, novopay)
 
-def print_next_steps(novopay: Path) -> None:
+
+def restore_bob_shrink_logs(backup: Path, novopay: Path) -> None:
+    """Copy shrink_logs from backup and wire builder_cli if upstream bob lacks it."""
+    bob = novopay / "bob-the-builder"
+    if not bob.is_dir():
+        print("  WARN: bob-the-builder missing; skip shrink-logs restore")
+        return
+
+    backup_runner = backup / "bob" / "runner"
+    copies = [
+        (backup_runner / "lib" / "shrink_logs.py", bob / "runner" / "lib" / "shrink_logs.py"),
+        (backup_runner / "tests" / "test_shrink_logs.py", bob / "runner" / "tests" / "test_shrink_logs.py"),
+    ]
+    copied = 0
+    for src, dst in copies:
+        if not src.is_file():
+            print(f"  WARN: backup missing {src.relative_to(backup)}")
+            continue
+        _copy_file(src, dst)
+        copied += 1
+    if copied:
+        print(f"  bob shrink-logs files ({copied} copied)")
+
+    cli = bob / "runner" / "lib" / "builder_cli.py"
+    if not cli.is_file():
+        print("  WARN: builder_cli.py missing; skip shrink-logs wiring")
+        return
+    if patch_builder_cli_shrink_logs(cli):
+        print("  wired bob shrink-logs into builder_cli.py")
+    else:
+        print("  bob shrink-logs already wired in builder_cli.py")
+
+
+def patch_builder_cli_shrink_logs(cli_path: Path) -> bool:
+    """Idempotent: return True if file was modified."""
+    text = cli_path.read_text(encoding="utf-8")
+    if '"shrink-logs": "shrink-logs"' in text and "def cmd_shrink_logs" in text:
+        return False
+
+    updated = text
+
+    if '"shrink-logs": "shrink-logs"' not in updated:
+        updated = updated.replace(
+            '    "pruneoverhead": "prune-overhead",\n',
+            '    "pruneoverhead": "prune-overhead",\n'
+            '    "shrink-logs": "shrink-logs",\n'
+            '    "shrink_logs": "shrink-logs",\n'
+            '    "shrinklogs": "shrink-logs",\n',
+            1,
+        )
+
+    help_line = (
+        '    print("  shrink-logs [file|-] [--ticket ID]   '
+        'Compress logs for chat; full copy preserved on disk")\n'
+    )
+    if help_line.strip() not in updated:
+        updated = updated.replace(
+            '    print("  prune-overhead [--dry-run|--apply]   Apply squad policy (after mcp-audit)")\n',
+            '    print("  prune-overhead [--dry-run|--apply]   Apply squad policy (after mcp-audit)")\n'
+            + help_line,
+            1,
+        )
+
+    handler_fn = (
+        "\n\n"
+        "def cmd_shrink_logs(args: list[str]) -> int:\n"
+        '    _banner("shrink-logs")\n'
+        "    from shrink_logs import run_shrink_logs_cli\n\n"
+        "    return run_shrink_logs_cli(args)\n"
+    )
+    if "def cmd_shrink_logs" not in updated:
+        updated = updated.replace(
+            "    return run_prune_cursor_overhead(args)\n\n\n"
+            "def cmd_mcp_audit(args: list[str]) -> int:",
+            "    return run_prune_cursor_overhead(args)\n"
+            + handler_fn
+            + "\n\n"
+            "def cmd_mcp_audit(args: list[str]) -> int:",
+            1,
+        )
+
+    if '"shrink-logs": cmd_shrink_logs' not in updated:
+        updated = updated.replace(
+            '        "prune-overhead": cmd_prune_overhead,\n'
+            '        "mcp-audit": cmd_mcp_audit,',
+            '        "prune-overhead": cmd_prune_overhead,\n'
+            '        "shrink-logs": cmd_shrink_logs,\n'
+            '        "mcp-audit": cmd_mcp_audit,',
+            1,
+        )
+
+    if '\n        "shrink-logs",\n' not in updated:
+        updated = updated.replace(
+            '        "prune-overhead",\n'
+            '        "mcp-audit",',
+            '        "prune-overhead",\n'
+            '        "shrink-logs",\n'
+            '        "mcp-audit",',
+            1,
+        )
+
+    if updated == text:
+        return False
+
+    _writable(cli_path)
+    cli_path.write_text(updated, encoding="utf-8")
+    return True
+
+
+def print_next_steps(novopay: Path, backup: Path) -> None:
     print()
     print("=" * 64)
     print("DONE - next steps on this laptop")
@@ -217,8 +327,12 @@ def print_next_steps(novopay: Path) -> None:
     print(f"   {novopay / '.cursor' / 'CURSOR_PLUGINS.md'}")
     print("   (or run: python bob.py plugins   from Desktop\\novopay)")
     print("3. Smoke:  python bob.py --help")
-    print("4. Smoke:  npm run validate -- novopay-platform-api-gateway")
-    print("5. Auth GitHub for khoslalabs / trusttAshutosh if any clone failed.")
+    print("4. Smoke:  python bob.py shrink-logs --help")
+    print("5. Smoke:  npm run validate -- novopay-platform-api-gateway")
+    print("6. Paste user rules from backup (Cursor Settings > Rules):")
+    print(f"   {backup / 'user' / 'CURSOR_USER_RULES.md'}")
+    print("7. Once: python bob.py prune-overhead --apply  then reload Cursor")
+    print("8. Auth GitHub for khoslalabs / trusttAshutosh if any clone failed.")
     print("=" * 64)
 
 
@@ -291,7 +405,7 @@ def main() -> int:
         restore_novopay_workspace(backup, novopay)
         print()
 
-    print_next_steps(novopay)
+    print_next_steps(novopay, backup)
     return 1 if results.get("failed", 0) else 0
 
 

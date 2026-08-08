@@ -89,7 +89,10 @@ Manual fallback:
 1. Clone/copy this backup to `Desktop/cursor-markdowns`.
 2. Run `SETUP-NEW-LAPTOP-NOVOPAY.bat` (or `python scripts/setup_new_laptop.py`).
 3. Install recommended plugins from `novopay/.cursor/CURSOR_PLUGINS.md` (or `bob plugins`).
-4. Open `Desktop/novopay/novopay.code-workspace`, run `python bob.py --help`, then `npm run validate -- <service-dir>` smoke.
+4. Paste user rules from `user/CURSOR_USER_RULES.md` into Cursor Settings > Rules.
+5. Open `Desktop/novopay/novopay.code-workspace`, run `python bob.py --help` and `python bob.py shrink-logs --help`.
+6. Once: `python bob.py prune-overhead --apply` then reload Cursor.
+7. Smoke: `npm run validate -- <service-dir>`.
 
 ## Excluded (IDE runtime only - not config)
 

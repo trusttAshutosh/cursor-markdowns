@@ -58,7 +58,8 @@ python bob.py chat-hygiene --auto      # also runs on Cursor session start
 
 ## Restore on new laptop
 
-1. Run `SETUP-NEW-LAPTOP-NOVOPAY.bat` (restores `.cursor` trees)
-2. Copy `bob/runner/lib/shrink_logs.py` into cloned `bob-the-builder/runner/lib/` if not merged upstream
-3. Apply `builder_cli-shrink-logs` patch or merge bob-the-builder branch with shrink-logs command
-4. Re-add user rules from `user/CURSOR_USER_RULES.md` in Cursor Settings
+1. Run `SETUP-NEW-LAPTOP-NOVOPAY.bat` (restores `.cursor` trees **and** `bob shrink-logs`)
+2. Re-add user rules from `user/CURSOR_USER_RULES.md` in Cursor Settings (4 rules)
+3. Once: `python bob.py prune-overhead --apply` then reload Cursor
+
+`setup_new_laptop.py` copies `shrink_logs.py` + tests and wires `builder_cli.py` automatically when upstream bob lacks the command.
