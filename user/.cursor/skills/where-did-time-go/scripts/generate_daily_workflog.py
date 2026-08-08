@@ -241,6 +241,33 @@ def split_long_session(session: dict) -> list[dict]:
     return [session]
 
 
+STOCK_LEGEND_EXAMPLES = {
+    "build": "build: HDP-7350 Bob E2E prove",
+    "ops": "ops: Flyway checksum repair SQL for CC mgmt tenants",
+    "meta": "meta: Daily workflog (/where-did-time-go)",
+}
+
+LEGEND_DEFS = {
+    "build": "shipping product/ticket work (implement, fix, test, Bob prove, ticket RCA)",
+    "ops": "env/deploy/infra/branch hygiene (not the feature itself)",
+    "meta": "tooling, skills, process, non-ticket analysis",
+}
+
+
+def legend_lines(work_cells: list[str]) -> list[str]:
+    """Build Legend bullets; prefer a real Work cell from today per tag."""
+    by_tag: dict[str, str] = {}
+    for work in work_cells:
+        tag = work.split(":", 1)[0].lower().strip()
+        if tag in LEGEND_DEFS and tag not in by_tag:
+            by_tag[tag] = work.strip()
+    lines = ["**Legend:**"]
+    for tag in ("build", "ops", "meta"):
+        ex = by_tag.get(tag) or STOCK_LEGEND_EXAMPLES[tag]
+        lines.append(f"- `{tag}:` {LEGEND_DEFS[tag]} - e.g. *{ex}*")
+    return lines
+
+
 def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
     lines = [
         f"## Workflog — {work_day.isoformat()}",
@@ -251,11 +278,13 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
     ]
     total_mins = 0
     mix = {"build": 0, "ops": 0, "meta": 0}
+    work_cells: list[str] = []
     for i, s in enumerate(sessions, 1):
         t0 = s["start"].strftime("%H:%M")
         t1 = s["end"].strftime("%H:%M")
         dur = fmt_dur(s["mins"])
         work = tagged_work(s["title"].replace("|", "/"), s.get("queries")).replace("|", "/")
+        work_cells.append(work)
         tag = work.split(":", 1)[0].lower()
         if isinstance(s["mins"], int):
             total_mins += s["mins"]
@@ -268,6 +297,7 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
 
     if not sessions:
         lines.append("| 1 | — | unknown | meta: No Cursor chat activity found | | |")
+        work_cells.append("meta: No Cursor chat activity found")
 
     lines.append("")
     if total_mins:
@@ -283,6 +313,7 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
         f"**Mix:** build {fmt_dur(mix['build'])} · ops {fmt_dur(mix['ops'])} · "
         f"meta {fmt_dur(mix['meta'])}"
     )
+    lines.extend(legend_lines(work_cells))
     if sessions:
         wall0 = sessions[0]["start"].strftime("%H:%M")
         wall1 = sessions[-1]["end"].strftime("%H:%M")

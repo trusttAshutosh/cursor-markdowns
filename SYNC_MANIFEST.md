@@ -1,10 +1,10 @@
-# Last sync: 2026-08-08T22:13:50Z
+# Last sync: 2026-08-08T22:18:15Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
 | user | 399 | `user\.cursor` |
 | novopay-workspace | 38 | `novopay\.cursor` |
-| cc | 8 | `cc\.cursor` |
+| cc | 9 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |
 | bob-template-host-cc | 6 | `bob-templates\host-cc\.cursor` |

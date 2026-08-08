@@ -29,7 +29,7 @@ Default window: **today** (local timezone). Also: yesterday, last N days, a date
 - [ ] 3. Build time blocks (start → end → topic + build/ops/meta tag)
 - [ ] 4. Sort chronologically; merge overlaps
 - [ ] 5. Optionally attach commits to blocks
-- [ ] 6. Emit workflog (table + total duration + Mix footer)
+- [ ] 6. Emit workflog (table + total duration + Mix + Legend footer)
 - [ ] 7. Persist run to Desktop worklogs (required)
 ```
 
@@ -114,6 +114,11 @@ Always end with a **total duration** line.
 
 **Mix:** build ~1h 5m · ops ~0m · meta ~40m
 
+**Legend:**
+- `build:` shipping product/ticket work (implement, fix, test, Bob prove, ticket RCA) - e.g. *build: DSA report DAO fix*
+- `ops:` env/deploy/infra/branch hygiene (not the feature itself) - e.g. *ops: Flyway checksum repair*
+- `meta:` tooling, skills, process, non-ticket analysis - e.g. *meta: Atlassian capture design*
+
 **Wall clock:** 08:10–14:45 (~6h 35m span) — optional; include when gaps between blocks are large.
 ```
 
@@ -136,11 +141,11 @@ Mark overlapping different-topic blocks with `(overlap)` in the **Work** cell
 Every **Work** cell **must** start with exactly one of these prefixes
 (`tag:` + space + phrase):
 
-| Tag | Use for | Examples |
-|-----|---------|----------|
-| `build:` | Shipping product/ticket work - implement, fix, test, Bob prove, commit, ticket RCA toward a change | Feature/bug code, Sonar on feature tests, UAT RCA for a ticket, QA handoff for a feature |
-| `ops:` | Env / deploy / infra / branch hygiene - firefighting that is not the feature itself | Flyway checksum repair, Jenkins watch, merge-conflict resolve, branch sync/pull, DB/env drift checks |
-| `meta:` | Tooling, process, skills, non-ticket analysis | `/where-did-time-go`, plugin how-tos, agent hygiene, work-capture design, Jira insights canvases |
+| Tag | Use for | Examples (from Ashutosh worklogs) |
+|-----|---------|-----------------------------------|
+| `build:` | Shipping product/ticket work - implement, fix, test, Bob prove, commit, ticket RCA toward a change | `build: HDP-7350 Bob E2E prove`; `build: KYC filler5 / BioKYC→SCVKYC`; `build: LOC report same-day export fix`; `build: UAT log RCA: fillers, mobile match` |
+| `ops:` | Env / deploy / infra / branch hygiene - firefighting that is not the feature itself | `ops: Flyway checksum repair SQL for CC mgmt tenants`; `ops: Jenkins initial-setup QA deploy monitoring`; `ops: CC/lib merge conflicts`; `ops: platform_master Flyway row / V702101` |
+| `meta:` | Tooling, process, skills, non-ticket analysis | `meta: Atlassian plugin + work-capture design`; `meta: CC Jira insights canvas`; `meta: Daily workflog (/where-did-time-go)`; `meta: Agent Compatibility plugin` |
 
 Rules for tagging:
 
@@ -172,12 +177,34 @@ After **Total duration**, always emit a **Mix** line that sums minutes by Work t
 Omit a category only if its sum is 0 (`ops ~0m` is fine to keep for scanability).
 Unknown-duration rows do not contribute to Mix (same as Total).
 
-Example footer:
+#### Legend footer (required)
+
+After **Mix**, always emit a short **Legend** that defines each tag and cites
+**one real example from this day's table** when that tag appeared (prefer the
+shortest clear Work cell). If a tag had 0 minutes today, still define it and
+use a stock example from the Work tags table above (Ashutosh worklogs).
+
+```markdown
+**Legend:**
+- `build:` shipping product/ticket work (implement, fix, test, Bob prove, ticket RCA) - e.g. *build: HDP-7350 Bob E2E prove*
+- `ops:` env/deploy/infra/branch hygiene (not the feature itself) - e.g. *ops: CC/lib merge conflicts*
+- `meta:` tooling, skills, process, non-ticket analysis - e.g. *meta: Daily workflog (/where-did-time-go)*
+```
+
+Keep each bullet to one line. Do not invent fake Work phrases - pull from today's
+rows or the stock examples.
+
+Example footer block:
 
 ```markdown
 **Total duration:** ~7h 20m *(estimates from chat timestamps; 31m overlap not double-counted)*
 
 **Mix:** build ~4h 10m · ops ~2h 30m · meta ~40m
+
+**Legend:**
+- `build:` shipping product/ticket work (implement, fix, test, Bob prove, ticket RCA) - e.g. *build: KYC UAT filler mapping*
+- `ops:` env/deploy/infra/branch hygiene (not the feature itself) - e.g. *ops: Jenkins QA deploy monitoring*
+- `meta:` tooling, skills, process, non-ticket analysis - e.g. *meta: work-capture tool design*
 ```
 
 #### Spoken shape (optional, after the table)
@@ -188,14 +215,15 @@ Example footer:
 Wrong: sections per chat (“Chat 1… Chat 2…”).  
 Wrong: numbered list instead of table.  
 Wrong: Work cell without `build:` / `ops:` / `meta:` prefix.  
-Right: one table from earliest start to latest end, total + Mix at the bottom.
+Wrong: Mix without Legend.  
+Right: one table from earliest start to latest end, total + Mix + Legend at the bottom.
 
 Rules:
 
 - Sort key = block start time only (cross-chat).
 - One row per block; keep **Work** to one line starting with `build:` / `ops:` / `meta:`.
 - **Ticket** column: Jira IDs only; blank cell if no linked ticket.
-- Always state the date, **Total duration**, and **Mix** footer.
+- Always state the date, **Total duration**, **Mix**, and **Legend** footer.
 - Durations are estimates from chat timestamps — say so if sparse.
 - Do not create Jira unless explicitly asked this turn.
 - No secrets, full logs, or stack traces.
