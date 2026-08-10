@@ -5,14 +5,16 @@ Cloud sync may restore them automatically; this file is the offline backup.
 
 ---
 
-## MarkItDown optional - PDF/Office only
+## MarkItDown - auto-convert attachments when MCP on
 
-MarkItDown (PDF/Office to Markdown) is optional.
+MarkItDown (PDF/Office to Markdown) - optional MCP, auto-convert when enabled.
 
-- Use only when user says `/markitdown` or asks to convert PDF/DOCX/XLSX/PPTX (bank specs, mapping sheets).
-- Prefer MCP tool `convert_to_markdown` if server `markitdown` is enabled; else CLI: `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<path>"`.
-- Do not use for applogs (`bob shrink-logs`), code, Jira/Confluence, or RCA greps.
-- Keep the MCP server disabled in Cursor Settings > MCP when not converting docs.
+- Keep MCP server `markitdown` disabled in Cursor Settings until a doc-heavy chat.
+- When MCP is **enabled** and user attaches or links PDF/DOCX/XLSX/PPTX (or .doc/.xls/.ppt): **always** call `convert_to_markdown` first, then answer from Markdown - do not ingest raw PDF/binary.
+- Direct file URLs (`https://.../spec.pdf`): convert first when MCP enabled.
+- MCP disabled + local attachment: CLI `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<path>"` first.
+- Also on `/markitdown` or explicit convert request.
+- Never for applogs (`bob shrink-logs`), code, Jira/Confluence, or RCA greps.
 
 ---
 

@@ -1,13 +1,19 @@
 ---
-description: "Optional - convert PDF/Word/Excel/PPT to Markdown via MarkItDown"
+description: "Convert PDF/Word/Excel/PPT to Markdown via MarkItDown (auto on attachments when MCP on)"
 ---
 
-# MarkItDown (opt-in)
+# MarkItDown
 
-Convert a local PDF / DOCX / XLSX / PPTX (or URL) to Markdown for this chat.
+Convert PDF / DOCX / XLSX / PPTX to Markdown before answering.
 
-1. If MCP server `markitdown` is disabled in Cursor Settings > MCP, ask user to enable it, or run CLI:
-   `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<path>"`
-2. Prefer MCP tool `convert_to_markdown` with a `file:///...` URI when the server is enabled.
-3. Summarize from the Markdown - do not dump huge converted text unless asked.
-4. Do **not** use for applogs, code, Jira/Confluence (Atlassian MCP), or RCA log greps.
+## Auto (when MCP `markitdown` is enabled)
+
+If the user attached or linked a PDF/Office file in this message, **convert first** via `convert_to_markdown`, then answer from Markdown - do not read the raw attachment.
+
+## Manual
+
+1. MCP enabled: `convert_to_markdown` with `file:///...` or direct `https://.../file.pdf` URL.
+2. MCP disabled: `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<abs-path>"`
+3. Summarize from Markdown - do not dump huge converted text unless asked.
+
+Do **not** use for applogs, code, Jira/Confluence, or RCA log greps.

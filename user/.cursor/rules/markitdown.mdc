@@ -1,26 +1,41 @@
 ---
-description: MarkItDown optional - PDF/Office to Markdown only; not for logs/code
+description: MarkItDown - auto-convert PDF/Office attachments when MCP enabled
 alwaysApply: true
 ---
 
-# MarkItDown usage (optional)
+# MarkItDown usage
 
-MarkItDown MCP/CLI is **opt-in**. Do not call it on every chat.
+MCP server `markitdown` stays **disabled by default** in Cursor Settings. Enable only for doc-heavy chats.
 
-## When to use
+## Auto-convert (mandatory when MCP enabled)
 
-- User invokes `/markitdown`, or attaches/asks about PDF, DOCX, XLSX, PPTX, or similar Office docs
-- Bank specs, mapping sheets, BRDs that need structured Markdown before reasoning
+When `markitdown` MCP is **enabled** and the user attaches or references any of:
 
-## When not to use
+- `.pdf`, `.docx`, `.doc`, `.xlsx`, `.xls`, `.pptx`, `.ppt`
 
-- Applogs (use `bob shrink-logs`)
+**Before** reading the file into context, summarizing, or answering:
+
+1. Call MCP tool `convert_to_markdown` with `file:///...` (local attachment path) or `https://...` (direct download URL ending in those extensions).
+2. Reason from the returned Markdown only - do not also ingest the raw PDF/binary attachment.
+3. If output is huge, summarize; write full Markdown to a workspace temp file only when needed for follow-up.
+
+Same rule when user pastes a **direct file URL** (e.g. `https://.../spec.pdf`) without attaching - convert first, then answer.
+
+## Explicit invoke
+
+Also run on `/markitdown` or when user asks to convert a bank spec / mapping sheet.
+
+## When MCP disabled
+
+For local attachments only: run CLI first, then answer from Markdown:
+
+`python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<abs-path>"`
+
+If MCP is disabled and only a web link (no local path), ask user to enable MCP or download/attach the file.
+
+## Never use MarkItDown for
+
+- Applogs (`bob shrink-logs`)
 - Source code, Flyway, processors
 - Jira / Confluence (Atlassian MCP)
 - RCA greps / Plan gate text
-
-## How
-
-1. Prefer MCP tool `convert_to_markdown` if server `markitdown` is enabled.
-2. Else CLI: `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<abs-path>"`
-3. Keep converted Markdown off the hot path when huge - summarize; write to a file if needed.
