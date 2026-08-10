@@ -1,0 +1,16 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: demo
+original_lines: 501
+digest_lines: 10
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260808T211144Z\full.log
+=== CONTENT ===
+2026-08-08 10:00:00 INFO heartbeat 0
+2026-08-08 10:00:00 INFO heartbeat 1
+2026-08-08 10:00:00 INFO heartbeat 2
+2026-08-08 10:00:00 INFO heartbeat 3
+2026-08-08 10:00:00 INFO heartbeat 4
+2026-08-08 10:00:00 INFO heartbeat 496
+2026-08-08 10:00:00 INFO heartbeat 497
+2026-08-08 10:00:00 INFO heartbeat 498
+2026-08-08 10:00:00 INFO heartbeat 499
+2026-08-08 10:05:00 ERROR STAN=xyz NovopayFatalException 4000181 timeout

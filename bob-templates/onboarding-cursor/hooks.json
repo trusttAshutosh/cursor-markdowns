@@ -5,12 +5,6 @@
       {
         "command": "python3 ./hooks/bob-hook-runner.py session"
       }
-    ],
-    "stop": [
-      {
-        "command": "python3 ./hooks/bob-hook-runner.py stop",
-        "loop_limit": 1
-      }
     ]
   }
 }

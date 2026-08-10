@@ -9,12 +9,35 @@ Apply these **before** handing code back or suggesting a commit, in **any** repo
 
 ## Pre-submit self-check
 
-1. Scan new/edited Java (especially tests) for duplicated string literals.
+1. Scan new/edited Java (especially tests) for duplicated string literals (`java:S1192`).
 2. **When editing any test class:** if a literal appears **3+ times** in that class after your change, extract `private static final` constants in the same test class before handoff (do not leave for CodeAnt to catch later).
-3. Scan new/edited regex for Sonar complexity (`java:S5843`) when adding security validators.
-4. Prefer fixing the pattern in code; do not suppress Sonar unless the user explicitly asks.
+3. **When writing/editing any Flyway / `.sql` migration:** backtick-quote **every** table and column identifier (`quote_identifiers`). Do this while authoring - not after CodeAnt fails.
+4. Scan new/edited regex for Sonar complexity (`java:S5843`) when adding security validators.
+5. Prefer fixing the pattern in code; do not suppress Sonar unless the user explicitly asks.
 
 ## Known recurring rules
+
+### `quote_identifiers` - Quote Identifiers (SQL / Flyway)
+
+**Trigger:** CodeAnt MEDIUM on `.sql` migrations when table or column names are unquoted (MySQL). Seen on auth, gateway, initial-setup, DSA LOC Flyways.
+
+**Fix:** Wrap **all** table and column identifiers in backticks. String/literal values stay in single quotes. Aliases may be backtick-quoted for consistency.
+
+```sql
+-- BAD
+INSERT INTO permission (code, display_name) VALUES ('FOO', 'Bar');
+SELECT id FROM role WHERE code = 'OPS';
+
+-- GOOD
+INSERT INTO `permission` (`code`, `display_name`) VALUES ('FOO', 'Bar');
+SELECT `id` FROM `role` WHERE `code` = 'OPS';
+```
+
+**Also required for reserved words** like `` `role` `` (MySQL 8). Prefer quoting everything in a migration rather than only reserved names.
+
+**Reference:** LOC fix pattern in `novopay-platform-initial-setup/flyway/sql/V702142__insert_getLocLoanPurposeOptions_api.sql`.
+
+**Agent habit:** Any new Flyway (auth, gateway, masterdata, initial-setup, tenant `ddp`/`dsa`/etc.) ships with backticks on day one. Pair with idempotent `INSERT ... SELECT ... WHERE NOT EXISTS` when seeding catalog data.
 
 ### `java:S1192` - duplicated string literals
 

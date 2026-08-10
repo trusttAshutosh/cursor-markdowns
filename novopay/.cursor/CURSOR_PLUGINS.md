@@ -39,16 +39,15 @@ Review, CI, and ship skills for Gate 4 and PR hygiene.
 - CI loops: /fix-ci and /loop-on-ci when checks fail
 - Quality pass: /thermo-nuclear-code-quality-review before large diffs
 
-### Continual Learning
+### Continual Learning (disabled - opt-in only)
 
 **Marketplace search:** `continual learning`
 
-Keeps AGENTS.md in sync so Bob sessions do not re-learn prefs every chat.
+**Status:** Stop hook disabled locally (plugin `hooks/hooks.json` is empty). Do **not** re-enable auto-run after each prompt unless Ashutosh asks.
 
-**Helps with workflows in this repo:**
-- Updates novopay/AGENTS.md on agent stop (Learned sections)
-- Works with weekly /workflow-from-chats hygiene from the orchestrator stop hook
-- Pairs with ~/.cursor/rules/novopay-orchestrator.mdc (hard rules stay separate)
+Optional when you explicitly want memory mining:
+- Run the `continual-learning` skill / `/workflow-from-chats` on demand
+- Pairs with `AGENTS.md` Learned sections and `novopay-orchestrator.mdc`
 
 ## Optional
 

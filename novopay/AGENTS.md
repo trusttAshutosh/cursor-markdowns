@@ -41,15 +41,24 @@ Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/t
 
 ## Learned User Preferences
 
-- No commit/push unless asked; paste-ready commit when asked (`/babysit` may ship scoped PR fixes).
-- Subjects: `fix: ...` — no service-name scopes. Bob only when asked; E2E proof default; autoboot.
+- Continual Learning must not auto-run after each prompt/stop; mine chats / update `AGENTS.md` only when explicitly asked.
+- No commit/push unless asked (confirm with user before any commit); when asked to stage/commit, prefer paste-ready commit command with message + description (`/babysit` may ship scoped PR fixes).
+- Never comment on Jira or make any Jira update (status, fields, links, etc.) without explicit user approval.
+- After code-quality / Bugbot / thermo-nuclear (or similar) reviews: present findings only - **do not implement review fixes until the user has reviewed and asked to apply them**.
+- Subjects: `fix: ...` - no service-name scopes. Bob only when asked; E2E proof default; autoboot.
 - One ticket per chat. Prove vulns before/after. Prefer test fixes; port from `ddp-qa`/`ddp-uat` when present.
-- Surgical reuse; constants classes; gateway stays generic. CodeAnt + RCA rules under `~/.cursor/rules/`.
-- SQL fully qualified; call out env drift; lock Flyway seq from common-scripts. Log greps: `grep` on `/apps/applogs/...` only.
-- Sync backend on `ddp-qa`; frontend `dsa-qa` when needed. `/thermo-nuclear-code-quality-review` on big diffs. Prefer source-of-truth rules over FE copies.
+- Prefer cleaner/minimal solutions; if another approach is clearly better, mention it briefly then proceed with the cleaner default. Surgical reuse; constants classes; gateway stays generic. CodeAnt + RCA rules under `~/.cursor/rules/`.
+- **Always avoid CodeAnt antipatterns while authoring:** (1) `java:S1192` duplicate string literals - extract constants at 3+ uses; (2) SQL `quote_identifiers` - backtick every table/column in Flyway. See `~/.cursor/rules/codeant-sonar-guardrails.mdc`.
+- SQL fully qualified; call out env drift. **Flyway (normal process - no worktrees):** in the main repo clone, checkout latest remote **common-scripts** (often `ddp-fea-common-scripts`; discover via `git branch -r`), `git pull`, author migration there, take next unused tip seq - never invent seq from feature/`ddp-prod-master` alone. Stage for review; do not commit unless asked. User commits on common-scripts then cherry-picks to the feature branch. Log greps: `grep` on `/apps/applogs/...` only.
+- Backend plan/branch from latest remote `origin/ddp-prod-master` (fetch first; task-allocation BKYC work uses `origin/ddp-fea-bkyc`); do not plan off stale local feature/`ddp-qa` checkouts. Frontend sync `dsa-qa` when needed. For UAT vs prod issues, compare latest remote `ddp-prod`/`ddp-uat` and, when UI may be involved, `dsa-prod`/`dsa-uat`. `/thermo-nuclear-code-quality-review` on big diffs. Prefer source-of-truth rules over FE copies.
+- Pasted logs: run `bob shrink-logs`, answer from the digest, and if needed auto-read `full.log` via `.cursor/evidence/logs/latest.json` - never ask the user for log paths.
+- After any create/edit of skills, rules, hooks, slash commands, workflows, or other agent-facing Cursor config: backup and push to `Desktop/cursor-markdowns` (sync script + clear commit message); skip only if the user says not to.
+- Bank-facing emails and docs: use only bank-visible API keys/values and agreed mappings; omit Novopay-internal implementation details. When clarifying pre vs post behavior for the bank, reason from committed code only (not uncommitted local changes).
 
 ## Learned Workspace Facts
 
 - Root `Desktop/novopay`; skills `.cursor/skills/`; `novopay.code-workspace`; orchestrator `novopay-orchestrator.mdc`.
 - Bob artifacts `docs/tdd-runs/<id>/`. Local DB often `root`/`root`. Tenants `ddp,dsa,kp,ra,rbg,bb`; schema `{tenant}_{service}` (confirm DDL).
-- Logs `/apps/applogs/{common|tenant}/`. Branches: backend `ddp-*`, frontend `dsa-*`. Lib via CC `includeBuild`.
+- Logs `/apps/applogs/{common|tenant}/`. Branches: backend `ddp-*`, frontend `dsa-*`. Lib via CC `includeBuild`. Flyway common-scripts branch often `ddp-fea-common-scripts` but name can differ per repo - always discover. Prefer main-clone checkout of common-scripts over worktrees for Flyway.
+- Cursor personalization backup/restore: `Desktop/cursor-markdowns` (clone + sync restores skills/rules/user-rules across machines).
+- BKYC: local context/docs often under `Desktop/BKYC`; task-allocation service is `trustt-platform-task-allocation` on `origin/ddp-fea-bkyc`.
