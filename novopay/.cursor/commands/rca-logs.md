@@ -19,6 +19,7 @@ Rules:
 If too little to grep (no date and no correlation id), return NEEDS_INPUT with **only** the missing fields listed - not a full template.
 
 Do not run Bob validate-ticket. Do not open Glass automations.
+Use normal complete prose (caveman OFF for RCA).
 
 **Example user message (valid):**
 `/rca-logs PE-5678 customer 9876543210 failed submit LOC yesterday around 3pm on cc-mgmt`

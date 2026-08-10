@@ -10,5 +10,6 @@ User input after command: ticket id (required), optional title.
 2. If folder missing, note `bob init-ticket <id> "title"`.
 3. Output Plan checklist: scope, assumptions, impacted repos (CC/lib/gateway/actor), open questions.
 4. Do NOT implement code or run `bob validate-ticket`.
+5. Use normal complete prose (caveman OFF for Plan gate).
 
 One ticket per chat. Workspace root: Desktop/novopay.

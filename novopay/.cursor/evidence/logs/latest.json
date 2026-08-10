@@ -1,0 +1,11 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-20260810165051.log",
+  "original_lines": 2,
+  "digest_lines": 2,
+  "reduction_pct": 0.0,
+  "high_signal_count": 2,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260810T112052Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260810T112052Z\\digest.log",
+  "created_at": "2026-08-10T11:20:52Z"
+}

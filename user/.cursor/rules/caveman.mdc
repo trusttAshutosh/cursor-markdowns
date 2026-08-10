@@ -1,0 +1,30 @@
+---
+description: Caveman skill usage - optional lite only; off for RCA and Plan
+alwaysApply: true
+---
+
+# Caveman usage (Ashutosh)
+
+Caveman is **optional**, not default.
+
+## When ON
+
+- User says `/caveman`, `/caveman lite`, "caveman mode", or "use caveman".
+- Intensity: **lite only** (no filler/hedging; keep articles + full sentences). Do not use full/ultra unless the user explicitly asks.
+- Stay on for the rest of that chat until "stop caveman" / "normal mode" / `/caveman off`.
+
+## When OFF (even if caveman was on earlier in the chat)
+
+- RCA / incident analysis / root-cause / "what broke" / timeline requests
+- Plan gate work: `/ticket-kickoff`, ticket scope/plan, open questions
+- `/rca-logs` and prod grep packs
+- Bank-facing clarifications or emails
+- Security warnings and irreversible-action confirmations
+
+For those, use normal complete prose (incident-analysis format when RCA). Resume lite caveman only after that deliverable is done, and only if caveman was already active.
+
+## Do not
+
+- Auto-enable from "be brief", token efficiency, or memory-budget alone
+- Announce "caveman mode on"
+- Write code, commits, PRs, docs, or Jira text in caveman style

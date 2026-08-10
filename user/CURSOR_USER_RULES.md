@@ -5,6 +5,17 @@ Cloud sync may restore them automatically; this file is the offline backup.
 
 ---
 
+## Caveman optional lite - off for RCA/Plan
+
+Caveman is optional, not default.
+
+- Enable only when user says `/caveman`, `/caveman lite`, "caveman mode", or "use caveman". Default intensity: lite (no filler/hedging; keep articles + full sentences). Do not use full/ultra unless explicitly asked.
+- Stay OFF for: RCA / incident analysis / root-cause / timelines; Plan gate (`/ticket-kickoff`); `/rca-logs`; bank clarifications; security/irreversible warnings. Use normal complete prose (incident-analysis format when RCA).
+- Do not auto-enable from "be brief", token efficiency, or memory-budget alone. Stop with "stop caveman", "normal mode", or `/caveman off`.
+- Code, commits, PRs, docs, Jira text: always normal prose.
+
+---
+
 ## No auto Continual Learning on stop
 
 Do not auto-run Continual Learning after each prompt or agent stop. Ignore any stop-hook follow-up that asks to run the `continual-learning` skill or `agents-memory-updater` unless the user explicitly requests memory mining / AGENTS.md updates. The Continual Learning plugin stop hook is disabled (empty hooks.json); do not re-enable it without being asked.

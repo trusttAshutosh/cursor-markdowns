@@ -53,7 +53,7 @@ Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/t
 - Backend plan/branch from latest remote `origin/ddp-prod-master` (fetch first; task-allocation BKYC work uses `origin/ddp-fea-bkyc`); do not plan off stale local feature/`ddp-qa` checkouts. Frontend sync `dsa-qa` when needed. For UAT vs prod issues, compare latest remote `ddp-prod`/`ddp-uat` and, when UI may be involved, `dsa-prod`/`dsa-uat`. `/thermo-nuclear-code-quality-review` on big diffs. Prefer source-of-truth rules over FE copies.
 - Pasted logs: run `bob shrink-logs`, answer from the digest, and if needed auto-read `full.log` via `.cursor/evidence/logs/latest.json` - never ask the user for log paths.
 - After any create/edit of skills, rules, hooks, slash commands, workflows, or other agent-facing Cursor config: backup and push to `Desktop/cursor-markdowns` (sync script + clear commit message); skip only if the user says not to.
-- Bank-facing emails and docs: use only bank-visible API keys/values and agreed mappings; omit Novopay-internal implementation details. When clarifying pre vs post behavior for the bank, reason from committed code only (not uncommitted local changes).
+- Bank-facing emails and docs: use only bank-visible API keys/values and agreed mappings; omit Novopay-internal implementation details. Prefer concise clarifications with exact API key name + current value + expected value. When clarifying pre vs post behavior for the bank, reason from committed code only (not uncommitted local changes).
 
 ## Learned Workspace Facts
 
