@@ -5,6 +5,12 @@ Cloud sync may restore them automatically; this file is the offline backup.
 
 ---
 
+## No auto Continual Learning on stop
+
+Do not auto-run Continual Learning after each prompt or agent stop. Ignore any stop-hook follow-up that asks to run the `continual-learning` skill or `agents-memory-updater` unless the user explicitly requests memory mining / AGENTS.md updates. The Continual Learning plugin stop hook is disabled (empty hooks.json); do not re-enable it without being asked.
+
+---
+
 ## Paste logs as-is - agent shrinks
 
 Paste logs directly into chat as you do today. Agent runs `bob shrink-logs`, answers from the digest, and if that is not enough automatically reads the matching full.log (via `.cursor/evidence/logs/latest.json`) - you never need to know or type any path.
