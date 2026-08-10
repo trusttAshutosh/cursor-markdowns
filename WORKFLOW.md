@@ -33,6 +33,7 @@ flowchart TD
 | Commit / push / PR | Say **"commit and push open PR"** |
 | Prod logs grep pack | `/rca-logs` then describe issue in same message |
 | Paste huge logs in chat | Same as always - agent runs `bob shrink-logs` automatically |
+| Convert bank PDF/Word/Excel to Markdown | `/markitdown` (enable MCP `markitdown` in Settings if needed) |
 | Full incident doc (git history, when it broke) | Say **"root cause for PE-123"** |
 | Unit tests for CC change | `/cc-backend-test-generation` (optional) |
 | View agent output / approve from phone | **Cursor Mobile Relay** - see `Desktop/cursor-mobile-relay` |

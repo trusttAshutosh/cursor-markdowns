@@ -5,6 +5,17 @@ Cloud sync may restore them automatically; this file is the offline backup.
 
 ---
 
+## MarkItDown optional - PDF/Office only
+
+MarkItDown (PDF/Office to Markdown) is optional.
+
+- Use only when user says `/markitdown` or asks to convert PDF/DOCX/XLSX/PPTX (bank specs, mapping sheets).
+- Prefer MCP tool `convert_to_markdown` if server `markitdown` is enabled; else CLI: `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<path>"`.
+- Do not use for applogs (`bob shrink-logs`), code, Jira/Confluence, or RCA greps.
+- Keep the MCP server disabled in Cursor Settings > MCP when not converting docs.
+
+---
+
 ## Caveman optional lite - off for RCA/Plan
 
 Caveman is optional, not default.

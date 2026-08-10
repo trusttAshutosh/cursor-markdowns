@@ -1,0 +1,26 @@
+---
+description: MarkItDown optional - PDF/Office to Markdown only; not for logs/code
+alwaysApply: true
+---
+
+# MarkItDown usage (optional)
+
+MarkItDown MCP/CLI is **opt-in**. Do not call it on every chat.
+
+## When to use
+
+- User invokes `/markitdown`, or attaches/asks about PDF, DOCX, XLSX, PPTX, or similar Office docs
+- Bank specs, mapping sheets, BRDs that need structured Markdown before reasoning
+
+## When not to use
+
+- Applogs (use `bob shrink-logs`)
+- Source code, Flyway, processors
+- Jira / Confluence (Atlassian MCP)
+- RCA greps / Plan gate text
+
+## How
+
+1. Prefer MCP tool `convert_to_markdown` if server `markitdown` is enabled.
+2. Else CLI: `python C:/Users/ashutosh.kumar/.cursor/tools/markitdown-shim/cli.py "<abs-path>"`
+3. Keep converted Markdown off the hot path when huge - summarize; write to a file if needed.
