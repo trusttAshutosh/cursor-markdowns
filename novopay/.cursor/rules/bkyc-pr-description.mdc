@@ -45,27 +45,47 @@ Put this **immediately after** the mermaid (same PR). Do not replace other secti
 
 Columns: **Step in the journey** | **Ticket**.
 
-Canonical assign chain (highlight the current ticket; keep all rows so reviewers see the sequence):
+Canonical BKYC backend journey (highlight the current ticket; keep all rows so reviewers see the sequence):
 
 | Step in the journey | Ticket |
 |---|---|
 | Seed who is allowed to upload, view, assign, and do BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) |
+| Parse bank lead CSV into fields | [HDP-8939](https://novopay.atlassian.net/browse/HDP-8939) |
+| Bank employee upload / list / download | [HDP-9694](https://novopay.atlassian.net/browse/HDP-9694) |
+| Turn uploaded file into visit tasks | [HDP-8942](https://novopay.atlassian.net/browse/HDP-8942) |
+| Wire BKYC ops workflow | [HDP-8946](https://novopay.atlassian.net/browse/HDP-8946) |
+| Validate lead fields | [HDP-8943](https://novopay.atlassian.net/browse/HDP-8943) |
+| Remove duplicate ARNs | [HDP-8944](https://novopay.atlassian.net/browse/HDP-8944) |
+| Persist outcomes and hand off to assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) |
 | Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) |
 | Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) |
 | Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |
 | Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) |
 | Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) |
+| Agent visit list, details, and status update | [HDP-8924](https://novopay.atlassian.net/browse/HDP-8924) |
+| Process Aadhaar bio eKYC result | [HDP-8927](https://novopay.atlassian.net/browse/HDP-8927) |
 | Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |
+
+Assign-lane PRs (Ashutosh HDP-8937 / 8949 / 8950 / 8951 / 8952 / 8953 / 9004) may use the shorter assign slice of this table. Ingest/agent PRs use the full table.
 
 Ticket-column labels:
 
-- Current ticket: `**This PR** - [HDP-xxxx](https://novopay.atlassian.net/browse/HDP-xxxx)`
-- Already-landed predecessor: `[HDP-xxxx](...) (upstream)`
-- Later / not in this PR: `[HDP-xxxx](...) (not this PR)`
+- Current ticket (or every ticket this PR implements): `**This PR** - [HDP-xxxx](https://novopay.atlassian.net/browse/HDP-xxxx)`
+- Earlier in the journey **and already landed**: `[HDP-xxxx](...) (upstream)`
+- Later, unbuilt, or not in this PR: `[HDP-xxxx](...) (not this PR)`
 
-If the ticket is **not** in the table (SMS, ingest, admin assign write, etc.), **prepend** one plain-English step row for this PR, then keep the canonical rows with `(not this PR)`.
+If the ticket is **not** in the table (SMS, consent, close-file, etc.), **prepend** one plain-English step row for this PR, then keep the canonical rows with `(not this PR)`.
 
-When updating an existing GitHub PR that already has a description: **append** this table (before GitHub-Jira footer link definitions). Never overwrite the rest of the body. Skip if a `Step in the journey` table is already present.
+### Retroactive append (existing GitHub PRs)
+
+When the user asks to add this table to PRs that already exist:
+
+- **Append only.** Never overwrite the rest of the body. Insert before GitHub-Jira footer link definitions.
+- **Skip** if the body already contains `Step in the journey`.
+- **Authors / GitHub logins:** Ashutosh `trusttAshutosh`; Abhishek `trustt-abhishek`; Harini `Harini-Trustt`.
+- **Scope:** Manipal BKYC / HDP-7636 tree (task-allocation + sibling auth/gateway/actor/masterdata PRs). Do **not** touch legacy credit-card BKYC file-upload PRs.
+- **First ask for an author:** all of that author's existing BKYC PRs that lack the table.
+- **Later asks** (e.g. "do this for Abhishek and Harini again"): **only newly added PRs** - those that still lack `Step in the journey`. Do not re-edit PRs that already have the table.
 
 ## Decisions / tradeoffs
 
