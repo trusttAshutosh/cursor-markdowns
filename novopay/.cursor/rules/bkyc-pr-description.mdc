@@ -43,28 +43,30 @@ Optional: common-scripts commit links, rename callouts, sign-off comment links.
 
 Put this **immediately after** the mermaid (same PR). Do not replace other sections.
 
-Columns: **Step in the journey** | **Ticket**.
+Columns: **Step in the journey** | **Ticket** | **Done**.
+
+**Done** is Jira Done only: `✅` if the ticket is Done, blank otherwise. Do not mark Dev In Progress / To Do / merged-but-not-Done as ✅. Refresh ✅ from Jira when rewriting the table.
 
 Canonical BKYC backend journey (highlight the current ticket; keep all rows so reviewers see the sequence):
 
-| Step in the journey | Ticket |
-|---|---|
-| Create permissions so bank staff, ops, and agents can use BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) |
-| Parse bank lead CSV into fields | [HDP-8939](https://novopay.atlassian.net/browse/HDP-8939) |
-| Bank employee upload / list / download | [HDP-9694](https://novopay.atlassian.net/browse/HDP-9694) |
-| Turn uploaded file into visit tasks | [HDP-8942](https://novopay.atlassian.net/browse/HDP-8942) |
-| Register the ordered job: ingest, then validate, then auto-assign | [HDP-8946](https://novopay.atlassian.net/browse/HDP-8946) |
-| Reject leads missing ARN, name, mobile, address, or pincode | [HDP-8943](https://novopay.atlassian.net/browse/HDP-8943) |
-| Skip ARNs that already have an open BKYC visit | [HDP-8944](https://novopay.atlassian.net/browse/HDP-8944) |
-| Save reject/duplicate results and queue good leads for assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) |
-| Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) |
-| Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) |
-| Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |
-| Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) |
-| Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) |
-| Agent visit list, details, and status update | [HDP-8924](https://novopay.atlassian.net/browse/HDP-8924) |
-| Process Aadhaar bio eKYC result | [HDP-8927](https://novopay.atlassian.net/browse/HDP-8927) |
-| Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |
+| Step in the journey | Ticket | Done |
+|---|---|---|
+| Create permissions so bank staff, ops, and agents can use BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) | ✅ |
+| Parse bank lead CSV into fields | [HDP-8939](https://novopay.atlassian.net/browse/HDP-8939) | ✅ |
+| Bank employee upload / list / download | [HDP-9694](https://novopay.atlassian.net/browse/HDP-9694) | ✅ |
+| Turn uploaded file into visit tasks | [HDP-8942](https://novopay.atlassian.net/browse/HDP-8942) | ✅ |
+| Register the ordered job: ingest, then validate, then auto-assign | [HDP-8946](https://novopay.atlassian.net/browse/HDP-8946) | ✅ |
+| Reject leads missing ARN, name, mobile, address, or pincode | [HDP-8943](https://novopay.atlassian.net/browse/HDP-8943) | ✅ |
+| Skip ARNs that already have an open BKYC visit | [HDP-8944](https://novopay.atlassian.net/browse/HDP-8944) | ✅ |
+| Save reject/duplicate results and queue good leads for assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) | ✅ |
+| Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) | ✅ |
+| Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) | ✅ |
+| Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |  |
+| Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) |  |
+| Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) |  |
+| Agent visit list, details, and status update | [HDP-8924](https://novopay.atlassian.net/browse/HDP-8924) |  |
+| Process Aadhaar bio eKYC result | [HDP-8927](https://novopay.atlassian.net/browse/HDP-8927) |  |
+| Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |  |
 
 Assign-lane PRs (Ashutosh HDP-8937 / 8949 / 8950 / 8951 / 8952 / 8953 / 9004) may use the shorter assign slice of this table. Ingest/agent PRs use the full table.
 
