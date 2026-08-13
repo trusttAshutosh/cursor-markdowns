@@ -15,8 +15,9 @@ ASCII hyphen-minus only (` - `, not em/en dashes).
 2. **PR pack** - table of sibling PRs when multi-repo.
 3. **Verify / Test plan** - technical as needed (SQL, checkboxes).
 4. **How this fits the whole BKYC solution** - **visual mermaid flowchart only** (see below).
-5. **Decisions / tradeoffs for reviewers** - short Decision / Why / Tradeoff table.
-6. **Knowledge handoff (for whoever is waiting on this)** - exact codes + who consumes them + out of scope.
+5. **Where this PR sits** - **Step in the journey** table (see below). Required on every BKYC PR.
+6. **Decisions / tradeoffs for reviewers** - short Decision / Why / Tradeoff table.
+7. **Knowledge handoff (for whoever is waiting on this)** - exact codes + who consumes them + out of scope.
 
 Optional: common-scripts commit links, rename callouts, sign-off comment links.
 
@@ -37,6 +38,34 @@ Optional: common-scripts commit links, rename callouts, sign-off comment links.
 | Report viewer (SPOC) | View BKYC reports / Superset (note if wired later) |
 
 - Edges should describe outcomes in English (e.g. "Pick an eligible agent and assign or reassign a task"), not `getEligibleAgentsForTask`.
+
+## Where this PR sits - journey table
+
+Put this **immediately after** the mermaid (same PR). Do not replace other sections.
+
+Columns: **Step in the journey** | **Ticket**.
+
+Canonical assign chain (highlight the current ticket; keep all rows so reviewers see the sequence):
+
+| Step in the journey | Ticket |
+|---|---|
+| Seed who is allowed to upload, view, assign, and do BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) |
+| Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) |
+| Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) |
+| Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |
+| Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) |
+| Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) |
+| Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |
+
+Ticket-column labels:
+
+- Current ticket: `**This PR** - [HDP-xxxx](https://novopay.atlassian.net/browse/HDP-xxxx)`
+- Already-landed predecessor: `[HDP-xxxx](...) (upstream)`
+- Later / not in this PR: `[HDP-xxxx](...) (not this PR)`
+
+If the ticket is **not** in the table (SMS, ingest, admin assign write, etc.), **prepend** one plain-English step row for this PR, then keep the canonical rows with `(not this PR)`.
+
+When updating an existing GitHub PR that already has a description: **append** this table (before GitHub-Jira footer link definitions). Never overwrite the rest of the body. Skip if a `Step in the journey` table is already present.
 
 ## Decisions / tradeoffs
 
