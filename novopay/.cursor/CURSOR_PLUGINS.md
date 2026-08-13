@@ -45,6 +45,12 @@ Review, CI, and ship skills for Gate 4 and PR hygiene.
 
 **Status:** Stop hook disabled locally (plugin `hooks/hooks.json` is empty). Do **not** re-enable auto-run after each prompt unless Ashutosh asks.
 
+**Re-disable after plugin update** (updates restore the stop hook):
+
+```bash
+python .cursor/scripts/disable-continual-learning-stop.py
+```
+
 Optional when you explicitly want memory mining:
 - Run the `continual-learning` skill / `/workflow-from-chats` on demand
 - Pairs with `AGENTS.md` Learned sections and `novopay-orchestrator.mdc`

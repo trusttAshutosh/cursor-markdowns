@@ -41,12 +41,11 @@ Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/t
 
 ## Learned User Preferences
 
-- Continual Learning must not auto-run after each prompt/stop; mine chats / update `AGENTS.md` only when explicitly asked.
-- No commit/push unless asked (confirm with user before any commit); when asked to stage/commit, prefer paste-ready commit command with message + description (`/babysit` may ship scoped PR fixes).
+- Continual Learning must not auto-run after each prompt/stop; mine chats / update `AGENTS.md` only when explicitly asked. No commit/push unless asked (confirm with user before any commit); when asked to stage/commit, prefer paste-ready commit command with message + description (`/babysit` may ship scoped PR fixes).
 - Never comment on Jira or make any Jira update (status, fields, links, etc.) without explicit user approval.
 - After code-quality / Bugbot / thermo-nuclear (or similar) reviews: present findings only - **do not implement review fixes until the user has reviewed and asked to apply them**.
-- Subjects: `fix: ...` - no service-name scopes. Bob only when asked; E2E proof default; autoboot.
-- One ticket per chat. Prove vulns before/after. Prefer test fixes; port from `ddp-qa`/`ddp-uat` when present.
+- Subjects: `fix: ...` - no service-name scopes. One ticket per chat; Bob only when asked; E2E proof default; autoboot. Prove vulns before/after. Prefer test fixes; port from `ddp-qa`/`ddp-uat` when present.
+- Postman collections for QA/API packs: embed all variables in the collection; do not ship a separate environment file.
 - Prefer cleaner/minimal solutions; if another approach is clearly better, mention it briefly then proceed with the cleaner default. Surgical reuse; constants classes; gateway stays generic. CodeAnt + RCA rules under `~/.cursor/rules/`.
 - **Always avoid CodeAnt antipatterns while authoring:** (1) `java:S1192` duplicate string literals - extract constants at 3+ uses; (2) SQL `quote_identifiers` - backtick every table/column in Flyway. See `~/.cursor/rules/codeant-sonar-guardrails.mdc`.
 - SQL fully qualified; call out env drift. **Flyway (normal process - no worktrees):** in the main repo clone, checkout latest remote **common-scripts** (often `ddp-fea-common-scripts`; discover via `git branch -r`), `git pull`, author migration there, take next unused tip seq - never invent seq from feature/`ddp-prod-master` alone. Stage for review; do not commit unless asked. User commits on common-scripts then cherry-picks to the feature branch. Log greps: `grep` on `/apps/applogs/...` only.
@@ -54,6 +53,7 @@ Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/t
 - Pasted logs: run `bob shrink-logs`, answer from the digest, and if needed auto-read `full.log` via `.cursor/evidence/logs/latest.json` - never ask the user for log paths.
 - After any create/edit of skills, rules, hooks, slash commands, workflows, or other agent-facing Cursor config: backup and push to `Desktop/cursor-markdowns` (sync script + clear commit message); skip only if the user says not to.
 - Bank-facing emails and docs: use only bank-visible API keys/values and agreed mappings; omit Novopay-internal implementation details. Prefer concise clarifications with exact API key name + current value + expected value. When clarifying pre vs post behavior for the bank, reason from committed code only (not uncommitted local changes).
+- BKYC PR descriptions (any HDP-7636-tree / TaskAlloc BKYC ticket): follow `.cursor/rules/bkyc-pr-description.mdc` - include minimally on **all** associated PRs: (1) mermaid **How this fits the whole BKYC solution** in plain-English functionality (no API/permission codes in the chart), (2) **Decisions / tradeoffs for reviewers** table, (3) **Knowledge handoff** with exact codes for downstream. Example pack: `docs/tdd-runs/HDP-8937/PR_BODY_*.md`.
 
 ## Learned Workspace Facts
 
@@ -61,4 +61,4 @@ Add only durable, cross-ticket guidance. Ticket-specific rules belong in `docs/t
 - Bob artifacts `docs/tdd-runs/<id>/`. Local DB often `root`/`root`. Tenants `ddp,dsa,kp,ra,rbg,bb`; schema `{tenant}_{service}` (confirm DDL).
 - Logs `/apps/applogs/{common|tenant}/`. Branches: backend `ddp-*`, frontend `dsa-*`. Lib via CC `includeBuild`. Flyway common-scripts branch often `ddp-fea-common-scripts` but name can differ per repo - always discover. Prefer main-clone checkout of common-scripts over worktrees for Flyway.
 - Cursor personalization backup/restore: `Desktop/cursor-markdowns` (clone + sync restores skills/rules/user-rules across machines).
-- BKYC: local context/docs often under `Desktop/BKYC`; task-allocation service is `trustt-platform-task-allocation` on `origin/ddp-fea-bkyc`.
+- BKYC: local context/docs under `Desktop/BKYC`; service `trustt-platform-task-allocation` on `origin/ddp-fea-bkyc`; permission matrix SoT `trustt-platform-task-allocation/docs/task-allocation/solution-document.md` §11; Jira tree export `docs/tdd-runs/HDP-7636/bkyc-comments-full-latest.md` (`pull_bkyc_jira_comments.py`). DDP task-allocation auth uses `TASK-ALLOC-BKYC-*` (not Excel/DSA `BKYC-UPLD-*`). `Role and Permission Management.xlsx` is the UAM template - add rows per sign-off separately from Flyway.

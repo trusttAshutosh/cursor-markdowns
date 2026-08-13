@@ -1,0 +1,61 @@
+---
+description: BKYC PR description template - plain-English flowchart, decisions, knowledge handoff. Use when writing or updating PR bodies for Manipal BKYC / TaskAlloc tickets (HDP-7636 tree).
+alwaysApply: false
+---
+
+# BKYC PR descriptions
+
+When the user asks for a PR description / PR body for any **BKYC** ticket (epic HDP-7636 or children, TaskAlloc BKYC, auth/gateway/actor permission packs), include these sections **minimally**. Apply to **all associated PRs** in a multi-repo pack (not only one).
+
+ASCII hyphen-minus only (` - `, not em/en dashes).
+
+## Required sections (order)
+
+1. **Ticket / epic / what lands** - short; matrix or table OK.
+2. **PR pack** - table of sibling PRs when multi-repo.
+3. **Verify / Test plan** - technical as needed (SQL, checkboxes).
+4. **How this fits the whole BKYC solution** - **visual mermaid flowchart only** (see below).
+5. **Decisions / tradeoffs for reviewers** - short Decision / Why / Tradeoff table.
+6. **Knowledge handoff (for whoever is waiting on this)** - exact codes + who consumes them + out of scope.
+
+Optional: common-scripts commit links, rename callouts, sign-off comment links.
+
+## How this fits - flowchart rules
+
+- Use ` ```mermaid ` `flowchart TB` (or LR).
+- **Plain English only** - roles and what people can **do** (business functionality).
+- **Do not** put API names, Java method names, Flyway versions, permission codes, or usecase codes in the diagram.
+- Permission / API codes belong in Knowledge handoff + Verify, not in the chart.
+- Label the current PR with a plain sentence (e.g. "This PR seeds who is allowed to do what"), not repo jargon alone.
+- Default role boxes (adapt per ticket):
+
+| Audience | Capability language (examples) |
+|---|---|
+| Bank employee | View upload history; upload lead files; download bank response files |
+| Corporate ops (CBC / CBF) | View tasks and progress; assign tasks to agents |
+| Field agent (BCA / BFA) | Open assigned task; update status; submit completed BKYC |
+| Report viewer (SPOC) | View BKYC reports / Superset (note if wired later) |
+
+- Edges should describe outcomes in English (e.g. "Pick an eligible agent and assign or reassign a task"), not `getEligibleAgentsForTask`.
+
+## Decisions / tradeoffs
+
+Minimal table:
+
+| Decision | Why | Tradeoff |
+|---|---|---|
+
+Only real choices reviewers might push back on (naming, scope cuts, deferred work, soft seeds). No essay.
+
+## Knowledge handoff
+
+- **Must use (do not rename)** - exact permission / story / usecase codes.
+- DDP TaskAlloc: prefer `TASK-ALLOC-BKYC-*` - not legacy Excel `BKYC-UPLD-*` unless the ticket is explicitly Excel/DSA.
+- Agent entitlement: current SoT is `TASK-BKYC` (Actor `TASK_BKYC`); story/usecase may stay `PRDCT-BKYC` / `PRDCT-BKYC-UC001` - call out if ticket still uses older `PRDCT-SERVICEREQUEST-BKYC`.
+- After deploy / who waits: UAM, FE, eligible-agents, APK, Superset gateway, etc.
+- **Out of scope** - one short line.
+
+## Reference pack
+
+Canonical example style: `docs/tdd-runs/HDP-8937/PR_BODY_*.md` and `PR_DESCRIPTION.md`.
+Permission matrix SoT: `trustt-platform-task-allocation/docs/task-allocation/solution-document.md` §11.
