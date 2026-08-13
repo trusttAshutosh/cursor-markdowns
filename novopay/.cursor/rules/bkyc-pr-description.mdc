@@ -49,14 +49,14 @@ Canonical BKYC backend journey (highlight the current ticket; keep all rows so r
 
 | Step in the journey | Ticket |
 |---|---|
-| Seed who is allowed to upload, view, assign, and do BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) |
+| Create permissions so bank staff, ops, and agents can use BKYC | [HDP-8937](https://novopay.atlassian.net/browse/HDP-8937) |
 | Parse bank lead CSV into fields | [HDP-8939](https://novopay.atlassian.net/browse/HDP-8939) |
 | Bank employee upload / list / download | [HDP-9694](https://novopay.atlassian.net/browse/HDP-9694) |
 | Turn uploaded file into visit tasks | [HDP-8942](https://novopay.atlassian.net/browse/HDP-8942) |
-| Wire BKYC ops workflow | [HDP-8946](https://novopay.atlassian.net/browse/HDP-8946) |
-| Validate lead fields | [HDP-8943](https://novopay.atlassian.net/browse/HDP-8943) |
-| Remove duplicate ARNs | [HDP-8944](https://novopay.atlassian.net/browse/HDP-8944) |
-| Persist outcomes and hand off to assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) |
+| Register the ordered job: ingest, then validate, then auto-assign | [HDP-8946](https://novopay.atlassian.net/browse/HDP-8946) |
+| Reject leads missing ARN, name, mobile, address, or pincode | [HDP-8943](https://novopay.atlassian.net/browse/HDP-8943) |
+| Skip ARNs that already have an open BKYC visit | [HDP-8944](https://novopay.atlassian.net/browse/HDP-8944) |
+| Save reject/duplicate results and queue good leads for assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) |
 | Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) |
 | Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) |
 | Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |
@@ -67,6 +67,14 @@ Canonical BKYC backend journey (highlight the current ticket; keep all rows so r
 | Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |
 
 Assign-lane PRs (Ashutosh HDP-8937 / 8949 / 8950 / 8951 / 8952 / 8953 / 9004) may use the shorter assign slice of this table. Ingest/agent PRs use the full table.
+
+Step labels must be **plain English outcomes**, not implementation jargon. Do not use "seed", "wire", "persist outcomes", or "remove duplicate ARNs" without saying what / from where / why. Locked meanings:
+
+- HDP-8937: create UAM permissions (not "seed a catalog") so bank staff can upload, ops can assign, and agents can do BKYC.
+- HDP-8946: register the ordered ops job so ingest runs, then validate/dedupe, then auto-assign (not a vague "wire workflow").
+- HDP-8943: reject a lead missing ARN, customer name, mobile, address line 1, or pincode.
+- HDP-8944: skip an ARN that already has an **open** BKYC visit (same file or an earlier file) so the customer is not sent out twice. Completed ARNs may come in again.
+- HDP-8945: write reject/duplicate/accepted counts on the file, then queue accepted leads for auto-assign.
 
 Ticket-column labels:
 
