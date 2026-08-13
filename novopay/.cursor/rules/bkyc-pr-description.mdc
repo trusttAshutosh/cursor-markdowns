@@ -68,7 +68,7 @@ Canonical BKYC backend journey (highlight the current ticket; keep all rows so r
 | Process Aadhaar bio eKYC result | [HDP-8927](https://novopay.atlassian.net/browse/HDP-8927) |  |
 | Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |  |
 
-Assign-lane PRs (Ashutosh HDP-8937 / 8949 / 8950 / 8951 / 8952 / 8953 / 9004) may use the shorter assign slice of this table. Ingest/agent PRs use the full table.
+Ingest, assign, and agent PRs all use this full table. Do not ship the short assign-only slice when the user asks to update the table.
 
 Step labels must be **plain English outcomes**, not implementation jargon. Do not use "seed", "wire", "persist outcomes", or "remove duplicate ARNs" without saying what / from where / why. Locked meanings:
 
@@ -86,16 +86,21 @@ Ticket-column labels:
 
 If the ticket is **not** in the table (SMS, consent, close-file, etc.), **prepend** one plain-English step row for this PR, then keep the canonical rows with `(not this PR)`.
 
-### Retroactive append (existing GitHub PRs)
+### Retroactive append / update (existing GitHub PRs)
 
-When the user asks to add this table to PRs that already exist:
+Never overwrite the rest of the PR body. Insert or replace **only** the journey table (before GitHub-Jira footer link definitions).
 
-- **Append only.** Never overwrite the rest of the body. Insert before GitHub-Jira footer link definitions.
-- **Skip** if the body already contains `Step in the journey`.
-- **Authors / GitHub logins:** Ashutosh `trusttAshutosh`; Abhishek `trustt-abhishek`; Harini `Harini-Trustt`.
-- **Scope:** Manipal BKYC / HDP-7636 tree (task-allocation + sibling auth/gateway/actor/masterdata PRs). Do **not** touch legacy credit-card BKYC file-upload PRs.
-- **First ask for an author:** all of that author's existing BKYC PRs that lack the table.
-- **Later asks** (e.g. "do this for Abhishek and Harini again"): **only newly added PRs** - those that still lack `Step in the journey`. Do not re-edit PRs that already have the table.
+**Authors / GitHub logins:** Ashutosh `trusttAshutosh`; Abhishek `trustt-abhishek`; Harini `Harini-Trustt`; Deepankar `deepankar-np`.
+
+**Scope:** Manipal BKYC / epic [HDP-7636](https://novopay.atlassian.net/browse/HDP-7636) tree (task-allocation + sibling auth/gateway/actor/masterdata PRs). Do **not** touch legacy credit-card BKYC file-upload PRs.
+
+When the user asks to **update the table** (wording, columns, Done marks, full journey vs short slice):
+
+- Do it on **all** HDP-7636 BKYC PRs - old or new - by Ashutosh, Abhishek, Harini, or Deepankar.
+- Do **not** skip PRs that already have a `Step in the journey` table. Replace that table in place with the current canonical table (This PR / upstream / not this PR + Done column from live Jira).
+- If a matching PR has no table yet, append one.
+
+When the user asks to **add** the table for the first time for an author: skip PRs that already contain `Step in the journey`; append only where missing.
 
 ## Decisions / tradeoffs
 
