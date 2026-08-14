@@ -14,7 +14,7 @@ User should **not** change habits. Agent adapts to these patterns automatically.
 | Pastes logs / "what happened" / prod symptom | **Shrink first** (below), then RCA - no fix until asked |
 | `/rca-logs` or grep request | Grep commands only; no Bob validate |
 | "merge conflict" / conflict markers | Read conflict hunks only; no full-file @ |
-| "compile fails" / Gradle error | Read last ~80 lines of error output; scoped `./gradlew` or `npm run validate` |
+| "compile fails" / Gradle error | Read last ~80 lines of error output; scoped `./gradlew compileJava` or `npm run validate`. Do **not** run the preexisting test suite except in CC. Other repos: `--tests` only classes written in this change. |
 | "bob validate X" / "bob let's test" | `bob validate-ticket X` only |
 | Ticket id + short symptom | `bob context --ticket X` once; link paths, no CONTEXT_PACK dump |
 | "fix it" after RCA | Implement |

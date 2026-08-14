@@ -32,7 +32,7 @@ Postman plugin is optional and redundant with Bob for local TDD unless the user 
 1. **Workspace**: For Novopay work, use `move_agent_to_root` to `{{WORKSPACE_ROOT}}` before edits if not already there.
 2. **Memory**: Read `{{WORKSPACE_ROOT}}/AGENTS.md` at session start. Continual Learning updates it on stop; do not maintain parallel preference lists.
 3. **Skills**: Canonical path is `{{WORKSPACE_ROOT}}/.cursor/skills/` only. Never create duplicate skill copies in service repos.
-4. **Testing**: Saying "bob let's test", "validate", or "test this ticket" triggers `bob validate-ticket <id>` with autoboot (E2E proof by default — no `gradle test` unless the user explicitly asks for unit tests). Encode boot fixes in Bob, do not re-prompt.
+4. **Testing**: Saying "bob let's test", "validate", or "test this ticket" triggers `bob validate-ticket <id>` with autoboot (E2E proof by default). Encode boot fixes in Bob, do not re-prompt. Unit tests: CC suite only; every other repo runs only `--tests` for classes written in this change.
 5. **Hygiene**: When a stop-hook follow-up requests `/workflow-from-chats`, run it and merge into `AGENTS.md` / project rules without asking permission for routine dedupe.
 
 ## Hard preferences (do not re-learn)
@@ -41,6 +41,7 @@ Postman plugin is optional and redundant with Bob for local TDD unless the user 
 - Stay on the active ticket; no unrelated ticket docs.
 - Security: prove vuln before fix, re-prove after.
 - Fix tests not prod classes when tests fail (unless prod is wrong).
+- Unit-test runs: CC repo may use the existing suite. All other repos: only `--tests` the class(es) written in this change; never preexisting tests.
 - No one-line helpers; constants in constants classes.
 - Gateway generic; domain logic in actor/CC/lib as appropriate.
 - ASCII hyphens in markdown, not em dashes.

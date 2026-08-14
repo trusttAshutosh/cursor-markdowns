@@ -83,3 +83,13 @@ When fixing unit/integration tests (user-asked or agent-initiated):
 2. If either branch has the fix, port/reuse that test change instead of inventing a new one - this avoids merge conflicts in test classes when branches are merged later.
 3. Only write a fix from scratch if neither `ddp-qa` nor `ddp-uat` has it.
 4. When fixing from scratch, update tests only - do not change production/original classes unless production code is genuinely wrong.
+
+---
+
+## Unit test runs: CC suite only; elsewhere new tests only
+
+Never run the preexisting unit/integration suite for any repo other than CC (`novopay-platform-creditcard-management` / `*-ddp-uat` clone).
+
+- **CC:** `gradle test` / existing tests are allowed when proving a CC change.
+- **Every other repo** (task-allocation, Actor, lib, gateway, notifications, …): run **only the test class(es) written in this change** (`./gradlew test --tests com.example.NewTest`). Do not add sibling/preexisting `--tests` "for safety". Do not run unfiltered `gradle test`.
+- Compile (`compileJava`) without tests is fine. If includeBuild/JDK cannot run even the new class, skip and say so - do not expand to other test classes.
