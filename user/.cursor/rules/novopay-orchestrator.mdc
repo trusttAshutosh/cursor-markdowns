@@ -62,7 +62,7 @@ Do **not** create new Bob CLI commands, skills, or Glass automations for ops unl
 - Flyway (normal process - no worktrees): in the **main repo clone**, checkout the latest remote **common-scripts** branch (name varies - discover; usually `ddp-fea-common-scripts`), `git pull`, then author the migration there. Take next unused version after that tip seq - never invent seq from a feature/`ddp-prod-master` tip alone. Stage for user review; **do not commit** unless asked. User commits on common-scripts, then cherry-picks onto the feature branch. Do **not** use git worktrees for Flyway unless the user explicitly asks.
 - Fix tests not prod classes when tests fail (unless prod is wrong). Before inventing a test fix, check remote `origin/ddp-qa` and `origin/ddp-uat` for the same test class/method and port/reuse if present (avoids merge conflicts in test classes); only fix from scratch when neither has it.
 - Unit-test runs: CC repo may use the existing suite. All other repos: only `--tests` the class(es) written in this change; never preexisting tests.
-- No one-line helpers; constants in constants classes.
+- No one-line helpers; if a private helper becomes a single call after a change, inline it at the call sites and delete the method. Constants in constants classes.
 - CodeAnt while authoring: `java:S1192` (no duplicate string literals at 3+ uses); SQL `quote_identifiers` (backtick every table/column in Flyway). Details in `codeant-sonar-guardrails.mdc`.
 - Gateway generic; domain logic in actor/CC/lib as appropriate.
 - ASCII hyphens in markdown, not em dashes.
