@@ -1,0 +1,54 @@
+---
+description: Jira Cloud comment paste format that actually renders (Markdown, not wiki)
+alwaysApply: true
+---
+
+# Jira comment format (Cloud - proven)
+
+Novopay Jira is **Cloud**. Comments paste as **Markdown**, not Server wiki. Proven 2026-08-18 on HDP-8926 (agent-side API pack).
+
+**Always share Jira comment drafts in this format.** Do not use wiki (`h3.`, `||col||`, `[HDP-1|url]`, `{code}`, `{panel}`).
+
+## Paste
+
+1. Draft in Markdown (file or chat).
+2. User pastes into comment **Markup** (`Ctrl+Shift+D` or Insert -> Markup), not Visual with wiki.
+3. Tables render **after Save**, not in the editor.
+
+Do not post to Jira unless the user explicitly asks.
+
+## Working syntax
+
+- Headings: `##` / `###` / `####` (never `h3.`)
+- Bold: `**text**` (never `*text*` wiki)
+- Lists: `- item`
+- Horizontal rule: `---`
+- Tables: GitHub markdown. Header row, then `| --- | --- |`, then data rows. **Max 5 columns** - split wider tables (A / B) so Cloud comments render.
+- ASCII hyphen-minus only (` - `, not em/en dash)
+- No `{code}`, `{panel}`, `{info}`, or `{apiName}` (curly macros break the comment)
+- No JSON / fenced code if the user does not want a code block look; use field tables instead
+
+## S.No. vs tickets (do not mix)
+
+| Column | Format | Why |
+|---|---|---|
+| S.No. | backticks only: `` `1` `` | Plain number gets smart-linked; wiki `(1)` becomes an emoticon |
+| Ticket IDs | `[HDP-8961](https://novopay.atlassian.net/browse/HDP-8961)` | Only in Through-ticket / related-ticket cells or prose |
+| Plain `HDP-8961` in a table with markdown links nearby | Do not | Cloud mis-attaches the link to S.No. |
+
+Never put a markdown/wiki link on the S.No. cell. Never leave tickets as unlinked keys when the user asked for hyperlinks.
+
+## Example (copy this shape)
+
+```
+### 1. What to call
+
+| S.No. | API | BE | Through ticket |
+| --- | --- | --- | --- |
+| `1` | agentLogin | Existing | [HDP-8977](https://novopay.atlassian.net/browse/HDP-8977). Story [HDP-8926](https://novopay.atlassian.net/browse/HDP-8926) |
+| `2` | getAgentTaskList | Done | [HDP-8961](https://novopay.atlassian.net/browse/HDP-8961). Story [HDP-8924](https://novopay.atlassian.net/browse/HDP-8924) |
+```
+
+Confirmation lists: S.No. in backticks; ask objectors to cite S.No., what is wrong, expected behaviour. Readable by product/QA. Self-contained.
+
+Worked file: `docs/tdd-runs/HDP-7636/BKYC_AGENT_SIDE_APIS_JIRA_COMMENT.txt`

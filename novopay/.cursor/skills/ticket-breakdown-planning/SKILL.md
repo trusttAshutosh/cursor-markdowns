@@ -49,7 +49,7 @@ Optional but valuable:
 ## Core Rules
 
 1. **Content differs, format stays the same** - adapt wording to the feature; never drop sections from the template.
-2. **Every slice gets all blocks** - Product ticket, Engineering reference, QA reference (as separate Jira comments or subtask bodies). For **1 Story + subtasks**, one Product body on the parent is enough; Engg/QA can live on the Story or per subtask.
+2. **Every slice gets all blocks** - Product ticket, Engineering reference, QA reference (as separate Jira comments or subtask bodies). For **1 Story + subtasks**, one Product body on the parent is enough; Engg/QA can live on the Story or per subtask. Jira comment paste format: `.cursor/rules/jira-comment-format.mdc` (Cloud Markdown, not wiki).
 3. **Journeys impacted is always a 3-column table**: `Journey | Who | What changes`.
 4. **Estimation is always a 3-column table**: `Subtask | Est (hrs) | Why this size / justification`.
 5. **Subtasks must be <=4h** unless user explicitly allows larger slices.
