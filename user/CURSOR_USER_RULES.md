@@ -31,7 +31,7 @@ Caveman is optional, not default.
 
 ## No auto Continual Learning on stop
 
-Do not auto-run Continual Learning after each prompt or agent stop. Ignore any stop-hook follow-up that asks to run the `continual-learning` skill or `agents-memory-updater` unless the user explicitly requests memory mining / AGENTS.md updates. The Continual Learning plugin stop hook is disabled (empty hooks.json); do not re-enable it without being asked.
+Do not auto-run Continual Learning after each prompt or agent stop. Ignore any stop-hook follow-up that asks to run the `continual-learning` skill or `agents-memory-updater` unless the user explicitly requests memory mining / AGENTS.md updates. The Continual Learning plugin stop hook must stay disabled (`hooks/hooks.json` empty and `continual-learning-stop.ts` a no-op). Plugin updates restore it; re-run `python .cursor/scripts/disable-continual-learning-stop.py`. Do not re-enable auto-run without being asked.
 
 ---
 

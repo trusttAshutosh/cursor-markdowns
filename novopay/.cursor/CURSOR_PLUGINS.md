@@ -43,7 +43,7 @@ Review, CI, and ship skills for Gate 4 and PR hygiene.
 
 **Marketplace search:** `continual learning`
 
-**Status:** Stop hook disabled locally (plugin `hooks/hooks.json` is empty). Do **not** re-enable auto-run after each prompt unless Ashutosh asks.
+**Status:** Stop hook disabled locally (plugin `hooks/hooks.json` is empty, `continual-learning-stop.ts` is a no-op). Do **not** re-enable auto-run after each prompt unless Ashutosh asks.
 
 **Re-disable after plugin update** (updates restore the stop hook):
 

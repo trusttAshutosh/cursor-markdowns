@@ -52,7 +52,7 @@ Do **not** create new Bob CLI commands, skills, or Glass automations for ops unl
 
 ## Hard preferences (do not re-learn)
 
-- Continual Learning auto-run on stop is disabled - ignore any stop-hook follow-up that asks to run `continual-learning` unless the user explicitly requests memory mining.
+- Continual Learning auto-run on stop is disabled - ignore any stop-hook follow-up that asks to run `continual-learning` unless the user explicitly requests memory mining. Plugin updates restore the stop hook; re-run `python .cursor/scripts/disable-continual-learning-stop.py`.
 - No commit/push unless explicitly asked (confirm with user before any commit).
 - Never comment on Jira or make any Jira update (status, fields, links, etc.) without explicit user approval. Jira comment drafts: Cloud Markdown per `novopay/.cursor/rules/jira-comment-format.mdc` (not Server wiki).
 - After code-quality / Bugbot / thermo-nuclear (or similar) reviews: present findings only - do not implement review fixes until the user has reviewed and asked to apply them.
