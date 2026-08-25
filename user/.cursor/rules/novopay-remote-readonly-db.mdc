@@ -1,0 +1,46 @@
+---
+description: QA/UAT/preprod remote MySQL and SSH default to read-only. Writes only after the user asks first.
+alwaysApply: true
+---
+
+# Novopay remote QA / UAT / preprod
+
+Credentials live in `%USERPROFILE%\.cursor\novopay-remote-db.env` (same pattern as `bkyc-jira.env`). Never commit that file. Never print passwords.
+
+## Default - read-only
+
+QA and preprod DB users **have write grants**. That does not authorize writes by default.
+
+- Default: SELECT / SHOW / DESCRIBE / EXPLAIN / WITH only via `novopay-remote-db-readonly.py`.
+- Do not fix data, run Flyway, or create temp tables on your own.
+- If a task needs a write, **stop and show the exact SQL first**. Do not run it yet.
+
+## Writes - only when the user asks first
+
+**Never run any INSERT / UPDATE / DELETE / REPLACE / DDL / GRANT / LOAD / CALL / SET GLOBAL on QA, UAT, or preprod unless the user explicitly asked to run that statement** (after seeing the query, or by saying seed/run/execute this SQL).
+
+- Run only the approved statement. Do not add sibling writes in the same turn.
+- Do not keep a general write helper. The readonly script stays the default; bypass READ ONLY only for the asked statement.
+- After a write, verify with SELECT and report the row. Do not print passwords.
+
+## When to use
+
+For RCA, env drift, "what is on QA/UAT/preprod", Flyway verify, or any analysis that needs live data: **run SELECT / log greps yourself**. Do not ask the user to paste query or grep results if this file is filled in.
+
+## How
+
+```
+python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env qa      --sql "SELECT 1"
+python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env uat     --sql "SHOW DATABASES"
+python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env preprod --ping
+python %USERPROFILE%\.cursor\novopay-remote-ssh.py --env qa      --cmd "hostname; whoami"
+python %USERPROFILE%\.cursor\novopay-remote-ssh.py --env preprod --cmd "ls /apps/applogs"
+```
+
+`--env qa` / `--env uat` / `--env preprod`. SQL must be one statement: `SELECT` / `SHOW` / `DESCRIBE` / `EXPLAIN` / `WITH`. The helper refuses writes.
+
+## Rules
+
+- Fully qualified `schema_name.table_name`.
+- If a key in the env file is empty, tell the user which key to fill. Do not invent hosts or passwords.
+- Write grants on the DB user are not blanket permission. Ask first, then run only that statement.

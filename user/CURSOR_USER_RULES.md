@@ -56,7 +56,7 @@ Skip only if user explicitly says not to commit/push. Update `user/CURSOR_USER_R
 
 ## SQL FQ names + server grep only
 
-SQL: Always use fully qualified schema_name.table_name. Prefer pasted prod DDL under novopay/.cursor/memory/prod-ddl/ when present. Before sharing queries, check for env-specific schema drift (QA vs UAT vs prod / recent Flyway) and explicitly call out columns or tables that may not exist on the target env.
+SQL: Always use fully qualified schema_name.table_name. Prefer pasted prod DDL under novopay/.cursor/memory/prod-ddl/ when present. Before sharing queries, check for env-specific schema drift (QA vs UAT vs prod / recent Flyway) and explicitly call out columns or tables that may not exist on the target env. Remote QA / UAT / preprod: never run any write query without asking first - show the exact SQL, wait for yes, then run only that statement.
 
 Grep: When asked for log search commands, always share grep (never rg). Always target server paths under /apps/applogs/common and /apps/applogs/<tenant> with live files like {service}-{tenant}.log; include rotated/archived via *.log* or date globs; use zgrep for .gz. Never default to local workspace or SERVER_LOGS paths unless the user is explicitly on local Bob.
 
