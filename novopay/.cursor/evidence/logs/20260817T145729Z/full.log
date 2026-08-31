@@ -1,0 +1,8 @@
+STAN bkj2_1786973927057 2026-08-17 19:08:47 getLoanOnCardTransactionHistory
+Request status_list=[PENDING] actor_id=30 page_size=10
+Response number_of_pending_records=45
+Sample DSA741786623838 created_on=2026-08-13T17:53:58 stage=initial_consent status=PENDING initial_consent_status=PENDING
+Sample DSA741786624150 created_on=2026-08-13T17:59:10 initial_consent_status=PENDING
+Sample DSA741786687557 created_on=2026-08-14T11:36:15 initial_consent_status=PENDING
+Sample DSA741786965485 created_on=2026-08-17T16:48:07 initial_consent_status=ERROR
+Sample DSA741786945953 stage=review_details initial_consent_status=AGREED

@@ -1,0 +1,4 @@
+Product Type,Customer Name,Mobile Number,Date of Birth,Email ID,Did Customer have PAN?
+SALARY,John Doe,9876543210,15/08/1995,john.doe@example.com,Yes
+SALARY,Jane Smith,6303024475,20/03/1998,jane.smith@example.com,Yes
+SALARY,Robert Kumar,9123456789,10/11/1992,robert.kumar@example.com,No

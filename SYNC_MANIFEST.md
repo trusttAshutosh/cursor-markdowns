@@ -1,17 +1,21 @@
-# Last sync: 2026-08-20T09:59:38Z
+# Last sync: 2026-08-31T09:37:12Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 736 | `user\.cursor` |
-| novopay-workspace | 81 | `novopay\.cursor` |
+| user | 839 | `user\.cursor` |
+| claude-memory | 14 | `claude\memory` |
+| agents-skills | 23 | `agents\skills` |
+| novopay-workspace | 95 | `novopay\.cursor` |
 | cc | 9 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |
 | bob-template-host-cc | 6 | `bob-templates\host-cc\.cursor` |
 | bob-template-novopay | 13 | `bob-templates\novopay\.cursor` |
-| actor | 0 | `missing source` |
+| actor | 1 | `actor\.cursor` |
 | gateway | 0 | `missing source` |
 | agent-webapp | 8 | `agent-webapp\.cursor` |
+| lib | 1 | `lib\.cursor` |
+| task-allocation | 2 | `task-allocation\.cursor` |
 | bob-onboarding-cursor | 3 | `bob-templates\onboarding-cursor` |
 | cc-skills-into-novopay | 2 | `novopay\.cursor\skills (merged from CC)` |
 | novopay-AGENTS | 1 | `novopay\AGENTS.md` |

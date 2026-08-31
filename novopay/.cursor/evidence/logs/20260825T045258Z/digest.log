@@ -1,0 +1,19 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: .cursor\evidence\logs\incoming-20260825-qa-auth-flyway.log
+original_lines: 13
+digest_lines: 13
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260825T045258Z\full.log
+=== CONTENT ===
+[arvind@np-ddp-qa-app novopay-platform-authorization] tail authorization flyway
+[2026-08-25 01:30:02.964] [] [authorization] [] [main] [] [] [] [] [ERROR] [NovopayFlywayService] Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 4000124
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 4000124
+[2026-08-25 01:30:02.979] [] [authorization] [] [main] [] [] [] [] [WARN] [NovopayFlywayService] Flyway migration failed for tenant ddp but startup continues. Schema ddp_authorization may be incomplete
+[2026-08-25 01:30:05.390] [] [authorization] [] [main] [] [] [] [] [ERROR] [NovopayFlywayService] Validate failed
+[2026-08-25 01:30:05.403] [] [authorization] [] [main] [] [] [] [] [WARN] [NovopayFlywayService] Flyway migration failed for tenant dsa. Schema dsa_authorization may be incomplete
+[2026-08-25 01:30:09.884] [] [authorization] [] [main] [] [] [] [] [ERROR] [NovopayFlywayService] Validate failed
+[2026-08-25 01:30:09.885] [] [authorization] [] [main] [] [] [] [] [WARN] [NovopayFlywayService] Flyway migration failed for tenant kp. Schema kp_authorization may be incomplete
+  * tenant=ddp | schema=ddp_authorization | Validate failed Migration checksum mismatch for migration version 4000124 -> Applied to database : 512774754 -> Resolved locally    : -620306448 Either revert the changes to the migration, or run repair
+  * tenant=dsa | schema=dsa_authorization | Validate failed Detected failed migration to version 000078 (permission mapping csa). Please remove any half-completed changes then run repair | author=chandu-pixel <chandu.t@trustt.com>
+  * tenant=kp | schema=kp_authorization | Validate failed Detected failed migration to version 7000017 (insert new role group permissions). Please remove any half-completed changes then run repair

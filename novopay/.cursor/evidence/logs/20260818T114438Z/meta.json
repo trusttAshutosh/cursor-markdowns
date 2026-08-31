@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-20260818-uat-flyway-0000101.log",
+  "original_lines": 22,
+  "digest_lines": 22,
+  "reduction_pct": 0.0,
+  "high_signal_count": 2,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260818T114438Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260818T114438Z\\digest.log"
+}

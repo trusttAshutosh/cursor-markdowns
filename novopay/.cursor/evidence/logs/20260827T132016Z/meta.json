@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-actor-qa-compile143.log",
+  "original_lines": 92,
+  "digest_lines": 75,
+  "reduction_pct": 18.5,
+  "high_signal_count": 18,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260827T132016Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260827T132016Z\\digest.log"
+}

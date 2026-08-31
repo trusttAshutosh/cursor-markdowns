@@ -1,2 +1,5 @@
 # Nested git repos inside Cursor plugin cache (do not submodule)
 user/.cursor/plugins/**/.git/
+
+# Live QA/UAT DB passwords (template is novopay-remote-db.env.example)
+user/.cursor/novopay-remote-db.env

@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-20260825-qa-auth-flyway.log",
+  "original_lines": 13,
+  "digest_lines": 13,
+  "reduction_pct": 0.0,
+  "high_signal_count": 12,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260825T045258Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260825T045258Z\\digest.log"
+}

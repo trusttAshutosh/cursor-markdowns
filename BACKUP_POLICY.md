@@ -9,7 +9,9 @@ Whenever agent-facing config changes on the live machine, mirror it here **befor
 | `~/.cursor/rules/` | novopay-orchestrator, codeant guardrails |
 | `~/.cursor/hooks/` | session hygiene, stop hooks |
 | `Desktop/novopay/.cursor/` | skills, rules, commands, WORKFLOWS |
-| Service `*/.cursor/` | CC, agent-webapp, bob overlays |
+| Service `*/.cursor/` | CC, agent-webapp, bob, actor, lib, task-allocation |
+| `~/.claude/projects/.../memory/` | Claude Code durable memory files |
+| `~/.agents/skills/` | caveman / find-skills |
 | Cursor Settings user rules | Also update `user/CURSOR_USER_RULES.md` |
 | Bob agent config | shrink-logs, boot-remediation, builder patches |
 
@@ -22,6 +24,8 @@ git add -A   # review diff; exclude secrets if any
 git commit -m "feat: <what changed>" -m "<why / which workflow it supports>"
 git push origin main
 ```
+
+Do not commit `%USERPROFILE%\\.cursor\\novopay-remote-db.env` (QA/UAT DB passwords). Sync skips it; keep only `novopay-remote-db.env.example`.
 
 **Commit message:** state what changed and why (not just "update files"). Example:
 

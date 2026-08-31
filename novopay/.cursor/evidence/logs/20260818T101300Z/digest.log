@@ -1,0 +1,15 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: .cursor\evidence\logs\incoming-20260818-w17.log
+original_lines: 9
+digest_lines: 9
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260818T101300Z\full.log
+=== CONTENT ===
+STAN=w17_1787045303680 CRN=DSA322671787044887 tenant=dsa API=manageCreditCardApplication 2026-08-18 14:58
+[INFO] ExecuteFinalDAPSalesforceService Lead with ARN - D26H18286446S0TL is eligible for VKYC
+[INFO] AbstractCreditCardManager Creating or updating attribute with key: vkyc_link and value: https://pehchaan-uat2.hdfcuat.bank.in:443/kycengine/ekyc?jid=3GmORCUPg%2Fgyy3%2B6hnl17uL4Q1wYbyhsGMwkG4ctXNS7P9oimM3kfTsLaUSbpLhxTfJUUrt3Ff%2B8kSBeiQxXACECHtEZvuDBbgls4qh401qoQ59MlTFZovk6JOJO1NyX054iyQWLNdbTsLl8FSfLXigAh6IVSV6ZnZ%2FC%2FlL3X7uBxIDkD%2Ffe0C5SzEHAFmInoFVv3lh8y6yiEoKiFiCZehTd%2BJWCwqXE7z5gfJo4vfQK%2BBdS2IPzj27RxaQMVhMBl5cH%2BoeNUVu3G3tG0t70%2Fm%2Ba%2BN61jdMq1i%2BJ1st3SAxPf3ShPso9SflKnrwgHnMEW0yd2hN6U5Qva4cCUg9NiQibvRIgWsjeGEEN4EayBQZpcB3uhKGmcvArTknAZr8zmyuulSvbTAxA0rMSj8I3kNCJQ84pFiDCB9gaK3zi8XM%3D
+[INFO] AbstractCreditCardManager Creating or updating attribute with key: filler4 and value: SVKYC20260818145825
+[WARN] SqlExceptionHelper SQL Error: 1406, SQLState: 22001
+[ERROR] SqlExceptionHelper Data truncation: Data too long for column 'vkyc_link' at row 1
+[ERROR] AbstractCreditCardManager REAL ERROR | com.mysql.cj.jdbc.exceptions.MysqlDataTruncation | Data truncation: Data too long for column 'vkyc_link' at row 1
+[ERROR] AbstractCreditCardManager Failed Reason [ code : 4000181 , decription : Application Failed|Due to technical error could not process your request.]
+Response: {"response_status":{"code":"4000181","message":"Application Failed|Due to technical error could not process your request.","status":"FAIL"}}

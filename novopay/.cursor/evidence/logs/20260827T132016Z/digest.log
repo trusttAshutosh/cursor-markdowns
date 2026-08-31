@@ -1,0 +1,81 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: .cursor\evidence\logs\incoming-actor-qa-compile143.log
+original_lines: 92
+digest_lines: 75
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260827T132016Z\full.log
+=== CONTENT ===
+Task :generateFlywayScriptAuthors
+flyway-script-authors: wrote 47 script entries of 47 changed (baseline=origin/ddp-prod-master)
+
+ Task :ddp-qa-novopay-platform-lib:infra-transaction-hdfc:compileJava UP-TO-DATE
+ Task :ddp-qa-novopay-platform-lib:infra-transaction-hdfc:classes UP-TO-DATE
+ Task :ddp-qa-novopay-platform-lib:infra-transaction-hdfc:jar UP-TO-DATE
+ Task :processResources
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by lombok.permit.Permit
+WARNING: Please consider reporting this to the maintainers of class lombok.permit.Permit
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+ Task :compileJava FAILED
+ Task :copyProperties
+
+[Incubating] Problems report is available at: file:///var/lib/jenkins/workspace/ddp-qa-novopay-platform-actor/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+What went wrong:
+Execution failed for task ':compileJava' (registered by plugin class org.gradle.api.plugins.JavaBasePlugin).
+ Failed to run Gradle Worker Daemon
+   > Process Gradle Worker Daemon 1 finished with non-zero exit value 143 (this value may indicate that the process was terminated with the SIGTERM signal)
+
+Try:
+ Run with --stacktrace option to get the stack trace.
+ Run with --info or --debug option to get more log output.
+ Run with --scan to get full insights from a Build Scan (powered by Develocity).
+ Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use --warning-mode all to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1m 13s
+80 actionable tasks: 4 executed, 1 from cache, 75 up-to-date
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (jacocoTest)
+Stage jacocoTest skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (jacocoTestReport Verification)
+Stage jacocoTestReport Verification skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (JaCoCo)
+Stage JaCoCo skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+Stage Deploy skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE

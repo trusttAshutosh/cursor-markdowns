@@ -40,6 +40,8 @@ See `SYNC_MANIFEST.md` for last run file counts.
 | Backup path | Live source |
 |-------------|-------------|
 | `user/.cursor/` | `~/.cursor/` (rules, hooks, skills-cursor, plugins, plans, mcp.json, ...) |
+| `claude/memory/` | `~/.claude/projects/C--Users-ashutosh-kumar-Desktop-novopay/memory/` |
+| `agents/skills/` | `~/.agents/skills/` (caveman, find-skills) |
 | `novopay/.cursor/` | `Desktop/novopay/.cursor/` (commands, skills, automations, hooks, rules, mcp.json, ...) |
 | `novopay/AGENTS.md` | Workspace orchestrator memory |
 | `novopay/README.md` | Cold-start + scoped validate docs |
@@ -61,6 +63,8 @@ See `SYNC_MANIFEST.md` for last run file counts.
 | `bob-templates/onboarding-cursor/` | Bob user-level hook template (`templates/onboarding/cursor/`) |
 | `actor/.cursor/` | `novopay-platform-actor/.cursor/` |
 | `gateway/.cursor/` | `novopay-platform-api-gateway/.cursor/` |
+| `lib/.cursor/` | `novopay-platform-lib/.cursor/` |
+| `task-allocation/.cursor/` | `trustt-platform-task-allocation/.cursor/` |
 | `WORKFLOW.md` | Mirror of `novopay/.cursor/WORKFLOWS.md` |
 | `TOKEN_HYGIENE.md` | Token-saving workflow (shrink-logs, prompt-hygiene skill) |
 | `user/CURSOR_USER_RULES.md` | Cursor Settings user rules offline snapshot |

@@ -1,0 +1,144 @@
+{
+  "as_of": "2026-08-27",
+  "org": "trusttai",
+  "mode": "career",
+  "cutoff": "2026-08-17",
+  "active_days": 10,
+  "min_total": 50,
+  "org_members": 108,
+  "recent_authors": 53,
+  "active_members": 51,
+  "excluded_non_members": [
+    "anshumananiket",
+    "tharun-trustt"
+  ],
+  "scored": 50,
+  "top10": [
+    {
+      "login": "trusttAshutosh",
+      "person": "Ashutosh",
+      "total": 583,
+      "merged": 545,
+      "closed": 38,
+      "open": 0,
+      "span_months": 6.1,
+      "days_per_pr": 0.3,
+      "rank": 1
+    },
+    {
+      "login": "chandu-pixel",
+      "person": "chandu-pixel",
+      "total": 1853,
+      "merged": 1673,
+      "closed": 177,
+      "open": 3,
+      "span_months": 23.5,
+      "days_per_pr": 0.4,
+      "rank": 2
+    },
+    {
+      "login": "Srijan-Das-Trustt",
+      "person": "Srijan-Das-Trustt",
+      "total": 1477,
+      "merged": 1427,
+      "closed": 48,
+      "open": 2,
+      "span_months": 20.4,
+      "days_per_pr": 0.4,
+      "rank": 3
+    },
+    {
+      "login": "sristigc",
+      "person": "sristigc",
+      "total": 1335,
+      "merged": 1262,
+      "closed": 72,
+      "open": 1,
+      "span_months": 18.3,
+      "days_per_pr": 0.4,
+      "rank": 4
+    },
+    {
+      "login": "trustt-abhishek",
+      "person": "Abhishek Puranik",
+      "total": 1007,
+      "merged": 905,
+      "closed": 99,
+      "open": 3,
+      "span_months": 13.5,
+      "days_per_pr": 0.4,
+      "rank": 5
+    },
+    {
+      "login": "kavyaL12",
+      "person": "kavyaL12",
+      "total": 1366,
+      "merged": 1294,
+      "closed": 69,
+      "open": 3,
+      "span_months": 22.8,
+      "days_per_pr": 0.5,
+      "rank": 6
+    },
+    {
+      "login": "r-manohar",
+      "person": "r-manohar",
+      "total": 948,
+      "merged": 925,
+      "closed": 22,
+      "open": 1,
+      "span_months": 17.0,
+      "days_per_pr": 0.5,
+      "rank": 7
+    },
+    {
+      "login": "Dineshkumarab-trustt",
+      "person": "Dineshkumarab-trustt",
+      "total": 940,
+      "merged": 902,
+      "closed": 38,
+      "open": 0,
+      "span_months": 14.9,
+      "days_per_pr": 0.5,
+      "rank": 8
+    },
+    {
+      "login": "AiTdpBugFixer",
+      "person": "AiTdpBugFixer",
+      "total": 311,
+      "merged": 155,
+      "closed": 47,
+      "open": 109,
+      "span_months": 5.1,
+      "days_per_pr": 0.5,
+      "rank": 9
+    },
+    {
+      "login": "kr-sooraj",
+      "person": "Sooraj KR",
+      "total": 2893,
+      "merged": 2773,
+      "closed": 109,
+      "open": 11,
+      "span_months": 52.6,
+      "days_per_pr": 0.6,
+      "rank": 10
+    }
+  ],
+  "churn": {
+    "in": [
+      "AiTdpBugFixer",
+      "Dineshkumarab-trustt",
+      "Srijan-Das-Trustt",
+      "chandu-pixel",
+      "kavyaL12",
+      "kr-sooraj",
+      "r-manohar",
+      "sristigc",
+      "trustt-abhishek",
+      "trusttAshutosh"
+    ],
+    "out": [],
+    "held": []
+  }
+}

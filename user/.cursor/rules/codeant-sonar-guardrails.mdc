@@ -76,6 +76,22 @@ when(dao.findByClientReferenceCode(CRN_7)).thenReturn(audit);
 
 **Agent habit:** On any touch to an existing `*Test.java`, grep that file for literals repeated 3+ times and fix in the same diff. This includes **porting/checkout from `origin/ddp-qa` or `origin/ddp-uat`** - remote tests are not CodeAnt-clean by default; extract constants before staging/handoff. Prefer reusing existing production constants (e.g. `TransactionAuditConstants.ACTOR_ID`) over redefining the same string in the test.
 
+### `java:S112` - generic `throws Exception` (tests)
+
+**Trigger:** CodeAnt MEDIUM on test helpers that declare `throws Exception` after any edit to that class (H2/JDBC integration tests).
+
+**Fix:** Declare the checked type the method actually throws (`SQLException` for JDBC). Do not invent a dedicated exception class for test helpers. JUnit `@Test` methods may still `throws Exception`.
+
+```java
+// BAD
+private void seed(...) throws Exception { ... }
+
+// GOOD
+private void seed(...) throws SQLException { ... }
+```
+
+**Agent habit:** When touching a JDBC/H2 test class, change helper `throws Exception` to `throws SQLException` in the same diff.
+
 ### `java:S5843` - regex complexity too high
 
 **Trigger:** Single `Pattern` exceeds Sonar complexity budget (~20).

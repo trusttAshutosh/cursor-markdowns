@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updatedAtMs": 1786227419937,
-  "transcriptCount": 1269,
+  "updatedAtMs": 1787741228428,
+  "transcriptCount": 1281,
   "transcripts": {
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\1771832443945\\agent-transcripts\\09e02934-c4a3-4156-b263-f8e258c42f73\\09e02934-c4a3-4156-b263-f8e258c42f73.jsonl": {
       "mtimeMs": 1771832648606.156,
@@ -3348,8 +3348,8 @@
       "size": 6020
     },
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\acdb66cd-7544-4b20-b4b1-9092dfe1a4d8\\acdb66cd-7544-4b20-b4b1-9092dfe1a4d8.jsonl": {
-      "mtimeMs": 1786227301399.4634,
-      "size": 44016
+      "mtimeMs": 1786227964388.569,
+      "size": 136048
     },
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\ad1baf53-0a39-47db-9331-0b712fda428d\\ad1baf53-0a39-47db-9331-0b712fda428d.jsonl": {
       "mtimeMs": 1786225430352.6228,
@@ -4364,8 +4364,8 @@
       "size": 57220
     },
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\acdb66cd-7544-4b20-b4b1-9092dfe1a4d8\\subagents\\cc66d7c4-3601-448a-a47b-a8b4e1228d03.jsonl": {
-      "mtimeMs": 1786227310742.2708,
-      "size": 2016
+      "mtimeMs": 1786227425749.549,
+      "size": 22602
     },
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\a473cfcd-3356-4273-aec7-58e20f08e9ab\\subagents\\2b82c54a-5dde-4dd9-b5d5-9205589a35a4.jsonl": {
       "mtimeMs": 1780425106911.4856,
@@ -5078,6 +5078,54 @@
     "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\empty-window\\agent-transcripts\\fa4f9132-47da-4a49-87a4-efdecb0ecda3\\subagents\\9a51d4c5-8158-46a5-ad78-21fd96a72afd.jsonl": {
       "mtimeMs": 1780495442824.9016,
       "size": 7454
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\34fb6dea-2329-4904-8294-7a3687a29161\\34fb6dea-2329-4904-8294-7a3687a29161.jsonl": {
+      "mtimeMs": 1786630225675.9165,
+      "size": 3947
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\5bab5029-56bc-44f1-82f3-6e3813692d8b\\5bab5029-56bc-44f1-82f3-6e3813692d8b.jsonl": {
+      "mtimeMs": 1787659983799.9612,
+      "size": 1629
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\66134d7e-20d2-40d8-a3f2-ece96dc3f582\\66134d7e-20d2-40d8-a3f2-ece96dc3f582.jsonl": {
+      "mtimeMs": 1787659814951.8242,
+      "size": 50297
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\712d4c42-5275-4d64-b3bf-23a994438a60\\712d4c42-5275-4d64-b3bf-23a994438a60.jsonl": {
+      "mtimeMs": 1787564436642.816,
+      "size": 1188
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\9bba9b7e-3ae6-4046-bc83-a8ad2b08cd83\\9bba9b7e-3ae6-4046-bc83-a8ad2b08cd83.jsonl": {
+      "mtimeMs": 1787564359307.889,
+      "size": 274
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\b7ab56a7-ace2-44fb-96d4-165ec4355902\\b7ab56a7-ace2-44fb-96d4-165ec4355902.jsonl": {
+      "mtimeMs": 1787660809635.0667,
+      "size": 79584
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\bca14409-c730-424d-8bd2-937b08fb1e05\\bca14409-c730-424d-8bd2-937b08fb1e05.jsonl": {
+      "mtimeMs": 1787741112452.886,
+      "size": 7933
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\c720a4b3-ac90-4629-8ae4-9529d13f2eeb\\c720a4b3-ac90-4629-8ae4-9529d13f2eeb.jsonl": {
+      "mtimeMs": 1787563982940.831,
+      "size": 36913
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\c75fb9f0-b020-4af7-ab82-f0240ed89bed\\c75fb9f0-b020-4af7-ab82-f0240ed89bed.jsonl": {
+      "mtimeMs": 1786530729015.34,
+      "size": 131047
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\cc5adadc-6e68-4294-b0e1-ecb6807392fb\\cc5adadc-6e68-4294-b0e1-ecb6807392fb.jsonl": {
+      "mtimeMs": 1786228727465.7747,
+      "size": 4065
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\bca14409-c730-424d-8bd2-937b08fb1e05\\subagents\\e02470e4-ef90-4f6e-851d-e69d3b2e7ec6.jsonl": {
+      "mtimeMs": 1787741142473.6638,
+      "size": 2015
+    },
+    "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\b7ab56a7-ace2-44fb-96d4-165ec4355902\\subagents\\7b8aea22-9173-45c0-89c2-f421810f9076.jsonl": {
+      "mtimeMs": 1787659212378.8306,
+      "size": 3807
     }
   }
 }

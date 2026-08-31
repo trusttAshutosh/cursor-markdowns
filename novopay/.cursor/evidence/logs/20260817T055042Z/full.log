@@ -1,0 +1,125 @@
+11.18.36 am: Executing ':com.trustt.taskallocation.Application.main()'�
+
+> Task :novopay-platform-lib:infra-platform:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-platform:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-platform:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-platform:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-cache:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-cache:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-cache:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-cache:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-jtf:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-jtf:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-jtf:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-jtf:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-ops-alerts:compileJava UP-TO-DATE
+
+> Task :generateFlywayScriptAuthors
+flyway-script-authors: git [diff, --name-only, --diff-filter=AM] failed (exit=128): fatal: ambiguous argument 'origin/ddp-prod-master...HEAD': unknown revision or path not in the working tree. Use '--' to separate paths from revisions, like this: 'git <command> [<revision>...] -- [<file>...]' 
+flyway-script-authors: git diff failed (baseline=origin/ddp-prod-master?). Writing empty map.
+
+> Task :novopay-platform-lib:infra-ops-alerts:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-ops-alerts:classes UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-ops-alerts:jar UP-TO-DATE
+> Task :copyProperties UP-TO-DATE
+> Task :novopay-platform-lib:util-platform:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-api-client:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-api-client:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-api-client:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-api-client:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-message-broker:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-message-broker:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-message-broker:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-message-broker:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-batch:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-batch:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-batch:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-batch:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-logging:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-logging:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-logging:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-logging:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-grpc:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-grpc:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-grpc:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-grpc:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:protobufDummy UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:extractProto UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-notifications:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-navigation:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-navigation:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-navigation:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-navigation:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:protobufDummy UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:extractProto UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-masterdata:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-service-security:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-service-security:processResources NO-SOURCE
+> Task :novopay-platform-lib:infra-service-security:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-service-security:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-mysql:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-mysql:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-mysql:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-essentials-mysql:jar UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:compileJava UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:protobufDummy UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:extractProto UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:processResources UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:classes UP-TO-DATE
+> Task :novopay-platform-lib:infra-transaction-internal-interface:jar UP-TO-DATE
+> Task :novopay-platform-lib:util-platform:processResources UP-TO-DATE
+> Task :novopay-platform-lib:util-platform:classes UP-TO-DATE
+> Task :novopay-platform-lib:util-platform:jar UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :com.trustt.taskallocation.Application.main()
+2026-08-17T05:48:44.952998Z main WARN The use of package scanning to locate Log4j plugins is deprecated.
+Please remove the packages attribute from your configuration file.
+See https://logging.apache.org/log4j/2.x/faq.html#package-scanning for details.
+  _____________                                        
+ |  ________   |  _____               _   _   __ _ _   
+ | |_   __  \  | |_   _| __ _   _ ___| |_| |_ \ \ \ \  
+ |   | |  \  ) |   | || '__| | | / __| __| __| \ \ \ \ 
+ |   | |__/ /  |   | || |  | |_| \__ \ |_| |_   ) ) ) )
+ |   | |  \ \  |   |_||_|   \__,_|___/\__|\__| / / / / 
+ |   | |   \ \ | =============================/_/_/_/  
+ |_____________| :: TASK-ALLOCATION :: v1.0.0.RELEASE :: 
+                 Powered by Spring Boot 4.1.0 
+ 
+2026-08-17T05:48:47.319227900Z main WARN The use of package scanning to locate Log4j plugins is deprecated.
+Please remove the packages attribute from your configuration file.
+See https://logging.apache.org/log4j/2.x/faq.html#package-scanning for details.
+
+> Task :com.trustt.taskallocation.Application.main() FAILED
+
+[Incubating] Problems report is available at: file:///C:/Users/ashutosh.kumar/Desktop/novopay/trustt-platform-task-allocation/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use --warning-mode all to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+55 actionable tasks: 2 executed, 53 up-to-date
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task :com.trustt.taskallocation.Application.main() (registered in initialization script C:\Users\ashutosh.kumar\AppData\Local\Temp\com_trustt_taskallocation_Application_main__4.gradle).
+> Process command C:\Users\ashutosh.kumar\.gradle\jdks\eclipse_adoptium-25-amd64-windows.2\bin\java.exe finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+11.18.49 am: Execution finished :com.trustt.taskallocation.Application.main().

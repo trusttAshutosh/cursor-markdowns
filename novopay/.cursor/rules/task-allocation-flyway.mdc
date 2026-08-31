@@ -1,0 +1,23 @@
+---
+description: TaskAlloc DDL/seeds belong in initial-setup Flyway, never in the service repo
+alwaysApply: true
+---
+
+# TaskAlloc Flyway location
+
+`trustt-platform-task-allocation` boot has `flyway_auto_update=0`. QA/UAT schema is applied by **FlywayMigrator** from **initial-setup**, not from the service JAR.
+
+## Do
+
+- Author `V*.sql` only in `novopay-platform-initial-setup/flyway/sql/task-allocation/product/`
+- BKYC stack lives on initial-setup `ddp-fea-bkyc` (org `ddp-fea-common-scripts` often has no `task-allocation/` folder)
+- Next version = unused after that folder **and** QA `ddp_task_allocation.flyway_schema_history`
+- Apply via FlywayMigrator / `localhost-task-allocation.sh`
+
+## Do not
+
+- Do not add `src/main/resources/sql/migrations/**` in TaskAlloc (removed; do not bring back)
+- Do not reuse a version already on QA (HDP-8967 `V000021` journey SMS lost because QA already had `V000021` as doc-upload retry)
+- Do not duplicate the same ALTER/seed in both repos
+
+Entities stay in TaskAlloc. Config knobs stay in masterdata `configuration`.

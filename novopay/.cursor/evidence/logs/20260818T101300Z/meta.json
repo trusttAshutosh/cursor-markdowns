@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-20260818-w17.log",
+  "original_lines": 9,
+  "digest_lines": 9,
+  "reduction_pct": 0.0,
+  "high_signal_count": 6,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260818T101300Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260818T101300Z\\digest.log"
+}

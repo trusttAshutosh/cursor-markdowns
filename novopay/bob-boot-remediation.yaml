@@ -45,6 +45,16 @@ services:
       - Port 8182, context /banking-origination. Required for H8 mode-switch proof (CcKycInitiatePolicy).
       - Bob syncs spring.datasource.* from user.env like masterdata.
 
+  task_allocation:
+    repo_dir: trustt-platform-task-allocation
+    dist_properties: deploy/application/dist/application.properties
+    src_properties: src/main/resources/application.properties
+    notes:
+      - Port 8020, context /task-allocation.
+      - Dist properties may ship a non-local MySQL password. Gradle bootRun must use MYSQL_* from user.env (same as application_props_sync / Spring --args).
+      - AUTO_ASSIGN E2E also needs Actor on 8003 (getEligibleAgentsForTask) and platform_master ACTOR endpoint.
+      - novopay.service.name is TASK-ALLOCATION. platform_master.service_master must have that name (TASK alone is not enough) plus tenant_service + tenant_service_db_config for ddp -> ddp_task_allocation using MYSQL_* creds. Tenant cache loads at boot - insert then restart.
+
 # Optional log patterns (merged with built-in _LOG_PATTERNS in boot_remediation.py).
 log_patterns:
   - name: cc_dist_props_missing

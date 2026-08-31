@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-loc-consent-expiry-20260817.log",
+  "original_lines": 8,
+  "digest_lines": 8,
+  "reduction_pct": 0.0,
+  "high_signal_count": 2,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260817T145729Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260817T145729Z\\digest.log"
+}

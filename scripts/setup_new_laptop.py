@@ -146,6 +146,27 @@ def restore_user_cursor(backup: Path) -> None:
         print("  kept existing ~/.cursor/mcp.json (not overwritten)")
 
 
+def restore_claude_and_agents(backup: Path) -> None:
+    """Restore Claude Code memory files and ~/.agents/skills (caveman, find-skills)."""
+    claude_src = backup / "claude" / "memory"
+    claude_dst = (
+        Path.home()
+        / ".claude"
+        / "projects"
+        / "C--Users-ashutosh-kumar-Desktop-novopay"
+        / "memory"
+    )
+    if claude_src.exists():
+        n = _copy_tree_merge(claude_src, claude_dst)
+        print(f"  restored ~/.claude/.../memory ({n} files)")
+
+    agents_src = backup / "agents" / "skills"
+    agents_dst = Path.home() / ".agents" / "skills"
+    if agents_src.exists():
+        n = _copy_tree_merge(agents_src, agents_dst)
+        print(f"  restored ~/.agents/skills ({n} files)")
+
+
 def restore_novopay_workspace(backup: Path, novopay: Path) -> None:
     src_root = backup / "novopay"
     novopay.mkdir(parents=True, exist_ok=True)
@@ -182,6 +203,11 @@ def restore_novopay_workspace(backup: Path, novopay: Path) -> None:
         (backup / "bob" / ".cursor", novopay / "bob-the-builder" / ".cursor"),
         (backup / "actor" / ".cursor", novopay / "novopay-platform-actor" / ".cursor"),
         (backup / "gateway" / ".cursor", novopay / "novopay-platform-api-gateway" / ".cursor"),
+        (backup / "lib" / ".cursor", novopay / "novopay-platform-lib" / ".cursor"),
+        (
+            backup / "task-allocation" / ".cursor",
+            novopay / "trustt-platform-task-allocation" / ".cursor",
+        ),
     ]
     for src, dst in overlays:
         if src.exists() and dst.parent.exists():
@@ -402,6 +428,7 @@ def main() -> int:
     if not args.skip_cursor:
         print("=== Restoring Cursor / AI config from backup ===")
         restore_user_cursor(backup)
+        restore_claude_and_agents(backup)
         restore_novopay_workspace(backup, novopay)
         print()
 

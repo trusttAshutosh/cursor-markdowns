@@ -1,0 +1,22 @@
+[arvind@ddp-uat-app ~]$ /apps/scripts/check-flyway-in-jar.sh
+Jar: /apps/novopay-platform-creditcard-management/credit-card-management-1.0.0.SNAPSHOT.jar
+Service: credit-card-management
+Logs: /apps/applogs
+Schema: {tenant}_credit_card_mgmt
+Window: last 120 min (2026-08-18 15:08:12 -> 2026-08-18 17:08:12)
+[2026-08-18 17:04:46.629] [credit-card-management] [ERROR] [NovopayFlywayService] Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 0000101
+-> Applied to database : -1270743837
+-> Resolved locally    : -428466171
+org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 0000101
+-> Applied to database : -1270743837
+-> Resolved locally    : -428466171
+tenant=ddp schema=ddp_credit_card_mgmt
+tenant=dsa schema=dsa_credit_card_mgmt
+tenant=ra schema=ra_credit_card_mgmt
+tenant=rbg schema=rbg_credit_card_mgmt
+jar_script: (MISSING - not in jar)
+action: UPDATE_CHECKSUM
+SQL: UPDATE {tenant}_credit_card_mgmt.flyway_schema_history SET success = 1, checksum = -428466171 WHERE version = '000101';
+Findings=4 window=last 120 min

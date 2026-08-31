@@ -11,6 +11,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 NOVOPAY = Path(r"C:/Users/ashutosh.kumar/Desktop/novopay")
 USER_CURSOR = Path(r"C:/Users/ashutosh.kumar/.cursor")
+CLAUDE_MEMORY = Path(
+    r"C:/Users/ashutosh.kumar/.claude/projects/C--Users-ashutosh-kumar-Desktop-novopay/memory"
+)
+AGENTS_SKILLS = Path(r"C:/Users/ashutosh.kumar/.agents/skills")
 
 # Global ~/.cursor: backup config, skip IDE runtime/cache
 USER_EXCLUDE_DIRS = {
@@ -23,6 +27,8 @@ USER_EXCLUDE_DIRS = {
 
 USER_EXCLUDE_FILES = {
     "ide_state.json",
+    # Live DB / Jira secrets stay on the laptop only.
+    "novopay-remote-db.env",
 }
 
 # Hook throttle timestamps (runtime, not config)
@@ -150,7 +156,19 @@ def main() -> int:
             NOVOPAY / "novopay-platform-agent-webapp" / ".cursor",
             ROOT / "agent-webapp" / ".cursor",
         ),
+        (
+            "lib",
+            NOVOPAY / "novopay-platform-lib" / ".cursor",
+            ROOT / "lib" / ".cursor",
+        ),
+        (
+            "task-allocation",
+            NOVOPAY / "trustt-platform-task-allocation" / ".cursor",
+            ROOT / "task-allocation" / ".cursor",
+        ),
     ]
+    sync_pair("claude-memory", CLAUDE_MEMORY, ROOT / "claude" / "memory", results)
+    sync_pair("agents-skills", AGENTS_SKILLS, ROOT / "agents" / "skills", results)
     for label, src, dst in mappings:
         sync_pair(label, src, dst, results)
 
