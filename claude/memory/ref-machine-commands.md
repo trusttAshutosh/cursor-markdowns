@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 755481cc-2faf-4a57-8ad0-da97b5f87585
-  modified: 2026-08-25T09:55:06.084Z
+  modified: 2026-09-06T03:05:00.000Z
 ---
 
 Deepankar's Windows machine has setup/permission constraints. Do **not** retry broken commands — use the
@@ -33,9 +33,12 @@ exit 128), stop using PowerShell for that job and switch to **Git Bash** (`C:\Pr
 Every Gradle build (and any `Selector.open()` in any JVM) fails with
 `java.io.IOException: Unable to establish loopback connection`, root cause
 `SocketException: Invalid argument: connect` in `sun.nio.ch.UnixDomainSockets.connect0`.
-The JDK builds selector wake-up pipes on an AF_UNIX socket in `%TEMP%`
-(`C:\Users\ASHUTO~1.KUM\...` — the 8.3 short-name path breaks it). It is **not** the
-firewall/FortiClient blocking TCP — raw loopback TCP and NIO connects work fine.
+The JDK builds selector wake-up pipes on an AF_UNIX socket in `%TEMP%`. AF_UNIX `connect`
+fails with EINVAL for **any** socket file under `C:\Users\ashutosh.kumar\AppData\Local\Temp`
+(verified 2026-09-06: long-form path fails too, so it is the folder, not the 8.3 short name;
+`C:\Temp` works). Something filters that folder. It is **not** the firewall/FortiClient blocking
+TCP — raw loopback TCP, NIO connects and `Pipe.open()` all work. Leftover `afunix-*.sock` files in
+that Temp folder cannot be deleted (error 1920, even via `fsutil reparsepoint delete`) — ignore them.
 
 **Fix (verified 2026-08-25):** point the unix-socket dir somewhere clean, for every Gradle JVM:
 
@@ -46,6 +49,45 @@ set JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:/Users/ashutosh.kumar/tmpnio
 
 (`C:\Users\ashutosh.kumar\tmpnio` must exist. cmd also needs the `.\` prefix on
 `gradlew.bat` — bare `gradlew.bat` is "not recognized": cwd exe search is disabled.)
+Even `./gradlew help` fails without it (the client cannot reach its own single-use daemon), so
+export it in Git Bash too: `export JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:/Users/ashutosh.kumar/tmpnio`.
+Sandbox on/off makes no difference — do not waste a retry on `dangerouslyDisableSandbox`.
+
+**Gradle-free fallback (verified 2026-09-03, task-allocation):** the repo's JDK 25 toolchain lives at
+`~/.gradle/jdks/eclipse_adoptium-25-amd64-windows.2/bin` (`~/.jdks` only has 8/21 and cannot read the
+v69 class files in `build/classes`). Compile `src/main/java` with that `javac -proc:none` against every
+jar in `~/.gradle/caches/modules-2/files-2.1` + `~/.m2/repository/in/novopay` (one version per artifact,
+pass `-cp` via an `@argfile` with `-cp` and the path on separate lines, no quotes) plus
+`-sourcepath` on `novopay-platform-lib/infra-transaction-internal-interface/src/main/java;…/infra-batch/src/main/java`
+(CsvRecordReader / batch base classes are composite-build only). Run tests with a 15-line
+`LauncherFactory` + `SummaryGeneratingListener` main class. Wider lib sourcepaths drag in protobuf
+generated code that does not compile — keep it to those two modules.
+
+### Gateway Java-21 feature branch vs Java-25 lib (compile-only recipe, verified 2026-09-06)
+
+`novopay-platform-api-gateway` feature branches off `ddp-prod` pin `sourceCompatibility 21`, but the
+included `../novopay-platform-lib` checkout (`ddp-fea-bkyc`, `ddp-bkup-qa`) is toolchain 25, so
+`compileJava` dies at dependency resolution ("looking for a library compatible with JVM runtime
+version 21 ... only compatible with 25"). `ddp-bkup-qa` gateway is already Java 25, so QA compiles it
+that way. Local check without touching either repo: a Gradle init script that lifts the toolchain and
+the resolution attribute (a toolchain alone is not enough — explicit `targetCompatibility` wins):
+
+```groovy
+import org.gradle.api.attributes.java.TargetJvmVersion
+allprojects {
+    plugins.withId('java') { java { toolchain { languageVersion = JavaLanguageVersion.of(25) } } }
+    afterEvaluate {
+        if (project.name == 'novopay-platform-api-gateway') {
+            configurations.configureEach { c ->
+                if (c.canBeResolved) c.attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 25)
+            }
+        }
+    }
+}
+```
+
+`./gradlew compileJava --no-daemon -q -I toolchain25.init.gradle` (+ `JAVA_TOOL_OPTIONS` fix above).
+JDK 25 is already provisioned at `~/.gradle/jdks/eclipse_adoptium-25-amd64-windows.2`.
 
 ### Working patterns
 

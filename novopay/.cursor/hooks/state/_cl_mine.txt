@@ -1,0 +1,306 @@
+
+============================================================
+32596f4f count=119
+
+--- 0 ---
+bkyc file upload should be mapped to corporate as well data to file id mapping do these exist?
+
+--- 1 ---
+upload will happen for a particular corporate prepare clarifying question and mention on which jira should we post it
+
+--- 2 ---
+after above all wil e clear? is this a small modification or a new change?
+
+--- 3 ---
+all required details clarification ask in one go share draft commnet
+
+--- 4 ---
+post it only on one ticket
+
+--- 5 ---
+pull in reply
+
+--- 6 ---
+explian me again what we r to implement and why in detail
+
+--- 7 [CL trigger skipped] ---
+
+...middle skipped...
+
+--- 79 ---
+wil bkyc functionality break if we merge w/o fronetnd changes? what functionaliy will break ? will we be able to do that functionality through postman curl until frontend changes are ready?
+
+--- 80 ---
+share working postman curl (verify by hitting qa server) that can be used until frontend changes are ready
+
+--- 81 ---
+curl for only that functionality which will break until fe change srea ready
+
+--- 82 ---
+have you verified above curl? excludig corporate id? corporate id change snot merge dyet
+
+--- 83 ---
+share the curl (with corporateid) for only that functionality which will break until fe change srea ready with a note in PR description
+
+--- 84 ---
+Pr description updatedz?
+
+--- 85 ---
+The "Antipatterns" quality gate is failing in this commit. Code smells / antipatterns were introduced in the changed code. Gate output: antipatterns value 6 is greater than threshold 0 Issues to address (6): - [HIGH] `src/main/java/com/trustt/taskallocation/integration/actor/ActorEmployeeCorporateIdClient.java:48` — Define a constant instead of duplicating this literal "Could not resolve login corporate for userId" 4 times. (java:S1192) ``` throw ex; } catch (Exception ex) { LOG.error("Actor getEmployeeCorporateIdForUser call failed userId={}", userId, ex); throw new NovopayNonFatalException( ActorEligibleAgentsConstants.ERROR_ACTOR_CALL_FAILED, "Could not resolve login corporate for userId"); } } private ResolvedCorporate parseSuccessResponse(NovopayHTTPResponse httpResponse, long userId) throws NovopayNonFatalException { ``` - [LOW] `src/main/java/com/trustt/taskallocation/plugin/bkyc/config/BkycAssignConfig.java:123` — Reduce the total number of break and continue statements in this loop to use at most one. (java:S135) ``` String raw = read(entitledCorporateLabelsConfig); if (StringUtils.isBlank(raw)) { return Map.of(); } Map<Long, String> map = new LinkedHashMap<>(); for (String part : raw.split(",")) { String entry = StringUtils.trimToEmpty(part); if (entry.isEmpty()) { continue; } int sep = entry.indexOf(':'); ``` - [LOW] `src/main/java/com/trustt/taskallocation/task/service/TaskCustomerGeocodeService.java:113` — Use the original value instead. (java:S2676) ``` && Math.abs(lng - expectedLng) <= TaskCustomerGeocodeConstants.LEGACY_COORD_EPSILON; } private static double legacyPlaceholderLat(String pincode) { return TaskCustomerGeocodeConstants.LEGACY_PLACEHOLDER_BASE_LAT + ((Math.abs((long) pincode.hashCode()) % TaskCustomerGeocodeConstants.LEGACY_HASH_MOD) / TaskCu
+
+--- 86 ---
+for masterdata PR mention a commnet that antipattern are for quote idnetifiers, not resolving that as has alreda been released in prod so can't change the script. wil prevent such issue sin future
+
+--- 87 ---
+for masterdata PR mention a commnet that antipattern are for quote idnetifiers, not resolving that as has alreda been released in prod so can't change the script. wil prevent such issue sin future
+
+--- 88 ---
+is Where this PR sits really updated? i think some tickets ae done but for them its blank and not ✅
+
+--- 89 ---
+The "Complex Functions" quality gate is failing in this commit. Functions exceeding the complexity threshold were introduced. Gate output: complex_functions value 1 is greater than threshold 0 Issues to address (1): - `src/main/java/com/trustt/taskallocation/plugin/bkyc/config/BkycAssignConfig.java:117` — function `labelMap` has complexity 17 (over threshold) ``` public String getSmsWindowEnd() { return firstNonBlank(read(smsWindowEnd), DEFAULT_SMS_WINDOW_END); } private Map<Long, String> labelMap() { String raw = read(entitledCorporateLabelsConfig); if (StringUtils.isBlank(raw)) { return Map.of(); } Map<Long, String> map = new LinkedHashMap<>(); ``` Please validate the finding(s), then implement the minimal, correct fix for the real issue(s). Keep changes scoped — do not refactor unrelated code. After fixing, briefly explain what you changed and why.
+
+--- 90 ---
+becuas eof resolving anti patterns no functionality got broken or no refgresions or breaking change sintroduced right?
+
+--- 91 ---
+stage teh change sand share commit command with propermessage and decsription
+
+--- 92 ---
+check if anitial setup flyw got executed properly or not. don't do any dbwrites
+
+--- 93 ---
+we had alter for which all changes above? in which all repos? for them share the alter query and insert into flyway schema history query
+
+--- 94 ---
+what all changes ent in these prs what all we need to test and how dont test now. not deployed yet but summarise for me
+
+--- 95 ---
+there were some pincode changes and logs in tenant specific instead of common those changes were also there right. wil have to test those as well
+
+--- 96 ---
+[2026-09-03 10:37:08.979] [task-allocation] [ddp] [main] [ERROR] [o.f.c.i.c.DbMigrate] Migration of schema `ddp_task_allocation` to version "000025 - sequences table and function" failed! Please restore backups and roll back database and code! [2026-09-03 10:37:09.016] [task-allocation] [ddp] [main] [WARN] [o.f.d.m.MySQLConnection] Unable to restore connection to having no default schema: Access denied for user 'appuser'@'172.31.2.%' to database '72b79a35-7c3b-4b4e-a3be-2b800bd93366' [2026-09-03 10:37:09.018] [task-allocation] [ddp] [main] [ERROR] [i.n.f.s.FlywayMigrationService] Flyway migration failed for Tenant DB URL: jdbc:mysql://ddpdb.trustt.com:3306/ddp_task_allocation?autoreconnect=true&useUnicode=true&characterEncoding=UTF-8, username: appuser - Failed to execute script V000025__sequences_table_and_function.sql ------------------------------------------------------------------ SQL State : 42000 Error Code : 1142 Message : CREATE command denied to user 'appuser'@'ip-172-31-2-132.ap-south-1.compute.internal' for table 'sequences' Location : /apps/novopay-platform-initial-setup/flyway/sql/task-allocation/product/V000025__sequences_table_and_function.sql (/apps/novopay-platform-initial-setup/flyway/sql/task-allocation/product/V000025__sequences_table_and_function.sql) Line : 3 Statement : Run Flyway with -X option to see the actual statement causing the problem [2026-09-03 10:37:09.018] [task-allocation] [ddp] [main] [DEBUG] [i.n.f.s.FlywayMigrationService] Flyway migration failure org.flywaydb.core.internal.exception.FlywayMigrateException: Failed to execute script V000025__sequences_table_and_function.sql ------------------------------------------------------------------ SQL State : 42000 Error Code : 1142 Message : CREATE command denied to user 'appuser'@'ip-172
+
+--- 97 ---
+contents of 25 and 26?
+
+--- 98 [CL trigger skipped] ---
+
+--- 99 ---
+check cretae can be executed manually or not in qa db
+
+--- 100 ---
+apart from initial setup all deployed test whatever can be tested
+
+--- 101 ---
+checksum issue in actor fix those. who were the author?
+
+--- 102 [CL trigger skipped] ---
+
+--- 103 ---
+upadet teh checksum in qa db
+
+--- 104 ---
+check dms upload download for bkyc task id - 910395
+
+--- 105 ---
+actor restarted. check everythig whatever can be tested initial setup still not deployed
+
+--- 106 ---
+check on qa server --> If portal download fails, check file_number=1 on downloadDocument for the code you are using. in qa server there is some downloadDocument related erro logs check for it
+
+--- 107 ---
+share me a summary table of all we had deicde above to test in the above mentione PRs and us eemojis ✅❌🚧 if blocked 🚧 or failed ❌ then also mention why
+
+--- 108 ---
+share gep logs to see it in logs that all is good for dms upload download side for bkyc and i want it task id specific find one such in qa server and share grep command or curl for the same
+
+--- 109 ---
+check masterdata logs for flyway issues point #3. did our sql in above masterdata Pr not execute? for 12 --> hit through curl for 13 -_> u should not execute db write query without my appropal but if any api is inteanll suppose dto do db writ eand if i 'm telling u to execute that api curl then it's fine u can do it . but still alway stake my approval. you have a go for this for 14, 15 --> test this
+
+--- 110 ---
+<dynamic_tools> You have access to tools through dynamic namespaces, e.g. MCP servers, using `GetDynamicTools` and `CallDynamicTool`. ## Dynamic Tool Discovery and Invocation Use `GetDynamicTools` to discover tool schemas, then `CallDynamicTool` to invoke one tool. Aim to minimize round-trips: ideally one discovery call followed by one invocation. If the user mentions a product or service represented by an available namespace, and the request likely depends on it, proactively inspect that namespace before answering. If you are unsure which namespace matches, search with a relevant pattern. `GetDynamicTools` supports these modes: 1. `{"namespace":"<id>"}`: returns schemas and full descriptions for every tool in that namespace. 2. `{"namespace":"<id>","toolName":"<name>"}`: returns one tool schema with its full description. 3. `{"pattern":"<regex>"}`: searches namespace and tool names. 4. `{"namespace":"<id>","pattern":"<regex>"}`: searches tools within one namespace. 5. No arguments: returns the full catalog. Pattern-search and catalog results shorten long descriptions, marked by a trailing "... [truncated]"; namespace and single-tool lookups always return the complete description. Always inspect a tool's schema before invoking it with `CallDynamicTool`. If the available dynamic tools do not fully support what the user asked you to do, complete the work you can with the current tool set. In your work summary, include what you were unable to do and why. Do not use browser automation to work around missing tools unless the user explicitly asks you to use the browser. Available dynamic tool namespaces: <dynamic_tool_namespaces> <namespace name="cursor-app-control" tools="move_agent_to_root, move_agent_to_cloned_root, create_project, rename_chat, cursor_dialog, open_resource
+
+--- 111 ---
+check masterdata logs for flyway issues point #3. did our sql in above masterdata Pr not execute? for 12 --> hit through curl for 13 -_> u should not execute db write query without my appropal but if any api is inteanll suppose dto do db writ eand if i 'm telling u to execute that api curl then it's fine u can do it . but still alway stake my approval. you have a go for this for 14, 15 --> test this
+
+--- 112 ---
+will we stil be getting that actor lookup issue?
+
+--- 113 ---
+# TaskAlloc – submit upload to DMS + SF path for task 910395 grep -aE '910395|DDP03092026000000002|DDP03092026000000003|1788414853793' /apps/applogs/ddp/task-allocation-ddp.log /apps/applogs/common/task-allocation-common.log | grep -aE 'uploadDocument|downloadDocument|Stored upload in DMS|Salesforce doc upload success|submitBkyc' | tail -40 # DMS – upload + download for the same codes grep -aE 'DDP03092026000000002|DDP03092026000000003|1788414853793' /apps/applogs/ddp/dms-ddp.log /apps/applogs/common/dms-common.log | grep -aE 'uploadDocument|downloadDocument' | tail -40 # Expect SUCCESS (not 282002) grep -aE 'DDP03092026000000002|DDP03092026000000003' /apps/applogs/ddp/dms-ddp.log | grep -a 'Response:' | tail -10 i just want request and response for dms api for hat task id in out put it shoud e clearly vsiisble endpoint request and response
+
+--- 114 ---
+share HDP-8930 PR pack – QA test summary again
+
+--- 115 ---
+how to fix the masterdata issue
+
+--- 116 ---
+# TaskAlloc – submit upload to DMS + SF path for task 910395 grep -aE '910395|DDP03092026000000002|DDP03092026000000003|1788414853793' /apps/applogs/ddp/task-allocation-ddp.log /apps/applogs/common/task-allocation-common.log | grep -aE 'uploadDocument|downloadDocument|Stored upload in DMS|Salesforce doc upload success|submitBkyc' | tail -40 # DMS – upload + download for the same codes grep -aE 'DDP03092026000000002|DDP03092026000000003|1788414853793' /apps/applogs/ddp/dms-ddp.log /apps/applogs/common/dms-common.log | grep -aE 'uploadDocument|downloadDocument' | tail -40 # Expect SUCCESS (not 282002) grep -aE 'DDP03092026000000002|DDP03092026000000003' /apps/applogs/ddp/dms-ddp.log | grep -a 'Response:' | tail -10 i just want request and response for dms api for hat task id in out put it shoud e clearly vsiisble endpoint request and response share me grep command for teh same
+
+--- 117 ---
+grep -aE 'DDP03092026000000002|DDP03092026000000003|photo_910395|signature_910395|1788414853793' /apps/applogs/ddp/dms-ddp.log \ | grep -aE 'RequestProcessorImpl.*(API name:|Header:|Request:|Response:)' \ | sed -E 's/"file_content":"[^"]{20,}"/"file_content":"[BASE64]"/g' but wih formatting
+
+--- 118 ---
+author of 308 issu ein masterdata?
+
+============================================================
+636fea12 count=1
+
+--- 0 ---
+Started by user Samyuktha S [Pipeline] Start of Pipeline [Pipeline] node Running on slave2 in /var/lib/jenkins/workspace/ddp-qa-novopay-platform-initial-setup-new [Pipeline] { [Pipeline] stage [Pipeline] { (Environment) [Pipeline] script [Pipeline] { [Pipeline] echo qa is getting builded for ALL [Pipeline] buildName New run name is 'qa and ALL-#26' [Pipeline] } [Pipeline] // script [Pipeline] } [Pipeline] // stage [Pipeline] stage [Pipeline] { (CleanWorkspace) [Pipeline] cleanWs [WS-CLEANUP] Deleting project workspace... [WS-CLEANUP] Deferred wipeout is used... [WS-CLEANUP] done [Pipeline] } [Pipeline] // stage [Pipeline] stage [Pipeline] { (Branch Checkout) [Pipeline] script [Pipeline] { [Pipeline] checkout The recommended git tool is: NONE using credential devops Cloning the remote Git repository Cloning repository https://github.com/trusttai/trustt-platform-initial-setup.git > git init /var/lib/jenkins/workspace/ddp-qa-novopay-platform-initial-setup-new # timeout=10 Fetching upstream changes from https://github.com/trusttai/trustt-platform-initial-setup.git > git --version # timeout=10 > git --version # 'git version 2.40.1' using GIT_ASKPASS to set credentials for all repo checkout with the git hub token > git fetch --tags --force --progress -- https://github.com/trusttai/trustt-platform-initial-setup.git +refs/heads/*:refs/remotes/origin/* # timeout=10 Avoid second fetch Checking out Revision 3c4a80046366bdac01fe244771a6cbca93c79da6 (origin/ddp-qa) > git config remote.origin.url https://github.com/trusttai/trustt-platform-initial-setup.git # timeout=10 > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10 > git rev-parse origin/ddp-qa^{commit} # timeout=10 > git config core.sparsecheckout # timeout=10 > git checkout -f 3c4a80046366b
+
+============================================================
+78445b77 count=4
+
+--- 0 ---
+check actor build log sin qa. build failed
+
+--- 1 ---
+check actor logs in qa
+
+--- 2 ---
+check ahgain qa servre logs
+
+--- 3 ---
+Started by user Samyuktha S Obtained ddp-qa/Jenkinsfile-all-backend from git https://github.com/trusttai/trustt-infra-devops.git [Pipeline] Start of Pipeline [Pipeline] node Running on Jenkins in /var/lib/jenkins/workspace/ddp-qa-novopay-platform-actor [Pipeline] { [Pipeline] stage [Pipeline] { (Declarative: Checkout SCM) [Pipeline] checkout The recommended git tool is: git using credential devops > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/ddp-qa-novopay-platform-actor/.git # timeout=10 Fetching changes from the remote Git repository > git config remote.origin.url https://github.com/trusttai/trustt-infra-devops.git # timeout=10 Fetching upstream changes from https://github.com/trusttai/trustt-infra-devops.git > git --version # timeout=10 > git --version # 'git version 2.40.1' using GIT_ASKPASS to set credentials for all repo checkout with the git hub token > git fetch --tags --force --progress -- https://github.com/trusttai/trustt-infra-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10 > git rev-parse refs/remotes/origin/ddp-qa^{commit} # timeout=10 Checking out Revision f13dea6803a9682fd224aa6a8256b2f89e880a3b (refs/remotes/origin/ddp-qa) > git config core.sparsecheckout # timeout=10 > git checkout -f f13dea6803a9682fd224aa6a8256b2f89e880a3b # timeout=10 Commit message: "Disable CodeAnt Analysis and Quality Gates stages" > git rev-list --no-walk f13dea6803a9682fd224aa6a8256b2f89e880a3b # timeout=10 [Pipeline] } [Pipeline] // stage [Pipeline] withEnv [Pipeline] { [Pipeline] stage [Pipeline] { (CleanWorkspace) [Pipeline] cleanWs [WS-CLEANUP] Deleting project workspace... [WS-CLEANUP] Deferred wipeout is used... [WS-CLEANUP] done [Pipeline] } [Pipeline] // stage [Pipeline] stage [Pipeline] { (Environment) [Pipeline] script [Pipeline] { [Pipelin
+
+============================================================
+a550eba5 count=44
+
+--- 0 ---
+https://novopay.atlassian.net/browse/DPB-1984 c:\Users\ashutosh.kumar\Downloads\DSA40171788177137_Logs.txt prod check latest code of ddp-prod-master on remote share grep logs and db queries if any additional info required
+
+--- 1 ---
+draft jira comment requesting output of gep log and db queries share the db queries an dgrep logs as 1 liner not multi liner
+
+--- 2 ---
+too long comment just ask for ouput of one line rrep command and queries
+
+--- 3 ---
+all gre logs and al querie smentione dabove?
+
+--- 4 ---
+post it
+
+--- 5 ---
+based on this share updated grep logs https://novopay.atlassian.net/browse/DPB-1984?focusedCommentId=401450
+
+--- 6 ---
+yes
+
+--- 7 ---
+table doesn't exist for db queries see if similar thing exist in qa uat servers or not else shar ecorrecte dquery no db writres
+
+--- 8 ---
+c:\Users\ashutosh.kumar\Downloads\Logs_output.txt
+
+--- 9 ---
+Analysis sumary for ticket what we observed from rep lgs and db query our conclusion code issue? since when? share draft jira ocmment
+
+--- 10 ---
+yes
+
+--- 11 [CL trigger skipped] ---
+
+--- 12 ---
+thr original usease was when biokyc fails we should aonly allow 3 attempst so to print that proper merro rmsg we had done those change make a branch out of latest ddp-prod-master on remote named appropriately and prefixed with ddp-fea- for india stack and fix our issue withjout breaking changes for 8530
+
+--- 13 ---
+don't nee dto create a config it was already handled only we wer eshowing improper msg for 8530 fo which we added catch Exception which is wrong it should catch only 8530 excapetion and not dpb-1984exception
+
+--- 14 ---
+<dynamic_tools> You have access to tools through dynamic namespaces, e.g. MCP servers, using `GetDynamicTools` and `CallDynamicTool`. ## Dynamic Tool Discovery and Invocation Use `GetDynamicTools` to discover tool schemas, then `CallDynamicTool` to invoke one tool. Aim to minimize round-trips: ideally one discovery call followed by one invocation. If the user mentions a product or service represented by an available namespace, and the request likely depends on it, proactively inspect that namespace before answering. If you are unsure which namespace matches, search with a relevant pattern. `GetDynamicTools` supports these modes: 1. `{"namespace":"<id>"}`: returns schemas and full descriptions for every tool in that namespace. 2. `{"namespace":"<id>","toolName":"<name>"}`: returns one tool schema with its full description. 3. `{"pattern":"<regex>"}`: searches namespace and tool names. 4. `{"namespace":"<id>","pattern":"<regex>"}`: searches tools within one namespace. 5. No arguments: returns the full catalog. Pattern-search and catalog results shorten long descriptions, marked by a trailing "... [truncated]"; namespace and single-tool lookups always return the complete description. Always inspect a tool's schema before invoking it with `CallDynamicTool`. If the available dynamic tools do not fully support what the user asked you to do, complete the work you can with the current tool set. In your work summary, include what you were unable to do and why. Do not use browser automation to work around missing tools unless the user explicitly asks you to use the browser. Available dynamic tool namespaces: <dynamic_tool_namespaces> <namespace name="cursor-app-control" tools="move_agent_to_root, move_agent_to_cloned_root, create_project, rename_chat, cursor_dialog, open_resource
+
+--- 15 ---
+don't nee dto create a config it was already handled only we wer eshowing improper msg for 8530 fo which we added catch Exception which is wrong it should catch only 8530 excapetion and not dpb-1984exception
+
+--- 16 ---
+exception msg not changed for 8530 right? any regression? any breakig chage?
+
+--- 17 ---
+don't change json just don't catch as Exception but still 8530 should be resolved
+
+--- 18 ---
+any regression? any breaking chnage? fixes both DPB-1984 and HDP-8530 right?
+
+--- 19 ---
+so we don't haveto change wher we are atching as Exception in https://github.com/trusttai/trustt-platform-india-stack/commit/7744952cc50b0dcee7d7a2a9b4fd24ef8bb2f189?
+
+--- 20 ---
+undo the chnages delete the newly created branch create a new branch appropriately named from latest ddp-prod-master on remote then do the chnages ensuring no regressions or breaking changes still should fix DPB-1984 and HDP-8530
+
+--- 21 ---
+so we don't haveto change wher we are atching as Exception in https://github.com/trusttai/trustt-platform-india-stack/commit/7744952cc50b0dcee7d7a2a9b4fd24ef8bb2f189?
+
+--- 22 ---
+undo the chnages delete the newly created branch create a new branch appropriately named from latest ddp-prod-master on remote then do the chnages ensuring no regressions or breaking changes still should fix DPB-1984 and HDP-8530
+
+--- 23 ---
+so we don't haveto change wher we are atching as Exception in https://github.com/trusttai/trustt-platform-india-stack/commit/7744952cc50b0dcee7d7a2a9b4fd24ef8bb2f189?
+
+--- 24 ---
+undo the chnages delete the newly created branch create a new branch appropriately named from latest ddp-prod-master on remote then do the chnages ensuring no regressions or breaking changes still should fix DPB-1984 and HDP-8530
+
+--- 25 ---
+stage teh chages and shar ecommitcommand with proper message and dscription
+
+--- 26 ---
+/thermo-nuclear-code-quality-review
+
+--- 27 ---
+check curent chanegs again and see if both DPB-1984 and HDP8530 will be resolved
+
+--- 28 ---
+/fix-merge-conflicts india-stack
+
+--- 29 ---
+updare PR description https://github.com/trusttai/trustt-platform-india-stack/pull/621
+
+--- 30 ---
+The "Antipatterns" quality gate is failing in this commit. Code smells / antipatterns were introduced in the changed code. Gate output: antipatterns value 1 is greater than threshold 0 Issues to address (1): - [HIGH] `src/main/java/in/novopay/indiastack/aeps/ekyc/processors/ValidateEkycOtpProcessor.java:73` — Use already-defined constant 'HANDLE_VALUE' instead of duplicating its value here. (java:S1192) ``` } @Override protected void postProcess(ExecutionContext executionContext) throws NovopayFatalException , NovopayNonFatalException{ if("YES".equals(executionContext.getStringValue("is_success"))) { String cacheKey = DigestUtils.sha256Hex(executionContext.getStringValue("handle_value")) + executionContext.getStringValue("function_code"); cacheService.deleteOneByKey(cacheKey + "OTP"); } super.postProcess(executionContext); } ``` Please validate the finding(s), then implement the minimal, correct fix for the real issue(s). Keep changes scoped — do not refactor unrelated code. After fixing, briefly explain what you changed and why.
+
+--- 31 ---
+stage the changes and share ocmmit comand with proper message and description
+
+--- 32 ---
+make a new branch from ddp-fea-dpb-1984-hdp-8530-ekyc-fail appropriately named and in that newly created branch take pull of spring upgrade branch of Deepankar. resolve conflicts if any
+
+--- 33 ---
+
+
+--- 34 ---
+compile india stack skiping test
+
+--- 35 ---
+compile india stack skiping test -x test not skipping tests
+
+--- 36 ---
+Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.
+
+--- 37 ---
+* What went wrong: Execution failed for task ':compileJava' (registered by plugin class 'org.gradle.api.plugins.JavaBasePlugin'). > Compilation failed; see the compiler output below. C:\Users\ashutosh.kumar\Desktop\novopay\novopay-platform-india-stack\src\main\java\in\novopay\indiastack\aeps\bioauth\processor\AepsBiometricAuthProcessor.java:64: error: incompatible types: ICacheClient cannot be converted to NovopayCacheClient super(sequenceManager, indiaStackDaoService, cacheService, apiClient, smsUtil, customerSerivceHdfc,cacheClient); ^ 6 errors
+
+--- 38 ---
+Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.
+
+--- 39 ---
+stage the hcnages and share commit command with proper message and decsription
+
+--- 40 ---
+/fix-merge-conflicts india-stack
+
+--- 41 ---
+Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.
+
+--- 42 ---
+why was ther eerror in india stack? eror from bank end?
+
+--- 43 ---
+which bank api gave what what happened in india stack what in cc
+
+============================================================
+sub3fac count=1
+
+--- 0 [CL trigger skipped] ---

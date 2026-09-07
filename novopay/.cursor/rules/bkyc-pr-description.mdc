@@ -61,12 +61,12 @@ Canonical BKYC backend journey (highlight the current ticket; keep all rows so r
 | Save reject/duplicate results and queue good leads for assign | [HDP-8945](https://novopay.atlassian.net/browse/HDP-8945) | ✅ |
 | Load auto/manual cap numbers | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) | ✅ |
 | Find agents who match location rules | [HDP-8950](https://novopay.atlassian.net/browse/HDP-8950) | ✅ |
-| Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) |  |
-| Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) |  |
-| Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) |  |
+| Attach open-task counts to those agents | [HDP-8951](https://novopay.atlassian.net/browse/HDP-8951) | ✅ |
+| Enforce capacity / who can take more work | [HDP-8952](https://novopay.atlassian.net/browse/HDP-8952) | ✅ |
+| Auto-assign new leads | [HDP-8953](https://novopay.atlassian.net/browse/HDP-8953) | ✅ |
 | Agent visit list, details, and status update | [HDP-8924](https://novopay.atlassian.net/browse/HDP-8924) |  |
 | Process Aadhaar bio eKYC result | [HDP-8927](https://novopay.atlassian.net/browse/HDP-8927) |  |
-| Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) |  |
+| Ops manual assign list | [HDP-9004](https://novopay.atlassian.net/browse/HDP-9004) | ✅ |
 
 Ingest, assign, and agent PRs all use this full table. Do not ship the short assign-only slice when the user asks to update the table.
 

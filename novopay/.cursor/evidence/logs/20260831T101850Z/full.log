@@ -1,0 +1,8 @@
+DSA98213250621788160673 ACS then AddOn 401
+[2026-08-31 12:53:26.720] postAPICall ActiveCreditCardsAccountSummaryApplicationServiceSpi HTTP 200
+[2026-08-31 12:53:27.237] postAPICall AddOnCreditCardAccountSummaryApplicationServiceSpi
+[2026-08-31 12:53:27.275] ERROR HttpClientErrorException$Unauthorized: 401 Unauthorized Access
+
+DSA90499941191788161432 create add-on
+[2026-08-31 13:00:32.247] fetchDemogDetails HTTP 200 SUCCESS D101 IPA0=N ACCOUNTID=50100271169213
+[2026-08-31 13:00:33.143] ERROR AddOnCardService.generateConsentLink: customer does not have an existing account relationship with the bank

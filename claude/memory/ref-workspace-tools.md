@@ -30,6 +30,7 @@ than duplicate. Heavy/destructive scripts still need approval (see [[pref-git-wo
 | Feature branch & Jenkins plan | `ddp-fea-branch-plan.md` |
 | Release wave → commit mapping | `release-buckets.md` (+ `release-buckets-graph.mmd`) |
 | W1 redis-fix preprod regression checklist | `w1-redis-fix-preprod-regression.md` |
+| File delete/create hang diagnosis (Seqrite filter) | `windows-file-hang/HandleProbe.cs`, `Bulk.java` (+ README) — see [[ref-windows-seqrite-file-hang]] |
 
 `*-results.txt` / `*.txt` scan dumps are outputs, not entry points. Many `.ps1` here are blocked on this
 machine — see [[ref-machine-commands]] and prefer manual git steps.

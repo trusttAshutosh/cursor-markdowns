@@ -1,0 +1,68 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: c:\Users\ashutosh.kumar\Downloads\DSA40171788177137_Logs.txt
+original_lines: 75
+digest_lines: 62
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260901T062709Z\full.log
+=== CONTENT ===
+DSA40171788177137
+------------------------------------
+fetchEkycDetails
+---------------------------
+[2026-08-31 17:24:48.984] [indiastack] [INFO] [AbstractHttpClient] [dsa] [fetchEkycDetails] [g9o70_1788177287060] [7972273232_4017] 'postAPICall' API Request
+ Details
+API URL: https://soasilver.hbctxdom.com:5142/uidai-ekyc/ProxyService/PS_eKYCOTPValidate_ADV
+HTTP Method: POST
+Connection Timeout: 500000 ms, Socket Timeout: 500000 ms
+Headers:
+  'Content-Type': 'text/xml;charset=utf-8'
+Request Body:
+'<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:uid="uidaiekyc.otp.xsd.hdfcbank.com"><SOAP-ENV:Header/><SOAP-ENV:Body><n
+s2:eKYCRequest xmlns:ns2="uidaiekyc.otp.xsd.hdfcbank.com"><REQ_TYPE>O</REQ_TYPE><ResidentConsent><rc>Y</rc></ResidentConsent><UID_NO>[REDACTED]</UID_NO><OTP>
+<OTPOption>01</OTPOption></OTP><Req_Date_Time>20260831052448</Req_Date_Time><Req_No>UKC:002399</Req_No><Cost_Center_No>217</Cost_Center_No><Meta><udc>HDF0074
+99608557</udc></Meta><Auth><uid>[REDACTED]</uid><txn>UKC:002399</txn></Auth><TransactionInfo><Pan>[REDACTED]</Pan><Proc_Code>130000</Proc_Code><TransmDate>08
+31052448</TransmDate><Stan>002402</Stan><Local_Trans_Time>052448</Local_Trans_Time><Local_date>0831</Local_date><Mcc>6012</Mcc><Pos_entry_mode>019</Pos_entry
+_mode><Pos_code>05</Pos_code><AcqId>200030</AcqId><RRN>624305002402</RRN><CA_Tid>register</CA_Tid><CA_ID>HDF007499608557</CA_ID><CA_TA>Shubham Prataprao Murk
+uMumbai       MHIN</CA_TA></TransactionInfo><SOAStandardElements><ADVappId>37</ADVappId><ADVappName>NOVPY</ADVappName><filler1>MjAyNi0wOC0zMVQwNToyNDo0OPEURK
+qq4AkzopBHoUt61gTa6TUSlempLErAjHNEKRRKrAIWlIuWSxqWYUx6pdfOLOZlxL4vEw/ADsDnt9aYZatlWNeFErgAdtWzNbI+pB6b</filler1><filler2>OmQSK04lWKBirkx69ue1tk/DkLaYTcO3STsD
+gJIUAYbM7bfto6D93Uj/qCre74yrjuJfKKXDDwPGkK3f2gHu4Xmg2vO5BkaALUPqb5HCk2aSHbATeTEAnFhFHUfbn2QrfffqeAiodtIbShcC8+S4QIwNjdg0QbkAtbE/71rP+eVXQVijUuewn6QauPCiSS8V2
+sWoZNt743cVvz+W/mbCYkkzYiV9EnK6TQK6hPdRivGNxTQ5yVNZPyXm44qHZKvu2ZDR5uvtTaXFAm9n5prG+HQx9dzVMrg9onwIYSNCr/OGyspTgT/k+YIs9tFo4PIX3ZZMoi+Dx42Xgkkzr4ZNLQ==</fill
+'<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body><a:eKYCResponse xmlns:a="uidaiekyc.otp.xsd.hdfcbank.com"><Return_Co
+de><ret>n</ret><code>dccdf9f40a8543e9936d02c2190eb0ff</code><txn>UKC:002399</txn><txn_type>e-KYC OTP</txn_type><auth_purpose/><cont_response>Invalid OTP</con
+t_response><err>400</err><ts>2026-08-31T17:24:49.688+05:30</ts><ko/><info>Invalid OTP value.</info></Return_Code><UidData><UID_NO>[REDACTED]</UID_NO><Proofof
+Identity/><ProofofAddress/><LanguageProofofAddress/><Pht/><Prn/></UidData><TransactionInfo><id>130000</id><Pan>[REDACTED]</Pan><Proc_Code>130000</Proc_Code><
+Stan>002402</Stan><Local_Trans_Time>052448</Local_Trans_Time><Local_date>0831</Local_date><Pos_code/><AcqId>200145</AcqId><RRN>624305002402</RRN><Responsecod
+e>K1</Responsecode><ResponseMsg>Resident authentication failed</ResponseMsg><CA_Tid>register</CA_Tid><CA_ID>HDF007499608557</CA_ID><CA_TA>Shubham Prataprao M
+urkuMumbai       MHIN</CA_TA></TransactionInfo><errorcode>K1</errorcode></a:eKYCResponse></soapenv:Body></soapenv:Envelope>'
+
+
+Payload logs (indiastack)
+---------------------------
+customer_mobile_number":"7972273232","product_type":"CC","link_journey":"false","ekyc_otp_gen_stan":"002399","auth_details":{"handle_value":"XXXXXXXX2707","a
+uth_type":"OTP","handle_type":"AADHAAR","auth_value":"889102"},"consent_code":"7cc456c4b4a94880997c31701947ddb5","decryption_required":"FALSE","terminal_deta
+ils":{"merchant_name":"Shubham Prataprao Murkute","merchant_id":"HDF007499608557","merchant_address":{"country":null,"country_code":null,"pincode":null,"addr
+ess_type":null,"city":null,"address_line_1":null,"city_code":null,"address_line_2":null,"state":null,"address_type_value":null,"state_code":null}},"bank_iin"
+:"607152","address_template_code":null},"headers":{"device_id":null,"actor_type":null,"operation_mode":"SELF","sim_number":"N\/A","channel_code":"WEB","local
+e":"en","function_sub_code":"CONFIRM","function_code":"OTP","end_channel_code":"CONSENT_WEB","run_mode":"REAL","user_id":"7972273232_4017","stan":"g9o70_1788
+177287060","user_handle_value":"XXXXX73232","client_ip":"152.59.9.246, 10.199.13.8, 10.199.11.231, 10.199.68.39, 10.199.68.70","location":"18.8499936,76.5312
+058","user_handle_type":"MSISDN","actor_id":null,"tenant_code":"dsa","client_code":"dsa_cust_app","transmission_datetime":"1788177287060"}}'
+
+[2026-08-31 17:24:49.933] [indiastack] [INFO] [RequestProcessorImpl] [dsa] [fetchEkycDetails] [g9o70_1788177287060] [7972273232_4017] Response: '{"response_a
+dditional_details":{"block_time":null},"metadata":null,"response_status":{"code":"4000030","message":"Ekyc details fetched successfully.","status":"SUCCESS"}
+,"ekyc_stan":"002402","response_details":{"aadhaar_ekyc_data":{"poa":{"pincode":null,"care_of":null,"country":null,"sub_district":null,"city":"Mumbai","local
+ity":null,"city_code":null,"district_geo_element_id":null,"house":null,"sub_district_code":null,"vtc_geo_element_id":null,"street":null,"district_code":null,
+"district":null,"address_line_1":"Kanjurmar","geo_flag":null,"address_line_3":null,"address_line_2":null,"sub_district_geo_element_id":null,"state":null,"lan
+dmark":null,"state_code":"27","state_geo_element_id":null},"aadhar_datetime":null,"auth_ref_code":null,"poi":{"gender":null,"customer_display_name":null,"pho
+ne":null,"dob":null,"name":null,"photo":null,"gender_code":null,"aadhaar_reference_number":null,"prn":null,"email":null,"uid_token":null}}}}'
+--------------------------
+
+[2026-08-31 17:24:48.936] [credit-card-management] [INFO] [RequestProcessorImpl] [dsa] [fetchEkycDetailsForCCDSA] [g9o70_1788177287060] [7972273232_4017] Req
+uest: '{"headers":{"actor_type":"","client_code":"dsa_cust_app","channel_code":"WEB","client_ip":"152.59.9.246, 10.199.13.8, 10.199.11.231, 10.199.68.39, 10.
+199.68.70","device_id":"","end_channel_code":"CONSENT_WEB","function_code":"OTP","function_sub_code":"CONFIRM","locale":"en","location":"18.8499936,76.531205
+8","operation_mode":"SELF","retry_count":"","run_mode":"REAL","sim_number":"N/A","stan":"g9o70_1788177287060","tenant_code":"dsa","transmission_datetime":"17
+88177287060","user_handle_type":"MSISDN","user_handle_value":"XXXXX73232","user_id":"7972273232_4017"},"request":{"consent_code":"7cc456c4b4a94880997c3170194
+7ddb5","otp":"[REDACTED]","client_reference_code":"DSA40171788177137","ekyc_otp_gen_stan":"002399","customer_mobile_number":"XXXXX73232","auth_details":{"han
+dle_type":"AADHAAR","handle_value":"XXXXXX472707","auth_type":"OTP","auth_value":"[BASE64]"},"mobile_number":"XXXXX73232","fetch_target_payload":"Y","client_
+id":""}}'
+
+[2026-08-31 17:24:50.933] [credit-card-management] [INFO] [RequestProcessorImpl] [dsa] [fetchEkycDetailsForCCDSA] [g9o70_1788177287060] [7972273232_4017] Response: '{"ekyc_error_code":null,"metadata":null,"response_status":{"code":"4000030","message":"Ekyc details fetched successfully.","status":"SUCCESS"},"ekyc_error_message":null,"ekyc_stan":"002402","response_details":{"aadhaar_ekyc_data":{"poa":{"pincode":"","care_of":null,"country":null,"sub_district":null,"city":"Mumbai","locality":null,"city_code":null,"district_geo_element_id":null,"house":null,"sub_district_code":null,"vtc_geo_element_id":null,"street":null,"district_code":null,"district":null,"address_line_1":"Kanjurmar Mumbai","geo_flag":null,"address_line_3":"","address_line_2":"Kanjurmar Mumbai","sub_district_geo_element_id":null,"state":null,"landmark":null,"state_code":"27","state_geo_element_id":null},"auth_ref_code":null,"poi":{"gender":null,"phone":null,"dob":null,"name":null,"photo":null,"gender_code":null,"last_name":"","aadhaar_reference_number":null,"middle_name":"","first_name":"","prn":null,"email":null}}}}'
