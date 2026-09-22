@@ -1,0 +1,8 @@
+{
+  "generatedAt": 1790070118.4493418,
+  "deltaCount": 0,
+  "deltas": [],
+  "deletedMissingFiles": [],
+  "deletedCount": 0,
+  "note": "UUID collisions: prefer parent uuid/uuid.jsonl over subagents copy"
+}

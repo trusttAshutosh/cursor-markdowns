@@ -1,0 +1,408 @@
+[
+  {
+    "uuid": "1214d43e-5bd5-4e99-97af-38401c1301bb",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\1214d43e-5bd5-4e99-97af-38401c1301bb\\1214d43e-5bd5-4e99-97af-38401c1301bb.jsonl",
+    "subagent": false,
+    "size": 28116,
+    "user_msg_count": 4,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:42 AM (UTC+5:30)</timestamp>\\n<user_query>\\nbkyc HDP-7636? \\n\\nPurpose of \\u201cNo\\u201d Option: In the \\u201cAre you meeting the customer at the following address?\\u201d pop-up, please clarify the purpose and expected behavior of selecting \\u201cNo\\u201d, as the user is currently able to proceed with the journey by selecting either Yes or No.\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:47 AM (UTC+5:30)</timestamp>\\n<user_query>\\nAfter clicking on the Map icon, the user is redirected to an incorrect/invalid location. The displayed location does not match the Pincode provided for the customer --> is this valid?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:50 AM (UTC+5:30)</timestamp>\\n<user_query>\\nIf an uploaded BKYC lead fails, the failure reason should be displayed for reference. Currently, when downloading the uploaded file report, the Reason column is blank for failed records \\nwhat uploaded file report? is this valid?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:54 AM (UTC+5:30)</timestamp>\\n<user_query>\\nis above happening right now?\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "eb569f50-4460-4cec-87cd-f3785d414fc5",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\eb569f50-4460-4cec-87cd-f3785d414fc5\\eb569f50-4460-4cec-87cd-f3785d414fc5.jsonl",
+    "subagent": false,
+    "size": 7521,
+    "user_msg_count": 3,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:11 AM (UTC+5:30)</timestamp>\\n<user_query>\\n\\ud83d\\udd07 SUPPRESSED \\u2014 2 categories quiet this window (2026-09-21 22:10:58 IST)\\n\\nFRAMEWORK \\u2014 9 total (0 alerted live, 9 suppressed) since 2026-09-21 22:06:16 IST\\nLast seen in: `10.196.134.122/ddp/credit-card-management-ddp.log`\\nLast sample:Caused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select ctd1_0.id,ctd1_0.bkyc_status,c",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"[Image]\\n<image_files>\\nThe following images were provided by the user and saved to disk for future use:\\n1. C:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\projects\\\\c-Users-ashutosh-kumar-Desktop-novopay/assets/c__Users_ashutosh.kumar_AppData_Roaming_Cursor_User_workspaceStorage_1a46d0c1c11f2ed406c03a05482658fd_images_image-45455ed4-65c7-4bdd-acad-3ddb765acfd7.jpg\\n\\nThese files can be read with tools, copied to other locations, or attached to subagents using the fil",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Tuesday, Sep 22, 2026, 10:20 AM (UTC+5:30)</timestamp>\\n<user_query>\\nRun the `continual-learning` skill now. Use the `agents-memory-updater` subagent for the full memory update flow. Use incremental transcript processing with index file `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\.cursor\\\\hooks\\\\state\\\\continual-learning-index.json`: only consider transcripts not in the index or transcripts whose mtime is newer than indexed mtime. Have the sub"
+    ]
+  },
+  {
+    "uuid": "75c6955f-f80a-41b3-ac7e-da41fc1ca13a",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\75c6955f-f80a-41b3-ac7e-da41fc1ca13a\\75c6955f-f80a-41b3-ac7e-da41fc1ca13a.jsonl",
+    "subagent": false,
+    "size": 52034,
+    "user_msg_count": 7,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"[Image]\\n<image_files>\\nThe following images were provided by the user and saved to disk for future use:\\n1. C:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\projects\\\\c-Users-ashutosh-kumar-Desktop-novopay/assets/c__Users_ashutosh.kumar_AppData_Roaming_Cursor_User_workspaceStorage_1a46d0c1c11f2ed406c03a05482658fd_images_image__70_-84d11c58-2708-415c-9a5e-6e344f28c22d.png\\n\\nThese files can be read with tools, copied to other locations, or attached to subagents using th",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 7:07 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncheck again\\nis bank not replyingwhat's happening? what was happening befoe today?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"[Image]\\n<image_files>\\nThe following images were provided by the user and saved to disk for future use:\\n1. C:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\projects\\\\c-Users-ashutosh-kumar-Desktop-novopay/assets/c__Users_ashutosh.kumar_AppData_Roaming_Cursor_User_workspaceStorage_1a46d0c1c11f2ed406c03a05482658fd_images_image-fef601cf-bd9e-458f-8c2a-351d98859859.png\\n\\nThese files can be read with tools, copied to other locations, or attached to subagents using the fil",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 7:10 PM (UTC+5:30)</timestamp>\\n<user_query>\\ndo we need to increase some timout limit?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 7:10 PM (UTC+5:30)</timestamp>\\n<user_query>\\ndo we need to increase some timout limit?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 7:22 PM (UTC+5:30)</timestamp>\\n<user_query>\\nnot happenig in QA only in UAT\\ncompare whats going on\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 7:26 PM (UTC+5:30)</timestamp>\\n<user_query>\\nquery to check index and then cretae index if missing\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "65ca16a6-7039-49df-8170-1f4ed6e4d808",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\65ca16a6-7039-49df-8170-1f4ed6e4d808\\65ca16a6-7039-49df-8170-1f4ed6e4d808.jsonl",
+    "subagent": false,
+    "size": 31059,
+    "user_msg_count": 7,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:46 PM (UTC+5:30)</timestamp>\\n<user_query>\\ni have one more corporate for which bkyc has to be enabled in bank uat\\nin addition to the existing one\\nshare update query\\ni have teh corporate code of the corporate not the corporate id\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:48 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncurrent was CORP0007\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:49 PM (UTC+5:30)</timestamp>\\n<user_query>\\n1 update query keep it simple\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:50 PM (UTC+5:30)</timestamp>\\n<user_query>\\nCORP0007 this was the old corporate code don't know the corpoaret id \\ni'll share new corporate code again\\nfrom just corporate code populat ethe corporate ids and lebels etc for which bkyc is enabled\\nthi is for bank uat\\ndo not assume any ids\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 6:01 PM (UTC+5:30)</timestamp>\\n<user_query>\\nfor both update query it showed 1 row affected but did n;t get added in select query o/p\\n\\nUPDATE ddp_masterdata.configuration SET prop_value=(SELECT GROUP_CONCAT(id ORDER BY FIELD(code,'CORP0007','<NEW_CORP_CODE>') SEPARATOR ',') FROM ddp_actor.corporate WHERE is_deleted=0 AND type='CORPORATE' AND code IN ('CORP0007','CORPO65666')), updated_by='bkyc-ops', updated_on=NOW() WHERE",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 6:03 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare me existig bkyc enabled nad a new corporate codes from out uat\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 6:20 PM (UTC+5:30)</timestamp>\\n<user_query>\\nin QA DB agent coportae code of bkyc enbaled corporated\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "d05af2a1-2758-48d0-9c7b-84651779d42b",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\d05af2a1-2758-48d0-9c7b-84651779d42b\\d05af2a1-2758-48d0-9c7b-84651779d42b.jsonl",
+    "subagent": false,
+    "size": 8378,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:30 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncgeck uat server cc logs\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:42 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncheck again\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "1dc4360a-3148-4573-8e30-fb795b51432c",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\1dc4360a-3148-4573-8e30-fb795b51432c\\1dc4360a-3148-4573-8e30-fb795b51432c.jsonl",
+    "subagent": false,
+    "size": 110962,
+    "user_msg_count": 8,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:19 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:23 PM (UTC+5:30)</timestamp>\\n<user_query>\\nnot sample but actual logs\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:25 PM (UTC+5:30)</timestamp>\\n<user_query>\\nin a aformatted way\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:26 PM (UTC+5:30)</timestamp>\\n<user_query>\\nactua request response from uat server right? not samples right?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:28 PM (UTC+5:30)</timestamp>\\n<user_query>\\nwhy mention AbstractHttpClient code detals in md file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:28 PM (UTC+5:30)</timestamp>\\n<user_query>\\nRun the `continual-learning` skill now. Use the `agents-memory-updater` subagent for the full memory update flow. Use incremental transcript processing with index file `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\.cursor\\\\hooks\\\\state\\\\continual-learning-index.json`: only consider transcripts not in the index or transcripts whose mtime is newer than indexed mtime. Have the subag",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:30 PM (UTC+5:30)</timestamp>\\n<user_query>\\nadd for ckyc ekyc both\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"[Image]\\n<image_files>\\nThe following images were provided by the user and saved to disk for future use:\\n1. C:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\projects\\\\c-Users-ashutosh-kumar-Desktop-novopay/assets/c__Users_ashutosh.kumar_AppData_Roaming_Cursor_User_workspaceStorage_1a46d0c1c11f2ed406c03a05482658fd_images_image-11704ec4-427a-4608-8d19-93f433861db8.png\\n\\nThese files can be read with tools, copied to other locations, or attached to subagents using the fil"
+    ]
+  },
+  {
+    "uuid": "a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b\\a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b.jsonl",
+    "subagent": false,
+    "size": 1348,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:18 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "f448f228-62f8-450c-8970-1f549c64eaec",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\f448f228-62f8-450c-8970-1f549c64eaec\\f448f228-62f8-450c-8970-1f549c64eaec.jsonl",
+    "subagent": false,
+    "size": 1457,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:17 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "ff96e707-1f7d-46da-a220-44d919fad31f",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\ff96e707-1f7d-46da-a220-44d919fad31f\\ff96e707-1f7d-46da-a220-44d919fad31f.jsonl",
+    "subagent": false,
+    "size": 36700,
+    "user_msg_count": 9,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:57 AM (UTC+5:30)</timestamp>\\n<user_query>\\nmobile match flag are we storing that in DB in all scenarios? KYC engine flow?\\nwe had ealrier discussion regarding this\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:03 PM (UTC+5:30)</timestamp>\\n<user_query>\\nis the scenario matrix as per latest code on remote?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:12 PM (UTC+5:30)</timestamp>\\n<user_query>\\n9f47_1789711540506\\nDSA3941789711540\\n\\nwhat is happening for this in QA server\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:56 PM (UTC+5:30)</timestamp>\\n<user_query>\\nvalid scenario?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:57 PM (UTC+5:30)</timestamp>\\n<user_query>\\nsummarise the scenario matric again if storing then what value mention that as well\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 1:00 PM (UTC+5:30)</timestamp>\\n<user_query>\\nadd s. no to oin above table\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 1:02 PM (UTC+5:30)</timestamp>\\n<user_query>\\nphones any menaing?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:45 PM (UTC+5:30)</timestamp>\\n<user_query>\\nwe are not doing any handling on vkyc flow for ckyc based on mobile match right?   \\nCKYC Flow\\nFor all successful CKYC cases, we will pass filler4 as SCVKYC+timestamp( SCVKYC20260812170453)   <OK>\\nWe will not check for mobile match/mismatch, nor will we pass this information in the Execute interface Partner variables. .<Yes>\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 1:02 PM (UTC+5:30)</timestamp>\\n<user_query>\\nphones any menaing?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:45 PM (UTC+5:30)</timestamp>\\n<user_query>\\nwe are not doing any handling on vkyc flow for ckyc based on mobile match right?   \\nCKYC Flow\\nFor all successful CKYC cases, we will pass filler4 as SCVKYC+timestamp( SCVKYC20260812170453)   <OK>\\nWe will not check for mobile match/mismatch, nor will we pass this information in the Execute interface Partner variables. .<Yes>\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:46 PM (UTC+5:30)</timestamp>\\n<user_query>\\nso above statement were corect right?\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "a717ff40-a52c-4387-8eae-3b1071682f40",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a717ff40-a52c-4387-8eae-3b1071682f40\\a717ff40-a52c-4387-8eae-3b1071682f40.jsonl",
+    "subagent": false,
+    "size": 44256,
+    "user_msg_count": 6,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:08 PM (UTC+5:30)</timestamp>\\n<user_query>\\nall the KYC engine configurable things\\nas bank would recognise it \\nin a atbale\\nwe have to confirm if theeir values in bank uat and prod would remain same or not\\nalso mention DB key for that configuranle thing\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:11 PM (UTC+5:30)</timestamp>\\n<user_query>\\nRun the `continual-learning` skill now. Use the `agents-memory-updater` subagent for the full memory update flow. Use incremental transcript processing with index file `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\.cursor\\\\hooks\\\\state\\\\continual-learning-index.json`: only consider transcripts not in the index or transcripts whose mtime is newer than indexed mtime. Have the subag",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:25 PM (UTC+5:30)</timestamp>\\n<user_query>\\n1 table with al info why di u remove 2-6\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:26 PM (UTC+5:30)</timestamp>\\n<user_query>\\nin a md file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:27 PM (UTC+5:30)</timestamp>\\n<user_query>\\njust share 1-7 in md file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 2:37 PM (UTC+5:30)</timestamp>\\n<user_query>\\nmd file updated with bank uat values? \\\"C:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\sqllab_untitled_query_6_20260918T143549.csv\\\"\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7\\3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7.jsonl",
+    "subagent": false,
+    "size": 116311,
+    "user_msg_count": 13,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:06 PM (UTC+5:30)</timestamp>\\n<user_query>\\nBUILD FAILED in 3s\\n\\nashutosh.kumar@ATSLAP-43 MINGW64 ~/Desktop/novopay/novopay-platform-creditcard-management (ddp-bkup-uat|MERGING)\\n$ ./gradlew clean build \\n\\n> Task :generateFlywayScriptAuthors\\nflyway-script-authors: wrote 4 script entries of 4 changed (baseline=origin/ddp-prod-master)\\n\\n> Task :sonarlintMain\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\n\\n",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:18 PM (UTC+5:30)</timestamp>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:18 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<manually_attached_skills>\\nThe user has manually attached the following skills to their message.\\nThese skills contain specific instructions or workflows that the user wants you to follow for this request.\\nOnly read the files if needed, the full skill content is inlined here.\\n\\nSkill Name: fix-merge-conflicts\\nPath: c:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\plugins\\\\cache\\\\cursor-public\\\\cursor-team-kit\\\\be432a96ed36e48d05f44bf375864355f62263f9\\\\skills\\\\fix-me",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:21 PM (UTC+5:30)</timestamp>\\n<user_query>\\nresume\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:22 PM (UTC+5:30)</timestamp>\\n<user_query>\\nresume\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:22 PM (UTC+5:30)</timestamp>\\n<user_query>\\nresume\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<manually_attached_skills>\\nThe user has manually attached the following skills to their message.\\nThese skills contain specific instructions or workflows that the user wants you to follow for this request.\\nOnly read the files if needed, the full skill content is inlined here.\\n\\nSkill Name: fix-merge-conflicts\\nPath: c:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\plugins\\\\cache\\\\cursor-public\\\\cursor-team-kit\\\\be432a96ed36e48d05f44bf375864355f62263f9\\\\skills\\\\fix-me",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:35 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncomand to compile bo without tests\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:35 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:42 PM (UTC+5:30)</timestamp>\\n<user_query>\\nmasterdata not compiling\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "0198bc4e-6206-43ab-8c9d-cb15fec5cea8",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\0198bc4e-6206-43ab-8c9d-cb15fec5cea8\\0198bc4e-6206-43ab-8c9d-cb15fec5cea8.jsonl",
+    "subagent": false,
+    "size": 136124,
+    "user_msg_count": 8,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:50 PM (UTC+5:30)</timestamp>\\n<user_query>\\nhttps://novopay.atlassian.net/browse/HDP-11649\\n\\\"C:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\url.txt\\\"\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:54 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare select query and update query\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:56 PM (UTC+5:30)</timestamp>\\n<user_query>\\nSELECT prop_key, prop_value, service, updated_on, updated_by FROM ddp_masterdata.configuration WHERE prop_key = 'hdfc.soa.bio.auth.url';\\n\\nshould give this\\n\\nif yesupdat eto below if \\n\\nUPDATE ddp_masterdata.configuration SET prop_value = 'https://osbsesoauat.hdfcbank.com:5142/uidai-ekyc/ProxyService/PS_eKYCServiceHSM_ADV', updated_on = NOW(), updated_by = 'HDP-11649' WHERE",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 7:32 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncomapre log 1 with\\n\\nAPI URL: https://osbsesoauat.hdfcbank.com:5142/uidaiekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 7:32 PM (UTC+5:30)</timestamp>\\n<user_query>\\ncomapre log 1\\n\\nAPI URL: https://osbsesoauat.hdfcbank.com:5142/uidaiekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:eKYCR",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 7:33 PM (UTC+5:30)</timestamp>\\n<user_query>\\nRun the `continual-learning` skill now. Use the `agents-memory-updater` subagent for the full memory update flow. Use incremental transcript processing with index file `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\.cursor\\\\hooks\\\\state\\\\continual-learning-index.json`: only consider transcripts not in the index or transcripts whose mtime is newer than indexed mtime. Have the sub",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:51 AM (UTC+5:30)</timestamp>\\n<user_query>\\nc:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\PROP_VALUE.txt\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:21 PM (UTC+5:30)</timestamp>\\n<user_query>\\nAPI URL: https://osbsesoauat.hdfcbank.com:5144/uidai-ekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:eKYCRequest xmlns:ns2="
+    ]
+  },
+  {
+    "uuid": "841c07b1-9cbd-4e67-931e-f1884b937327",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\841c07b1-9cbd-4e67-931e-f1884b937327\\841c07b1-9cbd-4e67-931e-f1884b937327.jsonl",
+    "subagent": false,
+    "size": 7351,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:06 PM (UTC+5:30)</timestamp>\\n<user_query>\\nBUILD FAILED in 3s\\n\\nashutosh.kumar@ATSLAP-43 MINGW64 ~/Desktop/novopay/novopay-platform-creditcard-management (ddp-bkup-uat|MERGING)\\n$ ./gradlew clean build \\n\\n> Task :generateFlywayScriptAuthors\\nflyway-script-authors: wrote 4 script entries of 4 changed (baseline=origin/ddp-prod-master)\\n\\n> Task :sonarlintMain\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\n\\n"
+    ]
+  },
+  {
+    "uuid": "c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b\\c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b.jsonl",
+    "subagent": false,
+    "size": 12041,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:58 AM (UTC+5:30)</timestamp>\\n<user_query>\\npan encryption decryption\\nforntend backend DB\\nwho sends what is receinved hwat is stored what is forwarded\\nin kyc engine flow\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "c78e4b6c-5bbe-4ccb-8055-889d65c1a610",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\c78e4b6c-5bbe-4ccb-8055-889d65c1a610\\c78e4b6c-5bbe-4ccb-8055-889d65c1a610.jsonl",
+    "subagent": false,
+    "size": 21084,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<manually_attached_skills>\\nThe user has manually attached the following skills to their message.\\nThese skills contain specific instructions or workflows that the user wants you to follow for this request.\\nOnly read the files if needed, the full skill content is inlined here.\\n\\nSkill Name: fix-merge-conflicts\\nPath: c:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\plugins\\\\cache\\\\cursor-public\\\\cursor-team-kit\\\\be432a96ed36e48d05f44bf375864355f62263f9\\\\skills\\\\fix-me"
+    ]
+  },
+  {
+    "uuid": "413d480a-6abd-4235-ad45-6b356c53bd88",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\413d480a-6abd-4235-ad45-6b356c53bd88\\413d480a-6abd-4235-ad45-6b356c53bd88.jsonl",
+    "subagent": false,
+    "size": 2381,
+    "user_msg_count": 1,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<manually_attached_skills>\\nThe user has manually attached the following skills to their message.\\nThese skills contain specific instructions or workflows that the user wants you to follow for this request.\\nOnly read the files if needed, the full skill content is inlined here.\\n\\nSkill Name: fix-merge-conflicts\\nPath: c:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\plugins\\\\cache\\\\cursor-public\\\\cursor-team-kit\\\\be432a96ed36e48d05f44bf375864355f62263f9\\\\skills\\\\fix-me"
+    ]
+  },
+  {
+    "uuid": "6d631b7d-e04b-430a-9228-2b994db9a3b7",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\6d631b7d-e04b-430a-9228-2b994db9a3b7\\6d631b7d-e04b-430a-9228-2b994db9a3b7.jsonl",
+    "subagent": false,
+    "size": 17780,
+    "user_msg_count": 6,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 5:18 PM (UTC+5:30)</timestamp>\\n<user_query>\\nplain clear concise english for qa what needs to be verified https://novopay.atlassian.net/browse/HDP-11579\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 5:20 PM (UTC+5:30)</timestamp>\\n<user_query>\\nresume\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 5:22 PM (UTC+5:30)</timestamp>\\n<user_query>\\nwhich key in which api needs to be verified\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:13 AM (UTC+5:30)</timestamp>\\n<user_query>\\ndo we nee dto check something about filler 1 as well? some confusion? filler1 mentioned in ticket\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:13 AM (UTC+5:30)</timestamp>\\n<user_query>\\nRun the `continual-learning` skill now. Use the `agents-memory-updater` subagent for the full memory update flow. Use incremental transcript processing with index file `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\.cursor\\\\hooks\\\\state\\\\continual-learning-index.json`: only consider transcripts not in the index or transcripts whose mtime is newer than indexed mtime. Have the suba",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 11:14 AM (UTC+5:30)</timestamp>\\n<user_query>\\ncorrrect the ticket \\nkeep it less confusing and to the point what needs to be done what need sto be verified\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\56dc9aea-af5a-43df-a073-0f1c4ddbde0e\\56dc9aea-af5a-43df-a073-0f1c4ddbde0e.jsonl",
+    "subagent": false,
+    "size": 206138,
+    "user_msg_count": 31,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"[Image]\\n<image_files>\\nThe following images were provided by the user and saved to disk for future use:\\n1. C:\\\\Users\\\\ashutosh.kumar\\\\.cursor\\\\projects\\\\c-Users-ashutosh-kumar-Desktop-novopay/assets/c__Users_ashutosh.kumar_AppData_Roaming_Cursor_User_workspaceStorage_1a46d0c1c11f2ed406c03a05482658fd_images_image-614d3db8-d8bd-48d8-8d75-a3e0e7deda9f.jpg\\n\\nThese files can be read with tools, copied to other locations, or attached to subagents using the fil",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 5:46 PM (UTC+5:30)</timestamp>\\n<user_query>\\nresume\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:00 PM (UTC+5:30)</timestamp>\\n<user_query>\\nis it in latest uat code on remote as well?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:00 PM (UTC+5:30)</timestamp>\\n<user_query>\\nwhich repo?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:00 PM (UTC+5:30)</timestamp>\\n<user_query>\\nfix minimally without introducing regressions or breaking changes.  don't commit\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<subagent_delegation_context>\\nThe user has indicated they want you to delegate work to the following subagent(s): thermo-nuclear-code-quality-review\\n\\nTo delegate, call the Task tool with the subagent_type parameter. Example:\\nTask(subagent_type=\\\"thermo-nuclear-code-quality-review\\\", prompt=\\\"your detailed task description\\\")\\n</subagent_delegation_context>\\n<timestamp>Thursday, Sep 17, 2026, 6:05 PM (UTC+5:30)</timestamp>\\n<user_query>\\n/thermo-nuclear-",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:07 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:08 PM (UTC+5:30)</timestamp>\\n<user_query>\\nchanges lost do it again in bkup-qa\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 8:52 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare update ticket comnet\\ndigilocker thing should be this cuz we don't provide suport for that\\nupdate query of simuakot\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 8:59 PM (UTC+5:30)</timestamp>\\n<user_query>\\nhit the qa server with aboev select queries\\nqueries correct?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 9:03 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare updated jira comment\\n</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "c880bbf2-bd7b-41a6-a588-a8c9cb4d28f0",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c880bbf2-bd7b-41a6-a588-a8c9cb4d28f0\\c880bbf2-bd7b-41a6-a588-a8c9cb4d28f0.jsonl",
+    "subagent": false,
+    "size": 56978,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Monday, Aug 24, 2026, 12:34 PM (UTC+5:30)</timestamp>\\n<user_query>\\nFix ALL merge conflicts in repo:\\nC:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-lib\\n\\nBranch: ddp-bkup-uat merging ddp-fea-loc-pe-pq-jumbo-restriction-baseline (MERGE_HEAD).\\n\\n## Workflow (mandatory)\\n1. List all unmerged files: `git diff --name-only --diff-filter=U`\\n2. Resolve each conflict with minimal correctness-first edits.\\n3. Prefer preserving BOTH sides whe",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Monday, Aug 24, 2026, 12:56 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "bb748598-5892-4833-a73f-c2043a4a5a1a",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\bb748598-5892-4833-a73f-c2043a4a5a1a\\bb748598-5892-4833-a73f-c2043a4a5a1a.jsonl",
+    "subagent": false,
+    "size": 18416,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Aug 12, 2026, 1:39 PM (UTC+5:30)</timestamp>\\n<user_query>\\nPerform a thermo-nuclear code quality review of the uncommitted KYC Engine mobile-match change (bank Filler1 Y/N \\u2192 mobile_match_flag). Findings only \\u2014 do not edit code.\\n\\n## Skill rubric (mandatory)\\n\\nFollow the `thermo-nuclear-code-quality-review` skill in cursor-team-kit:\\n- Be ambitious about structural simplification / code-judo\\n- Flag files crossing 1k lines",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Aug 12, 2026, 1:42 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\a900b754-88df-40df-8d1d-43e910b4ca25\\a900b754-88df-40df-8d1d-43e910b4ca25.jsonl",
+    "subagent": false,
+    "size": 380142,
+    "user_msg_count": 22,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:05 PM (UTC+5:30)</timestamp>\\n<user_query>\\nmake me a shell script in Desktop which goes to all service repo\\nand compares whether request and response templates in latest on remote ddp-qa and ddp-uat are same or not as compared to latest on remote ddp-prod-master\\nand sares output in a tabular format\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:11 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:13 PM (UTC+5:30)</timestamp>\\n<user_query>\\nqa, uat sould be prod + something\\nif anything is removed or changed that is called mismatch\\nif anything is adde dthat is not calle dmismatch\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:16 PM (UTC+5:30)</timestamp>\\n<user_query>\\ni want results to be opened in a html file in browser\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:18 PM (UTC+5:30)</timestamp>\\n<user_query>\\ni want the file name as well which mismatches in any service\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:20 PM (UTC+5:30)</timestamp>\\n<user_query>\\ni also want summary of exactly what is the mismatch in that file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:23 PM (UTC+5:30)</timestamp>\\n<user_query>\\nin case of mismatch i want prod-master link and qa or uat link othe same file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:26 PM (UTC+5:30)</timestamp>\\n<user_query>\\ni also want he results in a readme file\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 2:08 PM (UTC+5:30)</timestamp>\\n<user_query>\\nUser wants a Windows double-clickable executable next to the shell script on Desktop.\\n\\nRequirements:\\n1. Keep `compare-req-resp-templates.sh` and the new Windows executable in the SAME directory on Desktop: `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\`\\n2. Executable must work on Windows and run on double-click (no need to open Git Bash manually).\\n3. Prefer a simple approach that",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 3:00 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 3:00 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "4f522d4f-306f-4b44-aad1-75ae1df8f5a7",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\4f522d4f-306f-4b44-aad1-75ae1df8f5a7\\4f522d4f-306f-4b44-aad1-75ae1df8f5a7.jsonl",
+    "subagent": false,
+    "size": 63461,
+    "user_msg_count": 3,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Jul 3, 2026, 1:41 PM (UTC+5:30)</timestamp>\\n<user_query>\\n## Task\\nFix KYC mode-switch redirect failures after bank portal failure for HDP-7350/HDP-7351.\\n\\n## User-reported issues\\n**Issue 1 (eKYC \\u2192 CKYC):** User goes to bank portal for eKYC, fails (wrong Aadhaar), returns to NovoPay consent portal, selects CKYC \\u2192 initiate API fails \\u2192 no redirect to bank.\\n\\n**Issue 2 (CKYC \\u2192 eKYC):** User goes to bank portal for CKY",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "d3551cb4-d06d-4924-8092-80c5d22a1545",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\d3551cb4-d06d-4924-8092-80c5d22a1545\\d3551cb4-d06d-4924-8092-80c5d22a1545.jsonl",
+    "subagent": false,
+    "size": 25876,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nMonitor PR CI for the credit card management repo branch `ddp-fea-kyc-engine-hdp-7350`.\\n\\nRepo path: C:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management\\nRemote: https://github.com/khoslalabs/novopay-platform-creditcard-management.git\\nLatest commit: 78aae0f1f \\\"HDP-7350: use typed DTO for KYC engine callback apply response\\\"\\n\\nUse `gh pr view`, `gh pr checks --json name,bucket,state,workflow,link` as source of tru",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "ad8734a4-9b1a-43a4-813f-e7319bd4927e",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\ad8734a4-9b1a-43a4-813f-e7319bd4927e\\ad8734a4-9b1a-43a4-813f-e7319bd4927e.jsonl",
+    "subagent": false,
+    "size": 9795,
+    "user_msg_count": 3,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nRun Bob validation for all uncommitted LOC PE-PQ / stage-capture changes in the novopay credit-card-management repo. DO NOT modify any Java classes or production code.\\n\\nWorkspace: C:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management\\nTicket id: adhoc-loc-dummy-jumbo-eligibility\\n\\nSteps:\\n1. Check git status and confirm what is uncommitted (staged + unstaged) - report file list but do NOT stage/commit anything unles",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "766e142e-aa7d-4892-aa5b-4b9efa8aab43",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\766e142e-aa7d-4892-aa5b-4b9efa8aab43\\766e142e-aa7d-4892-aa5b-4b9efa8aab43.jsonl",
+    "subagent": false,
+    "size": 8845,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nRun Bob the Builder validate-ticket for PE-PQ + stage capture (excluding old CASA behavior).\\n\\n## Context\\n- Host repo: c:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\novopay-platform-creditcard-management\\n- Bob home: c:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\bob-the-builder\\n- Ticket: adhoc-loc-dummy-jumbo-eligibility\\n- ticket-spec.yaml was updated: D16 now expects CASA revert (4000359 REJECTED, NOT 4000297)\\n\\n## What to run\\nFrom cc-mgm",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "a7c18518-30da-4a18-8d52-c6f375c4104a",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\a7c18518-30da-4a18-8d52-c6f375c4104a\\a7c18518-30da-4a18-8d52-c6f375c4104a.jsonl",
+    "subagent": false,
+    "size": 18154,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nFix deprecated API usage warnings in novopay-platform-creditcard-management tests:\\n\\n1. BatchValidateLeadsControllerTest.java:45 - setMDCValues(String,String,String,String) in TenantDetailsDAOService deprecated\\n2. UpdateCreditCardStatusServiceTest.java:210 and :229 - clearMDCValues() in TenantDetailsDAOService deprecated\\n\\nWorkspace: c:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management\\n\\nTasks:\\n1. Find TenantDeta",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "563008e9-70fc-41e9-b553-10ea0d35c7ba",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\563008e9-70fc-41e9-b553-10ea0d35c7ba\\563008e9-70fc-41e9-b553-10ea0d35c7ba.jsonl",
+    "subagent": false,
+    "size": 11783,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nRun Bob validate-ticket for ticket `adhoc-loc-dummy-jumbo-eligibility` in repo `c:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management`.\\n\\nContext: CC branch has PE-PQ jumbo restriction + merged LOC failure audit hardening. New E2E scenarios D16 (blank CASA 4000297), D17 (missing TID 159), D28 (submit empty rec). Code fixes stamp txn_response_* on both putLocal and put for DB descriptive reasons.\\n\\nSteps:\\n1. `cd c:/U",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "e1b8b5fa-b0f4-4312-a19b-b302ff1f9b24",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\e1b8b5fa-b0f4-4312-a19b-b302ff1f9b24\\e1b8b5fa-b0f4-4312-a19b-b302ff1f9b24.jsonl",
+    "subagent": false,
+    "size": 14439,
+    "user_msg_count": 2,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nYou are helping the user fix MySQL password alignment and run a Novopay service locally.\\n\\nUser request: \\\"have to change password of db to root or what we had entered during the initial setup phase in application.properties then try to run any service\\\"\\n\\nWorkspace: c:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\novopay-platform-creditcard-management\\nRelated: c:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\novopay-platform-lib, c:\\\\Users\\\\ashut",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "d5122535-f0d1-4b23-a368-c02426281c1d",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\d5122535-f0d1-4b23-a368-c02426281c1d\\d5122535-f0d1-4b23-a368-c02426281c1d.jsonl",
+    "subagent": false,
+    "size": 152178,
+    "user_msg_count": 4,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nYou are fixing LOC failure audit Bob scenarios E2, E6, E7, E8 in repo:\\nc:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\novopay-platform-creditcard-management\\n\\nContext: User DB shows txn_result_description, txn_result_code, internal_txn_desc are NULL for client_reference_code suffixes E2, E6, E7, E8 while E1,E3-E5,E10-E12 work.\\n\\nLatest Bob run (partial):\\n- E8 FAIL: txn_result_code want=4000063 got=NULL, internal_txn_desc want customerOTPLoc",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nYou are fixing LOC failure audit Bob scenarios E2, E6, E7, E8 in repo:\\nc:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\novopay\\\\novopay-platform-creditcard-management\\n\\nContext: User DB shows txn_result_description, txn_result_code, internal_txn_desc are NULL for client_reference_code suffixes E2, E6, E7, E8 while E1,E3-E5,E10-E12 work.\\n\\nLatest Bob run (partial):\\n- E8 FAIL: txn_result_code want=4000063 got=NULL, internal_txn_desc want customerOTPLoc",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  },
+  {
+    "uuid": "5300d06b-e7f4-45c4-84e2-1de4a3ebc87e",
+    "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\5300d06b-e7f4-45c4-84e2-1de4a3ebc87e\\5300d06b-e7f4-45c4-84e2-1de4a3ebc87e.jsonl",
+    "subagent": false,
+    "size": 327588,
+    "user_msg_count": 21,
+    "user_msgs_sample": [
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\ni want a md file with all queries involved in cc no matter how  long or ocmplex or how many\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nshare me query so that i can get schema of all table sin dsa_credit_card_mgmt schema\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nis thd db normalised?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nthese are the index in prod\\n\\nSHOW INDEX FROM dsa_credit_card_mgmt.cc_additional_txn_data;\\n\\n\\tTable\\tNon_unique\\tKey_name\\tSeq_in_index\\tColumn_name\\tCollation\\tCardinality\\tSub_part\\tPacked\\tNull\\tIndex_type\\tComment\\tIndex_comment\\tVisible\\tExpression\\n\\tcc_additional_txn_data\\t0\\tPRIMARY\\t1\\tid\\tA\\t612015\\t\\t\\t\\tBTREE\\t\\t\\tYES\\t\\n\\tcc_additional_txn_data\\t1\\tidx_catd_txn_audit_id\\t1\\ttransaction_audit_id\\tA\\t612015\\t\\t\\t\\tBTREE\\t\\t\\tYES\\",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nworst queries as per the current indexes\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\ncreate a ticket for p0 ones\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\namong p0-1 to p0-5 easiest to fix with least impact or chances of breaking change?\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nwhy do you cal this one of the wort queries? doesn't look like it\\n\\n\\t@Query(nativeQuery = true, value = \\\"SELECT assistor_code FROM transaction_audit WHERE assistor_code <> '' GROUP BY assistor_code\\\")\\n\\tList<String> getDistinctAssistorCodes();\\n</user_query>\"}]}",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nYou are the forked subagent; continue executing your task.\\n\\nContext: User asked to implement fix order items 1 and 8 WITHOUT committing:\\n1. Sargable expiry query in getPendingTransactions (replace timestampdiff with updated_on < DATE_SUB(NOW(), INTERVAL ?1 DAY))\\n8. Batch queries select only required columns not SELECT * for findExtAppRefCodeByStatus, findExtAppRefCodeByStatusAndInterval, getPendingTransactions\\n\\nPartial work already done",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nYou are the forked subagent; continue executing your task.\\n\\nContext: User asked to implement fix order items 1 and 8 WITHOUT committing:\\n1. Sargable expiry query in getPendingTransactions (replace timestampdiff with updated_on < DATE_SUB(NOW(), INTERVAL ?1 DAY))\\n8. Batch queries select only required columns not SELECT * for findExtAppRefCodeByStatus, findExtAppRefCodeByStatusAndInterval, getPendingTransactions\\n\\nPartial work already done",
+      "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+    ]
+  }
+]

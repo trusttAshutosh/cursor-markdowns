@@ -53,6 +53,14 @@ Even `./gradlew help` fails without it (the client cannot reach its own single-u
 export it in Git Bash too: `export JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:/Users/ashutosh.kumar/tmpnio`.
 Sandbox on/off makes no difference — do not waste a retry on `dangerouslyDisableSandbox`.
 
+**Consumer builds need the sibling lib on a matching branch (verified 2026-09-15).** Task-allocation
+`settings.gradle` applies `../novopay-platform-lib/gradle/consumer-repo-paths.gradle`, which exists only
+on lib `ddp-fea-bkyc` / `ddp-qa` / `ddp-uat` / bkup / spring4 branches, not `ddp-prod-master`. If the local
+lib checkout is on another branch, don't switch it: `git worktree add --detach C:/tmp/np/novopay-platform-lib
+origin/ddp-fea-bkyc`, worktree the consumer to `C:/tmp/np/<repo>`, `git diff | git apply` there, build, then
+`git worktree remove --force` both. Full task-allocation `test` takes about 3.5 min (590 tests on 2026-09-15).
+Stale `build/test-results` XML from an earlier run survives a failed build — check test counts before trusting it.
+
 **Gradle-free fallback (verified 2026-09-03, task-allocation):** the repo's JDK 25 toolchain lives at
 `~/.gradle/jdks/eclipse_adoptium-25-amd64-windows.2/bin` (`~/.jdks` only has 8/21 and cannot read the
 v69 class files in `build/classes`). Compile `src/main/java` with that `javac -proc:none` against every
@@ -98,5 +106,39 @@ JDK 25 is already provisioned at `~/.gradle/jdks/eclipse_adoptium-25-amd64-windo
 | Compile one microservice | `.\gradlew.bat compileJava --no-daemon` (+ JAVA_TOOL_OPTIONS fix above) |
 | Install branch-guard hooks | `.\gradlew.bat installGitHooks --no-daemon` |
 | Search code | dedicated Grep/Read tools, not huge PS `rg` |
+
+### Source files are often CRLF - scripted edits silently no-op (learned 2026-09-09)
+
+Java sources in `trustt-platform-task-allocation` are a **mix** of CRLF and LF, per file. Two traps:
+
+- A Python/sed replacement whose match string uses `
+` **silently matches nothing** on a CRLF file.
+  It reports success, writes the file unchanged, and the next compile still shows the old code. This
+  cost several wasted rounds before it was spotted. Always normalise for matching:
+
+  ```python
+  raw = io.open(p, encoding='utf-8', newline='').read()
+  crlf = '
+' in raw
+  s = raw.replace('
+', '
+')
+  ...                                  # do replacements against 
+ text
+  if crlf: s = s.replace('
+', '
+')
+  io.open(p, 'w', encoding='utf-8', newline='').write(s)
+  ```
+  and **assert each replacement applied** (`if a not in s: report`) rather than trusting the exit code.
+
+- Writing with plain `io.open(p,'w')` (no `newline=''`) converts LF to CRLF on Windows and rewrites
+  every line, turning a 3-line change into a whole-file diff. Always pass `newline=''`.
+
+Check a file's baseline before editing, and restore it after:
+`git show HEAD:<file> | head -1 | tail -c 2 | xxd -p` - `0d0a` = CRLF, else LF.
+
+The **Edit tool handles CRLF correctly** and is the safer choice for small edits; reserve scripts for
+bulk mechanical changes, with the normalise-and-verify pattern above.
 
 Related: [[pref-working-style]], [[pref-git-workflow]], [[ref-workspace-tools]].

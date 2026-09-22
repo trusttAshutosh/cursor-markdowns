@@ -1,0 +1,272 @@
+{
+  "generatedAt": 1790052985.566234,
+  "deltaCount": 44,
+  "missingCount": 0,
+  "deltas": [
+    {
+      "uuid": "b6006f8f-ad3d-491f-912b-64e10ca83939",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\0c689d0e-dc36-409e-b3b3-279147a78ac8\\subagents\\b6006f8f-ad3d-491f-912b-64e10ca83939.jsonl",
+      "mtime": 1790052985.1731248
+    },
+    {
+      "uuid": "0c689d0e-dc36-409e-b3b3-279147a78ac8",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\b1fd87d1-018d-4df3-a056-389f451691da\\subagents\\0c689d0e-dc36-409e-b3b3-279147a78ac8.jsonl",
+      "mtime": 1790052958.9521804
+    },
+    {
+      "uuid": "b1fd87d1-018d-4df3-a056-389f451691da",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\954f0dff-ed4c-4766-bf45-9bdb1f018edc\\subagents\\b1fd87d1-018d-4df3-a056-389f451691da.jsonl",
+      "mtime": 1790052942.2696865
+    },
+    {
+      "uuid": "954f0dff-ed4c-4766-bf45-9bdb1f018edc",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\5bdf2185-e160-4aae-85c0-c598524e6290\\subagents\\954f0dff-ed4c-4766-bf45-9bdb1f018edc.jsonl",
+      "mtime": 1790052918.292898
+    },
+    {
+      "uuid": "5bdf2185-e160-4aae-85c0-c598524e6290",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\54faed6b-4b2e-417d-8109-59e9badf6130\\subagents\\5bdf2185-e160-4aae-85c0-c598524e6290.jsonl",
+      "mtime": 1790052898.1218047
+    },
+    {
+      "uuid": "54faed6b-4b2e-417d-8109-59e9badf6130",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\54ac06e2-d46b-407e-b3af-f8d567558ae5\\subagents\\54faed6b-4b2e-417d-8109-59e9badf6130.jsonl",
+      "mtime": 1790052879.2693532
+    },
+    {
+      "uuid": "54ac06e2-d46b-407e-b3af-f8d567558ae5",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\6b24a857-2e6a-4a37-b417-709289e02f75\\subagents\\54ac06e2-d46b-407e-b3af-f8d567558ae5.jsonl",
+      "mtime": 1790052860.6354537
+    },
+    {
+      "uuid": "6b24a857-2e6a-4a37-b417-709289e02f75",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\617737e5-fdb7-4bf0-9323-585f1c2d6f04\\subagents\\6b24a857-2e6a-4a37-b417-709289e02f75.jsonl",
+      "mtime": 1790052840.16177
+    },
+    {
+      "uuid": "617737e5-fdb7-4bf0-9323-585f1c2d6f04",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\96511f22-b492-407d-9f10-a9a09f82909a\\subagents\\617737e5-fdb7-4bf0-9323-585f1c2d6f04.jsonl",
+      "mtime": 1790052798.8631291
+    },
+    {
+      "uuid": "96511f22-b492-407d-9f10-a9a09f82909a",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\e97ee274-aa9d-45bd-b4c8-26a3ad661592\\subagents\\96511f22-b492-407d-9f10-a9a09f82909a.jsonl",
+      "mtime": 1790052783.7423682
+    },
+    {
+      "uuid": "e97ee274-aa9d-45bd-b4c8-26a3ad661592",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\7e781367-60c4-4c18-b3f9-3e3a236454cb\\subagents\\e97ee274-aa9d-45bd-b4c8-26a3ad661592.jsonl",
+      "mtime": 1790052767.8953786
+    },
+    {
+      "uuid": "7e781367-60c4-4c18-b3f9-3e3a236454cb",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c7211b99-297e-402e-9dde-220dbe3005fa\\subagents\\7e781367-60c4-4c18-b3f9-3e3a236454cb.jsonl",
+      "mtime": 1790052748.3262348
+    },
+    {
+      "uuid": "c7211b99-297e-402e-9dde-220dbe3005fa",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\96aba6b1-824c-4af4-9a4d-444716fc559f\\subagents\\c7211b99-297e-402e-9dde-220dbe3005fa.jsonl",
+      "mtime": 1790052719.6494102
+    },
+    {
+      "uuid": "96aba6b1-824c-4af4-9a4d-444716fc559f",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\88a36fc6-dba2-4d91-9079-3d18df7c14f6\\subagents\\96aba6b1-824c-4af4-9a4d-444716fc559f.jsonl",
+      "mtime": 1790052701.225828
+    },
+    {
+      "uuid": "88a36fc6-dba2-4d91-9079-3d18df7c14f6",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c69035d6-70b1-4ef4-90da-5bd83c262092\\subagents\\88a36fc6-dba2-4d91-9079-3d18df7c14f6.jsonl",
+      "mtime": 1790052687.4370666
+    },
+    {
+      "uuid": "c69035d6-70b1-4ef4-90da-5bd83c262092",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\eb569f50-4460-4cec-87cd-f3785d414fc5\\subagents\\c69035d6-70b1-4ef4-90da-5bd83c262092.jsonl",
+      "mtime": 1790052671.9519477
+    },
+    {
+      "uuid": "eb569f50-4460-4cec-87cd-f3785d414fc5",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\eb569f50-4460-4cec-87cd-f3785d414fc5\\eb569f50-4460-4cec-87cd-f3785d414fc5.jsonl",
+      "mtime": 1790052648.437984
+    },
+    {
+      "uuid": "75c6955f-f80a-41b3-ac7e-da41fc1ca13a",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\75c6955f-f80a-41b3-ac7e-da41fc1ca13a\\75c6955f-f80a-41b3-ac7e-da41fc1ca13a.jsonl",
+      "mtime": 1789739776.79997
+    },
+    {
+      "uuid": "65ca16a6-7039-49df-8170-1f4ed6e4d808",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\65ca16a6-7039-49df-8170-1f4ed6e4d808\\65ca16a6-7039-49df-8170-1f4ed6e4d808.jsonl",
+      "mtime": 1789735898.1674106
+    },
+    {
+      "uuid": "d05af2a1-2758-48d0-9c7b-84651779d42b",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\d05af2a1-2758-48d0-9c7b-84651779d42b\\d05af2a1-2758-48d0-9c7b-84651779d42b.jsonl",
+      "mtime": 1789733561.0097651
+    },
+    {
+      "uuid": "1dc4360a-3148-4573-8e30-fb795b51432c",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\1dc4360a-3148-4573-8e30-fb795b51432c\\1dc4360a-3148-4573-8e30-fb795b51432c.jsonl",
+      "mtime": 1789733353.9210162
+    },
+    {
+      "uuid": "7bcd9193-ffc3-4bb1-b29b-7d5a94d80635",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\1b1fbeb4-9d06-4e79-ae62-2b20980ae91b\\subagents\\7bcd9193-ffc3-4bb1-b29b-7d5a94d80635.jsonl",
+      "mtime": 1789732830.7879212
+    },
+    {
+      "uuid": "c0e9c395-62d0-42af-a55c-658dd0c697ec",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\7bcd9193-ffc3-4bb1-b29b-7d5a94d80635\\subagents\\c0e9c395-62d0-42af-a55c-658dd0c697ec.jsonl",
+      "mtime": 1789732830.7865305
+    },
+    {
+      "uuid": "1b1fbeb4-9d06-4e79-ae62-2b20980ae91b",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\1dc4360a-3148-4573-8e30-fb795b51432c\\subagents\\1b1fbeb4-9d06-4e79-ae62-2b20980ae91b.jsonl",
+      "mtime": 1789732830.7788963
+    },
+    {
+      "uuid": "a806c9a7-5e15-418f-9ec7-aceddf8ca12e",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c0e9c395-62d0-42af-a55c-658dd0c697ec\\subagents\\a806c9a7-5e15-418f-9ec7-aceddf8ca12e.jsonl",
+      "mtime": 1789732830.7674134
+    },
+    {
+      "uuid": "d7c5e7c7-908e-420d-bd06-25b5173501f8",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a806c9a7-5e15-418f-9ec7-aceddf8ca12e\\subagents\\d7c5e7c7-908e-420d-bd06-25b5173501f8.jsonl",
+      "mtime": 1789732830.5723095
+    },
+    {
+      "uuid": "a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b\\a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b.jsonl",
+      "mtime": 1789732139.0309782
+    },
+    {
+      "uuid": "f448f228-62f8-450c-8970-1f549c64eaec",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\f448f228-62f8-450c-8970-1f549c64eaec\\f448f228-62f8-450c-8970-1f549c64eaec.jsonl",
+      "mtime": 1789732072.7908492
+    },
+    {
+      "uuid": "ff96e707-1f7d-46da-a220-44d919fad31f",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\ff96e707-1f7d-46da-a220-44d919fad31f\\ff96e707-1f7d-46da-a220-44d919fad31f.jsonl",
+      "mtime": 1789723020.3621972
+    },
+    {
+      "uuid": "a717ff40-a52c-4387-8eae-3b1071682f40",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a717ff40-a52c-4387-8eae-3b1071682f40\\a717ff40-a52c-4387-8eae-3b1071682f40.jsonl",
+      "mtime": 1789722468.763543
+    },
+    {
+      "uuid": "83eccb86-6869-4904-ae7b-8d9428301dbc",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\a717ff40-a52c-4387-8eae-3b1071682f40\\subagents\\83eccb86-6869-4904-ae7b-8d9428301dbc.jsonl",
+      "mtime": 1789721579.798378
+    },
+    {
+      "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7\\3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7.jsonl",
+      "mtime": 1789715542.1586308
+    },
+    {
+      "uuid": "0198bc4e-6206-43ab-8c9d-cb15fec5cea8",
+      "reason": "changed",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\0198bc4e-6206-43ab-8c9d-cb15fec5cea8\\0198bc4e-6206-43ab-8c9d-cb15fec5cea8.jsonl",
+      "mtime": 1789714328.8819058
+    },
+    {
+      "uuid": "841c07b1-9cbd-4e67-931e-f1884b937327",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\841c07b1-9cbd-4e67-931e-f1884b937327\\841c07b1-9cbd-4e67-931e-f1884b937327.jsonl",
+      "mtime": 1789713436.25104
+    },
+    {
+      "uuid": "c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b\\c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b.jsonl",
+      "mtime": 1789712993.7136762
+    },
+    {
+      "uuid": "c78e4b6c-5bbe-4ccb-8055-889d65c1a610",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay-novopay-platform-creditcard-management\\agent-transcripts\\c78e4b6c-5bbe-4ccb-8055-889d65c1a610\\c78e4b6c-5bbe-4ccb-8055-889d65c1a610.jsonl",
+      "mtime": 1789712232.5738838
+    },
+    {
+      "uuid": "413d480a-6abd-4235-ad45-6b356c53bd88",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\413d480a-6abd-4235-ad45-6b356c53bd88\\413d480a-6abd-4235-ad45-6b356c53bd88.jsonl",
+      "mtime": 1789712078.6139228
+    },
+    {
+      "uuid": "6d631b7d-e04b-430a-9228-2b994db9a3b7",
+      "reason": "changed",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\6d631b7d-e04b-430a-9228-2b994db9a3b7\\6d631b7d-e04b-430a-9228-2b994db9a3b7.jsonl",
+      "mtime": 1789710335.9458547
+    },
+    {
+      "uuid": "478c698f-ad76-4527-8248-a4645a31730b",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\6d631b7d-e04b-430a-9228-2b994db9a3b7\\subagents\\478c698f-ad76-4527-8248-a4645a31730b.jsonl",
+      "mtime": 1789710279.6407416
+    },
+    {
+      "uuid": "109f0729-4869-41d2-92e5-8ef41f9e5394",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\478c698f-ad76-4527-8248-a4645a31730b\\subagents\\109f0729-4869-41d2-92e5-8ef41f9e5394.jsonl",
+      "mtime": 1789710279.6407416
+    },
+    {
+      "uuid": "a9f90a2f-bf37-488c-884e-91c7fdc65cfc",
+      "reason": "new",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\109f0729-4869-41d2-92e5-8ef41f9e5394\\subagents\\a9f90a2f-bf37-488c-884e-91c7fdc65cfc.jsonl",
+      "mtime": 1789710279.6407416
+    },
+    {
+      "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+      "reason": "changed",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\56dc9aea-af5a-43df-a073-0f1c4ddbde0e\\56dc9aea-af5a-43df-a073-0f1c4ddbde0e.jsonl",
+      "mtime": 1789659221.93692
+    },
+    {
+      "uuid": "106c09ca-c2c7-4fd5-95f1-6ce85258f070",
+      "reason": "changed",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\0198bc4e-6206-43ab-8c9d-cb15fec5cea8\\subagents\\106c09ca-c2c7-4fd5-95f1-6ce85258f070.jsonl",
+      "mtime": 1789655986.2691422
+    },
+    {
+      "uuid": "90ae7298-a479-4f31-ad7d-733e3ef8bd08",
+      "reason": "changed",
+      "path": "C:\\Users\\ashutosh.kumar\\.cursor\\projects\\c-Users-ashutosh-kumar-Desktop-novopay\\agent-transcripts\\106c09ca-c2c7-4fd5-95f1-6ce85258f070\\subagents\\90ae7298-a479-4f31-ad7d-733e3ef8bd08.jsonl",
+      "mtime": 1789655971.0573874
+    }
+  ],
+  "missing": []
+}

@@ -45,7 +45,11 @@ Review, CI, and ship skills for Gate 4 and PR hygiene.
 
 **Status:** Stop hook disabled locally (plugin `hooks/hooks.json` is empty, `continual-learning-stop.ts` is a no-op). Do **not** re-enable auto-run after each prompt unless Ashutosh asks.
 
-**Re-disable after plugin update** (updates restore the stop hook):
+**Why agents look "auto-stopped":** a plugin update restores the `stop` hook, which injects a `followup_message` (`Run the continual-learning skill now...`) and/or flashes Windows terminals on every agent end. That steals the turn after real work and shows up in logs as many `"status": "aborted"` stop events.
+
+**Auto-heal:** user `~/.cursor/hooks.json` runs `sessionStart` → `~/.cursor/hooks/disable-continual-learning-stop.py`, which re-clears the plugin stop hook on every new chat/session.
+
+**Manual re-disable** (if a plugin update lands mid-session before the next sessionStart):
 
 ```bash
 python .cursor/scripts/disable-continual-learning-stop.py

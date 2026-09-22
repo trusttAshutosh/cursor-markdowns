@@ -1,0 +1,1633 @@
+{
+  "as_of": "2026-09-16",
+  "org": "trusttai",
+  "source_top10": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\pr-cadence-top10.json",
+  "people": [
+    {
+      "rank": 1,
+      "login": "trusttAshutosh",
+      "person": "Ashutosh",
+      "label": "Ashutosh",
+      "total": 643,
+      "mode": "full_list",
+      "series": [
+        {
+          "date": "2026-02-28",
+          "total": 3,
+          "span_days": 5,
+          "days_per_pr": 2.5
+        },
+        {
+          "date": "2026-03-31",
+          "total": 46,
+          "span_days": 36,
+          "days_per_pr": 0.8
+        },
+        {
+          "date": "2026-04-30",
+          "total": 137,
+          "span_days": 66,
+          "days_per_pr": 0.485
+        },
+        {
+          "date": "2026-05-31",
+          "total": 222,
+          "span_days": 97,
+          "days_per_pr": 0.439
+        },
+        {
+          "date": "2026-06-30",
+          "total": 335,
+          "span_days": 127,
+          "days_per_pr": 0.38
+        },
+        {
+          "date": "2026-07-31",
+          "total": 460,
+          "span_days": 158,
+          "days_per_pr": 0.344
+        },
+        {
+          "date": "2026-08-31",
+          "total": 589,
+          "span_days": 189,
+          "days_per_pr": 0.321
+        },
+        {
+          "date": "2026-09-16",
+          "total": 643,
+          "span_days": 205,
+          "days_per_pr": 0.319
+        }
+      ],
+      "latest_days_per_pr": 0.319
+    },
+    {
+      "rank": 2,
+      "login": "chandu-pixel",
+      "person": "chandu-pixel",
+      "label": "chandu-pixel",
+      "total": 1898,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2024-09-30",
+          "total": 4,
+          "span_days": 20,
+          "days_per_pr": 6.667
+        },
+        {
+          "date": "2024-10-31",
+          "total": 25,
+          "span_days": 51,
+          "days_per_pr": 2.125
+        },
+        {
+          "date": "2024-11-30",
+          "total": 49,
+          "span_days": 81,
+          "days_per_pr": 1.688
+        },
+        {
+          "date": "2024-12-31",
+          "total": 76,
+          "span_days": 112,
+          "days_per_pr": 1.493
+        },
+        {
+          "date": "2025-01-31",
+          "total": 122,
+          "span_days": 143,
+          "days_per_pr": 1.182
+        },
+        {
+          "date": "2025-02-28",
+          "total": 184,
+          "span_days": 171,
+          "days_per_pr": 0.934
+        },
+        {
+          "date": "2025-03-31",
+          "total": 217,
+          "span_days": 202,
+          "days_per_pr": 0.935
+        },
+        {
+          "date": "2025-04-30",
+          "total": 287,
+          "span_days": 232,
+          "days_per_pr": 0.811
+        },
+        {
+          "date": "2025-05-31",
+          "total": 368,
+          "span_days": 263,
+          "days_per_pr": 0.717
+        },
+        {
+          "date": "2025-06-30",
+          "total": 429,
+          "span_days": 293,
+          "days_per_pr": 0.685
+        },
+        {
+          "date": "2025-07-31",
+          "total": 515,
+          "span_days": 324,
+          "days_per_pr": 0.63
+        },
+        {
+          "date": "2025-08-31",
+          "total": 645,
+          "span_days": 355,
+          "days_per_pr": 0.551
+        },
+        {
+          "date": "2025-09-30",
+          "total": 761,
+          "span_days": 385,
+          "days_per_pr": 0.507
+        },
+        {
+          "date": "2025-10-31",
+          "total": 871,
+          "span_days": 416,
+          "days_per_pr": 0.478
+        },
+        {
+          "date": "2025-11-30",
+          "total": 1023,
+          "span_days": 446,
+          "days_per_pr": 0.436
+        },
+        {
+          "date": "2025-12-31",
+          "total": 1151,
+          "span_days": 477,
+          "days_per_pr": 0.415
+        },
+        {
+          "date": "2026-01-31",
+          "total": 1292,
+          "span_days": 508,
+          "days_per_pr": 0.393
+        },
+        {
+          "date": "2026-02-28",
+          "total": 1386,
+          "span_days": 536,
+          "days_per_pr": 0.387
+        },
+        {
+          "date": "2026-03-31",
+          "total": 1497,
+          "span_days": 567,
+          "days_per_pr": 0.379
+        },
+        {
+          "date": "2026-04-30",
+          "total": 1591,
+          "span_days": 597,
+          "days_per_pr": 0.375
+        },
+        {
+          "date": "2026-05-31",
+          "total": 1617,
+          "span_days": 628,
+          "days_per_pr": 0.389
+        },
+        {
+          "date": "2026-06-30",
+          "total": 1677,
+          "span_days": 658,
+          "days_per_pr": 0.393
+        },
+        {
+          "date": "2026-07-31",
+          "total": 1759,
+          "span_days": 689,
+          "days_per_pr": 0.392
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1869,
+          "span_days": 720,
+          "days_per_pr": 0.385
+        },
+        {
+          "date": "2026-09-16",
+          "total": 1898,
+          "span_days": 736,
+          "days_per_pr": 0.388
+        }
+      ],
+      "latest_days_per_pr": 0.388
+    },
+    {
+      "rank": 3,
+      "login": "trustt-abhishek",
+      "person": "Abhishek Puranik",
+      "label": "Abhishek",
+      "total": 1045,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2025-07-31",
+          "total": 53,
+          "span_days": 21,
+          "days_per_pr": 0.404
+        },
+        {
+          "date": "2025-08-31",
+          "total": 83,
+          "span_days": 52,
+          "days_per_pr": 0.634
+        },
+        {
+          "date": "2025-09-30",
+          "total": 149,
+          "span_days": 82,
+          "days_per_pr": 0.554
+        },
+        {
+          "date": "2025-10-31",
+          "total": 192,
+          "span_days": 113,
+          "days_per_pr": 0.592
+        },
+        {
+          "date": "2025-11-30",
+          "total": 270,
+          "span_days": 143,
+          "days_per_pr": 0.532
+        },
+        {
+          "date": "2025-12-31",
+          "total": 387,
+          "span_days": 174,
+          "days_per_pr": 0.451
+        },
+        {
+          "date": "2026-01-31",
+          "total": 485,
+          "span_days": 205,
+          "days_per_pr": 0.424
+        },
+        {
+          "date": "2026-02-28",
+          "total": 557,
+          "span_days": 233,
+          "days_per_pr": 0.419
+        },
+        {
+          "date": "2026-03-31",
+          "total": 607,
+          "span_days": 264,
+          "days_per_pr": 0.436
+        },
+        {
+          "date": "2026-04-30",
+          "total": 697,
+          "span_days": 294,
+          "days_per_pr": 0.422
+        },
+        {
+          "date": "2026-05-31",
+          "total": 790,
+          "span_days": 325,
+          "days_per_pr": 0.412
+        },
+        {
+          "date": "2026-06-30",
+          "total": 887,
+          "span_days": 355,
+          "days_per_pr": 0.401
+        },
+        {
+          "date": "2026-07-31",
+          "total": 953,
+          "span_days": 386,
+          "days_per_pr": 0.405
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1012,
+          "span_days": 417,
+          "days_per_pr": 0.412
+        },
+        {
+          "date": "2026-09-16",
+          "total": 1045,
+          "span_days": 433,
+          "days_per_pr": 0.415
+        }
+      ],
+      "latest_days_per_pr": 0.415
+    },
+    {
+      "rank": 4,
+      "login": "Srijan-Das-Trustt",
+      "person": "Srijan-Das-Trustt",
+      "label": "Srijan-Das",
+      "total": 1542,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2024-12-31",
+          "total": 8,
+          "span_days": 19,
+          "days_per_pr": 2.714
+        },
+        {
+          "date": "2025-01-31",
+          "total": 13,
+          "span_days": 50,
+          "days_per_pr": 4.167
+        },
+        {
+          "date": "2025-02-28",
+          "total": 60,
+          "span_days": 78,
+          "days_per_pr": 1.322
+        },
+        {
+          "date": "2025-03-31",
+          "total": 101,
+          "span_days": 109,
+          "days_per_pr": 1.09
+        },
+        {
+          "date": "2025-04-30",
+          "total": 158,
+          "span_days": 139,
+          "days_per_pr": 0.885
+        },
+        {
+          "date": "2025-05-31",
+          "total": 185,
+          "span_days": 170,
+          "days_per_pr": 0.924
+        },
+        {
+          "date": "2025-06-30",
+          "total": 199,
+          "span_days": 200,
+          "days_per_pr": 1.01
+        },
+        {
+          "date": "2025-07-31",
+          "total": 299,
+          "span_days": 231,
+          "days_per_pr": 0.775
+        },
+        {
+          "date": "2025-08-31",
+          "total": 380,
+          "span_days": 262,
+          "days_per_pr": 0.691
+        },
+        {
+          "date": "2025-09-30",
+          "total": 486,
+          "span_days": 292,
+          "days_per_pr": 0.602
+        },
+        {
+          "date": "2025-10-31",
+          "total": 536,
+          "span_days": 323,
+          "days_per_pr": 0.604
+        },
+        {
+          "date": "2025-11-30",
+          "total": 614,
+          "span_days": 353,
+          "days_per_pr": 0.576
+        },
+        {
+          "date": "2025-12-31",
+          "total": 687,
+          "span_days": 384,
+          "days_per_pr": 0.56
+        },
+        {
+          "date": "2026-01-31",
+          "total": 826,
+          "span_days": 415,
+          "days_per_pr": 0.503
+        },
+        {
+          "date": "2026-02-28",
+          "total": 942,
+          "span_days": 443,
+          "days_per_pr": 0.471
+        },
+        {
+          "date": "2026-03-31",
+          "total": 1015,
+          "span_days": 474,
+          "days_per_pr": 0.467
+        },
+        {
+          "date": "2026-04-30",
+          "total": 1101,
+          "span_days": 504,
+          "days_per_pr": 0.458
+        },
+        {
+          "date": "2026-05-31",
+          "total": 1194,
+          "span_days": 535,
+          "days_per_pr": 0.448
+        },
+        {
+          "date": "2026-06-30",
+          "total": 1267,
+          "span_days": 565,
+          "days_per_pr": 0.446
+        },
+        {
+          "date": "2026-07-31",
+          "total": 1368,
+          "span_days": 596,
+          "days_per_pr": 0.436
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1485,
+          "span_days": 627,
+          "days_per_pr": 0.423
+        },
+        {
+          "date": "2026-09-16",
+          "total": 1542,
+          "span_days": 643,
+          "days_per_pr": 0.417
+        }
+      ],
+      "latest_days_per_pr": 0.417
+    },
+    {
+      "rank": 5,
+      "login": "sristigc",
+      "person": "sristigc",
+      "label": "sristigc",
+      "total": 1377,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2025-02-28",
+          "total": 10,
+          "span_days": 16,
+          "days_per_pr": 1.778
+        },
+        {
+          "date": "2025-03-31",
+          "total": 17,
+          "span_days": 47,
+          "days_per_pr": 2.938
+        },
+        {
+          "date": "2025-04-30",
+          "total": 40,
+          "span_days": 77,
+          "days_per_pr": 1.974
+        },
+        {
+          "date": "2025-05-31",
+          "total": 73,
+          "span_days": 108,
+          "days_per_pr": 1.5
+        },
+        {
+          "date": "2025-06-30",
+          "total": 162,
+          "span_days": 138,
+          "days_per_pr": 0.857
+        },
+        {
+          "date": "2025-07-31",
+          "total": 255,
+          "span_days": 169,
+          "days_per_pr": 0.665
+        },
+        {
+          "date": "2025-08-31",
+          "total": 354,
+          "span_days": 200,
+          "days_per_pr": 0.567
+        },
+        {
+          "date": "2025-09-30",
+          "total": 414,
+          "span_days": 230,
+          "days_per_pr": 0.557
+        },
+        {
+          "date": "2025-10-31",
+          "total": 468,
+          "span_days": 261,
+          "days_per_pr": 0.559
+        },
+        {
+          "date": "2025-11-30",
+          "total": 583,
+          "span_days": 291,
+          "days_per_pr": 0.5
+        },
+        {
+          "date": "2025-12-31",
+          "total": 696,
+          "span_days": 322,
+          "days_per_pr": 0.463
+        },
+        {
+          "date": "2026-01-31",
+          "total": 787,
+          "span_days": 353,
+          "days_per_pr": 0.449
+        },
+        {
+          "date": "2026-02-28",
+          "total": 850,
+          "span_days": 381,
+          "days_per_pr": 0.449
+        },
+        {
+          "date": "2026-03-31",
+          "total": 922,
+          "span_days": 412,
+          "days_per_pr": 0.447
+        },
+        {
+          "date": "2026-04-30",
+          "total": 1005,
+          "span_days": 442,
+          "days_per_pr": 0.44
+        },
+        {
+          "date": "2026-05-31",
+          "total": 1088,
+          "span_days": 473,
+          "days_per_pr": 0.435
+        },
+        {
+          "date": "2026-06-30",
+          "total": 1168,
+          "span_days": 503,
+          "days_per_pr": 0.431
+        },
+        {
+          "date": "2026-07-31",
+          "total": 1283,
+          "span_days": 534,
+          "days_per_pr": 0.417
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1337,
+          "span_days": 565,
+          "days_per_pr": 0.423
+        },
+        {
+          "date": "2026-09-16",
+          "total": 1377,
+          "span_days": 581,
+          "days_per_pr": 0.422
+        }
+      ],
+      "latest_days_per_pr": 0.422
+    },
+    {
+      "rank": 6,
+      "login": "AiTdpBugFixer",
+      "person": "AiTdpBugFixer",
+      "label": "AiTdpBugFixer",
+      "total": 398,
+      "mode": "full_list",
+      "series": [
+        {
+          "date": "2026-03-31",
+          "total": 8,
+          "span_days": 5,
+          "days_per_pr": 0.714
+        },
+        {
+          "date": "2026-04-30",
+          "total": 48,
+          "span_days": 35,
+          "days_per_pr": 0.745
+        },
+        {
+          "date": "2026-05-31",
+          "total": 78,
+          "span_days": 66,
+          "days_per_pr": 0.857
+        },
+        {
+          "date": "2026-06-30",
+          "total": 116,
+          "span_days": 96,
+          "days_per_pr": 0.835
+        },
+        {
+          "date": "2026-07-31",
+          "total": 210,
+          "span_days": 127,
+          "days_per_pr": 0.608
+        },
+        {
+          "date": "2026-08-31",
+          "total": 319,
+          "span_days": 158,
+          "days_per_pr": 0.497
+        },
+        {
+          "date": "2026-09-16",
+          "total": 398,
+          "span_days": 174,
+          "days_per_pr": 0.438
+        }
+      ],
+      "latest_days_per_pr": 0.438
+    },
+    {
+      "rank": 7,
+      "login": "Dineshkumarab-trustt",
+      "person": "Dineshkumarab-trustt",
+      "label": "Dineshkumarab-",
+      "total": 985,
+      "mode": "full_list",
+      "series": [
+        {
+          "date": "2025-06-30",
+          "total": 38,
+          "span_days": 32,
+          "days_per_pr": 0.865
+        },
+        {
+          "date": "2025-07-31",
+          "total": 126,
+          "span_days": 63,
+          "days_per_pr": 0.504
+        },
+        {
+          "date": "2025-08-31",
+          "total": 189,
+          "span_days": 94,
+          "days_per_pr": 0.5
+        },
+        {
+          "date": "2025-09-30",
+          "total": 213,
+          "span_days": 124,
+          "days_per_pr": 0.585
+        },
+        {
+          "date": "2025-10-31",
+          "total": 245,
+          "span_days": 155,
+          "days_per_pr": 0.635
+        },
+        {
+          "date": "2025-11-30",
+          "total": 277,
+          "span_days": 185,
+          "days_per_pr": 0.67
+        },
+        {
+          "date": "2025-12-31",
+          "total": 351,
+          "span_days": 216,
+          "days_per_pr": 0.617
+        },
+        {
+          "date": "2026-01-31",
+          "total": 441,
+          "span_days": 247,
+          "days_per_pr": 0.561
+        },
+        {
+          "date": "2026-02-28",
+          "total": 483,
+          "span_days": 275,
+          "days_per_pr": 0.571
+        },
+        {
+          "date": "2026-03-31",
+          "total": 521,
+          "span_days": 306,
+          "days_per_pr": 0.588
+        },
+        {
+          "date": "2026-04-30",
+          "total": 586,
+          "span_days": 336,
+          "days_per_pr": 0.574
+        },
+        {
+          "date": "2026-05-31",
+          "total": 694,
+          "span_days": 367,
+          "days_per_pr": 0.53
+        },
+        {
+          "date": "2026-06-30",
+          "total": 765,
+          "span_days": 397,
+          "days_per_pr": 0.52
+        },
+        {
+          "date": "2026-07-31",
+          "total": 854,
+          "span_days": 428,
+          "days_per_pr": 0.502
+        },
+        {
+          "date": "2026-08-31",
+          "total": 948,
+          "span_days": 459,
+          "days_per_pr": 0.485
+        },
+        {
+          "date": "2026-09-16",
+          "total": 985,
+          "span_days": 475,
+          "days_per_pr": 0.483
+        }
+      ],
+      "latest_days_per_pr": 0.483
+    },
+    {
+      "rank": 8,
+      "login": "kavyaL12",
+      "person": "kavyaL12",
+      "label": "kavyaL12",
+      "total": 1388,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2024-10-31",
+          "total": 7,
+          "span_days": 30,
+          "days_per_pr": 5.0
+        },
+        {
+          "date": "2024-11-30",
+          "total": 22,
+          "span_days": 60,
+          "days_per_pr": 2.857
+        },
+        {
+          "date": "2024-12-31",
+          "total": 105,
+          "span_days": 91,
+          "days_per_pr": 0.875
+        },
+        {
+          "date": "2025-01-31",
+          "total": 157,
+          "span_days": 122,
+          "days_per_pr": 0.782
+        },
+        {
+          "date": "2025-02-28",
+          "total": 219,
+          "span_days": 150,
+          "days_per_pr": 0.688
+        },
+        {
+          "date": "2025-03-31",
+          "total": 256,
+          "span_days": 181,
+          "days_per_pr": 0.71
+        },
+        {
+          "date": "2025-04-30",
+          "total": 304,
+          "span_days": 211,
+          "days_per_pr": 0.696
+        },
+        {
+          "date": "2025-05-31",
+          "total": 362,
+          "span_days": 242,
+          "days_per_pr": 0.67
+        },
+        {
+          "date": "2025-06-30",
+          "total": 438,
+          "span_days": 272,
+          "days_per_pr": 0.622
+        },
+        {
+          "date": "2025-07-31",
+          "total": 527,
+          "span_days": 303,
+          "days_per_pr": 0.576
+        },
+        {
+          "date": "2025-08-31",
+          "total": 572,
+          "span_days": 334,
+          "days_per_pr": 0.585
+        },
+        {
+          "date": "2025-09-30",
+          "total": 660,
+          "span_days": 364,
+          "days_per_pr": 0.552
+        },
+        {
+          "date": "2025-10-31",
+          "total": 697,
+          "span_days": 395,
+          "days_per_pr": 0.568
+        },
+        {
+          "date": "2025-11-30",
+          "total": 748,
+          "span_days": 425,
+          "days_per_pr": 0.569
+        },
+        {
+          "date": "2025-12-31",
+          "total": 802,
+          "span_days": 456,
+          "days_per_pr": 0.569
+        },
+        {
+          "date": "2026-01-31",
+          "total": 864,
+          "span_days": 487,
+          "days_per_pr": 0.564
+        },
+        {
+          "date": "2026-02-28",
+          "total": 948,
+          "span_days": 515,
+          "days_per_pr": 0.544
+        },
+        {
+          "date": "2026-03-31",
+          "total": 993,
+          "span_days": 546,
+          "days_per_pr": 0.55
+        },
+        {
+          "date": "2026-04-30",
+          "total": 1080,
+          "span_days": 576,
+          "days_per_pr": 0.534
+        },
+        {
+          "date": "2026-05-31",
+          "total": 1140,
+          "span_days": 607,
+          "days_per_pr": 0.533
+        },
+        {
+          "date": "2026-06-30",
+          "total": 1235,
+          "span_days": 637,
+          "days_per_pr": 0.516
+        },
+        {
+          "date": "2026-07-31",
+          "total": 1319,
+          "span_days": 668,
+          "days_per_pr": 0.507
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1366,
+          "span_days": 699,
+          "days_per_pr": 0.512
+        },
+        {
+          "date": "2026-09-16",
+          "total": 1388,
+          "span_days": 715,
+          "days_per_pr": 0.516
+        }
+      ],
+      "latest_days_per_pr": 0.516
+    },
+    {
+      "rank": 9,
+      "login": "kr-sooraj",
+      "person": "Sooraj KR",
+      "label": "Sooraj",
+      "total": 2951,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2022-04-30",
+          "total": 12,
+          "span_days": 22,
+          "days_per_pr": 2.0
+        },
+        {
+          "date": "2022-05-31",
+          "total": 26,
+          "span_days": 53,
+          "days_per_pr": 2.12
+        },
+        {
+          "date": "2022-06-30",
+          "total": 41,
+          "span_days": 83,
+          "days_per_pr": 2.075
+        },
+        {
+          "date": "2022-07-31",
+          "total": 48,
+          "span_days": 114,
+          "days_per_pr": 2.426
+        },
+        {
+          "date": "2022-08-31",
+          "total": 61,
+          "span_days": 145,
+          "days_per_pr": 2.417
+        },
+        {
+          "date": "2022-09-30",
+          "total": 92,
+          "span_days": 175,
+          "days_per_pr": 1.923
+        },
+        {
+          "date": "2022-10-31",
+          "total": 100,
+          "span_days": 206,
+          "days_per_pr": 2.081
+        },
+        {
+          "date": "2022-11-30",
+          "total": 122,
+          "span_days": 236,
+          "days_per_pr": 1.95
+        },
+        {
+          "date": "2022-12-31",
+          "total": 147,
+          "span_days": 267,
+          "days_per_pr": 1.829
+        },
+        {
+          "date": "2023-01-31",
+          "total": 154,
+          "span_days": 298,
+          "days_per_pr": 1.948
+        },
+        {
+          "date": "2023-02-28",
+          "total": 191,
+          "span_days": 326,
+          "days_per_pr": 1.716
+        },
+        {
+          "date": "2023-03-31",
+          "total": 218,
+          "span_days": 357,
+          "days_per_pr": 1.645
+        },
+        {
+          "date": "2023-04-30",
+          "total": 240,
+          "span_days": 387,
+          "days_per_pr": 1.619
+        },
+        {
+          "date": "2023-05-31",
+          "total": 302,
+          "span_days": 418,
+          "days_per_pr": 1.389
+        },
+        {
+          "date": "2023-06-30",
+          "total": 329,
+          "span_days": 448,
+          "days_per_pr": 1.366
+        },
+        {
+          "date": "2023-07-31",
+          "total": 362,
+          "span_days": 479,
+          "days_per_pr": 1.327
+        },
+        {
+          "date": "2023-08-31",
+          "total": 391,
+          "span_days": 510,
+          "days_per_pr": 1.308
+        },
+        {
+          "date": "2023-09-30",
+          "total": 415,
+          "span_days": 540,
+          "days_per_pr": 1.304
+        },
+        {
+          "date": "2023-10-31",
+          "total": 455,
+          "span_days": 571,
+          "days_per_pr": 1.258
+        },
+        {
+          "date": "2023-11-30",
+          "total": 495,
+          "span_days": 601,
+          "days_per_pr": 1.217
+        },
+        {
+          "date": "2023-12-31",
+          "total": 562,
+          "span_days": 632,
+          "days_per_pr": 1.127
+        },
+        {
+          "date": "2024-01-31",
+          "total": 643,
+          "span_days": 663,
+          "days_per_pr": 1.033
+        },
+        {
+          "date": "2024-02-29",
+          "total": 702,
+          "span_days": 692,
+          "days_per_pr": 0.987
+        },
+        {
+          "date": "2024-03-31",
+          "total": 802,
+          "span_days": 723,
+          "days_per_pr": 0.903
+        },
+        {
+          "date": "2024-04-30",
+          "total": 871,
+          "span_days": 753,
+          "days_per_pr": 0.866
+        },
+        {
+          "date": "2024-05-31",
+          "total": 934,
+          "span_days": 784,
+          "days_per_pr": 0.84
+        },
+        {
+          "date": "2024-06-30",
+          "total": 1000,
+          "span_days": 814,
+          "days_per_pr": 0.815
+        },
+        {
+          "date": "2024-07-31",
+          "total": 1082,
+          "span_days": 845,
+          "days_per_pr": 0.782
+        },
+        {
+          "date": "2024-08-31",
+          "total": 1132,
+          "span_days": 876,
+          "days_per_pr": 0.775
+        },
+        {
+          "date": "2024-09-30",
+          "total": 1212,
+          "span_days": 906,
+          "days_per_pr": 0.748
+        },
+        {
+          "date": "2024-10-31",
+          "total": 1274,
+          "span_days": 937,
+          "days_per_pr": 0.736
+        },
+        {
+          "date": "2024-11-30",
+          "total": 1298,
+          "span_days": 967,
+          "days_per_pr": 0.746
+        },
+        {
+          "date": "2024-12-31",
+          "total": 1391,
+          "span_days": 998,
+          "days_per_pr": 0.718
+        },
+        {
+          "date": "2025-01-31",
+          "total": 1480,
+          "span_days": 1029,
+          "days_per_pr": 0.696
+        },
+        {
+          "date": "2025-02-28",
+          "total": 1543,
+          "span_days": 1057,
+          "days_per_pr": 0.685
+        },
+        {
+          "date": "2025-03-31",
+          "total": 1595,
+          "span_days": 1088,
+          "days_per_pr": 0.683
+        },
+        {
+          "date": "2025-04-30",
+          "total": 1681,
+          "span_days": 1118,
+          "days_per_pr": 0.665
+        },
+        {
+          "date": "2025-05-31",
+          "total": 1711,
+          "span_days": 1149,
+          "days_per_pr": 0.672
+        },
+        {
+          "date": "2025-06-30",
+          "total": 1799,
+          "span_days": 1179,
+          "days_per_pr": 0.656
+        },
+        {
+          "date": "2025-07-31",
+          "total": 1881,
+          "span_days": 1210,
+          "days_per_pr": 0.644
+        },
+        {
+          "date": "2025-08-31",
+          "total": 1968,
+          "span_days": 1241,
+          "days_per_pr": 0.631
+        },
+        {
+          "date": "2025-09-30",
+          "total": 2038,
+          "span_days": 1271,
+          "days_per_pr": 0.624
+        },
+        {
+          "date": "2025-10-31",
+          "total": 2136,
+          "span_days": 1302,
+          "days_per_pr": 0.61
+        },
+        {
+          "date": "2025-11-30",
+          "total": 2246,
+          "span_days": 1332,
+          "days_per_pr": 0.593
+        },
+        {
+          "date": "2025-12-31",
+          "total": 2328,
+          "span_days": 1363,
+          "days_per_pr": 0.586
+        },
+        {
+          "date": "2026-01-31",
+          "total": 2473,
+          "span_days": 1394,
+          "days_per_pr": 0.564
+        },
+        {
+          "date": "2026-02-28",
+          "total": 2567,
+          "span_days": 1422,
+          "days_per_pr": 0.554
+        },
+        {
+          "date": "2026-03-31",
+          "total": 2632,
+          "span_days": 1453,
+          "days_per_pr": 0.552
+        },
+        {
+          "date": "2026-04-30",
+          "total": 2682,
+          "span_days": 1483,
+          "days_per_pr": 0.553
+        },
+        {
+          "date": "2026-05-31",
+          "total": 2721,
+          "span_days": 1514,
+          "days_per_pr": 0.557
+        },
+        {
+          "date": "2026-06-30",
+          "total": 2773,
+          "span_days": 1544,
+          "days_per_pr": 0.557
+        },
+        {
+          "date": "2026-07-31",
+          "total": 2854,
+          "span_days": 1575,
+          "days_per_pr": 0.552
+        },
+        {
+          "date": "2026-08-31",
+          "total": 2895,
+          "span_days": 1606,
+          "days_per_pr": 0.555
+        },
+        {
+          "date": "2026-09-16",
+          "total": 2951,
+          "span_days": 1622,
+          "days_per_pr": 0.55
+        }
+      ],
+      "latest_days_per_pr": 0.55
+    },
+    {
+      "rank": 10,
+      "login": "r-manohar",
+      "person": "r-manohar",
+      "label": "r-manohar",
+      "total": 975,
+      "mode": "full_list",
+      "series": [
+        {
+          "date": "2025-03-31",
+          "total": 3,
+          "span_days": 4,
+          "days_per_pr": 2.0
+        },
+        {
+          "date": "2025-04-30",
+          "total": 17,
+          "span_days": 34,
+          "days_per_pr": 2.125
+        },
+        {
+          "date": "2025-05-31",
+          "total": 43,
+          "span_days": 65,
+          "days_per_pr": 1.548
+        },
+        {
+          "date": "2025-06-30",
+          "total": 85,
+          "span_days": 95,
+          "days_per_pr": 1.131
+        },
+        {
+          "date": "2025-07-31",
+          "total": 132,
+          "span_days": 126,
+          "days_per_pr": 0.962
+        },
+        {
+          "date": "2025-08-31",
+          "total": 176,
+          "span_days": 157,
+          "days_per_pr": 0.897
+        },
+        {
+          "date": "2025-09-30",
+          "total": 226,
+          "span_days": 187,
+          "days_per_pr": 0.831
+        },
+        {
+          "date": "2025-10-31",
+          "total": 272,
+          "span_days": 218,
+          "days_per_pr": 0.804
+        },
+        {
+          "date": "2025-11-30",
+          "total": 308,
+          "span_days": 248,
+          "days_per_pr": 0.808
+        },
+        {
+          "date": "2025-12-31",
+          "total": 371,
+          "span_days": 279,
+          "days_per_pr": 0.754
+        },
+        {
+          "date": "2026-01-31",
+          "total": 431,
+          "span_days": 310,
+          "days_per_pr": 0.721
+        },
+        {
+          "date": "2026-02-28",
+          "total": 508,
+          "span_days": 338,
+          "days_per_pr": 0.667
+        },
+        {
+          "date": "2026-03-31",
+          "total": 542,
+          "span_days": 369,
+          "days_per_pr": 0.682
+        },
+        {
+          "date": "2026-04-30",
+          "total": 647,
+          "span_days": 399,
+          "days_per_pr": 0.618
+        },
+        {
+          "date": "2026-05-31",
+          "total": 729,
+          "span_days": 430,
+          "days_per_pr": 0.591
+        },
+        {
+          "date": "2026-06-30",
+          "total": 812,
+          "span_days": 460,
+          "days_per_pr": 0.567
+        },
+        {
+          "date": "2026-07-31",
+          "total": 884,
+          "span_days": 491,
+          "days_per_pr": 0.556
+        },
+        {
+          "date": "2026-08-31",
+          "total": 949,
+          "span_days": 522,
+          "days_per_pr": 0.551
+        },
+        {
+          "date": "2026-09-16",
+          "total": 975,
+          "span_days": 538,
+          "days_per_pr": 0.552
+        }
+      ],
+      "latest_days_per_pr": 0.552
+    }
+  ],
+  "chart": {
+    "categories": [
+      "2025-04-30",
+      "2025-05-31",
+      "2025-06-30",
+      "2025-07-31",
+      "2025-08-31",
+      "2025-09-30",
+      "2025-10-31",
+      "2025-11-30",
+      "2025-12-31",
+      "2026-01-31",
+      "2026-02-28",
+      "2026-03-31",
+      "2026-04-30",
+      "2026-05-31",
+      "2026-06-30",
+      "2026-07-31",
+      "2026-08-31",
+      "2026-09-16"
+    ],
+    "series": [
+      {
+        "name": "1.Ashutosh",
+        "data": [
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          2.5,
+          0.8,
+          0.485,
+          0.439,
+          0.38,
+          0.344,
+          0.321,
+          0.319
+        ]
+      },
+      {
+        "name": "2.chandu-pixel",
+        "data": [
+          0.811,
+          0.717,
+          0.685,
+          0.63,
+          0.551,
+          0.507,
+          0.478,
+          0.436,
+          0.415,
+          0.393,
+          0.387,
+          0.379,
+          0.375,
+          0.389,
+          0.393,
+          0.392,
+          0.385,
+          0.388
+        ]
+      },
+      {
+        "name": "3.Abhishek",
+        "data": [
+          0.404,
+          0.404,
+          0.404,
+          0.404,
+          0.634,
+          0.554,
+          0.592,
+          0.532,
+          0.451,
+          0.424,
+          0.419,
+          0.436,
+          0.422,
+          0.412,
+          0.401,
+          0.405,
+          0.412,
+          0.415
+        ]
+      },
+      {
+        "name": "4.Srijan-Das",
+        "data": [
+          0.885,
+          0.924,
+          1.01,
+          0.775,
+          0.691,
+          0.602,
+          0.604,
+          0.576,
+          0.56,
+          0.503,
+          0.471,
+          0.467,
+          0.458,
+          0.448,
+          0.446,
+          0.436,
+          0.423,
+          0.417
+        ]
+      },
+      {
+        "name": "5.sristigc",
+        "data": [
+          1.974,
+          1.5,
+          0.857,
+          0.665,
+          0.567,
+          0.557,
+          0.559,
+          0.5,
+          0.463,
+          0.449,
+          0.449,
+          0.447,
+          0.44,
+          0.435,
+          0.431,
+          0.417,
+          0.423,
+          0.422
+        ]
+      },
+      {
+        "name": "6.AiTdpBugFixer",
+        "data": [
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.714,
+          0.745,
+          0.857,
+          0.835,
+          0.608,
+          0.497,
+          0.438
+        ]
+      },
+      {
+        "name": "7.Dineshkumarab-",
+        "data": [
+          0.865,
+          0.865,
+          0.865,
+          0.504,
+          0.5,
+          0.585,
+          0.635,
+          0.67,
+          0.617,
+          0.561,
+          0.571,
+          0.588,
+          0.574,
+          0.53,
+          0.52,
+          0.502,
+          0.485,
+          0.483
+        ]
+      },
+      {
+        "name": "8.kavyaL12",
+        "data": [
+          0.696,
+          0.67,
+          0.622,
+          0.576,
+          0.585,
+          0.552,
+          0.568,
+          0.569,
+          0.569,
+          0.564,
+          0.544,
+          0.55,
+          0.534,
+          0.533,
+          0.516,
+          0.507,
+          0.512,
+          0.516
+        ]
+      },
+      {
+        "name": "9.Sooraj",
+        "data": [
+          0.665,
+          0.672,
+          0.656,
+          0.644,
+          0.631,
+          0.624,
+          0.61,
+          0.593,
+          0.586,
+          0.564,
+          0.554,
+          0.552,
+          0.553,
+          0.557,
+          0.557,
+          0.552,
+          0.555,
+          0.55
+        ]
+      },
+      {
+        "name": "10.r-manohar",
+        "data": [
+          2.125,
+          1.548,
+          1.131,
+          0.962,
+          0.897,
+          0.831,
+          0.804,
+          0.808,
+          0.754,
+          0.721,
+          0.667,
+          0.682,
+          0.618,
+          0.591,
+          0.567,
+          0.556,
+          0.551,
+          0.552
+        ]
+      }
+    ],
+    "y_label": "~days/PR (exact, 3dp)",
+    "note": "Monthly samples. Full-list authors reconstructed offline; >1000 PR authors use created:<=count samples."
+  }
+}

@@ -28,6 +28,10 @@ cannot be undone in the audit history.
 - Jira: open the issue in the user's Chrome, read the logged-in profile (avatar / account menu), report
   the name, and wait for "yes" before editing or commenting. Never call `editJiraIssue`,
   `addCommentToJiraIssue`, `transitionJiraIssue`, `createJiraIssue` or any other Atlassian MCP tool.
+- Chrome logins (checked 2026-09-22 via `/rest/api/3/myself`): "Browser 1" is signed into Jira as
+  **Deepankar** too (fine for read-only REST such as status lookups, never for writes); "Browser 2" had no
+  Jira session. Always hit `/rest/api/3/myself` before a browser write. For comments the user prefers a
+  paste-ready draft they post themselves.
 - Read-only git/gh operations need no confirmation.
 - If the identity is wrong, do not write; give the user the text/commands instead.
 - State the identity used in the completion message for every external write.

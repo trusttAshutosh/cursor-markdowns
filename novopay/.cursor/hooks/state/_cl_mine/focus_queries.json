@@ -1,0 +1,205 @@
+[
+  {
+    "uuid": "1214d43e-5bd5-4e99-97af-38401c1301bb",
+    "n": 4,
+    "queries": [
+      "\\nbkyc HDP-7636? \\n\\nPurpose of “No” Option: In the “Are you meeting the customer at the following address?” pop-up, please clarify the purpose and expected behavior of selecting “No”, as the user is currently able to proceed with the journey by selecting either Yes or No.\\n",
+      "\\nAfter clicking on the Map icon, the user is redirected to an incorrect/invalid location. The displayed location does not match the Pincode provided for the customer --> is this valid?\\n",
+      "\\nIf an uploaded BKYC lead fails, the failure reason should be displayed for reference. Currently, when downloading the uploaded file report, the Reason column is blank for failed records \\nwhat uploaded file report? is this valid?\\n",
+      "\\nis above happening right now?\\n"
+    ]
+  },
+  {
+    "uuid": "eb569f50-4460-4cec-87cd-f3785d414fc5",
+    "n": 1,
+    "queries": [
+      "\\ngrep command to get the tenant\\nfo rbelow\\nCaused by: org.hibernate.exception.SQLGrammarException: JDBC exception executing SQL [select ctd1_0.id,ctd1_0.bkyc_status,ctd1_0.bulk_lead_file_ingest,ctd1_0.dkyc_status,ctd1_0.idcom_status,ctd1_0.ipa_status,ctd1_0.is_hybrid_journey,ctd1_0.link_journey,ctd1_0.transaction_audit_id,ctd1_0.vkyc_eligibility,ctd1_0.vkyc_expiry_time,ctd1_0.vkyc_link,ctd1_0.vkyc_status from cc_additional_txn_data ctd1_0 where ctd1_0.transaction_audit_id=?] [Unknown column 'ctd1_0.link_journey' in 'field list'] [n/a]\\n\\nlike in the image\\n"
+    ]
+  },
+  {
+    "uuid": "75c6955f-f80a-41b3-ac7e-da41fc1ca13a",
+    "n": 7,
+    "queries": [
+      "\\nUAT server\\n",
+      "\\ncheck again\\nis bank not replyingwhat's happening? what was happening befoe today?\\n",
+      "\\ncheck again\\nis bank not replyingwhat's happening? what was happening befoe today?\\n",
+      "\\ndo we need to increase some timout limit?\\n",
+      "\\ndo we need to increase some timout limit?\\n",
+      "\\nnot happenig in QA only in UAT\\ncompare whats going on\\n",
+      "\\nquery to check index and then cretae index if missing\\n"
+    ]
+  },
+  {
+    "uuid": "65ca16a6-7039-49df-8170-1f4ed6e4d808",
+    "n": 7,
+    "queries": [
+      "\\ni have one more corporate for which bkyc has to be enabled in bank uat\\nin addition to the existing one\\nshare update query\\ni have teh corporate code of the corporate not the corporate id\\n",
+      "\\ncurrent was CORP0007\\n",
+      "\\n1 update query keep it simple\\n",
+      "\\nCORP0007 this was the old corporate code don't know the corpoaret id \\ni'll share new corporate code again\\nfrom just corporate code populat ethe corporate ids and lebels etc for which bkyc is enabled\\nthi is for bank uat\\ndo not assume any ids\\n",
+      "\\nfor both update query it showed 1 row affected but did n;t get added in select query o/p\\n\\nUPDATE ddp_masterdata.configuration SET prop_value=(SELECT GROUP_CONCAT(id ORDER BY FIELD(code,'CORP0007','<NEW_CORP_CODE>') SEPARATOR ',') FROM ddp_actor.corporate WHERE is_deleted=0 AND type='CORPORATE' AND code IN ('CORP0007','CORPO65666')), updated_by='bkyc-ops', updated_on=NOW() WHERE prop_key='trustt.taskallocation.bkyc.entitled.corporate.ids' AND service='TASK-ALLOCATION';\\n\\nUPDATE ddp_masterdata.configuration SET prop_value=(SELECT GROUP_CONCAT(CONCAT(id,':',name) ORDER BY FIELD(code,'CORP0007','<NEW_CORP_CODE>') SEPARATOR ',') FROM ddp_actor.corporate WHERE is_deleted=0 AND type='CORPORATE' AND code IN ('CORP0007','CORPO65666')), updated_by='bkyc-ops', updated_on=NOW() WHERE prop_key='trustt.taskallocation.bkyc.entitled.corporate.labels' AND service='TASK-ALLOCATION';\\n\\nSELECT id, code, name FROM ddp_actor.corporate WHERE is_deleted=0 AND type='CORPORATE' AND code IN ('CORP0007','CORPO65666');\\n\\nSELECT prop_key, prop_value FROM ddp_masterdata.configuration WHERE service='TASK-ALLOCATION' AND prop_key IN ('trustt.taskallocation.bkyc.entitled.corporate.ids','trustt.taskallocation.bkyc.entitled.corporate.labels');\\n",
+      "\\nshare me existig bkyc enabled nad a new corporate codes from out uat\\n",
+      "\\nin QA DB agent coportae code of bkyc enbaled corporated\\n"
+    ]
+  },
+  {
+    "uuid": "d05af2a1-2758-48d0-9c7b-84651779d42b",
+    "n": 2,
+    "queries": [
+      "\\ncgeck uat server cc logs\\n",
+      "\\ncheck again\\n"
+    ]
+  },
+  {
+    "uuid": "1dc4360a-3148-4573-8e30-fb795b51432c",
+    "n": 7,
+    "queries": [
+      "\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n",
+      "\\nnot sample but actual logs\\n",
+      "\\nin a aformatted way\\n",
+      "\\nactua request response from uat server right? not samples right?\\n",
+      "\\nwhy mention AbstractHttpClient code detals in md file\\n",
+      "\\nadd for ckyc ekyc both\\n",
+      "\\nnot comparitive analysis actualrequest\\n"
+    ]
+  },
+  {
+    "uuid": "a3a4fcc9-5996-4dc6-9b2a-bc133a45a70b",
+    "n": 1,
+    "queries": [
+      "\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n"
+    ]
+  },
+  {
+    "uuid": "f448f228-62f8-450c-8970-1f549c64eaec",
+    "n": 1,
+    "queries": [
+      "\\nshare bank api request response status api and initiate api kyc engine\\ncheck uat server \\nin a minimal md file\\nno fluff in the md file\\n"
+    ]
+  },
+  {
+    "uuid": "ff96e707-1f7d-46da-a220-44d919fad31f",
+    "n": 9,
+    "queries": [
+      "\\nmobile match flag are we storing that in DB in all scenarios? KYC engine flow?\\nwe had ealrier discussion regarding this\\n",
+      "\\nis the scenario matrix as per latest code on remote?\\n",
+      "\\n9f47_1789711540506\\nDSA3941789711540\\n\\nwhat is happening for this in QA server\\n",
+      "\\nvalid scenario?\\n",
+      "\\nsummarise the scenario matric again if storing then what value mention that as well\\n",
+      "\\nadd s. no to oin above table\\n",
+      "\\nphones any menaing?\\n",
+      "\\nwe are not doing any handling on vkyc flow for ckyc based on mobile match right?   \\nCKYC Flow\\nFor all successful CKYC cases, we will pass filler4 as SCVKYC+timestamp( SCVKYC20260812170453)   <OK>\\nWe will not check for mobile match/mismatch, nor will we pass this information in the Execute interface Partner variables. .<Yes>\\n",
+      "\\nso above statement were corect right?\\n"
+    ]
+  },
+  {
+    "uuid": "a717ff40-a52c-4387-8eae-3b1071682f40",
+    "n": 5,
+    "queries": [
+      "\\nall the KYC engine configurable things\\nas bank would recognise it \\nin a atbale\\nwe have to confirm if theeir values in bank uat and prod would remain same or not\\nalso mention DB key for that configuranle thing\\n",
+      "\\n1 table with al info why di u remove 2-6\\n",
+      "\\nin a md file\\n",
+      "\\njust share 1-7 in md file\\n",
+      "\\nmd file updated with bank uat values? \\\"C:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\sqllab_untitled_query_6_20260918T143549.csv\\\"\\n"
+    ]
+  },
+  {
+    "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+    "n": 9,
+    "queries": [
+      "\\nBUILD FAILED in 3s\\n\\nashutosh.kumar@ATSLAP-43 MINGW64 ~/Desktop/novopay/novopay-platform-creditcard-management (ddp-bkup-uat|MERGING)\\n$ ./gradlew clean build \\n\\n> Task :generateFlywayScriptAuthors\\nflyway-script-authors: wrote 4 script entries of 4 changed (baseline=origin/ddp-prod-master)\\n\\n> Task :sonarlintMain\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\n\\n> Task :sonarlintTest\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\nOpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended\\n\\n> Task :test\\n\\nDeviceRestrictionServiceTest > initiate > allows existing customer after Redis flush when hash is still on the lead FAILED\\n    org.mockito.exceptions.verification.TooManyActualInvocations at DeviceRestrictionServiceTest.java:269\\n\\nDeviceRestrictionServiceTest > initiate > writes restriction attrs once the lead exists FAILED\\n    org.mockito.exceptions.verification.TooManyActualInvocations at DeviceRestrictionServiceTest.java:181\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T3: lead_type=BULK forces BULK mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T2: lead_type=ALL forces ALL mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T1: missing lead_type defaults to SINGLE mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorTest > marks vkyc_available YES when pending VKYC is not expired FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorTest.java:68\\n\\nGetTnxResumeListProcessorTest > marks vkyc_available DISABLE when pending VKYC is expired and DVKYC is not success FAILED\\n    java.lang.Ille\n...[trunc 6641]",
+      "\\n/fix-merge-conflicts  banking-origination\\n",
+      "\\nresume\\n",
+      "\\nresume\\n",
+      "\\nresume\\n",
+      "\\n/fix-merge-conflicts banking-origination\\n",
+      "\\nbo not compiling\\nignore tests during compilation\\n",
+      "\\ncomand to compile bo without tests\\n",
+      "\\nmasterdata not compiling\\n"
+    ]
+  },
+  {
+    "uuid": "0198bc4e-6206-43ab-8c9d-cb15fec5cea8",
+    "n": 7,
+    "queries": [
+      "\\nhttps://novopay.atlassian.net/browse/HDP-11649\\n\\\"C:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\url.txt\\\"\\n",
+      "\\nshare select query and update query\\n",
+      "\\nSELECT prop_key, prop_value, service, updated_on, updated_by FROM ddp_masterdata.configuration WHERE prop_key = 'hdfc.soa.bio.auth.url';\\n\\nshould give this\\n\\nif yesupdat eto below if \\n\\nUPDATE ddp_masterdata.configuration SET prop_value = 'https://osbsesoauat.hdfcbank.com:5142/uidai-ekyc/ProxyService/PS_eKYCServiceHSM_ADV', updated_on = NOW(), updated_by = 'HDP-11649' WHERE prop_key = 'hdfc.soa.bio.auth.url' AND service = 'INDIA-STACK';\\n\\nshare abov emsg to share with QA team\\n",
+      "\\ncomapre log 1 with\\n\\nAPI URL: https://osbsesoauat.hdfcbank.com:5142/uidaiekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:eKYCRequest xmlns:ns2=\\\"uidaiekyc.otp.xsd.hdfcbank.com\\\"><REQ_TYPE>F</REQ_TYPE><ResidentConsent><rc>Y</rc><mec>Y</mec></ResidentConsent><UID_NO>856925895937</UID_NO><BIO><ImageType>FMR,FIR</ImageType><BioType/><BioImage/></BIO><Req_Date_Time>20260917061902</Req_Date_Time><Req_No>UKC:000010</Req_No><Cost_Center_No/><Meta><udc>HDF009100000009</udc><fdc>NC</fdc><idc>NC</idc><pip>10.5.111.56</pip><lot>P</lot><lov>560103</lov></Meta><TransactionInfo><Pan>6071520856925895937</Pan><Proc_Code>130000</Proc_Code><TransmDate>0917061902</TransmDate><Stan>000010</Stan><Local_Trans_Time>061902</Local_Trans_Time><Local_date>0917</Local_date><Mcc>6012</Mcc><Pos_entry_mode>019</Pos_entry_mode><Pos_code>05</Pos_code><AcqId>200030</AcqId><RRN>626006000010</RRN><CA_Tid>register</CA_Tid><CA_ID>HDF009100000009</CA_ID><CA_TA>jack jillKanjurmar     Mumbai       MHIN</CA_TA></TransactionInfo><Cert_Name/><Value1/><Value2/><SOAStandardElements><ADVappId>116</ADVappId><ADVappName>NOVPY</ADVappName><filler1>N</filler1><filler2><![CDATA[<PidData>\\n   <Data type=\\\"X\\\">MjAyNi0wOS0xN1QxODoxODo1NDdLmiU3zBSaiVj3dUHaojZtFFDxIqXR3r5PUK1auJtXw/JOOHKGHRBF++24FSr3X3nQrAHT9AcyYkEdHWJc1I5OHahFY/MG+0VZprhZRIT0kGVim7fxrum6yLaOhU1+gRFj1w0HH91N5dLuEN7B+hiNrGOA2aLXuSKCK06ypVBStc1QZGsVUQ6ngw+qQevk35H6Vye7ZMEzPHC6fcbY75TCQvfS8D5NYyT4mwLunpoZQKZi+aQeuAgAAtPU7vKjXgB3Xm5xIkaLuwjMUuPwO/GzCBn8vlnsmLLPRiy1Dr0i6VUJd8dY7mh5mbvrYocI++Tyq1S8j2tPeQx2O54jcPsxtWsxIkM4EuHWhAVcBD1hUEyz8TKx9K8KRWLz2rL+YoiteSJcMOrXFPyCQu2yQuM/D0Y9Cw98eb9sWdg+CFndWUVyil7LwyTNWLmMKvpA+LTO7RqssC2oWo732hqoRcSm8u1acOiPebsJLnlDEhKIeBdUAyPaGyY5wPpb9Fy/FatTGfOeUqbxcDCV0iGRbcD9ASSq\n...[trunc 43714]",
+      "\\ncomapre log 1\\n\\nAPI URL: https://osbsesoauat.hdfcbank.com:5142/uidaiekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:eKYCRequest xmlns:ns2=\\\"uidaiekyc.otp.xsd.hdfcbank.com\\\"><REQ_TYPE>F</REQ_TYPE><ResidentConsent><rc>Y</rc><mec>Y</mec></ResidentConsent><UID_NO>856925895937</UID_NO><BIO><ImageType>FMR,FIR</ImageType><BioType/><BioImage/></BIO><Req_Date_Time>20260917061902</Req_Date_Time><Req_No>UKC:000010</Req_No><Cost_Center_No/><Meta><udc>HDF009100000009</udc><fdc>NC</fdc><idc>NC</idc><pip>10.5.111.56</pip><lot>P</lot><lov>560103</lov></Meta><TransactionInfo><Pan>6071520856925895937</Pan><Proc_Code>130000</Proc_Code><TransmDate>0917061902</TransmDate><Stan>000010</Stan><Local_Trans_Time>061902</Local_Trans_Time><Local_date>0917</Local_date><Mcc>6012</Mcc><Pos_entry_mode>019</Pos_entry_mode><Pos_code>05</Pos_code><AcqId>200030</AcqId><RRN>626006000010</RRN><CA_Tid>register</CA_Tid><CA_ID>HDF009100000009</CA_ID><CA_TA>jack jillKanjurmar     Mumbai       MHIN</CA_TA></TransactionInfo><Cert_Name/><Value1/><Value2/><SOAStandardElements><ADVappId>116</ADVappId><ADVappName>NOVPY</ADVappName><filler1>N</filler1><filler2><![CDATA[<PidData>\\n   <Data type=\\\"X\\\">MjAyNi0wOS0xN1QxODoxODo1NDdLmiU3zBSaiVj3dUHaojZtFFDxIqXR3r5PUK1auJtXw/JOOHKGHRBF++24FSr3X3nQrAHT9AcyYkEdHWJc1I5OHahFY/MG+0VZprhZRIT0kGVim7fxrum6yLaOhU1+gRFj1w0HH91N5dLuEN7B+hiNrGOA2aLXuSKCK06ypVBStc1QZGsVUQ6ngw+qQevk35H6Vye7ZMEzPHC6fcbY75TCQvfS8D5NYyT4mwLunpoZQKZi+aQeuAgAAtPU7vKjXgB3Xm5xIkaLuwjMUuPwO/GzCBn8vlnsmLLPRiy1Dr0i6VUJd8dY7mh5mbvrYocI++Tyq1S8j2tPeQx2O54jcPsxtWsxIkM4EuHWhAVcBD1hUEyz8TKx9K8KRWLz2rL+YoiteSJcMOrXFPyCQu2yQuM/D0Y9Cw98eb9sWdg+CFndWUVyil7LwyTNWLmMKvpA+LTO7RqssC2oWo732hqoRcSm8u1acOiPebsJLnlDEhKIeBdUAyPaGyY5wPpb9Fy/FatTGfOeUqbxcDCV0iGRbcD9ASSqoSPpw\n...[trunc 43715]",
+      "\\nc:\\\\Users\\\\ashutosh.kumar\\\\Downloads\\\\PROP_VALUE.txt\\n",
+      "\\nAPI URL: https://osbsesoauat.hdfcbank.com:5144/uidai-ekyc/ProxyService/PS_eKYCServiceHSM_ADV\\nHTTP Method: POST\\nConnection Timeout: 500000 ms, Socket Timeout: 500000 ms\\nHeaders:\\n  'Content-Type': 'text/xml;charset=utf-8'\\nRequest Body:\\n'<SOAP-ENV:Envelope xmlns:SOAP-ENV=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><SOAP-ENV:Header/><SOAP-ENV:Body><ns2:eKYCRequest xmlns:ns2=\\\"uidaiekyc.otp.xsd.hdfcbank.com\\\"><REQ_TYPE>F</REQ_TYPE><ResidentConsent><rc>Y</rc><mec>Y</mec></ResidentConsent><UID_NO>450179431576</UID_NO><BIO><ImageType>FMR,FIR</ImageType><BioType/><BioImage/></BIO><Req_Date_Time>20260918000602</Req_Date_Time><Req_No>UKC:000001</Req_No><Cost_Center_No/><Meta><udc>HDF009100000009</udc><fdc>NC</fdc><idc>NC</idc><pip>10.5.111.56</pip><lot>P</lot><lov>560103</lov></Meta><TransactionInfo><Pan>6071520450179431576</Pan><Proc_Code>130000</Proc_Code><TransmDate>0918000602</TransmDate><Stan>000001</Stan><Local_Trans_Time>000602</Local_Trans_Time><Local_date>0918</Local_date><Mcc>6012</Mcc><Pos_entry_mode>019</Pos_entry_mode><Pos_code>05</Pos_code><AcqId>200030</AcqId><RRN>626100000001</RRN><CA_Tid>register</CA_Tid><CA_ID>HDF009100000009</CA_ID><CA_TA>jack jillKanjurmar     Mumbai       MHIN</CA_TA></TransactionInfo><Cert_Name/><Value1/><Value2/><SOAStandardElements><ADVappId>116</ADVappId><ADVappName>NOVPY</ADVappName><filler1>N</filler1><filler2><![CDATA[<PidData>\\n   <Data type=\\\"X\\\">MjAyNi0wOS0xOFQxMjowNTo0OBMWdCN1WBwVvOoPp5a+6dNWcQPUn3W6bnBhc/E/ljTMbzmyzFtyy67+zt8IDertAzYYZZ2wCrsNjbhd10uZQ1vrO+Vg5yMKr4cyMvdqigxkMb7bFlRAvBtoK87bS0mIArkq/SMx6WC13TKUVYEhOC8FYX8F0ySUZc1XBkrV+9Rj5W/JAERUDRlWwOjeG+2tOE24rpN0fBlKZaabxk+FeCCQsSku3Hi1KQKCgM5fVOz6iL9LngYLWoJ6TrjRWQjvfZSrxjDptrTMRAh7VmkqSsCd6gRoMMxNObCjvwLAgXBy3EEJ+2Ys6Z06LVIUM7tGLTr8hmVVuEJMqyy8ttu90WH6hg7brJuJ8kydZsxSquF2x9EIF5L4X5Ujnz2KT5RIgGQAbCbdcsrN9TDtIYr5diPnQClrJNl0+CCwxTaMdoDUhhmlTzFORU6aLxYrIgFmBNNuOLpGTCPxBEKkE4wc46pBVE8yYxNIQd0MgOacmbHwN6gP2dw7EwVeq4GWOljYFrQ0s0PFn2THuxjtw8a1T3iE/pwz25viWR4tVdAilmmaeoMr2\n...[trunc 18536]"
+    ]
+  },
+  {
+    "uuid": "841c07b1-9cbd-4e67-931e-f1884b937327",
+    "n": 1,
+    "queries": [
+      "\\nBUILD FAILED in 3s\\n\\nashutosh.kumar@ATSLAP-43 MINGW64 ~/Desktop/novopay/novopay-platform-creditcard-management (ddp-bkup-uat|MERGING)\\n$ ./gradlew clean build \\n\\n> Task :generateFlywayScriptAuthors\\nflyway-script-authors: wrote 4 script entries of 4 changed (baseline=origin/ddp-prod-master)\\n\\n> Task :sonarlintMain\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\n\\n> Task :sonarlintTest\\n0 SonarLint issue(s) were found. Max issue(s) allowed: 0.\\nOpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended\\n\\n> Task :test\\n\\nDeviceRestrictionServiceTest > initiate > allows existing customer after Redis flush when hash is still on the lead FAILED\\n    org.mockito.exceptions.verification.TooManyActualInvocations at DeviceRestrictionServiceTest.java:269\\n\\nDeviceRestrictionServiceTest > initiate > writes restriction attrs once the lead exists FAILED\\n    org.mockito.exceptions.verification.TooManyActualInvocations at DeviceRestrictionServiceTest.java:181\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T3: lead_type=BULK forces BULK mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T2: lead_type=ALL forces ALL mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorIncludeBulkPendingTest > T1: missing lead_type defaults to SINGLE mode for counts FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorIncludeBulkPendingTest.java:95\\n\\nGetTnxResumeListProcessorTest > marks vkyc_available YES when pending VKYC is not expired FAILED\\n    java.lang.IllegalArgumentException at GetTnxResumeListProcessorTest.java:68\\n\\nGetTnxResumeListProcessorTest > marks vkyc_available DISABLE when pending VKYC is expired and DVKYC is not success FAILED\\n    java.lang.Ille\n...[trunc 6641]"
+    ]
+  },
+  {
+    "uuid": "c246405c-1abf-4cfc-a2f7-1a1aaeb2aa6b",
+    "n": 1,
+    "queries": [
+      "\\npan encryption decryption\\nforntend backend DB\\nwho sends what is receinved hwat is stored what is forwarded\\nin kyc engine flow\\n"
+    ]
+  },
+  {
+    "uuid": "c78e4b6c-5bbe-4ccb-8055-889d65c1a610",
+    "n": 1,
+    "queries": [
+      "\\n/fix-merge-conflicts  cc\\n"
+    ]
+  },
+  {
+    "uuid": "413d480a-6abd-4235-ad45-6b356c53bd88",
+    "n": 1,
+    "queries": [
+      "\\n/fix-merge-conflicts  cc\\n"
+    ]
+  },
+  {
+    "uuid": "6d631b7d-e04b-430a-9228-2b994db9a3b7",
+    "n": 5,
+    "queries": [
+      "\\nplain clear concise english for qa what needs to be verified https://novopay.atlassian.net/browse/HDP-11579\\n",
+      "\\nresume\\n",
+      "\\nwhich key in which api needs to be verified\\n",
+      "\\ndo we nee dto check something about filler 1 as well? some confusion? filler1 mentioned in ticket\\n",
+      "\\ncorrrect the ticket \\nkeep it less confusing and to the point what needs to be done what need sto be verified\\n"
+    ]
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "n": 26,
+    "queries": [
+      "\\ncheck in latest QA code on remote https://novopay.atlassian.net/browse/HDP-11645\\n\\nshpuld happen like below in latest ddp-prod-master on remote\\n<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\\n<soapenv:Envelope xmlns:soapenv=\\\"http://schemas.xmlsoap.org/soap/envelope/\\\"><soapenv:Body><a:eKYCResponse xmlns:a=\\\"uidaiekyc.otp.xsd.hdfcbank.com\\\"><Return_Code><ret>Y</ret><code>8e9faab10c3d4ca89dff86ee7293c48b</code><txn>UKC:001590</txn><txn_type>e-KYC OTP</txn_type><auth_purpose/><cont_response/><err/><ts>2026-09-07T13:06:35.173+05:30</ts><ko>KUA</ko><info/></Return_Code><UidData><UID_NO>[REDACTED]</UID_NO><UID_TOKEN>01000572LfrsLChDqjVQCk/qSbuSrrdppZQXn+EE3Fee5Key55ms6Pf3N5DGsRX0C9fBQqih</UID_TOKEN><ProofofIdentity><Name>Ganesh Arvind Patekar</Name><DOB>13-05-1984</DOB><Gender>M</Gender><Phone/><Email/></ProofofIdentity><ProofofAddress><CARE_OF/><BUILDING>81, New Collector Compound</BUILDING><STREET>PLot No-7, Shahid Abdul Hamid Road</STREET><LANDMARK>Near Madina Masjid</LANDMARK><LOCALITY>Malwani Malad West</LOCALITY><VILLAGE_TOWN_CITY>Mumbai</VILLAGE_TOWN_CITY><DISTRICT>Mumbai Suburban</DISTRICT><STATE>Maharashtra</STATE><PINCODE>400095</PINCODE><COUNTRY>India</COUNTRY><POSTOFFICE>Kharodi</POSTOFFICE></ProofofAddress><LanguageProofofAddress><Language>13</Language><NameInLanguage>गणेश अरविंद पटेकर</NameInLanguage><CARE_OF/><BUILDING>81, न्यू कलेक्टर कंपाउंड</BUILDING><STREET>प्लॉट न-7, शहीद अब्दुल हमीद रोड</STREET><LANDMARK>मदिना मस्जीद जवळ</LANDMARK><LOCALITY>मालवणी मालाड वेस्ट</LOCALITY><VILLAGE_TOWN_CITY>मुंबई</VILLAGE_TOWN_CITY><DISTRICT>मुंबई उपनगर</DISTRICT><STATE>महाराष्ट्र</STATE><PINCODE>400095</PINCODE><COUNTRY> </COUNTRY><POSTOFFICE/></LanguageProofofAddress><Pht>[BASE64]</Pht><Prn>[BASE64]</Prn></UidData><TransactionInfo><id>130000</id><Pan>[REDACTED]</Pan><Proc_Code>130000</Proc_Code><Stan>001601</Stan><Local_Trans_Time>010633</Local_Trans_Time><Local_date>0907</Local_date><Pos_code/><AcqId>200145</AcqId><RRN>625001001601</RRN><Responsecode>00</Responsecode><ResponseMsg>Approved</ResponseMsg><CA_Tid>register</CA_Tid><CA_ID>HDF008826086057</CA_ID><CA_TA>Aayushi YadavKanjurmar Mumbai         IN</CA_TA></TransactionInfo><ADVInfo><ReferenceKey>104704227925</ReferenceKey><errorString/><errorCode/><status>success</status><ReserveField1/><ReserveField2/></ADVInfo><errorcode>00</errorcode><basencode>[REDACTED]</basencode></a:eKYCResponse></soapenv:Body></soapenv:Envelope>\\n",
+      "\\nresume\\n",
+      "\\nis it in latest uat code on remote as well?\\n",
+      "\\nwhich repo?\\n",
+      "\\nfix minimally without introducing regressions or breaking changes.  don't commit\\n",
+      "\\n/thermo-nuclear-code-quality-review\\n",
+      "\\nchanges lost do it again in bkup-qa\\n",
+      "\\n/thermo-nuclear-code-quality-review\\n",
+      "\\nstage the changes and share commit command with proper message and decsription\\n",
+      "\\ncommit and push\\n",
+      "\\nThe \\\"Antipatterns\\\" quality gate is failing in this commit.\\nCode smells / antipatterns were introduced in the changed code.\\nGate output: antipatterns value 1 is greater than threshold 0\\nIssues to address (1):\\n- [HIGH] `infra-logging/src/test/java/in/novopay/infra/logging/log4j/LogMaskingConverterTest.java:36` — Define a constant instead of duplicating this literal \\\"masked=\\\" 5 times. (java:S1192)\\n```\\n\\t\\t\\t\\t+ \\\"\\\\\\\"poi\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"Ganesh Arvind Patekar\\\\\\\",\\\\\\\"photo\\\\\\\":\\\\\\\"\\\" + photo + \\\"\\\\\\\",\\\"\\n\\t\\t\\t\\t+ PRN_KEY + \\\"\\\\\\\"\\\" + prn + \\\"\\\\\\\"}}\\\";\\n\\n\\t\\tString masked = converter.mask(input);\\n\\n\\t\\tassertTrue(masked.contains(\\\"[AUTH_REF_CODE]\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"[PHOTO]\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"\\\\\\\"poi\\\\\\\"\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"Ganesh Arvind Patekar\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(PRN_KEY), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(prn), () -> \\\"prn must survive after auth_ref/photo mask: \\\" + masked);\\n```\\nPlease validate the finding(s), then implement the minimal, correct fix for the real issue(s). Keep changes scoped — do not refactor unrelated code. After fixing, briefly explain what you changed and why.\\n\\ncommit and push in ddp-bkup-qa\\n",
+      "\\nThe \\\"Antipatterns\\\" quality gate is failing in this commit.\\nCode smells / antipatterns were introduced in the changed code.\\nGate output: antipatterns value 1 is greater than threshold 0\\nIssues to address (1):\\n- [HIGH] `infra-logging/src/test/java/in/novopay/infra/logging/log4j/LogMaskingConverterTest.java:36` — Define a constant instead of duplicating this literal \\\"masked=\\\" 5 times. (java:S1192)\\n```\\n\\t\\t\\t\\t+ \\\"\\\\\\\"poi\\\\\\\":{\\\\\\\"name\\\\\\\":\\\\\\\"Ganesh Arvind Patekar\\\\\\\",\\\\\\\"photo\\\\\\\":\\\\\\\"\\\" + photo + \\\"\\\\\\\",\\\"\\n\\t\\t\\t\\t+ PRN_KEY + \\\"\\\\\\\"\\\" + prn + \\\"\\\\\\\"}}\\\";\\n\\n\\t\\tString masked = converter.mask(input);\\n\\n\\t\\tassertTrue(masked.contains(\\\"[AUTH_REF_CODE]\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"[PHOTO]\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"\\\\\\\"poi\\\\\\\"\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(\\\"Ganesh Arvind Patekar\\\"), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(PRN_KEY), () -> \\\"masked=\\\" + masked);\\n\\t\\tassertTrue(masked.contains(prn), () -> \\\"prn must survive after auth_ref/photo mask: \\\" + masked);\\n```\\nPlease validate the finding(s), then implement the minimal, correct fix for the real issue(s). Keep changes scoped — do not refactor unrelated code. After fixing, briefly explain what you changed and why.\\n\\ncommit and push in ddp-bkup-uat\\n",
+      "\\n2 liner rca of 11645\\n",
+      "\\nAddress is not showing in the UI\\nkyc engine recent changes for https://novopay.atlassian.net/browse/HDP-11579\\n",
+      "\\nAddress is not showing in the UI\\nkyc engine recent changes for https://novopay.atlassian.net/browse/HDP-11579\\n",
+      "\\ncheck QA server , QA Db for further details if required\\n",
+      "\\ntwo issue right?\\n^M issue and address issue?\\nconcise RCA of ecah for attaching in ticket\\nhttps://novopay.atlassian.net/browse/HDP-11664\\n",
+      "\\nbut we ae not supporting digilocker in kyc engine changes right check older kyc engine logs then compare with that. do we need to change something in simulator?\\n",
+      "\\nshare comment for jira ticket address this that cuz this in simulator\\nwe have to do this share query\\n",
+      "\\nshare teh exct queries to verify for the jouner \\nbut is it even required though\\nshare query to update simulator though\\n\\nshare minimal but complete draft comment for ticket\\n",
+      "\\ndo not mention low level code details\\n",
+      "\\ndo not mention low level code details\\n",
+      "\\nshare exact update simulator query as well\\n",
+      "\\nshare update ticket comnet\\ndigilocker thing should be this cuz we don't provide suport for that\\nupdate query of simuakot\\n",
+      "\\nhit the qa server with aboev select queries\\nqueries correct?\\n",
+      "\\nshare updated jira comment\\n"
+    ]
+  }
+]

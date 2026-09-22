@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: d9860180-f87c-4b3a-a68c-c9b7d3aecca0
-  modified: 2026-09-05T14:57:23.010Z
+  modified: 2026-09-07T08:10:00.000Z
 ---
 
 Two HDP-7636 QA regression checks are **deferred for access, not for product reasons**. As of
@@ -68,7 +68,12 @@ Keep the window short and revert in the same session.
 ## Related live finding
 
 No SMS is being delivered on QA at all — every flush run since at least 2026-09-02 reports
-`sent=0` (59 assign + 14 journey attempted, zero success). The consent link therefore never reaches
-the customer. That is a separate defect (`SMS-DELIVERY`), not a blocker for the runbooks above.
+`sent=0`. **Root cause found 2026-09-07:** `NotificationsSmsClient` (task-allocation) posts a flat
+`{user_story_code, locale}` body to Notifications v1 `getNotificationMessageByNotificationCode`, which
+requires the `{request:{...},headers:{...}}` envelope; Notifications answers `13007 Missing required
+JSON section 'headers'`. Every upload re-tries the whole pending backlog (44 on 2026-09-07). Fixed
+locally 2026-09-07 (uncommitted on `ddp-fea-bkyc`): `NotificationsSmsClient.v1Envelope` wraps the body. Separate defect (`SMS-DELIVERY`), not a blocker above.
+
+**QA DB access (2026-09-07):** the `mugesh` credentials in `~/.cursor/novopay-remote-db.env` were rejected (`ERROR 1045`) once in the morning but worked again from 12:20 IST the same day via the read-only tool, so treat a 1045 as transient and retry before falling back to `getTaskLeadUploadList` / `getTaskList` as read proxies. No `mysql` client exists on the QA app box. Full upload-API check: `docs/tdd-runs/HDP-7636/regression-2026-09-prep/UPLOAD_API_QA_CHECK_2026-09-07.md`. Server-log access: [[ref-qa-server-access]].
 
 Full results: `docs/tdd-runs/HDP-7636/regression-2026-09-prep/ARTIFACT_BKYC_QA_RESULTS.csv`.

@@ -1,0 +1,9 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: .cursor\evidence\logs\incoming-uat-kyc-lockwait.log
+original_lines: 3
+digest_lines: 3
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260918T132841Z\full.log
+=== CONTENT ===
+2026-09-18T18:18:47 [credit-card-management-tomcat-107] WARN SLOW CALL WARNING: A database query on service CREDIT-CARD-MANAGEMENT took 50.0 seconds, which exceeds the limit of 500 milliseconds. INSERT INTO transaction_audit_logs (attempt, created_by, created_on, stan, state, status, transaction_audit_id, updated_by, updated_on) VALUES (1, 'KYC_ENGINE_CALLBACK', '2026-09-18 18:17:57.648', '1789735677606', 'EKYC_ENGINE_APPLY', 'PENDING', 21941, 'KYC_ENGINE_CALLBACK', '2026-09-18 18:17:57.648');
+InnoDB lock wait: waiting_pid=81745 blocking_pid=81637 wait_age=20s locked_table=`dsa_credit_card_mgmt`.`transaction_audit_logs` waiting_query=UPDATE transaction_audit_logs SET ... WHERE id=1050545
+com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Lock wait timeout exceeded; try restarting transaction

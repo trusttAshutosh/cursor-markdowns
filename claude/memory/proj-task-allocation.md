@@ -57,3 +57,17 @@ branch `ddp-fea-bkyc`). TaskAlloc JAR does not migrate. Do not put `V*.sql` unde
 
 BKYC type-1 specialization (consent/Jira locks): [[proj-hdp-7636-bkyc]]. Ticket conventions:
 [[pref-jira-tickets]]. Backward-compat before changing shared Actor/Consents: [[pref-git-workflow]].
+
+## Closure uploads are deliberately corporate-less (do not "fix" this)
+
+`LEAD_CLOSURE` uploads store `task_file.corporate_id = NULL` **by design**, and must keep doing so:
+
+- `BkycCloseService.java:202` — `// HDP-8930 S.No. 22: close by ARN across corporates; never scope to upload corporate.`
+- `docs/task-allocation/lead-file-status-fe-integration.md:53` — "`corporateId` is required only for `LEAD`. It is ignored for `LEAD_CLOSURE`."
+
+So a closure file legitimately spans corporates. Making `corporateId` required for closure would break the
+published FE contract, and stamping one corporate on the row invites a later change to scope the close by it,
+violating HDP-8930 S.No. 22. In QA the null rows split cleanly: 32 `LEAD_CLOSURE` (correct, ongoing) vs 44
+legacy `LEAD` rows uploaded before the corporate parameter landed (cutover 2026-09-03, between 10:44 and
+14:48; every LEAD upload since records a corporate). Only the 44 legacy LEAD rows are a real gap, closable by
+a one-time backfill. See [[ref-qa-task-allocation-api-calls]].

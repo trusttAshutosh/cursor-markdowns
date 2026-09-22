@@ -2,7 +2,8 @@
 """Disable Continual Learning plugin stop hook (opt-in memory mining only).
 
 Cursor plugin updates restore hooks/hooks.json and re-enable auto-run after
-each agent turn. Re-run this script after updating the Continual Learning plugin:
+each agent turn. Prefer the user sessionStart auto-heal in
+`~/.cursor/hooks/disable-continual-learning-stop.py`. Manual:
 
   python .cursor/scripts/disable-continual-learning-stop.py
 """

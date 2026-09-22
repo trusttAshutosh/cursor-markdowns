@@ -1,0 +1,217 @@
+[
+  {
+    "uuid": "65ca16a6-7039-49df-8170-1f4ed6e4d808",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 5:50 PM (UTC+5:30)</timestamp>\\n<user_query>\\nCORP0007 this was the old corporate code don't know the corpoaret id \\ni'll share new corporate code again\\nfrom just corporate code populat ethe corporate ids and lebels etc for which bkyc is enabled\\nthi is for bank uat\\ndo not assume any ids\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:18 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:29 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "3dcaf39a-5bac-4f41-9bc1-ae1dbaec78c7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Sep 18, 2026, 12:35 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:00 PM (UTC+5:30)</timestamp>\\n<user_query>\\nfix minimally without introducing regressions or breaking changes.  don't commit\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:07 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:17 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:22 PM (UTC+5:30)</timestamp>\\n<user_query>\\nThe \\\"Antipatterns\\\" quality gate is failing in this commit.\\nCode smells / antipatterns were introduced in the changed code.\\nGate output: antipatterns value 1 is greater than threshold 0\\nIssues to address (1):\\n- [HIGH] `infra-logging/src/test/java/in/novopay/infra/logging/log4j/LogMaskingConverterTest.java:36` \\u2014 Define a constant instead of duplicating this literal \\\"m"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:24 PM (UTC+5:30)</timestamp>\\n<user_query>\\nThe \\\"Antipatterns\\\" quality gate is failing in this commit.\\nCode smells / antipatterns were introduced in the changed code.\\nGate output: antipatterns value 1 is greater than threshold 0\\nIssues to address (1):\\n- [HIGH] `infra-logging/src/test/java/in/novopay/infra/logging/log4j/LogMaskingConverterTest.java:36` \\u2014 Define a constant instead of duplicating this literal \\\"m"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 6:25 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<available_subagent_types>\\nAvailable subagent_types and a quick description of what they do:\\n- generalPurpose: General-purpose agent for researching complex questions, searching for code, and executing multi-step tasks. Use when searching for a keyword or file and not confident you'll find the match quickly.\\n- explore: Fast agent specialized for exploring codebases. Use this when you need to quickly find files by patterns (eg. \\\"src/components/**/*.tsx\\\""
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 8:42 PM (UTC+5:30)</timestamp>\\n<user_query>\\ndo not mention low level code details\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 8:42 PM (UTC+5:30)</timestamp>\\n<user_query>\\ndo not mention low level code details\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "56dc9aea-af5a-43df-a073-0f1c4ddbde0e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Thursday, Sep 17, 2026, 8:52 PM (UTC+5:30)</timestamp>\\n<user_query>\\nshare update ticket comnet\\ndigilocker thing should be this cuz we don't provide suport for that\\nupdate query of simuakot\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "c880bbf2-bd7b-41a6-a588-a8c9cb4d28f0",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Monday, Aug 24, 2026, 12:34 PM (UTC+5:30)</timestamp>\\n<user_query>\\nFix ALL merge conflicts in repo:\\nC:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-lib\\n\\nBranch: ddp-bkup-uat merging ddp-fea-loc-pe-pq-jumbo-restriction-baseline (MERGE_HEAD).\\n\\n## Workflow (mandatory)\\n1. List all unmerged files: `git diff --name-only --diff-filter=U`\\n2. Resolve each conflict with minimal correctness-first edits.\\n3. Prefer preserving BOTH sides whe"
+  },
+  {
+    "uuid": "c880bbf2-bd7b-41a6-a588-a8c9cb4d28f0",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Monday, Aug 24, 2026, 12:56 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "bb748598-5892-4833-a73f-c2043a4a5a1a",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Aug 12, 2026, 1:39 PM (UTC+5:30)</timestamp>\\n<user_query>\\nPerform a thermo-nuclear code quality review of the uncommitted KYC Engine mobile-match change (bank Filler1 Y/N \\u2192 mobile_match_flag). Findings only \\u2014 do not edit code.\\n\\n## Skill rubric (mandatory)\\n\\nFollow the `thermo-nuclear-code-quality-review` skill in cursor-team-kit:\\n- Be ambitious about structural simplification / code-judo\\n- Flag files crossing 1k lines"
+  },
+  {
+    "uuid": "bb748598-5892-4833-a73f-c2043a4a5a1a",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Aug 12, 2026, 1:42 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:11 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:40 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 1:40 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 2:08 PM (UTC+5:30)</timestamp>\\n<user_query>\\nUser wants a Windows double-clickable executable next to the shell script on Desktop.\\n\\nRequirements:\\n1. Keep `compare-req-resp-templates.sh` and the new Windows executable in the SAME directory on Desktop: `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\`\\n2. Executable must work on Windows and run on double-click (no need to open Git Bash manually).\\n3. Prefer a simple approach that"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"If the available MCP tools do not fully support what the user asked you to do, complete the work you can with the current tool set. In your work summary, include what you were unable to do with MCP and why. Do not use browser automation to work around missing or unavailable MCP tools unless the user explicitly asks you to use the browser.\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 2:08 PM (UTC+5:30)</timestamp>\\n<user_query>\\nUser wants a Windows double-clickable executable next to the shell script on Desktop.\\n\\nRequirements:\\n1. Keep `compare-req-resp-templates.sh` and the new Windows executable in the SAME directory on Desktop: `C:\\\\Users\\\\ashutosh.kumar\\\\Desktop\\\\`\\n2. Executable must work on Windows and run on double-click (no need to open Git Bash manually).\\n3. Prefer a simple approach that"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 3:00 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a900b754-88df-40df-8d1d-43e910b4ca25",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Wednesday, Jul 15, 2026, 3:00 PM (UTC+5:30)</timestamp>\\n\\n<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "4f522d4f-306f-4b44-aad1-75ae1df8f5a7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<timestamp>Friday, Jul 3, 2026, 1:41 PM (UTC+5:30)</timestamp>\\n<user_query>\\n## Task\\nFix KYC mode-switch redirect failures after bank portal failure for HDP-7350/HDP-7351.\\n\\n## User-reported issues\\n**Issue 1 (eKYC \\u2192 CKYC):** User goes to bank portal for eKYC, fails (wrong Aadhaar), returns to NovoPay consent portal, selects CKYC \\u2192 initiate API fails \\u2192 no redirect to bank.\\n\\n**Issue 2 (CKYC \\u2192 eKYC):** User goes to bank portal for CKY"
+  },
+  {
+    "uuid": "4f522d4f-306f-4b44-aad1-75ae1df8f5a7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "4f522d4f-306f-4b44-aad1-75ae1df8f5a7",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "d3551cb4-d06d-4924-8092-80c5d22a1545",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "ad8734a4-9b1a-43a4-813f-e7319bd4927e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nRun Bob validation for all uncommitted LOC PE-PQ / stage-capture changes in the novopay credit-card-management repo. DO NOT modify any Java classes or production code.\\n\\nWorkspace: C:/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management\\nTicket id: adhoc-loc-dummy-jumbo-eligibility\\n\\nSteps:\\n1. Check git status and confirm what is uncommitted (staged + unstaged) - report file list but do NOT stage/commit anything unles"
+  },
+  {
+    "uuid": "ad8734a4-9b1a-43a4-813f-e7319bd4927e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "ad8734a4-9b1a-43a4-813f-e7319bd4927e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "766e142e-aa7d-4892-aa5b-4b9efa8aab43",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "a7c18518-30da-4a18-8d52-c6f375c4104a",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "563008e9-70fc-41e9-b553-10ea0d35c7ba",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "e1b8b5fa-b0f4-4312-a19b-b302ff1f9b24",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "d5122535-f0d1-4b23-a368-c02426281c1d",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "d5122535-f0d1-4b23-a368-c02426281c1d",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  },
+  {
+    "uuid": "5300d06b-e7f4-45c4-84e2-1de4a3ebc87e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\nshare me final fix order exlude Do not treat as non-breaking (needs product sign-off)\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "5300d06b-e7f4-45c4-84e2-1de4a3ebc87e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\ni mean things listed under Do not treat as non-breaking (needs product sign-off) exlude that from final hthings to fix\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "5300d06b-e7f4-45c4-84e2-1de4a3ebc87e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>\\n1, 8 do it. don't commit though\\n</user_query>\"}]}"
+  },
+  {
+    "uuid": "5300d06b-e7f4-45c4-84e2-1de4a3ebc87e",
+    "subagent": false,
+    "snippet": "{\"content\": [{\"type\": \"text\", \"text\": \"<user_query>Briefly inform the user about the task result and perform any follow-up actions (if needed). If there's no follow-ups needed, don't explicitly say that.</user_query>\"}]}"
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "source": ".cursor\\evidence\\logs\\incoming-HDP-11649.log",
+  "original_lines": 43,
+  "digest_lines": 41,
+  "reduction_pct": 4.7,
+  "high_signal_count": 9,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260917T132132Z-HDP-11649\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260917T132132Z-HDP-11649\\digest.log"
+}

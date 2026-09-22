@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: reference
   originSessionId: 62ed8ae3-0712-4c25-a300-3f2262e53515
-  modified: 2026-09-07T03:00:00.000Z
+  modified: 2026-09-15T07:05:55.802Z
 ---
 
 For Novopay work under the `trusttai` GitHub org (repos `novopay-platform-*`, `trustt-platform-*`):
@@ -19,7 +19,10 @@ For Novopay work under the `trusttai` GitHub org (repos `novopay-platform-*`, `t
 - **Org rename:** `khoslalabs` → **`trusttai`**. Old remote URLs (`github.com/khoslalabs/...`) still
   redirect; prefer `trusttai` in remotes. Bulk rewrite: `tools/update-remotes-to-trusttai.ps1`.
 - **Repo renames too:** on push (2026-09-07) GitHub reported `khoslalabs/novopay-platform-api-gateway`
-  moved to **`trusttai/trustt-platform-api-gateway`** (repo name changed, not just the org). Pushes via the
+  moved to **`trusttai/trustt-platform-api-gateway`** (repo name changed, not just the org), and on push
+  (2026-09-09) `khoslalabs/novopay-platform-consents` moved to **`trusttai/trustt-platform-consents`**,
+  and on push (2026-09-15) `khoslalabs/novopay-platform-approval` moved to **`trusttai/trustt-platform-approval`**.
+  The `novopay-platform-*` -> `trustt-platform-*` rename looks fleet-wide, not one-off. Pushes via the
   old URL still succeed through the redirect; check `gh repo view <old>` before assuming other
   `novopay-platform-*` repos kept their names.
 - Push via Git Bash + plain `git`; if GCM prompts for an account, hand the command to the user.
