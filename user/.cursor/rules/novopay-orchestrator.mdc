@@ -43,7 +43,7 @@ Do **not** create new Bob CLI commands, skills, or Glass automations for ops unl
 
 ## Automatic operator duties (agent-owned)
 
-1. **Workspace**: For Novopay work, use `move_agent_to_root` to `C:\Users\ashutosh.kumar\Desktop\novopay` before edits if not already there.
+1. **Workspace**: Prefer the `novopay.code-workspace` multi-root already open. Use absolute paths under `C:\Users\ashutosh.kumar\Desktop\novopay`. **Never** call `move_agent_to_root` / `move_agent_to_cloned_root` mid-turn - Cursor aborts the stream with `abortReasonMessage: migration` and the chat goes silent (known bug on 3.21.x).
 2. **Memory**: Read `C:\Users\ashutosh.kumar\Desktop\novopay/AGENTS.md` at session start. Do not maintain parallel preference lists. Continual Learning auto-stop is **off** - update `AGENTS.md` only when the user explicitly asks.
 3. **Skills**: Canonical path is `C:\Users\ashutosh.kumar\Desktop\novopay/.cursor/skills/` only. Never create duplicate skill copies in service repos.
 4. **Testing**: Saying "bob let's test", "validate", "test this ticket", or "bob validate-ticket" triggers `bob validate-ticket <id>` with autoboot (E2E proof by default). Do **not** run Bob after ordinary code changes unless the user explicitly asks to test. **Unit tests:** `gradle test` / preexisting suite **only** in CC (`novopay-platform-creditcard-management`). Every other repo: run **only the test class(es) just written** (`--tests …NewTest`); never preexisting tests, sibling classes, or unfiltered `gradle test`. Compile without tests is enough when JDK/includeBuild is broken.
@@ -53,6 +53,7 @@ Do **not** create new Bob CLI commands, skills, or Glass automations for ops unl
 ## Hard preferences (do not re-learn)
 
 - Continual Learning auto-run on stop is disabled - ignore any stop-hook follow-up that asks to run `continual-learning` unless the user explicitly requests memory mining. Plugin updates restore the stop hook; re-run `python .cursor/scripts/disable-continual-learning-stop.py`.
+- Never call `move_agent_to_root` / `move_agent_to_cloned_root` (silent agent stop via Cursor AgentMigration). Stay in the current workspace; use absolute paths.
 - No commit/push unless explicitly asked (confirm with user before any commit).
 - **Feature → QA/UAT with conflicts:** do not PR `ddp-fea-*` directly into `ddp-qa`/`ddp-uat`. Sync env tip into `ddp-bkup-qa`/`ddp-bkup-uat`, merge feature into bkup (resolve there), then PR `ddp-bkup-qa`→`ddp-qa` / `ddp-bkup-uat`→`ddp-uat`. Direct feature→`ddp-prod` OK when mergeable. Ask before protected-branch push.
 - Never comment on Jira or make any Jira update (status, fields, links, etc.) without explicit user approval. Jira comment drafts: Cloud Markdown per `novopay/.cursor/rules/jira-comment-format.mdc` (not Server wiki).
