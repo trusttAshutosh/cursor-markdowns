@@ -1,0 +1,57 @@
+{
+  "as_of": "2026-09-24",
+  "windows": {
+    "7": {
+      "Ashutosh": {
+        "prs": 57,
+        "merged": 38,
+        "repos": 8,
+        "additions": 123049,
+        "deletions": 7047,
+        "files": 1518
+      },
+      "Abhishek": {
+        "prs": 14,
+        "merged": 13,
+        "repos": 7,
+        "additions": 7964,
+        "deletions": 191,
+        "files": 205
+      },
+      "Harini": {
+        "prs": 15,
+        "merged": 13,
+        "repos": 3,
+        "additions": 7047,
+        "deletions": 1161,
+        "files": 127
+      }
+    },
+    "30": {
+      "Ashutosh": {
+        "prs": 149,
+        "merged": 127,
+        "repos": 14,
+        "additions": 196417,
+        "deletions": 15734,
+        "files": 3600
+      },
+      "Abhishek": {
+        "prs": 63,
+        "merged": 56,
+        "repos": 7,
+        "additions": 18323,
+        "deletions": 2181,
+        "files": 788
+      },
+      "Harini": {
+        "prs": 60,
+        "merged": 56,
+        "repos": 5,
+        "additions": 62856,
+        "deletions": 2183,
+        "files": 774
+      }
+    }
+  }
+}

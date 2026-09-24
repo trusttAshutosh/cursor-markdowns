@@ -7,7 +7,7 @@
     "2026-06-30",
     "2026-07-31",
     "2026-08-31",
-    "2026-09-16"
+    "2026-09-22"
   ],
   "series": [
     {
@@ -20,13 +20,28 @@
         0.38,
         0.344,
         0.321,
-        0.319
+        0.314
       ],
       "login": "trusttAshutosh",
-      "latest": 0.319
+      "latest": 0.314
     },
     {
-      "name": "2.chandu-pixel",
+      "name": "2.AiTdpBugFixer",
+      "data": [
+        null,
+        0.714,
+        0.745,
+        0.857,
+        0.835,
+        0.608,
+        0.497,
+        0.39
+      ],
+      "login": "AiTdpBugFixer",
+      "latest": 0.39
+    },
+    {
+      "name": "3.chandu-pixel",
       "data": [
         0.387,
         0.379,
@@ -35,13 +50,13 @@
         0.393,
         0.392,
         0.385,
-        0.388
+        0.385
       ],
       "login": "chandu-pixel",
-      "latest": 0.388
+      "latest": 0.385
     },
     {
-      "name": "3.Abhishek",
+      "name": "4.Abhishek",
       "data": [
         0.419,
         0.436,
@@ -50,13 +65,13 @@
         0.401,
         0.405,
         0.412,
-        0.415
+        0.416
       ],
       "login": "trustt-abhishek",
-      "latest": 0.415
+      "latest": 0.416
     },
     {
-      "name": "4.Srijan-Das",
+      "name": "5.Srijan-Das",
       "data": [
         0.471,
         0.467,
@@ -71,7 +86,7 @@
       "latest": 0.417
     },
     {
-      "name": "5.sristigc",
+      "name": "6.sristigc",
       "data": [
         0.449,
         0.447,
@@ -80,25 +95,10 @@
         0.431,
         0.417,
         0.423,
-        0.422
+        0.418
       ],
       "login": "sristigc",
-      "latest": 0.422
-    },
-    {
-      "name": "6.AiTdpBugFixer",
-      "data": [
-        null,
-        0.714,
-        0.745,
-        0.857,
-        0.835,
-        0.608,
-        0.497,
-        0.438
-      ],
-      "login": "AiTdpBugFixer",
-      "latest": 0.438
+      "latest": 0.418
     },
     {
       "name": "7.Dineshkumarab-",
@@ -110,10 +110,10 @@
         0.52,
         0.502,
         0.485,
-        0.483
+        0.477
       ],
       "login": "Dineshkumarab-trustt",
-      "latest": 0.483
+      "latest": 0.477
     },
     {
       "name": "8.kavyaL12",
@@ -125,10 +125,10 @@
         0.516,
         0.507,
         0.512,
-        0.516
+        0.518
       ],
       "login": "kavyaL12",
-      "latest": 0.516
+      "latest": 0.518
     },
     {
       "name": "9.Sooraj",
@@ -155,12 +155,12 @@
         0.567,
         0.556,
         0.551,
-        0.552
+        0.553
       ],
       "login": "r-manohar",
-      "latest": 0.552
+      "latest": 0.553
     }
   ],
   "y_label": "~days/PR (exact, 3dp)",
-  "note": "Monthly. Null before debut (not backfilled). >1000 PR authors use created:<= counts."
+  "note": "Monthly samples. Full-list authors reconstructed offline; >1000 PR authors use created:<=count samples."
 }

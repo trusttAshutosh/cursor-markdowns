@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-16",
+  "as_of": "2026-09-22",
   "org": "trusttai",
   "source_top10": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\pr-cadence-top10.json",
   "people": [
@@ -8,7 +8,7 @@
       "login": "trusttAshutosh",
       "person": "Ashutosh",
       "label": "Ashutosh",
-      "total": 643,
+      "total": 672,
       "mode": "full_list",
       "series": [
         {
@@ -54,20 +54,73 @@
           "days_per_pr": 0.321
         },
         {
-          "date": "2026-09-16",
-          "total": 643,
-          "span_days": 205,
-          "days_per_pr": 0.319
+          "date": "2026-09-22",
+          "total": 672,
+          "span_days": 211,
+          "days_per_pr": 0.314
         }
       ],
-      "latest_days_per_pr": 0.319
+      "latest_days_per_pr": 0.314
     },
     {
       "rank": 2,
+      "login": "AiTdpBugFixer",
+      "person": "AiTdpBugFixer",
+      "label": "AiTdpBugFixer",
+      "total": 463,
+      "mode": "full_list",
+      "series": [
+        {
+          "date": "2026-03-31",
+          "total": 8,
+          "span_days": 5,
+          "days_per_pr": 0.714
+        },
+        {
+          "date": "2026-04-30",
+          "total": 48,
+          "span_days": 35,
+          "days_per_pr": 0.745
+        },
+        {
+          "date": "2026-05-31",
+          "total": 78,
+          "span_days": 66,
+          "days_per_pr": 0.857
+        },
+        {
+          "date": "2026-06-30",
+          "total": 116,
+          "span_days": 96,
+          "days_per_pr": 0.835
+        },
+        {
+          "date": "2026-07-31",
+          "total": 210,
+          "span_days": 127,
+          "days_per_pr": 0.608
+        },
+        {
+          "date": "2026-08-31",
+          "total": 319,
+          "span_days": 158,
+          "days_per_pr": 0.497
+        },
+        {
+          "date": "2026-09-22",
+          "total": 463,
+          "span_days": 180,
+          "days_per_pr": 0.39
+        }
+      ],
+      "latest_days_per_pr": 0.39
+    },
+    {
+      "rank": 3,
       "login": "chandu-pixel",
       "person": "chandu-pixel",
       "label": "chandu-pixel",
-      "total": 1898,
+      "total": 1928,
       "mode": "monthly_counts",
       "series": [
         {
@@ -215,20 +268,20 @@
           "days_per_pr": 0.385
         },
         {
-          "date": "2026-09-16",
-          "total": 1898,
-          "span_days": 736,
-          "days_per_pr": 0.388
+          "date": "2026-09-22",
+          "total": 1928,
+          "span_days": 742,
+          "days_per_pr": 0.385
         }
       ],
-      "latest_days_per_pr": 0.388
+      "latest_days_per_pr": 0.385
     },
     {
-      "rank": 3,
+      "rank": 4,
       "login": "trustt-abhishek",
       "person": "Abhishek Puranik",
       "label": "Abhishek",
-      "total": 1045,
+      "total": 1056,
       "mode": "monthly_counts",
       "series": [
         {
@@ -316,20 +369,20 @@
           "days_per_pr": 0.412
         },
         {
-          "date": "2026-09-16",
-          "total": 1045,
-          "span_days": 433,
-          "days_per_pr": 0.415
+          "date": "2026-09-22",
+          "total": 1056,
+          "span_days": 439,
+          "days_per_pr": 0.416
         }
       ],
-      "latest_days_per_pr": 0.415
+      "latest_days_per_pr": 0.416
     },
     {
-      "rank": 4,
+      "rank": 5,
       "login": "Srijan-Das-Trustt",
       "person": "Srijan-Das-Trustt",
       "label": "Srijan-Das",
-      "total": 1542,
+      "total": 1557,
       "mode": "monthly_counts",
       "series": [
         {
@@ -459,20 +512,20 @@
           "days_per_pr": 0.423
         },
         {
-          "date": "2026-09-16",
-          "total": 1542,
-          "span_days": 643,
+          "date": "2026-09-22",
+          "total": 1557,
+          "span_days": 649,
           "days_per_pr": 0.417
         }
       ],
       "latest_days_per_pr": 0.417
     },
     {
-      "rank": 5,
+      "rank": 6,
       "login": "sristigc",
       "person": "sristigc",
       "label": "sristigc",
-      "total": 1377,
+      "total": 1404,
       "mode": "monthly_counts",
       "series": [
         {
@@ -590,74 +643,21 @@
           "days_per_pr": 0.423
         },
         {
-          "date": "2026-09-16",
-          "total": 1377,
-          "span_days": 581,
-          "days_per_pr": 0.422
+          "date": "2026-09-22",
+          "total": 1404,
+          "span_days": 587,
+          "days_per_pr": 0.418
         }
       ],
-      "latest_days_per_pr": 0.422
-    },
-    {
-      "rank": 6,
-      "login": "AiTdpBugFixer",
-      "person": "AiTdpBugFixer",
-      "label": "AiTdpBugFixer",
-      "total": 398,
-      "mode": "full_list",
-      "series": [
-        {
-          "date": "2026-03-31",
-          "total": 8,
-          "span_days": 5,
-          "days_per_pr": 0.714
-        },
-        {
-          "date": "2026-04-30",
-          "total": 48,
-          "span_days": 35,
-          "days_per_pr": 0.745
-        },
-        {
-          "date": "2026-05-31",
-          "total": 78,
-          "span_days": 66,
-          "days_per_pr": 0.857
-        },
-        {
-          "date": "2026-06-30",
-          "total": 116,
-          "span_days": 96,
-          "days_per_pr": 0.835
-        },
-        {
-          "date": "2026-07-31",
-          "total": 210,
-          "span_days": 127,
-          "days_per_pr": 0.608
-        },
-        {
-          "date": "2026-08-31",
-          "total": 319,
-          "span_days": 158,
-          "days_per_pr": 0.497
-        },
-        {
-          "date": "2026-09-16",
-          "total": 398,
-          "span_days": 174,
-          "days_per_pr": 0.438
-        }
-      ],
-      "latest_days_per_pr": 0.438
+      "latest_days_per_pr": 0.418
     },
     {
       "rank": 7,
       "login": "Dineshkumarab-trustt",
       "person": "Dineshkumarab-trustt",
       "label": "Dineshkumarab-",
-      "total": 985,
-      "mode": "full_list",
+      "total": 1009,
+      "mode": "monthly_counts",
       "series": [
         {
           "date": "2025-06-30",
@@ -750,20 +750,20 @@
           "days_per_pr": 0.485
         },
         {
-          "date": "2026-09-16",
-          "total": 985,
-          "span_days": 475,
-          "days_per_pr": 0.483
+          "date": "2026-09-22",
+          "total": 1009,
+          "span_days": 481,
+          "days_per_pr": 0.477
         }
       ],
-      "latest_days_per_pr": 0.483
+      "latest_days_per_pr": 0.477
     },
     {
       "rank": 8,
       "login": "kavyaL12",
       "person": "kavyaL12",
       "label": "kavyaL12",
-      "total": 1388,
+      "total": 1394,
       "mode": "monthly_counts",
       "series": [
         {
@@ -905,20 +905,20 @@
           "days_per_pr": 0.512
         },
         {
-          "date": "2026-09-16",
-          "total": 1388,
-          "span_days": 715,
-          "days_per_pr": 0.516
+          "date": "2026-09-22",
+          "total": 1394,
+          "span_days": 721,
+          "days_per_pr": 0.518
         }
       ],
-      "latest_days_per_pr": 0.516
+      "latest_days_per_pr": 0.518
     },
     {
       "rank": 9,
       "login": "kr-sooraj",
       "person": "Sooraj KR",
       "label": "Sooraj",
-      "total": 2951,
+      "total": 2962,
       "mode": "monthly_counts",
       "series": [
         {
@@ -1240,9 +1240,9 @@
           "days_per_pr": 0.555
         },
         {
-          "date": "2026-09-16",
-          "total": 2951,
-          "span_days": 1622,
+          "date": "2026-09-22",
+          "total": 2962,
+          "span_days": 1628,
           "days_per_pr": 0.55
         }
       ],
@@ -1253,7 +1253,7 @@
       "login": "r-manohar",
       "person": "r-manohar",
       "label": "r-manohar",
-      "total": 975,
+      "total": 985,
       "mode": "full_list",
       "series": [
         {
@@ -1365,27 +1365,17 @@
           "days_per_pr": 0.551
         },
         {
-          "date": "2026-09-16",
-          "total": 975,
-          "span_days": 538,
-          "days_per_pr": 0.552
+          "date": "2026-09-22",
+          "total": 985,
+          "span_days": 544,
+          "days_per_pr": 0.553
         }
       ],
-      "latest_days_per_pr": 0.552
+      "latest_days_per_pr": 0.553
     }
   ],
   "chart": {
     "categories": [
-      "2025-04-30",
-      "2025-05-31",
-      "2025-06-30",
-      "2025-07-31",
-      "2025-08-31",
-      "2025-09-30",
-      "2025-10-31",
-      "2025-11-30",
-      "2025-12-31",
-      "2026-01-31",
       "2026-02-28",
       "2026-03-31",
       "2026-04-30",
@@ -1393,22 +1383,12 @@
       "2026-06-30",
       "2026-07-31",
       "2026-08-31",
-      "2026-09-16"
+      "2026-09-22"
     ],
     "series": [
       {
         "name": "1.Ashutosh",
         "data": [
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
-          2.5,
           2.5,
           0.8,
           0.485,
@@ -1416,22 +1396,29 @@
           0.38,
           0.344,
           0.321,
-          0.319
-        ]
+          0.314
+        ],
+        "login": "trusttAshutosh",
+        "latest": 0.314
       },
       {
-        "name": "2.chandu-pixel",
+        "name": "2.AiTdpBugFixer",
         "data": [
-          0.811,
-          0.717,
-          0.685,
-          0.63,
-          0.551,
-          0.507,
-          0.478,
-          0.436,
-          0.415,
-          0.393,
+          null,
+          0.714,
+          0.745,
+          0.857,
+          0.835,
+          0.608,
+          0.497,
+          0.39
+        ],
+        "login": "AiTdpBugFixer",
+        "latest": 0.39
+      },
+      {
+        "name": "3.chandu-pixel",
+        "data": [
           0.387,
           0.379,
           0.375,
@@ -1439,22 +1426,14 @@
           0.393,
           0.392,
           0.385,
-          0.388
-        ]
+          0.385
+        ],
+        "login": "chandu-pixel",
+        "latest": 0.385
       },
       {
-        "name": "3.Abhishek",
+        "name": "4.Abhishek",
         "data": [
-          0.404,
-          0.404,
-          0.404,
-          0.404,
-          0.634,
-          0.554,
-          0.592,
-          0.532,
-          0.451,
-          0.424,
           0.419,
           0.436,
           0.422,
@@ -1462,22 +1441,14 @@
           0.401,
           0.405,
           0.412,
-          0.415
-        ]
+          0.416
+        ],
+        "login": "trustt-abhishek",
+        "latest": 0.416
       },
       {
-        "name": "4.Srijan-Das",
+        "name": "5.Srijan-Das",
         "data": [
-          0.885,
-          0.924,
-          1.01,
-          0.775,
-          0.691,
-          0.602,
-          0.604,
-          0.576,
-          0.56,
-          0.503,
           0.471,
           0.467,
           0.458,
@@ -1486,21 +1457,13 @@
           0.436,
           0.423,
           0.417
-        ]
+        ],
+        "login": "Srijan-Das-Trustt",
+        "latest": 0.417
       },
       {
-        "name": "5.sristigc",
+        "name": "6.sristigc",
         "data": [
-          1.974,
-          1.5,
-          0.857,
-          0.665,
-          0.567,
-          0.557,
-          0.559,
-          0.5,
-          0.463,
-          0.449,
           0.449,
           0.447,
           0.44,
@@ -1508,45 +1471,14 @@
           0.431,
           0.417,
           0.423,
-          0.422
-        ]
-      },
-      {
-        "name": "6.AiTdpBugFixer",
-        "data": [
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.714,
-          0.745,
-          0.857,
-          0.835,
-          0.608,
-          0.497,
-          0.438
-        ]
+          0.418
+        ],
+        "login": "sristigc",
+        "latest": 0.418
       },
       {
         "name": "7.Dineshkumarab-",
         "data": [
-          0.865,
-          0.865,
-          0.865,
-          0.504,
-          0.5,
-          0.585,
-          0.635,
-          0.67,
-          0.617,
-          0.561,
           0.571,
           0.588,
           0.574,
@@ -1554,22 +1486,14 @@
           0.52,
           0.502,
           0.485,
-          0.483
-        ]
+          0.477
+        ],
+        "login": "Dineshkumarab-trustt",
+        "latest": 0.477
       },
       {
         "name": "8.kavyaL12",
         "data": [
-          0.696,
-          0.67,
-          0.622,
-          0.576,
-          0.585,
-          0.552,
-          0.568,
-          0.569,
-          0.569,
-          0.564,
           0.544,
           0.55,
           0.534,
@@ -1577,22 +1501,14 @@
           0.516,
           0.507,
           0.512,
-          0.516
-        ]
+          0.518
+        ],
+        "login": "kavyaL12",
+        "latest": 0.518
       },
       {
         "name": "9.Sooraj",
         "data": [
-          0.665,
-          0.672,
-          0.656,
-          0.644,
-          0.631,
-          0.624,
-          0.61,
-          0.593,
-          0.586,
-          0.564,
           0.554,
           0.552,
           0.553,
@@ -1601,21 +1517,13 @@
           0.552,
           0.555,
           0.55
-        ]
+        ],
+        "login": "kr-sooraj",
+        "latest": 0.55
       },
       {
         "name": "10.r-manohar",
         "data": [
-          2.125,
-          1.548,
-          1.131,
-          0.962,
-          0.897,
-          0.831,
-          0.804,
-          0.808,
-          0.754,
-          0.721,
           0.667,
           0.682,
           0.618,
@@ -1623,8 +1531,10 @@
           0.567,
           0.556,
           0.551,
-          0.552
-        ]
+          0.553
+        ],
+        "login": "r-manohar",
+        "latest": 0.553
       }
     ],
     "y_label": "~days/PR (exact, 3dp)",

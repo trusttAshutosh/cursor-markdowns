@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "task_name": "Work-Reports-Daily-Refresh",
+  "cron_local": "08:00 daily IST",
+  "personal_url": "https://mdshare.trustt.com/md/s/pbNeFBryyGmF",
+  "team_pulse_url": "https://mdshare.trustt.com/md/s/FZOQnZlUH_2l",
+  "notes": "Refreshes personal work evidence + leadership team pulse, then publishes both to mdshare via PAT in ~/.cursor/mcp.json. Log: %USERPROFILE%\\.cursor\\work-reports-daily-refresh.log",
+  "last_ok": "2026-09-24 02:21 IST"
+}

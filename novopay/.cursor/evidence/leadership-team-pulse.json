@@ -1,0 +1,466 @@
+{
+  "as_of": "2026-09-24 02:20",
+  "window_days": 30,
+  "window_label": "last 30 days",
+  "people": [
+    {
+      "key": "ashutosh",
+      "display": "Ashutosh",
+      "github": "trusttAshutosh",
+      "jira_account_id": "712020:b9308798-fb4b-40a7-9df6-be04dd56141d",
+      "notes": "Disables Cursor co-authored trailer; Claude trailers may still appear - visible AI % is not comparable as usage",
+      "github_metrics": {
+        "prs": 149,
+        "merged": 127,
+        "median_diff_lines": 207.0,
+        "p75_diff_lines": 517.0,
+        "median_files": 5.0,
+        "median_tat_h": 0.4,
+        "p75_tat_h": 1.22,
+        "under_24h_merged": 127,
+        "ai_trailer_prs": 64,
+        "ai_trailer_pr_pct": 43.0,
+        "ai_commits": 147,
+        "commits_scanned": 770,
+        "ai_commit_pct": 19.1,
+        "ai_sample_trailers": [
+          "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
+        ],
+        "prs_with_jira_key": 75,
+        "merged_without_jira_key": 63,
+        "pct_no_jira_key": 45.7,
+        "multi_repo_tickets": 9,
+        "followup_same_ticket": 19,
+        "repos": 14,
+        "additions": 196417,
+        "deletions": 15734,
+        "files": 3600,
+        "ticket_age_avg_h": 500.62,
+        "ticket_age_median_h": 156.37,
+        "ticket_age_measured": 9,
+        "ticket_age_under_7d": 5,
+        "ticket_age_samples": [
+          {
+            "ticket": "HDP-9423",
+            "age_hours": 0.17,
+            "first_commit": "2026-09-18",
+            "ready_or_closed": "2026-09-18",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11732",
+            "age_hours": 1.64,
+            "first_commit": "2026-09-22",
+            "ready_or_closed": "2026-09-22",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11477",
+            "age_hours": 5.02,
+            "first_commit": "2026-09-15",
+            "ready_or_closed": "2026-09-15",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-10752",
+            "age_hours": 156.37,
+            "first_commit": "2026-08-18",
+            "ready_or_closed": "2026-08-25",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11579",
+            "age_hours": 307.52,
+            "first_commit": "2026-09-04",
+            "ready_or_closed": "2026-09-17",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11729",
+            "age_hours": 339.03,
+            "first_commit": "2026-09-09",
+            "ready_or_closed": "2026-09-24",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-10807",
+            "age_hours": 576.76,
+            "first_commit": "2026-08-25",
+            "ready_or_closed": "2026-09-18",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-8930",
+            "age_hours": 3118.6,
+            "first_commit": "2026-04-30",
+            "ready_or_closed": "2026-09-07",
+            "end_status": "Ready for QA"
+          }
+        ]
+      },
+      "jira": {
+        "done": 3,
+        "reopened": 1,
+        "open": 4
+      }
+    },
+    {
+      "key": "abhishek",
+      "display": "Abhishek Puranik",
+      "github": "trustt-abhishek",
+      "jira_account_id": "712020:b2ca926d-7d2d-4181-879c-1c08bd3a5de6",
+      "notes": "",
+      "github_metrics": {
+        "prs": 63,
+        "merged": 56,
+        "median_diff_lines": 88.0,
+        "p75_diff_lines": 303.5,
+        "median_files": 4.0,
+        "median_tat_h": 0.27,
+        "p75_tat_h": 1.13,
+        "under_24h_merged": 56,
+        "ai_trailer_prs": 47,
+        "ai_trailer_pr_pct": 74.6,
+        "ai_commits": 101,
+        "commits_scanned": 285,
+        "ai_commit_pct": 35.4,
+        "ai_sample_trailers": [
+          "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        ],
+        "prs_with_jira_key": 13,
+        "merged_without_jira_key": 44,
+        "pct_no_jira_key": 77.2,
+        "multi_repo_tickets": 0,
+        "followup_same_ticket": 4,
+        "repos": 7,
+        "additions": 18323,
+        "deletions": 2181,
+        "files": 788,
+        "ticket_age_avg_h": 82.92,
+        "ticket_age_median_h": 25.34,
+        "ticket_age_measured": 6,
+        "ticket_age_under_7d": 5,
+        "ticket_age_samples": [
+          {
+            "ticket": "HDP-11302",
+            "age_hours": 0.53,
+            "first_commit": "2026-09-07",
+            "ready_or_closed": "2026-09-07",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11398",
+            "age_hours": 1.67,
+            "first_commit": "2026-09-15",
+            "ready_or_closed": "2026-09-15",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-10824",
+            "age_hours": 3.43,
+            "first_commit": "2026-08-31",
+            "ready_or_closed": "2026-08-31",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11277",
+            "age_hours": 47.24,
+            "first_commit": "2026-09-07",
+            "ready_or_closed": "2026-09-09",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "DPB-2055",
+            "age_hours": 79.66,
+            "first_commit": "2026-09-15",
+            "ready_or_closed": "2026-09-18",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11488",
+            "age_hours": 365.02,
+            "first_commit": "2026-09-01",
+            "ready_or_closed": "2026-09-16",
+            "end_status": "Ready for QA"
+          }
+        ]
+      },
+      "jira": {
+        "done": 7,
+        "reopened": 0,
+        "open": 9
+      }
+    },
+    {
+      "key": "harini",
+      "display": "Harini P",
+      "github": "Harini-Trustt",
+      "jira_account_id": "712020:50d9473a-4c0b-4817-9c69-5c5be3d500b5",
+      "notes": "",
+      "github_metrics": {
+        "prs": 60,
+        "merged": 56,
+        "median_diff_lines": 132.5,
+        "p75_diff_lines": 304.0,
+        "median_files": 4.0,
+        "median_tat_h": 0.46,
+        "p75_tat_h": 0.96,
+        "under_24h_merged": 55,
+        "ai_trailer_prs": 54,
+        "ai_trailer_pr_pct": 90.0,
+        "ai_commits": 186,
+        "commits_scanned": 278,
+        "ai_commit_pct": 66.9,
+        "ai_sample_trailers": [
+          "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>",
+          "Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>"
+        ],
+        "prs_with_jira_key": 34,
+        "merged_without_jira_key": 25,
+        "pct_no_jira_key": 42.4,
+        "multi_repo_tickets": 4,
+        "followup_same_ticket": 9,
+        "repos": 5,
+        "additions": 62856,
+        "deletions": 2183,
+        "files": 774,
+        "ticket_age_avg_h": 93.29,
+        "ticket_age_median_h": 2.84,
+        "ticket_age_measured": 12,
+        "ticket_age_under_7d": 11,
+        "ticket_age_samples": [
+          {
+            "ticket": "HDP-11433",
+            "age_hours": 0.96,
+            "first_commit": "2026-09-11",
+            "ready_or_closed": "2026-09-11",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "DPB-2051",
+            "age_hours": 1.29,
+            "first_commit": "2026-09-17",
+            "ready_or_closed": "2026-09-17",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11341",
+            "age_hours": 2.01,
+            "first_commit": "2026-09-09",
+            "ready_or_closed": "2026-09-09",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11428",
+            "age_hours": 3.68,
+            "first_commit": "2026-09-11",
+            "ready_or_closed": "2026-09-11",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11568",
+            "age_hours": 22.7,
+            "first_commit": "2026-09-16",
+            "ready_or_closed": "2026-09-17",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-10809",
+            "age_hours": 98.05,
+            "first_commit": "2026-08-28",
+            "ready_or_closed": "2026-09-01",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11338",
+            "age_hours": 160.75,
+            "first_commit": "2026-09-08",
+            "ready_or_closed": "2026-09-15",
+            "end_status": "Ready for QA"
+          },
+          {
+            "ticket": "HDP-11372",
+            "age_hours": 668.99,
+            "first_commit": "2026-08-19",
+            "ready_or_closed": "2026-09-16",
+            "end_status": "Ready for QA"
+          }
+        ]
+      },
+      "jira": {
+        "done": 33,
+        "reopened": 0,
+        "open": 8
+      }
+    }
+  ],
+  "workload": {
+    "note": "GitHub org PRs authored in window. Line totals can include generated/bulk files - prefer merged count and repos as the cleaner workload signal. Jira done = assignee resolved only (incomplete).",
+    "windows": {
+      "7d": {
+        "days": 7,
+        "label": "Last 7 days",
+        "people": [
+          {
+            "key": "ashutosh",
+            "display": "Ashutosh",
+            "prs": 57,
+            "merged": 38,
+            "repos": 8,
+            "additions": 123049,
+            "deletions": 7047,
+            "files": 1518,
+            "jira_done": 0,
+            "jira_open": 4,
+            "merged_share_pct": 59.4
+          },
+          {
+            "key": "abhishek",
+            "display": "Abhishek Puranik",
+            "prs": 14,
+            "merged": 13,
+            "repos": 7,
+            "additions": 7964,
+            "deletions": 191,
+            "files": 205,
+            "jira_done": 0,
+            "jira_open": 9,
+            "merged_share_pct": 20.3
+          },
+          {
+            "key": "harini",
+            "display": "Harini P",
+            "prs": 15,
+            "merged": 13,
+            "repos": 3,
+            "additions": 7047,
+            "deletions": 1161,
+            "files": 127,
+            "jira_done": 5,
+            "jira_open": 8,
+            "merged_share_pct": 20.3
+          }
+        ],
+        "merged_total": 64
+      },
+      "30d": {
+        "days": 30,
+        "label": "Last 30 days",
+        "people": [
+          {
+            "key": "ashutosh",
+            "display": "Ashutosh",
+            "prs": 149,
+            "merged": 127,
+            "repos": 14,
+            "additions": 196417,
+            "deletions": 15734,
+            "files": 3600,
+            "jira_done": 3,
+            "jira_open": 4,
+            "merged_share_pct": 53.1
+          },
+          {
+            "key": "abhishek",
+            "display": "Abhishek Puranik",
+            "prs": 63,
+            "merged": 56,
+            "repos": 7,
+            "additions": 18323,
+            "deletions": 2181,
+            "files": 788,
+            "jira_done": 7,
+            "jira_open": 9,
+            "merged_share_pct": 23.4
+          },
+          {
+            "key": "harini",
+            "display": "Harini P",
+            "prs": 60,
+            "merged": 56,
+            "repos": 5,
+            "additions": 62856,
+            "deletions": 2183,
+            "files": 774,
+            "jira_done": 33,
+            "jira_open": 8,
+            "merged_share_pct": 23.4
+          }
+        ],
+        "merged_total": 239
+      }
+    }
+  },
+  "actions": [
+    {
+      "priority": "P0",
+      "who": "Leadership",
+      "who_key": "leadership",
+      "action": "Do not rank people by visible AI trailer rate (Ashutosh 43.0%, Abhishek 74.6%, Harini 90.0% of PRs in last 30d). Ashutosh disables Cursor co-authored; Claude trailers can still show. Visible % != usage. Compare TAT, rework, diff size, ticket hygiene instead."
+    },
+    {
+      "priority": "P1",
+      "who": "Abhishek Puranik",
+      "who_key": "abhishek",
+      "action": "77.2% of merged PRs in last 30d have no ticket key in title. Either link tickets in titles OR accept GitHub as SoT and stop using Jira done-count as the volume score."
+    },
+    {
+      "priority": "P1",
+      "who": "Ashutosh",
+      "who_key": "ashutosh",
+      "action": "45.7% of merged PRs in last 30d have no ticket key in title. Either link tickets in titles OR accept GitHub as SoT and stop using Jira done-count as the volume score."
+    },
+    {
+      "priority": "P1",
+      "who": "Ashutosh",
+      "who_key": "ashutosh",
+      "action": "19 tickets with 2+ merged PRs in last 30d. Review top cases: missed scope vs intentional multi-repo/QA-UAT-PROD clones. If missed scope, add a PR checklist (tests/verify SQL/FE note)."
+    },
+    {
+      "priority": "P1",
+      "who": "Harini P",
+      "who_key": "harini",
+      "action": "42.4% of merged PRs in last 30d have no ticket key in title. Either link tickets in titles OR accept GitHub as SoT and stop using Jira done-count as the volume score."
+    },
+    {
+      "priority": "P1",
+      "who": "Harini P",
+      "who_key": "harini",
+      "action": "9 tickets with 2+ merged PRs in last 30d. Review top cases: missed scope vs intentional multi-repo/QA-UAT-PROD clones. If missed scope, add a PR checklist (tests/verify SQL/FE note)."
+    },
+    {
+      "priority": "P2",
+      "who": "Leadership",
+      "who_key": "leadership",
+      "action": "Throughput contrast (last 30d): Ashutosh 127 merged (median TAT 0.4h); Abhishek 56 merged (median TAT 0.3h). Use for staffing/pairing, not blame. Ask what work type each is absorbing (firefight vs feature)."
+    },
+    {
+      "priority": "P3",
+      "who": "All three",
+      "who_key": "all",
+      "action": "In next 1:1, ask: (1) what was blocked >2 days last week, (2) one recurring rework cause, (3) one thing leadership should stop measuring (Jira done / AI trailers / raw PR count)."
+    }
+  ],
+  "flags": [
+    {
+      "key": "ashutosh",
+      "person": "Ashutosh",
+      "flag": "AI trailer visible on 43.0% PRs; Cursor co-authored off (Claude may still show); 45.7% merged PRs no Jira key; 19 multi-PR tickets; very fast TAT (0.4h)"
+    },
+    {
+      "key": "abhishek",
+      "person": "Abhishek Puranik",
+      "flag": "AI trailer visible on 74.6% PRs; 77.2% merged PRs no Jira key; very fast TAT (0.3h)"
+    },
+    {
+      "key": "harini",
+      "person": "Harini P",
+      "flag": "AI trailer visible on 90.0% PRs; 42.4% merged PRs no Jira key; 9 multi-PR tickets; very fast TAT (0.5h)"
+    }
+  ]
+}

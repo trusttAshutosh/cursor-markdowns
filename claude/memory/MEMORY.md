@@ -15,6 +15,7 @@ live in `C:\Users\ashutosh.kumar\Desktop\novopay\CLAUDE.md`; these files hold re
 - [feedback-verify-identity-before-external-updates](feedback-verify-identity-before-external-updates.md) — NEVER use the Jira/Atlassian connector (acts as Deepankar); Jira via browser login; ASK username confirmation before any Jira/GitHub write
 
 - [feedback-bkyc-pr-template](feedback-bkyc-pr-template.md) - BKYC PR bodies must follow `.cursor/rules/bkyc-pr-description.mdc` (7 sections, mermaid, journey table with live Jira Done); not the style of recent PRs
+- [feedback-pr-no-commit-list](feedback-pr-no-commit-list.md) - no Commits/Files-changed section and no Claude Code footer in PR descriptions; GitHub Commits tab covers it
 - [pref-qa-bkyc-file-pincodes](pref-qa-bkyc-file-pincodes.md) — files/CSVs must use only Manipal 10 + RISL 166512 agent office pincodes; never invent one
 - [feedback-bank-uat-bkyc-testdata](feedback-bank-uat-bkyc-testdata.md) - bank UAT BKYC test data comes only from pasted SELECT output; always ask the corporate code with BKYC enabled, default CORP0007
 
