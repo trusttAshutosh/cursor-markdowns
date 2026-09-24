@@ -7,7 +7,7 @@
     "2026-06-30",
     "2026-07-31",
     "2026-08-31",
-    "2026-09-22"
+    "2026-09-24"
   ],
   "series": [
     {
@@ -20,10 +20,10 @@
         0.38,
         0.344,
         0.321,
-        0.314
+        0.303
       ],
       "login": "trusttAshutosh",
-      "latest": 0.314
+      "latest": 0.303
     },
     {
       "name": "2.AiTdpBugFixer",
@@ -35,10 +35,10 @@
         0.835,
         0.608,
         0.497,
-        0.39
+        0.363
       ],
       "login": "AiTdpBugFixer",
-      "latest": 0.39
+      "latest": 0.363
     },
     {
       "name": "3.chandu-pixel",
@@ -56,22 +56,7 @@
       "latest": 0.385
     },
     {
-      "name": "4.Abhishek",
-      "data": [
-        0.419,
-        0.436,
-        0.422,
-        0.412,
-        0.401,
-        0.405,
-        0.412,
-        0.416
-      ],
-      "login": "trustt-abhishek",
-      "latest": 0.416
-    },
-    {
-      "name": "5.Srijan-Das",
+      "name": "4.Srijan-Das",
       "data": [
         0.471,
         0.467,
@@ -83,6 +68,21 @@
         0.417
       ],
       "login": "Srijan-Das-Trustt",
+      "latest": 0.417
+    },
+    {
+      "name": "5.Abhishek",
+      "data": [
+        0.419,
+        0.436,
+        0.422,
+        0.412,
+        0.401,
+        0.405,
+        0.412,
+        0.417
+      ],
+      "login": "trustt-abhishek",
       "latest": 0.417
     },
     {
@@ -110,10 +110,10 @@
         0.52,
         0.502,
         0.485,
-        0.477
+        0.474
       ],
       "login": "Dineshkumarab-trustt",
-      "latest": 0.477
+      "latest": 0.474
     },
     {
       "name": "8.kavyaL12",
@@ -140,10 +140,10 @@
         0.557,
         0.552,
         0.555,
-        0.55
+        0.546
       ],
       "login": "kr-sooraj",
-      "latest": 0.55
+      "latest": 0.546
     },
     {
       "name": "10.r-manohar",
@@ -155,10 +155,10 @@
         0.567,
         0.556,
         0.551,
-        0.553
+        0.554
       ],
       "login": "r-manohar",
-      "latest": 0.553
+      "latest": 0.554
     }
   ],
   "y_label": "~days/PR (exact, 3dp)",

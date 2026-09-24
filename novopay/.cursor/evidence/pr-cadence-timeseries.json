@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-09-22",
+  "as_of": "2026-09-24",
   "org": "trusttai",
   "source_top10": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\pr-cadence-top10.json",
   "people": [
@@ -8,7 +8,7 @@
       "login": "trusttAshutosh",
       "person": "Ashutosh",
       "label": "Ashutosh",
-      "total": 672,
+      "total": 705,
       "mode": "full_list",
       "series": [
         {
@@ -54,20 +54,20 @@
           "days_per_pr": 0.321
         },
         {
-          "date": "2026-09-22",
-          "total": 672,
-          "span_days": 211,
-          "days_per_pr": 0.314
+          "date": "2026-09-24",
+          "total": 705,
+          "span_days": 213,
+          "days_per_pr": 0.303
         }
       ],
-      "latest_days_per_pr": 0.314
+      "latest_days_per_pr": 0.303
     },
     {
       "rank": 2,
       "login": "AiTdpBugFixer",
       "person": "AiTdpBugFixer",
       "label": "AiTdpBugFixer",
-      "total": 463,
+      "total": 503,
       "mode": "full_list",
       "series": [
         {
@@ -107,20 +107,20 @@
           "days_per_pr": 0.497
         },
         {
-          "date": "2026-09-22",
-          "total": 463,
-          "span_days": 180,
-          "days_per_pr": 0.39
+          "date": "2026-09-24",
+          "total": 503,
+          "span_days": 182,
+          "days_per_pr": 0.363
         }
       ],
-      "latest_days_per_pr": 0.39
+      "latest_days_per_pr": 0.363
     },
     {
       "rank": 3,
       "login": "chandu-pixel",
       "person": "chandu-pixel",
       "label": "chandu-pixel",
-      "total": 1928,
+      "total": 1932,
       "mode": "monthly_counts",
       "series": [
         {
@@ -268,9 +268,9 @@
           "days_per_pr": 0.385
         },
         {
-          "date": "2026-09-22",
-          "total": 1928,
-          "span_days": 742,
+          "date": "2026-09-24",
+          "total": 1932,
+          "span_days": 744,
           "days_per_pr": 0.385
         }
       ],
@@ -278,111 +278,10 @@
     },
     {
       "rank": 4,
-      "login": "trustt-abhishek",
-      "person": "Abhishek Puranik",
-      "label": "Abhishek",
-      "total": 1056,
-      "mode": "monthly_counts",
-      "series": [
-        {
-          "date": "2025-07-31",
-          "total": 53,
-          "span_days": 21,
-          "days_per_pr": 0.404
-        },
-        {
-          "date": "2025-08-31",
-          "total": 83,
-          "span_days": 52,
-          "days_per_pr": 0.634
-        },
-        {
-          "date": "2025-09-30",
-          "total": 149,
-          "span_days": 82,
-          "days_per_pr": 0.554
-        },
-        {
-          "date": "2025-10-31",
-          "total": 192,
-          "span_days": 113,
-          "days_per_pr": 0.592
-        },
-        {
-          "date": "2025-11-30",
-          "total": 270,
-          "span_days": 143,
-          "days_per_pr": 0.532
-        },
-        {
-          "date": "2025-12-31",
-          "total": 387,
-          "span_days": 174,
-          "days_per_pr": 0.451
-        },
-        {
-          "date": "2026-01-31",
-          "total": 485,
-          "span_days": 205,
-          "days_per_pr": 0.424
-        },
-        {
-          "date": "2026-02-28",
-          "total": 557,
-          "span_days": 233,
-          "days_per_pr": 0.419
-        },
-        {
-          "date": "2026-03-31",
-          "total": 607,
-          "span_days": 264,
-          "days_per_pr": 0.436
-        },
-        {
-          "date": "2026-04-30",
-          "total": 697,
-          "span_days": 294,
-          "days_per_pr": 0.422
-        },
-        {
-          "date": "2026-05-31",
-          "total": 790,
-          "span_days": 325,
-          "days_per_pr": 0.412
-        },
-        {
-          "date": "2026-06-30",
-          "total": 887,
-          "span_days": 355,
-          "days_per_pr": 0.401
-        },
-        {
-          "date": "2026-07-31",
-          "total": 953,
-          "span_days": 386,
-          "days_per_pr": 0.405
-        },
-        {
-          "date": "2026-08-31",
-          "total": 1012,
-          "span_days": 417,
-          "days_per_pr": 0.412
-        },
-        {
-          "date": "2026-09-22",
-          "total": 1056,
-          "span_days": 439,
-          "days_per_pr": 0.416
-        }
-      ],
-      "latest_days_per_pr": 0.416
-    },
-    {
-      "rank": 5,
       "login": "Srijan-Das-Trustt",
       "person": "Srijan-Das-Trustt",
       "label": "Srijan-Das",
-      "total": 1557,
+      "total": 1563,
       "mode": "monthly_counts",
       "series": [
         {
@@ -512,9 +411,110 @@
           "days_per_pr": 0.423
         },
         {
-          "date": "2026-09-22",
-          "total": 1557,
-          "span_days": 649,
+          "date": "2026-09-24",
+          "total": 1563,
+          "span_days": 651,
+          "days_per_pr": 0.417
+        }
+      ],
+      "latest_days_per_pr": 0.417
+    },
+    {
+      "rank": 5,
+      "login": "trustt-abhishek",
+      "person": "Abhishek Puranik",
+      "label": "Abhishek",
+      "total": 1059,
+      "mode": "monthly_counts",
+      "series": [
+        {
+          "date": "2025-07-31",
+          "total": 53,
+          "span_days": 21,
+          "days_per_pr": 0.404
+        },
+        {
+          "date": "2025-08-31",
+          "total": 83,
+          "span_days": 52,
+          "days_per_pr": 0.634
+        },
+        {
+          "date": "2025-09-30",
+          "total": 149,
+          "span_days": 82,
+          "days_per_pr": 0.554
+        },
+        {
+          "date": "2025-10-31",
+          "total": 192,
+          "span_days": 113,
+          "days_per_pr": 0.592
+        },
+        {
+          "date": "2025-11-30",
+          "total": 270,
+          "span_days": 143,
+          "days_per_pr": 0.532
+        },
+        {
+          "date": "2025-12-31",
+          "total": 387,
+          "span_days": 174,
+          "days_per_pr": 0.451
+        },
+        {
+          "date": "2026-01-31",
+          "total": 485,
+          "span_days": 205,
+          "days_per_pr": 0.424
+        },
+        {
+          "date": "2026-02-28",
+          "total": 557,
+          "span_days": 233,
+          "days_per_pr": 0.419
+        },
+        {
+          "date": "2026-03-31",
+          "total": 607,
+          "span_days": 264,
+          "days_per_pr": 0.436
+        },
+        {
+          "date": "2026-04-30",
+          "total": 697,
+          "span_days": 294,
+          "days_per_pr": 0.422
+        },
+        {
+          "date": "2026-05-31",
+          "total": 790,
+          "span_days": 325,
+          "days_per_pr": 0.412
+        },
+        {
+          "date": "2026-06-30",
+          "total": 887,
+          "span_days": 355,
+          "days_per_pr": 0.401
+        },
+        {
+          "date": "2026-07-31",
+          "total": 953,
+          "span_days": 386,
+          "days_per_pr": 0.405
+        },
+        {
+          "date": "2026-08-31",
+          "total": 1012,
+          "span_days": 417,
+          "days_per_pr": 0.412
+        },
+        {
+          "date": "2026-09-24",
+          "total": 1059,
+          "span_days": 441,
           "days_per_pr": 0.417
         }
       ],
@@ -525,7 +525,7 @@
       "login": "sristigc",
       "person": "sristigc",
       "label": "sristigc",
-      "total": 1404,
+      "total": 1409,
       "mode": "monthly_counts",
       "series": [
         {
@@ -643,9 +643,9 @@
           "days_per_pr": 0.423
         },
         {
-          "date": "2026-09-22",
-          "total": 1404,
-          "span_days": 587,
+          "date": "2026-09-24",
+          "total": 1409,
+          "span_days": 589,
           "days_per_pr": 0.418
         }
       ],
@@ -656,7 +656,7 @@
       "login": "Dineshkumarab-trustt",
       "person": "Dineshkumarab-trustt",
       "label": "Dineshkumarab-",
-      "total": 1009,
+      "total": 1019,
       "mode": "monthly_counts",
       "series": [
         {
@@ -750,20 +750,20 @@
           "days_per_pr": 0.485
         },
         {
-          "date": "2026-09-22",
-          "total": 1009,
-          "span_days": 481,
-          "days_per_pr": 0.477
+          "date": "2026-09-24",
+          "total": 1019,
+          "span_days": 483,
+          "days_per_pr": 0.474
         }
       ],
-      "latest_days_per_pr": 0.477
+      "latest_days_per_pr": 0.474
     },
     {
       "rank": 8,
       "login": "kavyaL12",
       "person": "kavyaL12",
       "label": "kavyaL12",
-      "total": 1394,
+      "total": 1396,
       "mode": "monthly_counts",
       "series": [
         {
@@ -905,9 +905,9 @@
           "days_per_pr": 0.512
         },
         {
-          "date": "2026-09-22",
-          "total": 1394,
-          "span_days": 721,
+          "date": "2026-09-24",
+          "total": 1396,
+          "span_days": 723,
           "days_per_pr": 0.518
         }
       ],
@@ -918,7 +918,7 @@
       "login": "kr-sooraj",
       "person": "Sooraj KR",
       "label": "Sooraj",
-      "total": 2962,
+      "total": 2984,
       "mode": "monthly_counts",
       "series": [
         {
@@ -1240,20 +1240,20 @@
           "days_per_pr": 0.555
         },
         {
-          "date": "2026-09-22",
-          "total": 2962,
-          "span_days": 1628,
-          "days_per_pr": 0.55
+          "date": "2026-09-24",
+          "total": 2984,
+          "span_days": 1630,
+          "days_per_pr": 0.546
         }
       ],
-      "latest_days_per_pr": 0.55
+      "latest_days_per_pr": 0.546
     },
     {
       "rank": 10,
       "login": "r-manohar",
       "person": "r-manohar",
       "label": "r-manohar",
-      "total": 985,
+      "total": 987,
       "mode": "full_list",
       "series": [
         {
@@ -1365,13 +1365,13 @@
           "days_per_pr": 0.551
         },
         {
-          "date": "2026-09-22",
-          "total": 985,
-          "span_days": 544,
-          "days_per_pr": 0.553
+          "date": "2026-09-24",
+          "total": 987,
+          "span_days": 546,
+          "days_per_pr": 0.554
         }
       ],
-      "latest_days_per_pr": 0.553
+      "latest_days_per_pr": 0.554
     }
   ],
   "chart": {
@@ -1383,7 +1383,7 @@
       "2026-06-30",
       "2026-07-31",
       "2026-08-31",
-      "2026-09-22"
+      "2026-09-24"
     ],
     "series": [
       {
@@ -1396,10 +1396,10 @@
           0.38,
           0.344,
           0.321,
-          0.314
+          0.303
         ],
         "login": "trusttAshutosh",
-        "latest": 0.314
+        "latest": 0.303
       },
       {
         "name": "2.AiTdpBugFixer",
@@ -1411,10 +1411,10 @@
           0.835,
           0.608,
           0.497,
-          0.39
+          0.363
         ],
         "login": "AiTdpBugFixer",
-        "latest": 0.39
+        "latest": 0.363
       },
       {
         "name": "3.chandu-pixel",
@@ -1432,22 +1432,7 @@
         "latest": 0.385
       },
       {
-        "name": "4.Abhishek",
-        "data": [
-          0.419,
-          0.436,
-          0.422,
-          0.412,
-          0.401,
-          0.405,
-          0.412,
-          0.416
-        ],
-        "login": "trustt-abhishek",
-        "latest": 0.416
-      },
-      {
-        "name": "5.Srijan-Das",
+        "name": "4.Srijan-Das",
         "data": [
           0.471,
           0.467,
@@ -1459,6 +1444,21 @@
           0.417
         ],
         "login": "Srijan-Das-Trustt",
+        "latest": 0.417
+      },
+      {
+        "name": "5.Abhishek",
+        "data": [
+          0.419,
+          0.436,
+          0.422,
+          0.412,
+          0.401,
+          0.405,
+          0.412,
+          0.417
+        ],
+        "login": "trustt-abhishek",
         "latest": 0.417
       },
       {
@@ -1486,10 +1486,10 @@
           0.52,
           0.502,
           0.485,
-          0.477
+          0.474
         ],
         "login": "Dineshkumarab-trustt",
-        "latest": 0.477
+        "latest": 0.474
       },
       {
         "name": "8.kavyaL12",
@@ -1516,10 +1516,10 @@
           0.557,
           0.552,
           0.555,
-          0.55
+          0.546
         ],
         "login": "kr-sooraj",
-        "latest": 0.55
+        "latest": 0.546
       },
       {
         "name": "10.r-manohar",
@@ -1531,10 +1531,10 @@
           0.567,
           0.556,
           0.551,
-          0.553
+          0.554
         ],
         "login": "r-manohar",
-        "latest": 0.553
+        "latest": 0.554
       }
     ],
     "y_label": "~days/PR (exact, 3dp)",

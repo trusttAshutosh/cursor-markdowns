@@ -28,6 +28,10 @@ Do not post to Jira unless the user explicitly asks.
 - No `{code}`, `{panel}`, `{info}`, or `{apiName}` (curly macros break the comment)
 - No JSON / fenced code if the user does not want a code block look; use field tables instead
 
+## FE change requests
+
+Never suggest actual code changes in a Jira comment for the FE team (no file names, constants, key maps, branches, line counts, or "change is already prepared"). Explain the requested behaviour only: what the UI should show or do, for which permission / user / case. Data codes FE must recognise (e.g. permission group codes) are fine.
+
 ## S.No. vs tickets (do not mix)
 
 | Column | Format | Why |
