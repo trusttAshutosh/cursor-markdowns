@@ -15,6 +15,8 @@ CLAUDE_MEMORY = Path(
     r"C:/Users/ashutosh.kumar/.claude/projects/C--Users-ashutosh-kumar-Desktop-novopay/memory"
 )
 AGENTS_SKILLS = Path(r"C:/Users/ashutosh.kumar/.agents/skills")
+CLAUDE_SKILLS = Path(r"C:/Users/ashutosh.kumar/.claude/skills")
+WORKLOG_COLLECTOR = Path(r"C:/Users/ashutosh.kumar/Desktop/worklogs/_tools/collect_day.py")
 
 # Global ~/.cursor: backup config, skip IDE runtime/cache
 USER_EXCLUDE_DIRS = {
@@ -169,6 +171,7 @@ def main() -> int:
     ]
     sync_pair("claude-memory", CLAUDE_MEMORY, ROOT / "claude" / "memory", results)
     sync_pair("agents-skills", AGENTS_SKILLS, ROOT / "agents" / "skills", results)
+    sync_pair("claude-skills", CLAUDE_SKILLS, ROOT / "claude" / "skills", results)
     for label, src, dst in mappings:
         sync_pair(label, src, dst, results)
 
@@ -279,6 +282,11 @@ def main() -> int:
             "bob-shrink-logs-test",
             NOVOPAY / "bob-the-builder/runner/tests/test_shrink_logs.py",
             ROOT / "bob" / "runner" / "tests" / "test_shrink_logs.py",
+        ),
+        (
+            "worklog-collector",
+            WORKLOG_COLLECTOR,
+            ROOT / "worklogs" / "_tools" / "collect_day.py",
         ),
     ]
     extra_count = 0

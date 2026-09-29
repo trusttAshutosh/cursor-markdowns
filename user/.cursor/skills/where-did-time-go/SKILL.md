@@ -60,6 +60,18 @@ If the helper hangs, use `find` + read files yourself.
 Also include a file if any embedded `<timestamp>...` falls on that day even when
 mtime is later.
 
+**Claude Code sessions too (required).** Work also happens in Claude Code
+(`~/.claude/projects/*/*.jsonl`, UTC timestamps). The shared collector returns
+Cursor + Claude Code blocks (IST, 45m idle split, 3h cap, meta prompts dropped)
+and that day's commits in one list - prefer it over the steps above:
+
+```bash
+python C:/Users/ashutosh.kumar/Desktop/worklogs/_tools/collect_day.py --date YYYY-MM-DD
+```
+
+Put blocks from both tools in the same single table (never split by tool). Same
+topic in both tools at the same time → one row, minutes counted once.
+
 ### 3. Build time blocks from each session
 
 For each matching `.jsonl`:
@@ -76,7 +88,8 @@ For each matching `.jsonl`:
 6. **Tag** the topic as `build:` / `ops:` / `meta:` (see Work tags in step 6).
 7. Note Jira keys if present (`HDP-`/`AAN-`/… only); leave **Ticket** blank when none.
    Ignore fake keys scraped from log pastes (`XX-`, random `FEB-1991`, etc.).
-8. Cite `[title](uuid)` with transcript uuid (folder/stem).
+8. Cite `Cursor: [title](uuid)` with transcript uuid (folder/stem), or
+   `Claude: [title](session-id)` for Claude Code sessions.
 
 Split one long chat into multiple blocks when idle gaps exceed ~45 minutes
 or the topic clearly changes (new problem / new ticket).
@@ -135,7 +148,7 @@ Always end with a **total duration** line.
 | **Duration** | `~Xm` or `~Xh Ym`; use `unknown` if only one stamp |
 | **Work** | **Required tag** + one short phrase — see Work tags below |
 | **Ticket** | Jira ID(s) only (e.g. `PROJ-123`, `AAN-601`); **leave blank** when none — never `no ticket`, prose, or repo names |
-| **Chat** | `[title](uuid)` transcript cite |
+| **Chat** | `Cursor: [title](uuid)` or `Claude: [title](session-id)` cite |
 
 Mark overlapping different-topic blocks with `(overlap)` in the **Work** cell
 (after the tag), e.g. `ops: Jenkins deploy watch (overlap)`.
@@ -319,7 +332,7 @@ skill: where-did-time-go
 ## Guardrails
 
 - Describe work performed, not unverified RCA as fact.
-- Only local transcripts under `~/.cursor/projects`.
+- Only local transcripts under `~/.cursor/projects` and `~/.claude/projects`.
 - If no chats and no commits that day: say so in one line (still optional to
   skip persisting empty runs; do persist if you emitted a real table).
 - Persisted files stay on Desktop under `worklogs/` only - do not commit them
@@ -349,6 +362,7 @@ Manual run:
 Notes:
 
 - Auto output uses user-activity clustering (45m idle split, ~3h block cap).
-  Re-run `/where-did-time-go` in Cursor when you want a polished table.
+  Includes Claude Code sessions via `Desktop/worklogs/_tools/collect_day.py`.
+  Re-run `/where-did-time-go` in Cursor or Claude Code when you want a polished table.
 - Task must run while the user is logged in (`Interactive` logon).
 - If the PC is asleep at 23:59, `StartWhenAvailable` runs it after wake.

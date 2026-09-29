@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate today's where-did-time-go workflog from local Cursor transcripts.
+"""Generate today's where-did-time-go workflog from local Cursor + Claude Code transcripts.
 
 Unattended daily runner for Task Scheduler. Heuristic (not full agent quality):
 builds chronological blocks from embedded timestamps + user queries, then saves
@@ -12,13 +12,15 @@ import json
 import re
 import sys
 from collections import defaultdict
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 
 IST = timezone(timedelta(hours=5, minutes=30), name="IST")
 DEFAULT_ROOT = Path.home() / "Desktop" / "worklogs"
 PROJECTS = Path.home() / ".cursor" / "projects"
 LOG_DIR = Path.home() / "Desktop" / "worklogs" / "_runner_logs"
+# Shared Cursor + Claude Code collector (also used by the Claude Code commands).
+COLLECTOR_DIR = Path.home() / "Desktop" / "worklogs" / "_tools"
 
 TS_RE = re.compile(r"<timestamp>([^<]+)</timestamp>", re.I)
 UQ_RE = re.compile(r"<user_query>\s*(.*?)\s*</user_query>", re.S | re.I)
@@ -312,8 +314,39 @@ def collect_day_sessions(work_day: date) -> list[dict]:
                     "tickets": tickets_from_queries(qs),
                 }
             )
+    sessions += claude_day_sessions(work_day)
     sessions.sort(key=lambda s: (s["start"], s["end"]))
     return dedupe_overlap_sessions(sessions)
+
+
+def claude_day_sessions(work_day: date) -> list[dict]:
+    """Claude Code blocks for the day, via the shared collector (empty if it is missing)."""
+    sys.path.insert(0, str(COLLECTOR_DIR))
+    try:
+        import collect_day
+    except ImportError:
+        return []
+    day_start = datetime.combine(work_day, time.min, IST)
+    day_end = day_start + timedelta(days=1)
+    out: list[dict] = []
+    for session in collect_day.claude_sessions(day_start):
+        blocks, _ = collect_day.split_blocks(session, day_start, day_end)
+        for block in blocks:
+            qs = [e.text for e in block.prompts]
+            mins = int((block.end - block.start).total_seconds() // 60) or SINGLE_TURN_MIN
+            out.append(
+                {
+                    "uuid": session.sid,
+                    "source": "Claude",
+                    "start": block.start,
+                    "end": block.end,
+                    "mins": min(mins, MAX_BLOCK_MIN),
+                    "queries": qs,
+                    "title": session.title or topic_from_queries(qs),
+                    "tickets": tickets_from_queries([session.title] + qs),
+                }
+            )
+    return out
 
 
 def _title_key(title: str) -> str:
@@ -431,7 +464,7 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
                 mix[tag] += s["mins"]
         ticket = s["tickets"]
         chat_title = s["title"][:40].replace("|", "/")
-        chat = f"[{chat_title}]({s['uuid']})"
+        chat = f"{s.get('source', 'Cursor')}: [{chat_title}]({s['uuid']})"
         lines.append(f"| {i} | {t0}–{t1} | {dur} | {work} | {ticket} | {chat} |")
 
     if not sessions:
@@ -473,7 +506,7 @@ def build_markdown(person: str, work_day: date, sessions: list[dict]) -> str:
     lines.append("")
     lines.append(
         f"*Source: local auto-runner (`generate_daily_workflog.py`). "
-        f"Re-run `/where-did-time-go` in Cursor to refine.*"
+        f"Re-run `/where-did-time-go` in Cursor or Claude Code to refine.*"
     )
     lines.append("")
     return "\n".join(lines)
