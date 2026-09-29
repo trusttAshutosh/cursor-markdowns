@@ -1,0 +1,10 @@
+{
+  "source": "C:\\Users\\ashutosh.kumar\\Downloads\\Logs_24_Sep.txt",
+  "original_lines": 148,
+  "digest_lines": 142,
+  "reduction_pct": 4.1,
+  "high_signal_count": 44,
+  "collapsed_repeat_blocks": 1,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260924T101125Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260924T101125Z\\digest.log"
+}

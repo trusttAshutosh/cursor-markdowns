@@ -1,0 +1,148 @@
+grep -h -E 'Creating Firestore|created in collection|found in collection|completed in|Error creating|Error fetching|DEADLINE_EXCEEDED' /apps/applogs/dsa/consents-dsa.log | grep '^\[2026-09-24 1[2-5]:' | cut -c1-200
+
+[2026-09-24 12:16:11.957] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [a7mn9_1790232369694] [] Creating Firestore document '92821b4ec6674ff3a9a9fac35cac0447' in colle
+[2026-09-24 12:16:12.268] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [a7mn9_1790232369694] [] Firestore document '92821b4ec6674ff3a9a9fac35cac0447' created in collec
+[2026-09-24 12:16:12.271] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [a7mn9_1790232369694] [] firebase_cobrowsing_secure_channel completed in 330 ms {d
+[2026-09-24 12:21:46.204] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3uzeh_1790232703976] [] Creating Firestore document '4919faa3dd61450da6031ff7924e5e20' in colle
+[2026-09-24 12:21:46.318] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3uzeh_1790232703976] [] Firestore document '4919faa3dd61450da6031ff7924e5e20' created in collec
+[2026-09-24 12:21:46.321] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [3uzeh_1790232703976] [] firebase_cobrowsing_secure_channel completed in 132 ms {d
+[2026-09-24 12:25:48.378] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [cqszx_1790232948144] [] Firestore document '4919faa3dd61450da6031ff7924e5e20' found in collecti
+[2026-09-24 12:25:48.379] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [cqszx_1790232948144] [] firebase_cobrowsing_secure_channel completed in 102 ms {d
+[2026-09-24 12:31:06.557] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [9y3gk_1790233264320] [] Creating Firestore document '62bcad82dd3944d9a98feec45bba6ab4' in colle
+[2026-09-24 12:31:06.656] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [9y3gk_1790233264320] [] Firestore document '62bcad82dd3944d9a98feec45bba6ab4' created in collec
+[2026-09-24 12:31:06.659] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [9y3gk_1790233264320] [] firebase_cobrowsing_secure_channel completed in 116 ms {d
+[2026-09-24 12:31:51.717] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [n02v_1790233311514] [] Firestore document '62bcad82dd3944d9a98feec45bba6ab4' found in collectio
+[2026-09-24 12:31:51.718] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [n02v_1790233311514] [] firebase_cobrowsing_secure_channel completed in 60 ms {dt.
+[2026-09-24 12:40:46.923] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [v3q_1790233867360] [] Creating Firestore document '093ddab965e04a1e973a9169b1988a0a' in collect
+[2026-09-24 12:40:47.021] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [v3q_1790233867360] [] Firestore document '093ddab965e04a1e973a9169b1988a0a' created in collecti
+[2026-09-24 12:40:47.025] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [v3q_1790233867360] [] firebase_cobrowsing_secure_channel completed in 116 ms {dt.
+[2026-09-24 12:42:36.304] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [8sai_1790233975351] [] Creating Firestore document '1355c727e5b44b22a91de60f0152b8bd' in collec
+[2026-09-24 12:42:36.360] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [8sai_1790233975351] [] Firestore document '1355c727e5b44b22a91de60f0152b8bd' created in collect
+[2026-09-24 12:42:36.363] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [8sai_1790233975351] [] firebase_cobrowsing_secure_channel completed in 74 ms {dt.
+[2026-09-24 12:45:55.517] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [cl89g_1790234174591] [] Creating Firestore document 'c048aeeb104d4cbb8bd518a772f607ac' in colle
+[2026-09-24 12:45:55.578] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [cl89g_1790234174591] [] Firestore document 'c048aeeb104d4cbb8bd518a772f607ac' created in collec
+[2026-09-24 12:45:55.581] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [cl89g_1790234174591] [] firebase_cobrowsing_secure_channel completed in 78 ms {dt
+[2026-09-24 12:47:48.143] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [yz2x_1790234287169] [] Firestore document 'c048aeeb104d4cbb8bd518a772f607ac' found in collectio
+[2026-09-24 12:47:48.143] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [yz2x_1790234287169] [] firebase_cobrowsing_secure_channel completed in 75 ms {dt.
+[2026-09-24 12:48:48.622] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [zp5z_1790234347707] [] Creating Firestore document 'd70d814210ea4816b30b82fdb774fbeb' in collec
+[2026-09-24 12:48:48.692] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [zp5z_1790234347707] [] Firestore document 'd70d814210ea4816b30b82fdb774fbeb' created in collect
+[2026-09-24 12:48:48.696] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [zp5z_1790234347707] [] firebase_cobrowsing_secure_channel completed in 88 ms {dt.
+[2026-09-24 12:49:34.242] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [gxhu_1790234393281] [] Firestore document 'd70d814210ea4816b30b82fdb774fbeb' found in collectio
+[2026-09-24 12:49:34.243] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [gxhu_1790234393281] [] firebase_cobrowsing_secure_channel completed in 66 ms {dt.
+[2026-09-24 12:49:46.438] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [36skm_1790234384233] [] Creating Firestore document '1bd55dba739c4182ada934982b44eae9' in colle
+[2026-09-24 12:49:46.493] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [36skm_1790234384233] [] Firestore document '1bd55dba739c4182ada934982b44eae9' created in collec
+[2026-09-24 12:49:46.495] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [36skm_1790234384233] [] firebase_cobrowsing_secure_channel completed in 69 ms {dt
+[2026-09-24 12:52:34.737] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [jvtd_1790234554524] [] Firestore document '1bd55dba739c4182ada934982b44eae9' found in collectio
+[2026-09-24 12:52:34.738] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [jvtd_1790234554524] [] firebase_cobrowsing_secure_channel completed in 66 ms {dt.
+[2026-09-24 13:11:46.794] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [9sqc2_1790235704592] [] Creating Firestore document 'bf46f7fc00694595949f7383bc91ae8c' in colle
+[2026-09-24 13:11:46.904] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [9sqc2_1790235704592] [] Firestore document 'bf46f7fc00694595949f7383bc91ae8c' created in collec
+[2026-09-24 13:11:46.908] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [9sqc2_1790235704592] [] firebase_cobrowsing_secure_channel completed in 131 ms {d
+[2026-09-24 13:16:32.053] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [ipw92_1790235973762] [] Firestore document 'bf46f7fc00694595949f7383bc91ae8c' found in collecti
+[2026-09-24 13:16:32.054] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [ipw92_1790235973762] [] firebase_cobrowsing_secure_channel completed in 215 ms {d
+[2026-09-24 14:31:24.043] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3q2f_1790240503077] [] Creating Firestore document 'f3b413450b5e4cd082f74053e85eab35' in collec
+[2026-09-24 14:31:24.443] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3q2f_1790240503077] [] Firestore document 'f3b413450b5e4cd082f74053e85eab35' created in collect
+[2026-09-24 14:31:24.447] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [3q2f_1790240503077] [] firebase_cobrowsing_secure_channel completed in 423 ms {dt
+[2026-09-24 14:32:45.247] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [7zorw_1790240584215] [] Firestore document 'f3b413450b5e4cd082f74053e85eab35' found in collecti
+[2026-09-24 14:32:45.248] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [7zorw_1790240584215] [] firebase_cobrowsing_secure_channel completed in 110 ms {d
+[2026-09-24 14:32:55.489] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [6jifc_1790240573360] [] Creating Firestore document 'b08098a0e3ae467bb38ab572bc775129' in colle
+[2026-09-24 14:32:55.623] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [6jifc_1790240573360] [] Firestore document 'b08098a0e3ae467bb38ab572bc775129' created in collec
+[2026-09-24 14:32:55.626] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [6jifc_1790240573360] [] firebase_cobrowsing_secure_channel completed in 150 ms {d
+[2026-09-24 14:37:46.482] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [d4yez_1790240866077] [] Firestore document 'b08098a0e3ae467bb38ab572bc775129' found in collecti
+[2026-09-24 14:37:46.483] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [d4yez_1790240866077] [] firebase_cobrowsing_secure_channel completed in 302 ms {d
+[2026-09-24 14:52:51.763] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qn2s_1790241771620] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in collec
+[2026-09-24 14:53:51.842] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qn2s_1790241771620] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {dt
+[2026-09-24 14:53:51.843] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [qn2s_1790241771620] [] firebase_cobrowsing_secure_channel completed in 60100 ms {
+[2026-09-24 14:53:54.358] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3y6t_1790241834254] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in collec
+[2026-09-24 14:54:54.420] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [3y6t_1790241834254] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {dt
+[2026-09-24 14:54:54.422] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [3y6t_1790241834254] [] firebase_cobrowsing_secure_channel completed in 60077 ms {
+[2026-09-24 14:55:00.373] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [ivqe8_1790241900260] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in colle
+[2026-09-24 14:55:32.582] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qv7e_1790241930467] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in collec
+[2026-09-24 14:56:00.435] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [ivqe8_1790241900260] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {d
+[2026-09-24 14:56:00.437] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [ivqe8_1790241900260] [] firebase_cobrowsing_secure_channel completed in 60080 ms
+[2026-09-24 14:56:32.644] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qv7e_1790241930467] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {dt
+[2026-09-24 14:56:32.645] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [qv7e_1790241930467] [] firebase_cobrowsing_secure_channel completed in 60076 ms {
+[2026-09-24 14:56:36.265] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [pgmq_1790241992911] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in collec
+[2026-09-24 14:57:36.328] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [pgmq_1790241992911] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {dt
+[2026-09-24 14:57:36.329] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [pgmq_1790241992911] [] firebase_cobrowsing_secure_channel completed in 60080 ms {
+[2026-09-24 14:57:43.238] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [id7io_1790242061034] [] Creating Firestore document 'a16109d106a3422981a472ce8a397976' in colle
+[2026-09-24 14:58:43.299] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [id7io_1790242061034] [] Error creating Firestore document: a16109d106a3422981a472ce8a397976 {d
+[2026-09-24 14:58:43.301] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [id7io_1790242061034] [] firebase_cobrowsing_secure_channel completed in 60080 ms
+[2026-09-24 14:59:31.766] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qam6_1790242171651] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in collec
+[2026-09-24 15:00:31.829] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [qam6_1790242171651] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {dt
+[2026-09-24 15:00:31.831] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [qam6_1790242171651] [] firebase_cobrowsing_secure_channel completed in 60078 ms {
+[2026-09-24 15:00:34.404] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [4zof_1790242234269] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in collec
+[2026-09-24 15:01:34.466] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [4zof_1790242234269] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {dt
+[2026-09-24 15:01:34.467] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [4zof_1790242234269] [] firebase_cobrowsing_secure_channel completed in 60078 ms {
+[2026-09-24 15:01:40.388] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [38gl_1790242300257] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in collec
+[2026-09-24 15:02:38.081] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [tehr_1790242355950] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in collec
+[2026-09-24 15:02:40.450] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [38gl_1790242300257] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {dt
+[2026-09-24 15:02:40.451] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [38gl_1790242300257] [] firebase_cobrowsing_secure_channel completed in 60079 ms {
+[2026-09-24 15:03:38.143] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [tehr_1790242355950] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {dt
+[2026-09-24 15:03:38.145] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [tehr_1790242355950] [] firebase_cobrowsing_secure_channel completed in 60076 ms {
+[2026-09-24 15:03:40.384] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [8p0w5_1790242418290] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in colle
+[2026-09-24 15:04:40.445] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [8p0w5_1790242418290] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {d
+[2026-09-24 15:04:40.447] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [8p0w5_1790242418290] [] firebase_cobrowsing_secure_channel completed in 60081 ms
+[2026-09-24 15:04:46.114] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [1t1dq_1790242483476] [] Creating Firestore document '88986ab966f7449a8c6351492da1b708' in colle
+[2026-09-24 15:05:46.175] [consents] [ERROR] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [1t1dq_1790242483476] [] Error creating Firestore document: 88986ab966f7449a8c6351492da1b708 {d
+[2026-09-24 15:05:46.176] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [1t1dq_1790242483476] [] firebase_cobrowsing_secure_channel completed in 60076 ms
+[2026-09-24 15:18:05.728] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [i7l_1790243304762] [] Creating Firestore document '5a105c70b3e94d909eeb70276e753648' in collect
+[2026-09-24 15:18:06.228] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [i7l_1790243304762] [] Firestore document '5a105c70b3e94d909eeb70276e753648' created in collecti
+[2026-09-24 15:18:06.232] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [i7l_1790243304762] [] firebase_cobrowsing_secure_channel completed in 522 ms {dt.
+[2026-09-24 15:32:21.427] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [g2ag_1790244160489] [] Creating Firestore document '1f985a98963a40d4a92d6965d1428fb7' in collec
+[2026-09-24 15:32:21.672] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [g2ag_1790244160489] [] Firestore document '1f985a98963a40d4a92d6965d1428fb7' created in collect
+[2026-09-24 15:32:21.674] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [g2ag_1790244160489] [] firebase_cobrowsing_secure_channel completed in 260 ms {dt
+[2026-09-24 15:33:30.595] [consents] [INFO] [FireStoreUtils] [dsa] [firebase_cobrowsing_secure_channel] [v0ba_1790244229490] [] Firestore document '1f985a98963a40d4a92d6965d1428fb7' found in collectio
+[2026-09-24 15:33:30.596] [consents] [INFO] [FirebaseCoBrowsingController] [dsa] [firebase_cobrowsing_secure_channel] [v0ba_1790244229490] [] firebase_cobrowsing_secure_channel completed in 59 ms {dt.
+
+
+
+
+grep -c 'DEADLINE_EXCEEDED' /apps/applogs/dsa/consents-dsa.log* /apps/applogs/common/consents-common.log*; ps -eo pid,lstart,cmd | grep '[c]onsents' | cut -c1-120
+
+/apps/applogs/dsa/consents-dsa.log:36
+/apps/applogs/common/consents-common.log:0
+  98694 Thu Sep 24 08:19:22 2026 java -Xms512m -Xmx1024m -XX:+UseZGC -XX:+UnlockExperimentalVMOptions -XX:+UseDynamicNum
+
+
+grep -h '^\[2026-09-24 1[2-5]:' /apps/applogs/common/consents-common.log | grep -i -E 'firestore|firebase|grpc|UNAVAILABLE|DEADLINE|GOAWAY|connection reset|OutOfMemory|pause' | cut -c1-250 | tail -40
+
+[2026-09-24 15:04:40.448] [consents] [WARN] [GlobalExceptionHandler] [] [] [] [] Client disconnected abruptly (Connection reset by peer). Request ignored. {dt.trace_id=5a64ad3ff7a6353dbf99b7af596a5553, dt.span_id=45a0a82a2ee2874c, dt.trace_sampled=tr
+[2026-09-24 15:05:46.176] [consents] [ERROR] [FirebaseCoBrowsingController] [] [] [] [] Error establishing Firebase co-browsing secure channel {dt.trace_id=91144b712ca42776e2069b293ace794f, dt.span_id=c9ce0cc7a4631549, dt.trace_sampled=true}{dt.entit
+[2026-09-24 15:05:46.177] [consents] [WARN] [GlobalExceptionHandler] [] [] [] [] Client disconnected abruptly (Connection reset by peer). Request ignored. {dt.trace_id=91144b712ca42776e2069b293ace794f, dt.span_id=9c522235b2d36323, dt.trace_sampled=tr
+[2026-09-24 15:12:51.065] [consents] [WARN] [ConfigurationGrpcClient] [] [] [] [] Retrying masterdata gRPC call. Attempt #1, cause: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace_sampled
+[2026-09-24 15:12:51.566] [consents] [INFO] [LoggingClientInterceptor] [] [ConfigurationService/GetConfigurations] [c322f9b5-1848-4dad-b9af-86bd487a21eb] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sample
+[2026-09-24 15:12:51.568] [consents] [WARN] [LoggingClientInterceptor] [] [ConfigurationService/GetConfigurations] [c322f9b5-1848-4dad-b9af-86bd487a21eb] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sample
+[2026-09-24 15:12:51.569] [consents] [WARN] [ConfigurationGrpcClient] [] [] [] [] Retrying masterdata gRPC call. Attempt #2, cause: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace_sampled
+[2026-09-24 15:12:52.570] [consents] [INFO] [LoggingClientInterceptor] [] [ConfigurationService/GetConfigurations] [004e2e47-d136-4499-b0fb-297aff1b0de6] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sample
+[2026-09-24 15:12:52.572] [consents] [WARN] [LoggingClientInterceptor] [] [ConfigurationService/GetConfigurations] [004e2e47-d136-4499-b0fb-297aff1b0de6] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sample
+[2026-09-24 15:12:52.574] [consents] [ERROR] [ConfigurationGrpcClient] [] [] [] [] All retries exhausted for masterdata gRPC. Last error: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace_s
+[2026-09-24 15:12:52.574] [consents] [WARN] [ConfigurationGrpcClient] [] [] [] [] Masterdata gRPC getConfigurations failed for propertyKey: agent.portal.consent.view; returning empty list. Cause: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea
+[2026-09-24 15:12:52.599] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [f27fae40-576b-4d55-b1ca-b5c591d1c904] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:52.601] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [f27fae40-576b-4d55-b1ca-b5c591d1c904] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:52.603] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #1, cause: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace_sampl
+[2026-09-24 15:12:53.104] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [b795c66d-d6b1-4c53-8c42-8450ab64cfba] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:53.106] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [b795c66d-d6b1-4c53-8c42-8450ab64cfba] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:53.107] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #2, cause: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace_sampl
+[2026-09-24 15:12:54.108] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [9fd33871-52fb-4eda-b2b8-ebe32010bb82] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:54.110] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [9fd33871-52fb-4eda-b2b8-ebe32010bb82] [] [!dt dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29,dt.span_id=d4c8c05363b66adc,dt.trace_sampled
+[2026-09-24 15:12:54.111] [consents] [ERROR] [NotificationGrpcClient] [] [] [] [] All retries exhausted for notifications gRPC. Last error: UNAVAILABLE: io exception {dt.trace_id=ef5280db585c4ea41927cc1a3cc34c29, dt.span_id=d4c8c05363b66adc, dt.trace
+[2026-09-24 15:12:54.111] [consents] [WARN] [NotificationUtil] [] [] [] [] Error while fetching notification message for user story code SA_HYBRID_INIT and locale en-in via gRPC; falling back to Internal API {dt.trace_id=ef5280db585c4ea41927cc1a3cc34
+[2026-09-24 15:15:55.371] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #1, cause: UNAVAILABLE: io exception {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.span_id=626da0543e6979cc, dt.trace_sampl
+[2026-09-24 15:15:55.872] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [bc0cfca3-84b3-4aa1-9102-0006ae7d3f03] [] [!dt dt.trace_id=afadea943b54a11e1805574ef4733d36,dt.span_id=626da0543e6979cc,dt.trace_sampled
+[2026-09-24 15:15:55.873] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [bc0cfca3-84b3-4aa1-9102-0006ae7d3f03] [] [!dt dt.trace_id=afadea943b54a11e1805574ef4733d36,dt.span_id=626da0543e6979cc,dt.trace_sampled
+[2026-09-24 15:15:55.875] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #2, cause: UNAVAILABLE: io exception {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.span_id=626da0543e6979cc, dt.trace_sampl
+[2026-09-24 15:15:56.876] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [3364831a-1909-49fb-bbba-b1001ebb7746] [] [!dt dt.trace_id=afadea943b54a11e1805574ef4733d36,dt.span_id=626da0543e6979cc,dt.trace_sampled
+[2026-09-24 15:15:56.877] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [3364831a-1909-49fb-bbba-b1001ebb7746] [] [!dt dt.trace_id=afadea943b54a11e1805574ef4733d36,dt.span_id=626da0543e6979cc,dt.trace_sampled
+[2026-09-24 15:15:56.879] [consents] [ERROR] [NotificationGrpcClient] [] [] [] [] All retries exhausted for notifications gRPC. Last error: UNAVAILABLE: io exception {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.span_id=626da0543e6979cc, dt.trace
+[2026-09-24 15:15:56.879] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Notifications gRPC circuit breaker: HALF_OPEN -> OPEN {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.span_id=626da0543e6979cc, dt.trace_sampled=true}{dt.entity.host=H
+[2026-09-24 15:15:56.879] [consents] [WARN] [NotificationUtil] [] [] [] [] Error while fetching notification message for response code 4000017 and locale en-in via gRPC; falling back to Internal API {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.s
+[2026-09-24 15:15:56.898] [consents] [WARN] [NotificationUtil] [] [] [] [] Notification message for response code '4000017' and locale 'en-in' is unavailable; using default {dt.trace_id=afadea943b54a11e1805574ef4733d36, dt.span_id=626da0543e6979cc, d
+[2026-09-24 15:16:26.879] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Notifications gRPC circuit breaker: OPEN -> HALF_OPEN {dt.trace_id=9dcfb2ebd350fafd2016859b14336095, dt.span_id=b4d6de8540a1b242, dt.trace_sampled=true}{dt.entity.host=H
+[2026-09-24 15:16:48.971] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #1, cause: UNAVAILABLE: io exception {dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f, dt.span_id=0728d6ee57e981e4, dt.trace_sampl
+[2026-09-24 15:16:49.471] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [190e6e52-f15a-46eb-b786-08c67ab21935] [] [!dt dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f,dt.span_id=0728d6ee57e981e4,dt.trace_sampled
+[2026-09-24 15:16:49.473] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [190e6e52-f15a-46eb-b786-08c67ab21935] [] [!dt dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f,dt.span_id=0728d6ee57e981e4,dt.trace_sampled
+[2026-09-24 15:16:49.475] [consents] [WARN] [NotificationGrpcClient] [] [] [] [] Retrying notifications gRPC call. Attempt #2, cause: UNAVAILABLE: io exception {dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f, dt.span_id=0728d6ee57e981e4, dt.trace_sampl
+[2026-09-24 15:16:50.475] [consents] [INFO] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [2e669e55-a350-4f56-8012-d74b685ed538] [] [!dt dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f,dt.span_id=0728d6ee57e981e4,dt.trace_sampled
+[2026-09-24 15:16:50.477] [consents] [WARN] [LoggingClientInterceptor] [] [NotificationMessageService/GetMessage] [2e669e55-a350-4f56-8012-d74b685ed538] [] [!dt dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f,dt.span_id=0728d6ee57e981e4,dt.trace_sampled
+[2026-09-24 15:16:50.478] [consents] [ERROR] [NotificationGrpcClient] [] [] [] [] All retries exhausted for notifications gRPC. Last error: UNAVAILABLE: io exception {dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f, dt.span_id=0728d6ee57e981e4, dt.trace
+[2026-09-24 15:16:50.479] [consents] [WARN] [NotificationUtil] [] [] [] [] Error while fetching notification message for response code 4000085 and locale en-in via gRPC; falling back to Internal API {dt.trace_id=a8ee939cfae7dbafb221347c9b8fee6f, dt.s

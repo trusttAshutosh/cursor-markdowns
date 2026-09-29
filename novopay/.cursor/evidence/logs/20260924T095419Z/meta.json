@@ -1,0 +1,10 @@
+{
+  "source": "C:\\Users\\ashutosh.kumar\\Downloads\\consent_logs_secure_channel.txt",
+  "original_lines": 101,
+  "digest_lines": 101,
+  "reduction_pct": 0.0,
+  "high_signal_count": 81,
+  "collapsed_repeat_blocks": 0,
+  "full_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260924T095419Z\\full.log",
+  "digest_path": "C:\\Users\\ashutosh.kumar\\Desktop\\novopay\\.cursor\\evidence\\logs\\20260924T095419Z\\digest.log"
+}

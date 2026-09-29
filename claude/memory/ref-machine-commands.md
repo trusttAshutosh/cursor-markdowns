@@ -142,3 +142,19 @@ The **Edit tool handles CRLF correctly** and is the safer choice for small edits
 bulk mechanical changes, with the normalise-and-verify pattern above.
 
 Related: [[pref-working-style]], [[pref-git-workflow]], [[ref-workspace-tools]].
+
+### Worktree, test-compile and Mockito gotchas (verified 2026-09-28, HDP-11796)
+
+- `git -C <repo> worktree add <relative-path>` resolves the path relative to `<repo>`, not the shell cwd.
+  Use an absolute path (or `git -C <repo> worktree move` afterwards). Sibling layout
+  `.wt-<ticket>\novopay-platform-lib|consents|actor` keeps `includeBuild '../novopay-platform-lib'` pointing
+  at the matching lib worktree.
+- consents `origin/ddp-prod-master` test sources do not compile as-is: `ConsentControllerTest.java:111`
+  has an ambiguous `RSAECBOAEPWithSha256CryptoUtil.decrypt(any(), any())`. Not ours. To run other tests,
+  `mv` that file to `*.hold`, run `gradlew test --tests '<pkg>.*'`, `mv` it back in the same command.
+- Mockito `mockStatic(X.class, CALLS_REAL_METHODS)`: the `when(() -> X.m(...))` stubbing calls run the real
+  method and are counted as invocations, so `times(n)` verifies over-count. Use plain `mockStatic` and stub
+  the one method you need real with `thenAnswer`.
+- Gradle on prod-master line (Boot 3.5.7 / JDK 21 from `JAVA_HOME` ms-21) works with the usual
+  `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:/Users/ashutosh.kumar/tmpnio` + `--no-daemon`;
+  first lib compile ~1 min, consents compile ~30 s.

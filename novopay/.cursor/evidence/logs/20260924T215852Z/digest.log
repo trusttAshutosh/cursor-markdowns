@@ -1,0 +1,28 @@
+=== LOG DIGEST (bob shrink-logs) ===
+source: C:\Users\ashutosh.kumar\Downloads\DSA70851790281243_Logs.txt
+original_lines: 29
+digest_lines: 22
+full_preserved: C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\logs\20260924T215852Z\full.log
+=== CONTENT ===
+DSA70851790281243
+---------------------------
+[2026-09-25 01:53:53.205] [banking-origination] [INFO] [NovopayRestClientService] [dsa] [kycInitiate] [lyi3_1790281432794] [9595713048_7085] 'InitiateKYCJour
+ney' API Request Details
+API URL: https://soasilver.hbctxdom.com:5142/KYCEngine/ProxyService/v1/PS_InitiateSyncKycRequest
+HTTP Method: POST
+Connection Timeout: 500000 ms, Socket Timeout: 500000 ms
+Headers:
+  'Content-Type': 'application/json'
+  'Accept': 'application/json'
+Request Body:
+'KycInitiateRequestEntity(sessionContext=KycInitiateRequestEntity.SessionContext(externalRefNo=DS0002566805-E, channelId=SFDCA-COPTNR, prodCd=BOTH, nextJourn
+rName=, religion=, fwCustomerId=, fwAccountNo=, voterId=, ncmCompanyCategory=, motherFullName=, phone1Resi=, phone1Office=, drivingLicenseNo=, passportNo=, l
+osWhetherResi=, relMngrMobileNo=, relMngrCode=, relMngrName=, relMngrEmail=, sourceProductCode=, redirectionURL=https://agentapp.ddp.hdfc.bank.in/dsa-consent
+-portal/page/54943423898847f69a5954800c6eda57?kyc_mode=EKYC, mname=, lname=, fname=, kycPreferredMode=EKYC, ckycNo=, ckycReferenceId=, ovdDocNo=, ovdDocType=
+, bankCode=, bankName=, consentId=))'
+
+[2026-09-25 01:53:53.362] [banking-origination] [INFO] [NovopayRestClientService] [dsa] [kycInitiate] [lyi3_1790281432794] [9595713048_7085] 'InitiateKYCJour
+ney' Response Details
+HTTP Status Code: 200
+Response Body:
+'{"responseStatus":{"errorCode":"KYC0025","responseCode":"1","errorMsg":null}}'

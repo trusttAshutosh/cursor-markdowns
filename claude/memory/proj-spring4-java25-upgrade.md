@@ -60,3 +60,8 @@ feature-only deps on top, fix HealthIndicator imports first, plugins block (no `
 
 When changing existing prod behavior on this line, still ask backward-compat vs `origin/ddp-prod`
 ([[pref-git-workflow]]). Infra jar version bumps: [[ref-flyway-infra-versioning]].
+
+**Branch lines as of 2026-09-28:** `origin/ddp-prod-master` is the LIVE production line (Boot 3.5.7, JDK 21,
+no `libs.versions.toml`, FireStoreUtils in `infra-essentials-firebase`). `origin/ddp-prod` now carries the
+Boot 4 / Java 25 stack and the 2026-09-21 `infra-essentials-firestore` split (lib 382 commits ahead of
+prod-master). When the user says "latest ddp-prod" confirm which of the two they mean.

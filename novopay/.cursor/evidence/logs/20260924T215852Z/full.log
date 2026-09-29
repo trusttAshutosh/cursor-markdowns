@@ -1,0 +1,29 @@
+DSA70851790281243
+---------------------------
+[2026-09-25 01:53:53.205] [banking-origination] [INFO] [NovopayRestClientService] [dsa] [kycInitiate] [lyi3_1790281432794] [9595713048_7085] 'InitiateKYCJour
+ney' API Request Details
+API URL: https://soasilver.hbctxdom.com:5142/KYCEngine/ProxyService/v1/PS_InitiateSyncKycRequest
+HTTP Method: POST
+Connection Timeout: 500000 ms, Socket Timeout: 500000 ms
+Headers:
+  'Content-Type': 'application/json'
+  'Accept': 'application/json'
+Request Body:
+'KycInitiateRequestEntity(sessionContext=KycInitiateRequestEntity.SessionContext(externalRefNo=DS0002566805-E, channelId=SFDCA-COPTNR, prodCd=BOTH, nextJourn
+eyStep=INITIATE-KYC), requestParam=KycInitiateRequestEntity.RequestParam(transactionId=DS0002566805-E, customerId=, customerName=, dob=, gender=, mobileNo=95
+95713048, emailId=, advReferenceNumber=, kycType=, kycWithData=N, lastKycDate=, lastKycRRNNo=, imageId=, constitutionId=, configId=, schemeId=, promotionId=,
+ salesPromotionId=, priorityCode=, customerType=, dsa=, subSource=, docId=, branchId=, bdeDetails=, panNo=CDUPP1930K, constitution=, profession=, fatherName=
+, residenceAddressLine1=, residenceAddressLine2=, residenceAddressLine3=, residenceAddressLine4=, residenceAddressState=, residenceAddressCity=, residenceAdd
+ressZipcode=, officeAddressLine1=, officeAddressLine2=, officeAddressLine3=, officeAddressLine4=, officeAddressState=, officeAddressCity=, officeAddressZipco
+de=, aadhaarAddressLine1=, aadhaarAddressLine2=, aadhaarAddressLine3=, aadhaarAddressLine4=, aadhaarAddressState=, aadhaarAddressCity=, aadhaarAddressZipcode
+=, customerCategory=, spouseName=, indvCorpFlag=, maritalStatus=, qualification=, employerName=, yearsCurrJob=, title=, income=, residenceType=, otherEmploye
+rName=, religion=, fwCustomerId=, fwAccountNo=, voterId=, ncmCompanyCategory=, motherFullName=, phone1Resi=, phone1Office=, drivingLicenseNo=, passportNo=, l
+osWhetherResi=, relMngrMobileNo=, relMngrCode=, relMngrName=, relMngrEmail=, sourceProductCode=, redirectionURL=https://agentapp.ddp.hdfc.bank.in/dsa-consent
+-portal/page/54943423898847f69a5954800c6eda57?kyc_mode=EKYC, mname=, lname=, fname=, kycPreferredMode=EKYC, ckycNo=, ckycReferenceId=, ovdDocNo=, ovdDocType=
+, bankCode=, bankName=, consentId=))'
+
+[2026-09-25 01:53:53.362] [banking-origination] [INFO] [NovopayRestClientService] [dsa] [kycInitiate] [lyi3_1790281432794] [9595713048_7085] 'InitiateKYCJour
+ney' Response Details
+HTTP Status Code: 200
+Response Body:
+'{"responseStatus":{"errorCode":"KYC0025","responseCode":"1","errorMsg":null}}'

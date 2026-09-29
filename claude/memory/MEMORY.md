@@ -17,6 +17,7 @@ live in `C:\Users\ashutosh.kumar\Desktop\novopay\CLAUDE.md`; these files hold re
 - [feedback-bkyc-pr-template](feedback-bkyc-pr-template.md) - BKYC PR bodies must follow `.cursor/rules/bkyc-pr-description.mdc` (7 sections, mermaid, journey table with live Jira Done); not the style of recent PRs
 - [feedback-pr-no-commit-list](feedback-pr-no-commit-list.md) - no Commits/Files-changed section and no Claude Code footer in PR descriptions; GitHub Commits tab covers it
 - [pref-qa-bkyc-file-pincodes](pref-qa-bkyc-file-pincodes.md) — files/CSVs must use only Manipal 10 + RISL 166512 agent office pincodes; never invent one
+- [feedback-flyway-manual-history-insert](feedback-flyway-manual-history-insert.md) - manual flyway_schema_history insert = ONE guarded INSERT ... SELECT line (WHERE NOT EXISTS, backticks, manual-ops); always remind to verify checksum
 - [feedback-bank-uat-bkyc-testdata](feedback-bank-uat-bkyc-testdata.md) - bank UAT BKYC test data comes only from pasted SELECT output; always ask the corporate code with BKYC enabled, default CORP0007
 
 ## Reference
@@ -39,3 +40,4 @@ live in `C:\Users\ashutosh.kumar\Desktop\novopay\CLAUDE.md`; these files hold re
 - [proj-hdp-7636-bkyc](proj-hdp-7636-bkyc.md) — Manipal BKYC consent/OTP/Jira locked decisions
 - [proj-hdp-7636-deferred-qa-tests](proj-hdp-7636-deferred-qa-tests.md) — T17 + PACK-114 deferred for QA DB write access; runbooks, Redis flush, and the final config values
 - [proj-spring4-java25-upgrade](proj-spring4-java25-upgrade.md) — Spring Boot 4 / Java 25 / Gradle 9 fleet upgrade
+- [proj-hdp-11796-firestore-hardening](proj-hdp-11796-firestore-hardening.md) - Firestore keepalive/timeout/retry fix: 6 PRs open (lib #6785/#6786, consents #3268/#3269, actor #18539/#18540), branch bases, prod-master moved, prod heads in .wt-11796-pm, compat rules
