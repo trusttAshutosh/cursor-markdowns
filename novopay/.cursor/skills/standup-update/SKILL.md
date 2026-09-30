@@ -45,7 +45,8 @@ Rules:
 
 - Home ticket: [HDP-11991](https://novopay.atlassian.net/browse/HDP-11991) "DAILY UPDATES - Ashutosh Kumar" (team pattern: one DAILY UPDATES story per person).
 - After sharing the short update, ask whether to post it. Post only after the user approves that day's text (approval is per day, never standing).
-- Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `**Standup - <Ddd DD Mon YYYY>**` heading + the approved update in Cloud Markdown, ticket ids as clickable Jira links, PRs as GitHub links.
+- Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `**Standup - <Ddd DD Mon YYYY>**` heading + the approved update in Cloud Markdown.
+- **Always hyperlink, every mention, in every section (Yesterday, Today, Blocker), in chat and in Jira:** tickets as `[HDP-x](https://novopay.atlassian.net/browse/HDP-x)`, PRs as `[<repo> #<n>](https://github.com/trusttai/<repo>/pull/<n>)`, docs as their mdshare URL. Repeats get linked again. If a PR number is unknown (e.g. "draft PR", "the fix"), look it up with `gh pr list --repo trusttai/<repo> --author trusttAshutosh --state all` before writing - never leave a bare "#649" or "the PR".
 - One work log per weekday: before posting, list that day's work logs on HDP-11991 and edit the existing one instead of adding a duplicate.
 - Reminder: Windows task `Standup-Reminder` pops at 09:59 on weekdays (`tools/standup_reminder.vbs`, `tools/standup_reminder.task.xml`, UTF-16).
 
