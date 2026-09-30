@@ -200,6 +200,7 @@ def main() -> int:
     # Related non-.cursor docs / agent entrypoints (laptop migrate essentials)
     extras: list[tuple[str, Path, Path]] = [
         ("novopay-AGENTS", NOVOPAY / "AGENTS.md", ROOT / "novopay" / "AGENTS.md"),
+        ("novopay-CLAUDE", NOVOPAY / "CLAUDE.md", ROOT / "novopay" / "CLAUDE.md"),
         ("novopay-README", NOVOPAY / "README.md", ROOT / "novopay" / "README.md"),
         ("novopay-package", NOVOPAY / "package.json", ROOT / "novopay" / "package.json"),
         ("novopay-Makefile", NOVOPAY / "Makefile", ROOT / "novopay" / "Makefile"),

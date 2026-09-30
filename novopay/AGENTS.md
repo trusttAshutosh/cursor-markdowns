@@ -6,6 +6,7 @@
 - Bob: `python bob.py` / `bob.cmd`. `bob validate-ticket` only when asked to prove.
 - Scoped check: `npm run validate -- <service-dir>` (README). No full monorepo rebuild.
 - SQL: fully qualified `schema_name.table_name`. Prefer `.cursor/memory/prod-ddl/`. No `/actuator/health`.
+- Ticket handoff (Cursor <-> Claude): when a ticket id is named, read `docs/tdd-runs/<id>/TICKET_RESUME.md` first if it exists, and update it (header + session log) at every milestone.
 
 ## Orchestrator model (fixed - do not let Continual Learning edit this section)
 

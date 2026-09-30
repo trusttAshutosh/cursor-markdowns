@@ -1,12 +1,12 @@
-# Last sync: 2026-09-29T05:01:50Z
+# Last sync: 2026-09-30T06:04:19Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 1186 | `user\.cursor` |
+| user | 1175 | `user\.cursor` |
 | claude-memory | 33 | `claude\memory` |
 | agents-skills | 23 | `agents\skills` |
 | claude-skills | 3 | `claude\skills` |
-| novopay-workspace | 207 | `novopay\.cursor` |
+| novopay-workspace | 208 | `novopay\.cursor` |
 | cc | 9 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |
@@ -20,6 +20,7 @@
 | bob-onboarding-cursor | 3 | `bob-templates\onboarding-cursor` |
 | cc-skills-into-novopay | 2 | `novopay\.cursor\skills (merged from CC)` |
 | novopay-AGENTS | 1 | `novopay\AGENTS.md` |
+| novopay-CLAUDE | 1 | `novopay\CLAUDE.md` |
 | novopay-README | 1 | `novopay\README.md` |
 | novopay-package | 1 | `novopay\package.json` |
 | novopay-Makefile | 1 | `novopay\Makefile` |
