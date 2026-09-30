@@ -1,0 +1,57 @@
+---
+description: Fixed format for "plan for today" / "what's next" / "what for today" answers on active ticket work
+alwaysApply: true
+---
+
+# Daily plan format (Ashutosh)
+
+**Trigger:** "let's plan for today", "what's next", "what for today", "plan the day", or similar on an active ticket.
+
+**Before answering:** read `docs/tdd-runs/<id>/TICKET_RESUME.md` (header, questions, estimate, next steps, session log) and check live state that can change overnight (git branch / uncommitted changes, answered questions, PR status). Never answer from memory alone.
+
+**Always use exactly these 9 sections, in this order.** Never drop a section - write `None` when empty so the shape stays identical day to day.
+
+```
+## Plan for today - <TICKET> - <Day DD Mon YYYY>
+
+**Status:** <stage> | Day <n> of Phase <x> | <on track / at risk / blocked> vs <milestone date>
+
+### 1. Current blocker
+| Blocker | Blocks | Owner | What unblocks it |
+
+### 2. What you need to know
+- Max 5 bullets. Only facts that change today's decisions. New since last plan first.
+
+### 3. What you need to review
+| # | Item | Where | Your time |
+
+### 4. What you need to get clarified
+| # | Question | Ask whom | Blocks | Status |
+
+### 5. What you need to implement
+| Ticket | What | Hours | Status |
+
+### 6. What you need to fix
+| Item | Why | Hours |
+
+### 7. Work planned today
+| Item | Who | Hours |
+**Total today: Xh** (capacity Yh remaining in the day)
+
+### 8. What is left after today
+- Phase <x>: <remaining>h of <total>h; next milestone + date; on track or not and why.
+- Later phases: <remaining>h (one line).
+
+### 9. Anything else
+- Heads-up, risks, admin chores, hygiene (new chat, memory budget). `None` if nothing.
+
+**Bottom line:** <one line - the single most important action today>
+```
+
+## Rules
+
+- Blocker comes first because it decides everything below it.
+- Every row has an owner (You / AI / named person) and hours; hours reconcile with the estimate in `TICKET_RESUME.md` Section 10.
+- "Implement" = new work; "Fix" = review comments, CI/CodeAnt failures, bugs, broken tests. Keep them separate.
+- Tables max 5 columns. ASCII hyphens only. Plain English; ticket ids as Jira links in the Ticket column.
+- After answering, update `TICKET_RESUME.md` (header `Next action` + one session-log line).

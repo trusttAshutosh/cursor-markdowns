@@ -16,6 +16,8 @@
   (see `ref-workspace-tools` memory).
 - **Ticket handoff (Cursor <-> Claude):** when a ticket id is named, read `docs/tdd-runs/<id>/TICKET_RESUME.md` first if it
   exists, and update it (header + session log) at every milestone.
+- **Daily plan format:** on "plan for today" / "what's next" / "what for today", answer in the fixed 9-section format
+  defined in `.cursor/rules/daily-plan-format.mdc` (read it; never drop a section).
 
 ## Working style (think first)
 
