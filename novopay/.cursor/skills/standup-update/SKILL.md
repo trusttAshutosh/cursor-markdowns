@@ -41,6 +41,14 @@ Rules:
 - If the user asks "what new to tell", add a short **New to tell** section: corrected diagnoses, dates owed to stakeholders, asks from others.
 - Longer version only if asked: add per-item detail and chat links (`[title](<uuid>)` for Cursor; name the Claude session title).
 
+## Post to Jira (weekday standup work log)
+
+- Home ticket: [HDP-11991](https://novopay.atlassian.net/browse/HDP-11991) "DAILY UPDATES - Ashutosh Kumar" (team pattern: one DAILY UPDATES story per person).
+- After sharing the short update, ask whether to post it. Post only after the user approves that day's text (approval is per day, never standing).
+- Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `**Standup - <Ddd DD Mon YYYY>**` heading + the approved update in Cloud Markdown, ticket ids as clickable Jira links, PRs as GitHub links.
+- One work log per weekday: before posting, list that day's work logs on HDP-11991 and edit the existing one instead of adding a duplicate.
+- Reminder: Windows task `Standup-Reminder` pops at 09:59 on weekdays (`tools/standup_reminder.vbs`, `tools/standup_reminder.task.xml`, UTF-16).
+
 ## Limits
 
 - Only this machine's sessions and commits are included (the Claude account is shared; other users' work never lands here).

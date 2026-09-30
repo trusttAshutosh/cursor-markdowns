@@ -1,8 +1,8 @@
-# Last sync: 2026-09-30T21:21:07Z
+# Last sync: 2026-09-30T21:43:31Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 1176 | `user\.cursor` |
+| user | 1177 | `user\.cursor` |
 | claude-memory | 33 | `claude\memory` |
 | agents-skills | 23 | `agents\skills` |
 | claude-skills | 3 | `claude\skills` |
