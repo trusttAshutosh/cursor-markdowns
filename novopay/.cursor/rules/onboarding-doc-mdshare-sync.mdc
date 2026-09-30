@@ -1,18 +1,18 @@
 ---
-description: Keep the CC / LOC / AOC / ESO product onboarding doc in sync with mdshare. Use whenever docs/PRODUCT_ONBOARDING_CC_LOC_AOC.md is created, edited, or refreshed.
-globs: docs/PRODUCT_ONBOARDING_CC_LOC_AOC.md
+description: Keep the CC / LOC / AOC / ESO product onboarding doc in sync with mdshare. Use whenever docs/guides/product-onboarding.md in the CC repo is created, edited, or refreshed.
+globs: novopay-platform-creditcard-management/docs/guides/product-onboarding.md, **/docs/guides/product-onboarding.md
 alwaysApply: false
 ---
 
 # Onboarding doc - mdshare sync
 
-Local source of truth: `Desktop/novopay/docs/PRODUCT_ONBOARDING_CC_LOC_AOC.md`
+Master copy: `novopay-platform-creditcard-management/docs/guides/product-onboarding.md` (GitHub `trusttai/trustt-platform-creditcard-management`). Edit on a `ddp-fea-*` branch off `origin/ddp-prod`, PR to `ddp-prod`.
 
-mdshare copy: id `6abd71df5c3812e8ca51ab39` - [link](https://mdshare.trustt.com/md/s/7NmufeEoyqRx) (personal workspace)
+mdshare copy (published view): id `6abd71df5c3812e8ca51ab39` - [link](https://mdshare.trustt.com/md/s/7NmufeEoyqRx) (personal workspace)
 
 ## Do
 
-- After **any** edit to the local file, in the same turn, call mdshare `update_doc` with id `6abd71df5c3812e8ca51ab39` and the **full** new file content (not a diff).
+- After **any** edit to the repo file, in the same turn, call mdshare `update_doc` with id `6abd71df5c3812e8ca51ab39` and the **full** new file content (not a diff).
 - Before updating, `read_doc` the id. If `hasUnpublishedChanges` is true or `update_doc` returns `DRAFT_DIRTY`, stop and tell the user - do not overwrite someone else's draft.
 - Keep the title unless the user asks to rename it. Keep tags `onboarding`, `cc`, `loc`, `aoc`, `eso`, `product`, `qa`.
 - Refresh the **Source** line (prod branch + date) when content is re-derived from prod code.
@@ -21,5 +21,6 @@ mdshare copy: id `6abd71df5c3812e8ca51ab39` - [link](https://mdshare.trustt.com/
 ## Do not
 
 - Do not create a new mdshare doc for an edit (no duplicates).
-- Do not edit the mdshare copy without also editing the local file.
+- Do not edit the mdshare copy without also editing the repo file.
+- Do not keep or recreate a Desktop-level copy (`Desktop/novopay/docs/PRODUCT_ONBOARDING_CC_LOC_AOC.md` was retired).
 - Style stays: visual first (mermaid + tables), minimal text, no code references, ASCII hyphens only.
