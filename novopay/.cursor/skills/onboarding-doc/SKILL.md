@@ -133,6 +133,7 @@ Hunt for these stalls first:
 
 ## Publish
 
+- Do not mention this skill inside the guide. The guide is for people. Point agents at this skill from the repo agent index only.
 - Do not commit, push, or open a PR unless the user asks.
 - Do not create a second mdshare doc.
 - If the file is `docs/guides/product-onboarding.md` in credit-card-management, also follow `.cursor/rules/onboarding-doc-mdshare-sync.mdc` (full-file mdshare draft, and the open PR preview). For any other topic, publish only when the user asks.
