@@ -1,0 +1,55 @@
+==== 01-10-2026  1.57.51.87 ==== 
+$ C:\Python314\python.exe C:\Users\ashutosh.kumar\Desktop\novopay\tools\pr_cadence_top10.py
+as_of=2026-09-30 mode=career active>=2026-09-20 members=103 recent=55 active_members=51 scored=49
+excluded_non_members=Shahabaztrustt,sathishnalagatla-trustt,shikharsrivastava-trustt,sivakumar-mn
+# Person Total Merged Closed Open Span ~days/PR
+1 Ashutosh 749 688 58 3 7.2mo 0.293
+2 AiTdpBugFixer 516 275 112 129 6.2mo 0.365
+3 chandu-pixel 1950 1771 178 1 24.6mo 0.385
+4 Srijan-Das-Trustt 1581 1531 49 1 21.6mo 0.416
+5 sristigc 1430 1354 74 2 19.5mo 0.416
+6 Abhishek Puranik 1064 958 103 3 14.7mo 0.420
+7 Dineshkumarab-trustt 1024 986 38 0 15.9mo 0.472
+8 kavyaL12 1407 1334 70 3 23.9mo 0.518
+9 Sooraj KR 3003 2879 113 11 53.7mo 0.545
+10 r-manohar 1002 979 23 0 18.1mo 0.551
+artifact=C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\pr-cadence-top10.json
+$ C:\Python314\python.exe C:\Users\ashutosh.kumar\Desktop\novopay\tools\pr_cadence_timeseries.py
+[1/10] Ashutosh (trusttAshutosh) total=749
+  trusttAshutosh: cache hit (full_list)
+[2/10] AiTdpBugFixer (AiTdpBugFixer) total=516
+  AiTdpBugFixer: cache hit (full_list)
+[3/10] chandu-pixel (chandu-pixel) total=1950
+  chandu-pixel: cache hit (monthly_counts)
+[4/10] Srijan-Das-Trustt (Srijan-Das-Trustt) total=1581
+  Srijan-Das-Trustt: cache hit (monthly_counts)
+[5/10] sristigc (sristigc) total=1430
+  sristigc: cache hit (monthly_counts)
+[6/10] Abhishek Puranik (trustt-abhishek) total=1064
+  trustt-abhishek: cache hit (monthly_counts)
+[7/10] Dineshkumarab-trustt (Dineshkumarab-trustt) total=1024
+  Dineshkumarab-trustt: cache hit (monthly_counts)
+[8/10] kavyaL12 (kavyaL12) total=1407
+  kavyaL12: cache hit (monthly_counts)
+[9/10] Sooraj KR (kr-sooraj) total=3003
+  kr-sooraj: cache hit (monthly_counts)
+[10/10] r-manohar (r-manohar) total=1002
+  r-manohar: cache hit (monthly_counts)
+as_of=2026-09-30 people=10 chart_points=8
+# Rank Person Latest~days/PR Mode Points
+1 Ashutosh 0.293 full_list 8
+2 AiTdpBugFixer 0.365 full_list 7
+3 chandu-pixel 0.385 monthly_counts 25
+4 Srijan-Das-Trustt 0.416 monthly_counts 22
+5 sristigc 0.416 monthly_counts 20
+6 Abhishek Puranik 0.421 monthly_counts 15
+7 Dineshkumarab-trustt 0.478 monthly_counts 16
+8 kavyaL12 0.518 monthly_counts 24
+9 Sooraj KR 0.545 monthly_counts 54
+10 r-manohar 0.551 monthly_counts 19
+artifact=C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\pr-cadence-timeseries.json
+chart=C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\pr-cadence-timeseries-chart.json
+canvas=C:\Users\ashutosh.kumar\.cursor\projects\c-Users-ashutosh-kumar-Desktop-novopay\canvases\pr-cadence-timeseries.canvas.tsx
+table_artifact=C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\pr-cadence-top10.json
+chart_artifact=C:\Users\ashutosh.kumar\Desktop\novopay\.cursor\evidence\pr-cadence-timeseries-chart.json
+exit=0 

@@ -13,10 +13,12 @@ mdshare copy (published view): id `6abd71df5c3812e8ca51ab39` - [link](https://md
 ## Do
 
 - After **any** edit to the repo file, in the same turn, call mdshare `update_doc` with id `6abd71df5c3812e8ca51ab39` and the **full** new file content (not a diff).
-- Before updating, `read_doc` the id. If `hasUnpublishedChanges` is true or `update_doc` returns `DRAFT_DIRTY`, stop and tell the user - do not overwrite someone else's draft.
+- An unpublished draft left by this same sync is fine to overwrite. If `update_doc` returns `DRAFT_DIRTY` (another user's edits), stop and tell the user - do not overwrite someone else's draft.
 - Keep the title unless the user asks to rename it. Keep tags `onboarding`, `cc`, `loc`, `aoc`, `eso`, `product`, `qa`.
 - Refresh the **Source** line (prod branch + date) when content is re-derived from prod code.
 - Tell the user: `update_doc` saves a **draft**; the share link shows it only after they press **Publish** in mdshare.
+- While a PR changing the file is open, refresh its description: keep the summary block on top, then the **Rendered preview of the guide** section with the full file content (`gh pr edit <n> --body-file`), so reviewers read it rendered.
+- Keep the layout: **Start here** (one-minute summary + per-role reading path), **Part A** (understand the product), **Part B** (reference). When sections move or are added, update the Contents and the reading-path section numbers and any `see N` cross references.
 
 ## Do not
 

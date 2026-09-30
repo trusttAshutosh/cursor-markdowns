@@ -1,12 +1,12 @@
-# Last sync: 2026-09-30T06:08:46Z
+# Last sync: 2026-09-30T20:47:42Z
 
 | Source | Files | Backup path |
 |--------|-------|-------------|
-| user | 1175 | `user\.cursor` |
+| user | 1176 | `user\.cursor` |
 | claude-memory | 33 | `claude\memory` |
 | agents-skills | 23 | `agents\skills` |
 | claude-skills | 3 | `claude\skills` |
-| novopay-workspace | 209 | `novopay\.cursor` |
+| novopay-workspace | 214 | `novopay\.cursor` |
 | cc | 9 | `cc\.cursor` |
 | bob | 2 | `bob\.cursor` |
 | bob-skills | 5 | `bob\skills` |

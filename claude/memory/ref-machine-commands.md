@@ -60,6 +60,9 @@ lib checkout is on another branch, don't switch it: `git worktree add --detach C
 origin/ddp-fea-bkyc`, worktree the consumer to `C:/tmp/np/<repo>`, `git diff | git apply` there, build, then
 `git worktree remove --force` both. Full task-allocation `test` takes about 3.5 min (590 tests on 2026-09-15).
 Stale `build/test-results` XML from an earlier run survives a failed build — check test counts before trusting it.
+Same applies to creditcard-management (`includeBuild ../novopay-platform-lib`): a lib on an old feature branch
+fails `compileJava` on missing lib packages (e.g. `dapservice.support`); pairing both worktrees at
+`origin/ddp-prod` under one parent dir built and tested cleanly (verified 2026-09-30, HDP-11893).
 
 **Gradle-free fallback (verified 2026-09-03, task-allocation):** the repo's JDK 25 toolchain lives at
 `~/.gradle/jdks/eclipse_adoptium-25-amd64-windows.2/bin` (`~/.jdks` only has 8/21 and cannot read the

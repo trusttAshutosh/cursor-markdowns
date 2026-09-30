@@ -1,0 +1,492 @@
+===== 1d887678-c8a9-429b-bb38-92112a68c09c
+--- user 
+ <timestamp>Tuesday, Sep 29, 2026, 11:27 AM (UTC+5:30)</timestamp>
+<user_query>
+ever received callback from bank in kyc engine for ddp tenant? check UAt server
+</user_query>
+--- assistant 
+ I'll check the UAT app logs and DB for any KYC Engine bank callbacks under the ddp tenant. First I'm finding the callback API name from the gateway config.
+
+I need to check whether the KYC engine has received a bank callback for the ddp tenant on UAT, so I'll look into the UAT logs via SSH and possibly the database. First, let me check the callback endpoint by examining the gateway migration file for the kyc_engine_callback_forward_config to understand the API name involved.
+
+
+[TOOL {"path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-api-gateway\\src\\main\\resources\\sql\\migrations\\dsa\\V5000010__kyc_engine_callback_forward_config.sql"}]
+[TOOL {"pattern": "(?i)kyc.?(engine)?.?callback|kycCallback|asyncKycCallback", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-creditcard-management\\src\\main", "output_mode": "files_with_matches", "head_limit": 30}]
+--- assistant 
+ The bank callback is `KYCStatusNotification` (plus `kycDocUpload`), routed by the gateway to banking-origination. Now checking UAT logs and gateway config for the ddp tenant.
+
+I'm tracing the KYCStatusNotification callback path through the gateway to banking-origination for dsa, and checking whether the ddp tenant is involved by looking at gateway request_forward in the ddp schema and grepping logs in /apps/applogs/ddp and common. I'll SSH in first to confirm.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"hostname; ls /apps/applogs; ls /apps/applogs/ddp 2>/dev/null | head -50\"", "description": "List UAT applogs folders", "block_until_ms": 60000}]
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-db-readonly.py\" --env uat --sql \"SELECT 'ddp' t, request_name, service_name, forward_url FROM ddp_gateway.request_forward WHERE request_name IN ('KYCStatusNotification','kycDocUpload') UNION ALL SELECT 'dsa', request_name, service_name, for]
+--- assistant 
+ UAT ddp gateway has both callbacks routed to banking-origination (`api/v2/ddp/KYCStatusNotification`). Now searching live and archived ddp logs for any hits.
+
+I notice the ddp gateway has a forward config but dsa doesn't on UAT, so I want to grep the logs now, checking the archived structure and counting occurrences of KYCStatusNotification across live and archived logs for api-gateway, banking-origination ddp, and common.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp; ls archived | head; ls archived | wc -l; ls -la archived | head -5; for f in api-gateway-ddp.log banking-origination-ddp.log credit-card-management-ddp.log; do echo \\\"== \\$f\\\"; grep -c -E ]
+--- assistant 
+ [TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; ls archived-logs-2026-09 | head; find . -type f \\( -name 'api-gateway*' -o -name 'banking-origination*' \\) | wc -l; find . -type f \\( -name 'api-gateway*' -o -name 'banking-originat]
+--- assistant 
+ [TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; ls archived-logs-2026-09/api-gateway | head -3; ls archived-logs-2026-09/api-gateway | wc -l; for d in archived-logs-*; do for s in api-gateway banking-origination; do n=\\$(find \\$d/]
+--- assistant 
+ [TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; ls archived-logs-2026-09/api-gateway | head -3; ls archived-logs-2026-09/api-gateway | wc -l; du -sh archived-logs-*/api-gateway archived-logs-*/banking-origination 2>/dev/null\"", "de]
+--- assistant 
+ Archives go back to April 2026 (~1.2 GB of gateway logs compressed). I'm running the zgrep as a background job on the server so the SSH session doesn't time out.
+
+Since gateway logs are smaller, I could grep them month by month using zgrep -l. To avoid SSH timeouts on long-running commands, I should run it with nohup on the server, writing output to a temp file in the background.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; nohup sh -c 'for f in archived-logs-*/api-gateway/*.gz archived-logs-*/banking-origination/*.gz; do c=\\$(zgrep -c -E \\\"KYCStatusNotification|kycDocUpload\\\" \\\"\\$f\\\" 2>/dev/nul]
+--- assistant 
+ While that runs, I'm checking whether the callback leaves a DB trace in ddp schemas.
+
+I should check the DB to see where banking-origination stores KYC status notifications, and also look at transaction_audit_attributes for KYC on DDP. Let me search for KYCStatusNotification persistence in the banking-origination codebase, though that repo might not be in this workspace.
+
+
+[TOOL {"pattern": "KYCStatusNotification", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay", "output_mode": "files_with_matches", "head_limit": 30}]
+--- assistant 
+ [TOOL {"pattern": "KYCStatusNotification|kycDocUpload|save|Repository|Dao", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java\\in\\novopay\\bankingorigination\\v2\\controller\\KycInitiateController.java", "-n": true, "-A": 6}]
+--- assistant 
+ For ddp, banking-origination pushes the callback payload to Elasticsearch, not MySQL, so logs are the main evidence. Checking scan progress.
+
+For the ddp tenant, the callback pushes to Elastic rather than the database, so logs are the source of truth here—I need to wait for the scan to confirm this. I'm also confirming that for ddp, the KYC engine reference is BO's ckyc for savings accounts, which aligns with what the user meant. Let me check the scan progress.
+
+
+[TOOL {"command": "sleep 45; python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cat /tmp/kyc_cb_scan_ddp.txt; ps -ef | grep -c '[z]grep'\"", "description": "Check background scan output", "block_until_ms": 120000}]
+--- assistant 
+ [TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cat /tmp/kyc_cb_scan_ddp.txt; ps -ef | grep -c '[z]grep'\"", "description": "Check background scan output", "block_until_ms": 60000}]
+--- assistant 
+ There are hits in April and June. Pulling sample lines to see whether these are real bank callbacks and what response they got.
+
+There are hits, so I want to pull sample matching lines from the 2026-06-24 and 2026-04-08 files while the scan continues.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; for f in archived-logs-2026-04/api-gateway/2026-04-08-api-gateway-ddp-1.log.gz archived-logs-2026-06/api-gateway/2026-06-24-api-gateway-ddp-1.log.gz archived-logs-2026-06/api-gateway/2]
+--- assistant 
+ These are real inbound calls forwarded by the gateway. Checking one full request/response block for the payload shape and result, plus waiting on the scan to finish.
+
+I need to check whether this originates from the bank as an inbound request and confirm its response status—let me pull more context around a KYCStatusNotification call and look at the gateway's logging of the inbound request with source IP, expanding the surrounding lines for the first matching timestamp.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; zgrep -m1 -A25 'KYCStatusNotification.*API Request Details' archived-logs-2026-06/api-gateway/2026-06-24-api-gateway-ddp-1.log.gz | cut -c1-300 | sed -E 's/(\\\"(mobile|mobileNo|pan|pa]
+--- assistant 
+ I notice the postman-token header indicates these calls came from Postman, not the bank itself, and the x-forwarded-for showing an internal IP confirms these are manual test calls rather than genuine traffic. My redaction attempt didn't work since the keys vary, so I need to be careful not to expose any PII in my answer while I go through each hit and pull out the details for the KYCStatusNotification and kycDocUpload requests.
+
+
+I noticed this callback has a `postman-token` header and an internal `x-forwarded-for` IP, suggesting it's a manual Postman replay rather than a real bank request. I'll classify every hit by sender once the scan finishes.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cat /tmp/kyc_cb_scan_ddp.txt; ps -ef | grep '[z]grep' | awk '{print \\$NF}' | head -3\"", "description": "Check whether scan finished", "block_until_ms": 60000}]
+--- assistant 
+ While that's running, I'm building an awk-based classifier for the hit files: scanning each gzipped log for KYCStatusNotification or kycDocUpload API request lines, extracting the timestamp and API, then pulling the postman-token, x-forwarded-for, and user-agent from the following lines up to the request body, and printing a summary row for each match.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; for f in archived-logs-2026-04/api-gateway/2026-04-08-api-gateway-ddp-1.log.gz archived-logs-2026-04/api-gateway/2026-04-22-api-gateway-ddp-1.log.gz archived-logs-2026-06/api-gateway/2]
+--- assistant 
+ All 38 hits found so far came from Postman. Waiting for the scan to cover July-September and the banking-origination archives.
+
+It's all in Postman, so I'll wait for the July-September gateway and BO scan to finish, then check the results again.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"tail -5 /tmp/kyc_cb_scan_ddp.txt; ps -ef | grep '[z]grep' | grep -o 'archived-logs[^ ]*' | head -2\"", "description": "Check scan progress", "block_until_ms": 60000}]
+--- assistant 
+ There's recent activity on Sep 24, 25 and 28. Classifying those by sender too.
+
+I notice hits on September 24, 25, and 28 — those are recent, so I should classify those.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env uat --cmd \"cd /apps/applogs/ddp/archived; for f in archived-logs-2026-09/api-gateway/2026-09-24-api-gateway-ddp-1.log.gz archived-logs-2026-09/api-gateway/2026-09-25-api-gateway-ddp-1.log.gz archived-logs-2026-09/api-gateway/2]
+--- assistant 
+ No. On UAT the ddp tenant has never received an automated KYC callback from the bank's system. Every callback that reached the gateway came from Postman, so each one was someone replaying the bank payload by hand.
+
+**What I searched:** the UAT app server's ddp api-gateway logs, live and archived. The archives go back to April 2026. I looked for both bank callbacks, `KYCStatusNotification` (KYC status) and `kycDocUpload` (KYC documents).
+
+**What I found:** 108 callback requests in total, each logged with a `postman-token` header. None had any other sender pattern.
+
+| Date | Status callbacks | Doc callbacks | Source IP |
+| --- | --- | --- | --- |
+| 2026-04-08 | 2 | 2 | 172.16.5.10 (internal) |
+| 2026-04-22 | 3 | 3 | 14.97.160.30 (public) |
+| 2026-06-02 | 0 | 1 | 172.16.5.10 |
+| 2026-06-24 | 12 | 12 | 172.16.5.10 |
+| 2026-06-30 | 1 | 2 | 172.16.5.10 |
+| 2026-09-24 | 2 | 1 | 172.16.5.10 |
+| 2026-09-25 | 25 | 27 | 172.16.5.10 |
+| 2026-09-28 | 9 | 9 | 172.16.5.10 |
+
+There were no hits in May, July, August, or today's live log so far. The 22 April calls came from a public IP, possibly someone on the bank side or someone off VPN, but they still carried the Postman header.
+
+**Supporting points:**
+- **Routing is ready:** in UAT `ddp_gateway.request_forward`, both callbacks are configured and forward to banking-origination at `api/v2/ddp/...`. If the bank's system had called, the gateway would have logged it.
+- **Only the gateway logs show the sender:** for ddp, banking-origination pushes the callback payload to Elasticsearch rather than MySQL. Its logs show the call but not who sent it.
+- **Scan still running:** the check of the banking-origination archives is still going on the server. It can't change the answer, because every callback reaches banking-origination through the gateway.
+
+The replayed payloads contain real customer details such as name, mobile and date of birth, so I haven't pasted them here.
+
+**Bottom line:** on UAT, only manual Postman replays have reached the ddp callbacks. If the bank says it has sent callbacks, ask for the target URL and timestamps. Those calls didn't reach the ddp gateway on this server.
+
+I'm also noting September's files are all Postman, and the scan on BO is still running — though BO logs wouldn't reveal sender headers anyway since the gateway is the only entry point. It's unlikely the bank hits banking-origination directly bypassing the gateway, but the 96 hits on 04-08 line up, so I'll flag that as worth mentioning even though the scan on the 2.2G BO April logs will take a while to finish.
+
+Since the glob sorts archived logs in order, the gateway scan across May, June, July, and August turned up nothing, meaning the gateway side is fully covered — that's reassuring. The IP 14.97.160.30 is a public Tata Communications address, likely a bank or Novopay person off-VPN using Postman rather than an automated system, worth noting in the answer. I should also mention the temp scan file left at /tmp/kyc_cb_scan_ddp.txt is harmless, and keep the final answer concise while avoiding any PII.
+
+
+--- user 
+ <timestamp>Tuesday, Sep 29, 2026, 11:31 AM (UTC+5:30)</timestamp>
+<user_query>
+how can we check the same if bank send them or not in prod or bank uat?
+</user_query>
+--- assistant 
+ I'll check which environments I can reach directly, so I know which checks I can run myself and which need grep commands for ops.
+
+I'm trying to figure out which environment counts as "bank UAT" — the server we checked, ddp-uat-app, is likely it, though it's a bit ambiguous. Since there's no prod access, I should provide grep commands instead, and I want to check the env file keys to confirm which environments (QA, UAT, PREPROD) are actually configured.
+
+
+[TOOL {"command": "grep -oE '^[A-Z]+_(DB|SSH)_HOST' \"$USERPROFILE/.cursor/novopay-remote-db.env\" | sort -u", "description": "List configured remote env names only"}]
+--- assistant 
+ I can reach QA, UAT and preprod, but not prod. Running the same gateway check on preprod now in case that is the environment the bank tests against.
+
+I'm not certain whether "bank UAT" corresponds to preprod, but since I already have access it's cheap to check — I'll go ahead and inspect the live and archived structure on preprod too.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env preprod --cmd \"hostname; ls /apps/applogs/ddp 2>/dev/null | head -30; ls /apps/applogs/ddp/archived 2>/dev/null; grep -c -E 'KYCStatusNotification|kycDocUpload' /apps/applogs/ddp/api-gateway-ddp.log 2>/dev/null\"", "descriptio]
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-db-readonly.py\" --env preprod --sql \"SELECT request_name, service_name, forward_url FROM ddp_gateway.request_forward WHERE request_name IN ('KYCStatusNotification','kycDocUpload')\"", "description": "Check preprod gateway forward config", "]
+--- assistant 
+ Preprod SSH works but its DB is unreachable from here. Starting the same gateway archive scan on preprod in the background.
+
+Since the preprod database is unreachable but SSH still works, I'll run a background scan on the preprod gateway archives instead, sticking to the gateway alone since it'll be faster.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env preprod --cmd \"cd /apps/applogs/ddp/archived; ls archived-logs-2026-09/api-gateway 2>/dev/null | head -2; nohup sh -c 'for f in archived-logs-*/api-gateway/*; do case \\\"\\$f\\\" in *.gz) c=\\$(zgrep -c -E \\\"KYCStatusNotifi]
+--- assistant 
+ While that runs, I'm checking the ddp gateway migrations for any other callback names the bank might use, so the prod grep covers them all.
+
+While I wait, I should draft the production grep commands to run and also double-check whether other routes might use a different callback name for ddp, like a ckyc callback migration reference, so I can confirm all relevant request names are covered.
+
+
+[TOOL {"path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-api-gateway\\src\\main\\resources\\sql\\migrations\\ddp\\V4000041__ckyc_callback_update.sql"}]
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env preprod --cmd \"cat /tmp/kyc_cb_scan_ddp.txt\"", "description": "Check preprod scan progress", "block_until_ms": 60000}]
+--- assistant 
+ Preprod has callback hits going back to December 2025. Classifying them by sender with the same Postman and IP check.
+
+Preprod turned up hits, so I'll wait for the scan to complete before classifying them by sender.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env preprod --cmd \"cd /apps/applogs/ddp/archived; for f in \\$(awk '\\$2>0{print \\$1}' /tmp/kyc_cb_scan_ddp.txt | grep -v DONE); do zcat -f \\$f | awk '/\\[(KYCStatusNotification|kycDocUpload)\\].*API Request Details/{if(on)print]
+--- assistant 
+ All preprod hits through April are Postman too. Waiting for the scan to cover May-September.
+
+The scan's still running from May onwards, so I'll just poll again rather than trying to sleep the shell.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-ssh.py\" --env preprod --cmd \"tail -4 /tmp/kyc_cb_scan_ddp.txt; ps -ef | grep '[z]grep' | grep -o 'archived-logs[^ ]*' | head -1\"", "description": "Poll preprod scan", "block_until_ms": 60000}]
+--- assistant 
+ Preprod scan finished. Checking where banking-origination pushes the callback in Elasticsearch, since that's a non-log way to check prod.
+
+Preprod shows no hits from May through September, all Postman activity. For prod, I should give grep/zgrep one-liners against the likely log paths, both the live api-gateway-ddp.log and the archived monthly gzip files, and also suggest asking the bank for the exact URL, timestamps, or reference to narrow the search.
+
+If the bank's calls fail before reaching the gateway, that's a WAF/LB issue and won't appear in gateway logs at all — worth checking with the infra team on load balancer access logs separately. There's also a possibility of a non-log verification path: since ddp pushes data to Elasticsearch, checking that index directly could confirm activity, though I'd need to figure out the index name or trace through the relevant push function first.
+
+
+[TOOL {"pattern": "ckycElasticPush|index\\(|INDEX|indexName", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java", "-n": true, "glob": "*Kyc*Service*.java", "-A": 3}]
+--- assistant 
+ [TOOL {"path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java\\in\\novopay\\bankingorigination\\v2\\service\\KycService.java", "offset": 811, "limit": 40}]
+--- assistant 
+ The callback does update a DB table (`KycDetailEntity`), which gives a SQL check. Getting the table and column names.
+
+The callback likely updates the kyc_detail entity by looking it up via bank callback reference and setting the status plus updated timestamp, so I need to check the actual entity for exact column names in ddp_banking_origination.kyc_detail to confirm which rows get SUCCESS or FAILED after the callback.
+
+
+[TOOL {"pattern": "@Table|@Column\\(name = \"(bank_callback_ref|kyc_status|status|updated_on|created_on|reference_number|response_description)\"", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java", "glob": "KycDetailEntity.java", "-n": true, "-A":]
+--- assistant 
+ [TOOL {"pattern": "private .* (bankCallbackRef|kycStatus|status|updatedOn|createdOn|responseDescription);|@Column", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java\\in\\novopay\\bankingorigination\\v2\\entity\\KycDetailEntity.java", "-n": true}]
+--- assistant 
+ Validating the SQL against the UAT schema before I hand it over.
+
+I'm noting the relevant columns including status, timestamps, kyc_status, and the bank callback reference, then planning to run a DESCRIBE plus a count query on the UAT database to validate the schema and test the SQL together.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-db-readonly.py\" --env uat --sql \"SELECT DATE(updated_on) d, status, kyc_status, COUNT(*) c FROM ddp_banking_origination.kyc_detail WHERE s3_identifier IS NOT NULL GROUP BY 1,2,3 ORDER BY 1 DESC LIMIT 20\"", "description": "Test kyc_detail c]
+--- assistant 
+ Wait, the UAT database actually shows callbacks processed on Feb 2026 dates, before the gateway archives even begin — so there were callbacks in Feb 2026 whose sender can't be traced since those logs rotated off. That means my "never" claim only holds from April onward, which is a meaningful correction I need to make. Let me check the earliest dates and the full span involved.
+
+
+Correcting myself: UAT DB shows callbacks were processed in February 2026, which predates the gateway log archive (usable from April), so "never" only applies from April onward. I'll check how far back the archive actually extends.
+
+
+[TOOL {"command": "python \"$USERPROFILE/.cursor/novopay-remote-db-readonly.py\" --env uat --sql \"SELECT DATE_FORMAT(updated_on,'%Y-%m') m, COUNT(*) callbacks, MIN(updated_on) first_at, MAX(updated_on) last_at FROM ddp_banking_origination.kyc_detail WHERE s3_identifier IS NOT NULL GROUP BY 1 ORDER BY 1\"]
+--- assistant 
+ The Sep-Oct 2025 spike of 253 lines up with the bank UAT testing period, but since logs are gone I can't identify actual senders. I should double check whether s3_identifier gets set anywhere besides the callback's pushDataToS3, so let me grep for setS3Identifier to verify.
+
+
+[TOOL {"pattern": "setS3Identifier|s3_Identifier|s3_identifier", "path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main", "-n": true}]
+--- assistant 
+ [TOOL {"path": "c:\\Users\\ashutosh.kumar\\Desktop\\novopay\\novopay-platform-banking-origination\\src\\main\\java\\in\\novopay\\bankingorigination\\v2\\service\\KycService.java", "offset": 900, "limit": 25}]
+--- assistant 
+ You can check prod the same way I checked UAT: search the ddp api-gateway logs for the two callback names, then look at the request headers. A call with a `postman-token` header was sent by hand from Postman. A bank system call won't have that header and will come from the bank's IP. The DB can confirm that a callback arrived, but it can't tell you who sent it.
+
+**Correction to my UAT answer.** On UAT, the gateway logs only go back to April 2026. The UAT database shows 292 KYC document callbacks processed in `ddp_banking_origination.kyc_detail` between September 2025 and March 2026, the busiest months being September and October 2025. The logs for that period have rotated off, so I can't tell whether those were the bank or Postman. "Never" only holds from April 2026 onward.
+
+**Preprod, which I also checked.** The ddp gateway archives go back to December 2025. They hold 172 callbacks, on 18 December 2025, 16 March 2026 and 1-22 April 2026. All of them came from Postman, with none from May to September. I couldn't cross-check the preprod DB because it's unreachable from this machine.
+
+I have no prod access, so these are for ops to run on the prod app server. They assume prod uses the same log layout as UAT and preprod, which you should confirm.
+
+**1. Count callbacks in the live gateway logs.** This covers the ddp folder and `common`, in case the bank doesn't send the tenant header:
+
+```bash
+grep -c -E 'KYCStatusNotification|kycDocUpload' /apps/applogs/ddp/api-gateway-ddp.log /apps/applogs/common/api-gateway*.log
+```
+
+**2. Count callbacks in the archived gateway logs, per day:**
+
+```bash
+zgrep -c -E 'KYCStatusNotification|kycDocUpload' /apps/applogs/ddp/archived/archived-logs-*/api-gateway/*.log.gz | grep -v ':0$'
+```
+
+**3. Check who sent each one.** Replace the month with any month that had hits:
+
+```bash
+zgrep -h -A12 -E '\[(KYCStatusNotification|kycDocUpload)\].*API Request Details' /apps/applogs/ddp/archived/archived-logs-2026-09/api-gateway/*.log.gz | grep -E 'API Request Details|x-forwarded-for|postman-token'
+```
+
+Read the result like this:
+- **A timestamp with a `postman-token` line under it** is a manual Postman replay.
+- **A timestamp with no `postman-token` and a bank IP** in `x-forwarded-for` is the bank's system.
+- The internal IP `172.16.5.10` and the public IP `14.97.160.30` have only ever shown up with Postman.
+
+**4. Confirm in the DB (read-only).** Only the document callback (`kycDocUpload`) sets `s3_identifier`, so this counts document callbacks received per month:
+
+```sql
+SELECT DATE_FORMAT(`updated_on`,'%Y-%m') AS `m`, COUNT(*) AS `doc_callbacks`, MIN(`updated_on`) AS `first_at`, MAX(`updated_on`) AS `last_at` FROM `ddp_banking_origination`.`kyc_detail` WHERE `s3_identifier` IS NOT NULL GROUP BY 1 ORDER BY 1;
+```
+
+This worked on UAT.
+
+**If the bank says it sent callbacks but nothing shows up:** the calls were probably blocked before they reached the gateway, at the firewall or load balancer. Ask the bank for:
+- the exact URL they called
+- the timestamps
+- the HTTP status they got back
+- the `externalRefNo` or `kycJourneyId` for a few calls
+
+With those, infra can check the firewall and load balancer access logs.
+
+**Bottom line:** the gateway logs are the only way to tell Postman from the bank. The DB query only shows whether a callback arrived. Ask the bank or ops which server "bank UAT" points to. On the logs still available, UAT and preprod show only Postman callbacks.
+
+Since s3_identifier only gets set through the kycDocUpload callback, it's a reliable marker that the doc callback was actually received — but the DB alone can't distinguish a Postman-triggered call from a real bank call, only gateway logs with headers can do that. Now I need to figure out how to frame the answer about checking prod versus bank-UAT — I should clarify which of our servers actually corresponds to "bank UAT" since the UAT server I checked (ddp-uat-app) and preprod are likely what the bank's UAT points to, but I don't have access to
+--- user 
+ <timestamp>Tuesday, Sep 29, 2026, 12:32 PM (UTC+5:30)</timestamp>
+<user_query>
+"C:\Users\ashutosh.kumar\Downloads\image (73).png"
+"C:\Users\ashutosh.kumar\Downloads\image (73).png"
+</user_query>
+--- assistant 
+ [TOOL {"path": "C:\\Users\\ashutosh.kumar\\Downloads\\image (73).png"}]
+--- assistant 
+ I'm reading this as the prod result of the DB query. If so, prod has received KYC document callbacks for ddp: 262 of them between September 2025 and today. That confirms callbacks reached us, but not whether the bank or someone using Postman sent them. Only the gateway logs can tell.
+
+| Month | Doc callbacks | First | Last |
+| --- | --- | --- | --- |
+| 2025-09 | 1 | 30 Sep 16:22 | 30 Sep 16:22 |
+| 2025-10 | 169 | 3 Oct 14:53 | 30 Oct 11:28 |
+| 2025-11 | 27 | 3 Nov 12:20 | 12 Nov 16:15 |
+| 2026-02 | 38 | 2 Feb 12:49 | 27 Feb 13:27 |
+| 2026-03 | 24 | 2 Mar 12:54 | 16 Mar 18:17 |
+| 2026-06 | 1 | 29 Jun 15:15 | 29 Jun 15:15 |
+| 2026-09 | 2 | 29 Sep 11:37 | 29 Sep 11:58 |
+
+The best evidence is the two callbacks from today, at 11:37 and 11:58. They're still in the live gateway log, so ops can check who sent them right now:
+
+```bash
+grep -A12 -E '\[(KYCStatusNotification|kycDocUpload)\].*API Request Details' /apps/applogs/ddp/api-gateway-ddp.log | grep -E 'API Request Details|x-forwarded-for|postman-token'
+```
+
+- **A timestamp line with `postman-token` under it** means it was a manual Postman replay.
+- **No `postman-token`, and a bank IP in `x-forwarded-for`,** means the bank's system sent it.
+- **Timestamps may not line up at first.** Your DB client may show times in UTC while the logs are in IST, so if nothing lines up at 11:37 and 11:58, check about 5 hours 30 minutes earlier (around 06:07 and 06:28).
+
+For the older months, use the archive command from my last reply on the months with hits. The busiest is October 2025:
+
+```bash
+zgrep -h -A12 -E '\[(KYCStatusNotification|kycDocUpload)\].*API Request Details' /apps/applogs/ddp/archived/archived-logs-2025-10/api-gateway/*.log.gz | grep -E 'API Request Details|x-forwarded-for|postman-token'
+```
+
+October 2025 may have rotated off the server. If so, the February and March 2026 archives are the next best.
+
+**Bottom line:** prod has received document callbacks: 262 since September 2025, 2 of them today. Have ops run the live-log grep on today's two to see whether they came from the bank or from Postman. If this screenshot is from bank UAT rather than prod, tell me and I'll adjust the commands.
+
+This looks like production data, distinct from UAT, showing 262 total doc callbacks distributed across months from September 2025 through September 2026, with two occurring today around 11:37. I'd need gateway logs to confirm whether these came from the bank or from Postman testing.
+
+I should note the timestamp format might need timezone adjustment (potentially ±5:30 for IST) when correlating with grep results from the live gateway log, and I should flag that this is distinct from status callbacks. My recommendation would be to use today's two fresh callbacks as the best test case for a live grep against the production log to capture the actual headers.
+
+
+--- user 
+ <timestamp>Tuesday, Sep 29, 2026, 12:49 PM (UTC+5:30)</timestamp>
+<user_query>
+[techops@ip-10-212-167-181 ~]$ grep -A12 -E '[(KYCStatusNotification|kycDocUpload)].API Request Details' /apps/applogs/ddp/api-gateway-ddp.log | grep -E 'API Request Details|x-forwarded-for|postman-token'
+[2026-09-29 11:37:40.078] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [KYCStatusNotification] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '10.226.183.137, 10.212.167.182'
+[2026-09-29 11:37:45.850] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [kycDocUpload] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '172.21.16.84,172.21.16.173, 172.21.17.76, 10.212.167.182'
+[2026-09-29 11:58:37.685] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [KYCStatusNotification] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '10.226.183.137, 10.212.167.182'
+[2026-09-29 11:58:42.722] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [kycDocUpload] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '172.21.16.84,172.21.16.173, 172.21.17.76, 10.212.167.182'
+[2026-09-29 12:18:57.993] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [KYCStatusNotification] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '10.226.183.137, 10.212.167.182'
+[2026-09-29 12:19:04.305] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [kycDocUpload] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '172.21.16.84,172.21.16.173, 172.21.17.61, 10.212.167.182'
+[2026-09-29 12:32:20.946] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [KYCStatusNotification] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '10.226.183.137, 10.212.167.182'
+[2026-09-29 12:32:27.335] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [kycDocUpload] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '172.21.16.84,172.21.16.173, 172.21.17.61, 10.212.167.182'
+[2026-09-29 12:38:45.360] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [KYCStatusNotification] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '10.226.183.137, 10.212.167.182'
+[2026-09-29 12:38:51.269] [api-gateway] [INFO] [NovopayRestClientService] [ddp] [kycDocUpload] [] [] 'forwardRequest' API Request Details
+'x-forwarded-for': '172.21.16.84,172.21.16.173, 172.21.17.76, 10.212.167.182'
+[techops@ip-10-212-167-181 ~]$ zgrep -h -A12 -E '[(KYCStatusNotification|kycDocUpload)].API Request Details' /apps/applogs/ddp/archived/archived-logs-2025-10/api-gateway/.log.gz | grep -E 'API Request Details|x-forwarded-for|postman-token'
+gzip: /apps/applogs/ddp/archived/archived-logs-2025-10/api-gateway/.log.gz: No such file or directory
+</user_query>
+--- assistant 
+ Yes. The bank's system is sending KYC callbacks to prod for ddp, and it did so five times today. None of the requests carry a `postman-token` header, and they arrive through private network hops, not from our Postman IPs.
+
+**Today's callbacks.** They come in pairs: a status callback (`KYCStatusNotification`) followed about 6 seconds later by a document callback (`kycDocUpload`).
+
+| Time (IST) | Status callback from | Document callback from |
+| --- | --- | --- |
+| 11:37 | 10.226.183.137 | 172.21.16.84 via 172.21.16.173 and 172.21.17.76 |
+| 11:58 | 10.226.183.137 | same chain |
+| 12:18 | 10.226.183.137 | same chain, but through 172.21.17.61 |
+| 12:32 | 10.226.183.137 | same chain, through 172.21.17.61 |
+| 12:38 | 10.226.183.137 | same chain, through 172.21.17.76 |
+
+In every request, the last hop is `10.212.167.182`. That is on the same subnet as this app server (`10.212.167.181`), so it is our own front proxy or load balancer.
+
+**Why this is the bank and not a manual test:**
+- **No Postman header** on any of the 10 requests.
+- **None of the IPs we saw on UAT or preprod.** The internal `172.16.5.10` and public `14.97.160.30` addresses only ever appeared with Postman, and neither shows up here.
+- **Two separate senders.** The status callback always comes from one host. The document callback always comes through a separate chain of proxies, and the middle proxy changes between calls, which looks like bank-side load balancing. That fits two different bank systems.
+- **Steady automated rhythm.** Each pair lands about 5-6 seconds apart, repeated through the morning.
+- **Matches the DB.** Your screenshot showed 11:37 and 11:58, the two callbacks received before you ran the query.
+
+**Why the archive command failed.** The asterisk got stripped when the command was pasted, so the shell looked for a file literally named `.log.gz`. The backslashes before `[` also got stripped, although the live grep still worked. The October 2025 archive may also have rotated off. List what exists first:
+
+```bash
+ls /apps/applogs/ddp/archived/
+```
+
+Then run the command on whichever month is available, for example:
+
+```bash
+zgrep -h -A12 -E '\[(KYCStatusNotification|kycDocUpload)\].*API Request Details' /apps/applogs/ddp/archived/archived-logs-2025-10/api-gateway/*.log.gz | grep -E 'API Request Details|x-forwarded-for|postman-token'
+```
+
+**Optional extra check.** The prod gateway uses a different HTTP client from UAT, so it's worth confirming that it logs every header. That makes the missing Postman header meaningful. This prints one full header block:
+
+```bash
+grep -m1 -A14 -E '\[KYCStatusNotification\].*API Request Details' /apps/applogs/ddp/api-gateway-ddp.log | grep -v -iE 'mobile|name|dob|pan|aadhaar'
+```
+
+**Bottom line:** prod is receiving real bank callbacks for ddp, both status and document, and they arrived five times today between 11:37 and 12:38. The archive grep will show whether the bank's system also sent the older ones back to September 2025.
+
+I'm noting that this is production data from today showing five callback pairs, all missing the postman-token header, with x-forwarded-for chains passing through multiple internal proxy hops before reaching our load balancer near the app server. Since these are all private IP ranges, this points to traffic coming through the bank's internal network via a leased line or VPN rather than the public internet.
+
+The distinct origin hosts for the two APIs suggest separate bank systems making these calls — likely a KYC engine for status checks and a separate document management service for uploads, with the status-then-doc pattern about six seconds apart looking like an automated workflow. I also realize the grep pattern I pasted earlier lost some characters during formatting, so I'm double-checking whether the search still worked correctly given how the bracket expression would actually match characters in the log lines.
+
+The 10.212.167.182 host is likely our own ingress/load balancer since it shares a subnet w
+===== ce66d38d-1572-443a-a076-3487793d697d
+--- user 
+ <timestamp>Tuesday, Sep 29, 2026, 5:41 PM (UTC+5:30)</timestamp>
+<user_query>
+LOC
+check latest code on ddp-prod on remote
+"C:\Users\ashutosh.kumar\Downloads\image (73).png"
+</user_query>
+--- assistant 
+ I'll start by looking at the screenshot, then check the latest `ddp-prod` code on remote.
+
+I should take a look at the image first.
+
+
+[TOOL {"path": "C:\\Users\\ashutosh.kumar\\Downloads\\image (73).png"}]
+--- assistant 
+ The screenshot is a month-by-month count of document callbacks on `ddp_banking_origination.kyc_detail`. Let me find the context from recent chats and locate the LOC banking-origination repo.
+
+This looks like a query about KYC doc callbacks by month in the banking origination LOC context. I should check the latest code on ddp-prod remote and search previous transcripts for related discussions about doc_callbacks.
+
+
+[TOOL {"command": "cd \"C:/Users/ashutosh.kumar/.cursor/projects/c-Users-ashutosh-kumar-Desktop-novopay/agent-transcripts\" && ls -t | head -5; rg -l \"doc_callbacks\" . | head; ls -d /c/Users/ashutosh.kumar/Desktop/novopay/*origination* 2>/dev/null"}]
+--- assistant 
+ [TOOL {"command": "cd \"C:/Users/ashutosh.kumar/.cursor/projects/c-Users-ashutosh-kumar-Desktop-novopay/agent-transcripts\" && python -c \"\nimport json\np='1d887678-c8a9-429b-bb38-92112a68c09c/1d887678-c8a9-429b-bb38-92112a68c09c.jsonl'\nlines=open(p,encoding='utf-8').read().splitlines()\nprint(len(lines]
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git status -sb | head -5 && git fetch origin ddp-prod 2>&1 | tail -2 && git log origin/ddp-prod -8 --format=\"%h %ad %an %s\" --date=short"}]
+--- assistant 
+ I need to check the latest ddp-prod code on remote for this LOC-related question. I'm trying to figure out why the doc callback count shows only 2 in September when 5 callbacks apparently came in—could be a filtering issue tied to the s3_identifier, or possibly the discrepancy is specific to LOC product callbacks.
+
+
+[TOOL {"command": "cd \"C:/Users/ashutosh.kumar/.cursor/projects/c-Users-ashutosh-kumar-Desktop-novopay/agent-transcripts\" && python -c \"\nimport json\np='1d887678-c8a9-429b-bb38-92112a68c09c/1d887678-c8a9-429b-bb38-92112a68c09c.jsonl'\nlines=open(p,encoding='utf-8').read().splitlines()\nout=[]\nfor l i]
+--- assistant 
+ The earlier chat established that prod is receiving real bank KYC callbacks for ddp. I'll now fetch `origin/ddp-prod` in banking-origination and trace how those callbacks are handled for LOC.
+
+I'm trying to figure out whether the request is about checking if these kyc_detail callbacks relate to the LOC journey, and want to look at the ddp-prod code on the remote to see how they're actually handled.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git status -sb | head -3 && git fetch origin ddp-prod 2>&1 | tail -2 && git log origin/ddp-prod -8 --format=\"%h %ad %an %s\" --date=short", "required_permissions": ["all"]}]
+--- assistant 
+ [TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git grep -n -i -E \"kycDocUpload|KYCStatusNotification\" origin/ddp-prod -- . ':!*.json' | head -40", "required_permissions": ["all"]}]
+--- assistant 
+ [TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git show origin/ddp-prod:src/main/java/in/novopay/bankingorigination/v2/controller/KycInitiateController.java; git log origin/ddp-prod -5 --format=\"%h %ad %an %s\" --date=short -- src/main/java/in/novopa]
+--- assistant 
+ Both callback endpoints delegate to `KycService`. Reading the service on `origin/ddp-prod` to see what gets stored and whether LOC uses it.
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && f=$(git ls-tree -r --name-only origin/ddp-prod | grep -E \"v2/service/(impl/)?KycService(Impl)?\\.java$\"); echo \"$f\"; for x in $f; do git log origin/ddp-prod -8 --format=\"%h %ad %an %s\" --date=short ]
+--- assistant 
+ [TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git show origin/ddp-prod:src/main/java/in/novopay/bankingorigination/v2/service/KycService.java > /tmp/KycService.java; wc -l /tmp/KycService.java; grep -n -E \"public .*\\(|ckycElasticPush|ckycDataStoreS]
+--- assistant 
+ [TOOL {"path": "C:\\Users\\ashutosh.kumar\\AppData\\Local\\Temp\\KycService.java", "offset": 786, "limit": 150}]
+--- assistant 
+ The callback handlers look up the row by client reference and don't check the product. Next I'll check which products use the KYC engine on prod and whether LOC is one of them.
+
+I need to check how LOC uses the shared KYC engine — who calls kycInitiate or getKycStatus with productSource LOC in prod, and what product_source values exist in KycConstants. The screenshot query is also filtered in a way I can't fully see, since it seems to only count doc callbacks with a non-null s3_identifier.
+
+Since I don't have direct prod DB access, I should look at KycConstants in code and trace which callers invoke kycInitiate for LOC-type product sources.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git grep -n -i -E \"PRODUCT_SOURCE|isCcProductSource|\\\"LOC\\\"|LOC_\" origin/ddp-prod -- 'src/main/java/**/KycConstants.java' 'src/main/java/**/CcKycInitiatePolicy.java' | head -30; echo ---; git grep -]
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management && git fetch origin ddp-prod 2>&1 | tail -1; git grep -n -i -E \"kycInitiate|getKycStatus|productSource|product_source\" origin/ddp-prod -- 'src/main/**' | grep -i -E \"loc|kyc\" | head -30", "required_per]
+--- assistant 
+ CC is the only product that tags itself on the KYC engine (`productSource=CC`). Now I'll look for where LOC appears in banking-origination.
+
+I'm trying to figure out where LOC fits in—possibly a loan origination journey within banking-origination—so I should search for how kycInitiate gets called for LOC and check folder names or docs for context on what LOC actually refers to.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-banking-origination && git grep -l -E \"\\bLOC\\b|Loc[A-Z]\" origin/ddp-prod -- src/main | sed 's/origin\\/ddp-prod://' | head -40; echo; git grep -c -i \"kycInitiate\\|KycService\\|kyc_detail\\|KycDetail\" origin/ddp-prod -- s]
+--- assistant 
+ LOC doesn't appear anywhere in banking-origination. Let me find which repo owns LOC and whether it calls the KYC engine.
+
+I don't see LOC in banking-origination, so it might live in a separate repo like novopay-platform-loc or under lending. Let me check the other workspace directories.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay && ls -d */ | tr '\\n' ' '; echo; rg -l -i \"kycInitiate|kycDocUpload|getKycStatus\" --glob '!**/build/**' --glob '!**/node_modules/**' -g '*.java' -g '*.xml' -g '*.ts' -g '*.js' -g '*.yaml' . 2>/dev/null | grep -i -v \"banking-origination\\|cr]
+--- assistant 
+ [TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay && ls -d */ | tr '\\n' ' '; echo; rg -l -i \"kycInitiate|kycDocUpload|getKycStatus\" --glob '!**/build/**' --glob '!**/node_modules/**' --glob '!**/docs/**' -g '*.java' -g '*.xml' -g '*.ts' -g '*.tsx' -g '*.js' . 2>/dev/null | grep -i -v \"bank]
+--- assistant 
+ The field-agent APK calls `kycInitiate` directly as well. Checking whether it does so for LOC.
+
+I notice the APK calls kycInitiate directly, so LOC might be a product concept within that app itself. I should search the APK repo for LOC and productSource references, likely tied to savings account flows, and check how KycInitiateOrGetKycStatusRequest is used there.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/trustt-platform-digi-distribution-app && git branch --show-current; cat networklib/src/main/java/in/novopay/ddp/network/requests/v2_requests/KycInitiateOrGetKycStatusRequest.java | head -60; rg -n \"KycInitiateOrGetKycStatusRequest\\(\" --glob ]
+--- assistant 
+ On prod the KYC engine has two callers: the savings-account flow in the APK (which sends no product tag) and CC (`productSource=CC`). Let me check whether LOC in the CC repo touches KYC at all.
+
+I'm noting that the KYC engine callers on prod are SA (APK, blank productSource) and CC (productSource=CC), but LOC doesn't call it directly. Since LOC might live inside the CC repo, I should check there for both LOC and KYC references, especially around the PE-PQ jumbo inquiry rule.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management && git grep -l -i -E \"\\bloc\\b|Loc[A-Z][a-z]\" origin/ddp-prod -- src/main/java | sed 's/origin\\/ddp-prod://' | head -40; echo ---; git grep -l -i -E \"\\bloc\\b|Loc[A-Z][a-z]\" origin/ddp-prod -- src/m]
+--- assistant 
+ LOC lives in the CC repo, and `KycEngineConstants` mentions it. Checking whether any LOC orchestration calls the KYC engine.
+
+I'm wondering whether LOC's KYC process, since it lives under loan on card, actually routes through the shared KYC engine. I should check KycEngineConstants for any LOC reference and grep the orchestration XML for InitiateKycEngine to see if that processor is wired into LOC's flow.
+
+
+[TOOL {"command": "cd /c/Users/ashutosh.kumar/Desktop/novopay/novopay-platform-creditcard-management && git grep -n -i \"loc\" origin/ddp-prod -- src/main/java/in/novopay/creditcard/constants/KycEngineConstants.java; echo ---; git grep -n -E \"initiateKycEngine|InitiateKycEngine|kycEngine|KycEngine\" orig]
