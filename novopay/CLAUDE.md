@@ -66,6 +66,9 @@
 - **QA/UAT promotion:** never resolve merges or push directly to `ddp-qa`/`ddp-uat`. Use the bkup mirror:
   feature → `ddp-bkup-qa|uat` (sync env tip first, then merge feature, `gradlew compileJava --no-daemon`,
   then push `origin/ddp-bkup-*`). Jenkins/user promotes bkup → env. (Detail: `pref-git-workflow` memory.)
+- **PR title env prefix (every repo, every PR):** title starts with `[PROD]` for base `ddp-prod`, `[QA]`
+  for base `ddp-qa`, `[UAT]` for base `ddp-uat` (including `ddp-bkup-*` → env PRs), e.g.
+  `[PROD] fix(loc): ...`. Set it at `gh pr create`; fix the title on any open PR to these bases that lacks it.
 - **Fix on `ddp-fea-*` first, then merge into `ddp-bkup-*`** — don't fix only on bkup when a
   feature line owns the change. Never cherry-pick onto bkup: first merge latest `origin/ddp-qa|uat` into
   `ddp-bkup-qa|uat`, then merge (pull) the whole feature branch.
