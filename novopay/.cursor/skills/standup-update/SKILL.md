@@ -47,6 +47,10 @@ Rules:
 - After sharing the short update, ask whether to post it. Post only after the user approves that day's text (approval is per day, never standing).
 - Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `**Standup - <Ddd DD Mon YYYY>**` heading, then a `**TL;DR:**` line (1-2 sentences: yesterday's main outcomes + today's top priorities, linked), then the approved update in Cloud Markdown. Every day's work log has the TL;DR; refresh it whenever the work log is edited (e.g. a newly assigned ticket goes into Today).
 - **Always hyperlink, every mention, in every section (Yesterday, Today, Blocker), in chat and in Jira:** tickets as `[HDP-x](https://novopay.atlassian.net/browse/HDP-x)`, PRs as `[<repo> #<n>](https://github.com/trusttai/<repo>/pull/<n>)`, docs as their mdshare URL. Repeats get linked again. If a PR number is unknown (e.g. "draft PR", "the fix"), look it up with `gh pr list --repo trusttai/<repo> --author trusttAshutosh --state all` before writing - never leave a bare "#649" or "the PR".
+- **Time per task + totals (every work log):** prefix each bullet with its time in bold, e.g. `**(~1h 05m)**`.
+  - Yesterday = actual time from `collect_day.py` block durations (or the saved `worklogs/YYYY-MM/YYYY-MM-DD/*.md` where-did-time-go file). Split parallel/overlapping blocks between their items so the bullets add up to the non-overlapped total; include after-midnight work that belongs to the same day. Header: `**Yesterday (<Ddd DD Mon>) - total ~Xh Ym**` with the day span (and late-night span if any).
+  - Today = planned estimate per item; header `**Today - total ~Xh Ym planned:**`.
+  - Put both totals in the TL;DR, and end with one italic line saying where the times come from (activity-based vs planned).
 - One work log per weekday: before posting, list that day's work logs on HDP-11991 and edit the existing one instead of adding a duplicate.
 - Reminder: Windows task `Standup-Reminder` pops at 09:59 on weekdays (`tools/standup_reminder.vbs`, `tools/standup_reminder.task.xml`, UTF-16).
 
