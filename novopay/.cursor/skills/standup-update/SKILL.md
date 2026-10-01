@@ -37,20 +37,19 @@ Rules:
 - Plain English a manager can read aloud; no class names, file paths, commit SHAs.
 - 4-6 Yesterday bullets max; merge small investigations into one "Also looked into ..." bullet.
 - State outcome and status honestly (fixed / partly fixed / blocked / started late).
-- Include ticket ids (`HDP-xxxx`) when known; if none, name the area (CC, BKYC, KYC Engine). When the update is for the Jira work log, follow the plain-text rule below (the bold format above is chat-only).
-- If the user asks "what new to tell", add a short **New to tell** section: corrected diagnoses, dates owed to stakeholders, asks from others.
+- Include ticket ids (`HDP-xxxx`) when known; if none, name the area (CC, BKYC, KYC Engine).- If the user asks "what new to tell", add a short **New to tell** section: corrected diagnoses, dates owed to stakeholders, asks from others.
 - Longer version only if asked: add per-item detail and chat links (`[title](<uuid>)` for Cursor; name the Claude session title).
 
 ## Post to Jira (weekday standup work log)
 
 - Home ticket: [HDP-11991](https://novopay.atlassian.net/browse/HDP-11991) "DAILY UPDATES - Ashutosh Kumar" (team pattern: one DAILY UPDATES story per person).
 - After sharing the short update, ask whether to post it. Post only after the user approves that day's text (approval is per day, never standing).
-- Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `Standup - <Ddd DD Mon YYYY>` line, then a `TL;DR:` line (1-2 sentences: yesterday's main outcomes + today's top priorities), then the approved update. Every day's work log has the TL;DR; refresh it whenever the work log is edited (e.g. a newly assigned ticket goes into Today).
-- **Jira work log text is plain (user, 2026-10-01 - supersedes the earlier "always hyperlink" rule):** no bold, no italics, no headings, no bullets, no hyperlinks - one paragraph per line, like the HDP-11496 worklogs. Ticket ids and PRs as plain text, with a space instead of the hyphen in ticket ids (`HDP 8997`, `batch PR 1649`) - Jira auto-links any `HDP-1234` on display (link + status chip) even when the stored text is plain; look up unknown PR numbers with `gh pr list --repo trusttai/<repo> --author trusttAshutosh --state all` - never "the PR". Write `about 1h 05m`, not `~1h 05m` (single tildes become strikethrough); no `<...>` placeholders; no line starting with `-`, `#`, `*` or `1.`. Show the chat draft in the same plain text.
-- **Time per task + totals (every work log):** start each item line with its time, e.g. `(about 1h 05m)`.
-  - Yesterday = actual time from `collect_day.py` block durations (or the saved `worklogs/YYYY-MM/YYYY-MM-DD/*.md` where-did-time-go file). Split parallel/overlapping blocks between their items so the items add up to the non-overlapped total; include after-midnight work that belongs to the same day. Header line: `Yesterday (<Ddd DD Mon>) - total about Xh Ym` with the day span (and late-night span if any).
-  - Today = planned estimate per item; header line `Today - total about Xh Ym planned:`.
-  - Put both totals in the TL;DR, and end with one plain line saying where the times come from (activity-based vs planned).
+- Post as a Jira **work log** (Atlassian MCP `addOrEditJiraIssueWorklog`), not a comment: `timeSpent` `15m`, description = `**Standup - <Ddd DD Mon YYYY>**` heading, then a `**TL;DR:**` line (1-2 sentences: yesterday's main outcomes + today's top priorities, linked), then the approved update in Cloud Markdown. Every day's work log has the TL;DR; refresh it whenever the work log is edited (e.g. a newly assigned ticket goes into Today).
+- **Always hyperlink, every mention, in every section (Yesterday, Today, Blocker), in chat and in Jira:** tickets as `[HDP-x](https://novopay.atlassian.net/browse/HDP-x)`, PRs as `[<repo> #<n>](https://github.com/trusttai/<repo>/pull/<n>)`, docs as their mdshare URL. Repeats get linked again. If a PR number is unknown (e.g. "draft PR", "the fix"), look it up with `gh pr list --repo trusttai/<repo> --author trusttAshutosh --state all` before writing - never leave a bare "#649" or "the PR". Bold labels and hyperlinks are wanted (user, 2026-10-01: "i wanted boldifieds and hyperlinks") - never strip them to plain text.
+- **Time per task + totals (every work log):** prefix each bullet with its time in bold, e.g. `**(~1h 05m)**` (escape as `\~` in the markdown sent to Jira).
+  - Yesterday = actual time from `collect_day.py` block durations (or the saved `worklogs/YYYY-MM/YYYY-MM-DD/*.md` where-did-time-go file). Split parallel/overlapping blocks between their items so the bullets add up to the non-overlapped total; include after-midnight work that belongs to the same day. Header: `**Yesterday (<Ddd DD Mon>) - total ~Xh Ym**` with the day span (and late-night span if any).
+  - Today = planned estimate per item; header `**Today - total ~Xh Ym planned:**`.
+  - Put both totals in the TL;DR, and end with one italic line saying where the times come from (activity-based vs planned).
 - One work log per weekday: before posting, list that day's work logs on HDP-11991 and edit the existing one instead of adding a duplicate.
 - Reminder: Windows task `Standup-Reminder` pops at 09:59 on weekdays (`tools/standup_reminder.vbs`, `tools/standup_reminder.task.xml`, UTF-16).
 
