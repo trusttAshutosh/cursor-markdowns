@@ -30,7 +30,7 @@ Same file holds DB, app-server SSH and Superset. There is no separate SSH-only o
 - In Git Bash, prefix `--get` paths with `//` (e.g. `//api/v1/dashboard/1`) to stop MSYS path rewriting.
 - Not on the QA app box (no superset process there). Admin portal reads `superset.base.url` from `{tenant}_masterdata.configuration`.
 - Admin portal reports (UAM population / activity, DSA dashboards) are Superset virtual datasets, not code. Inspect via `ddp_superset` SELECTs or Superset API GETs.
-- **Read-only always:** never create/edit/delete datasets, charts, dashboards, roles, or run write SQL in SQL Lab - even with admin creds. Same ask-first rule as DB writes.
+- **Never write to any Superset server without Ashutosh's explicit approval** (QA, UAT, prod - any URL). No POST/PUT/DELETE beyond the login call: no creating/editing/deleting datasets, charts, dashboards, roles, users, saved queries, or running write SQL in SQL Lab - even with admin creds. To change something: show the exact change (dataset id + full new SQL, or API call + payload), wait for an explicit yes, run only that one change. Approval is per action - not blanket for later edits.
 
 Typical QA mapping (values live in the env file, not here): `QA_DB_*` for MySQL; `QA_SSH_*` for the Linux app box used for `/apps/applogs` greps.
 
