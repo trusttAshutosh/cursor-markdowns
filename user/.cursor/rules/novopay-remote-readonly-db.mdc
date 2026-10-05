@@ -18,14 +18,16 @@ Whenever QA / UAT / preprod DB, SSH, applogs, or Flyway verify is needed: **load
 | --- | --- | --- |
 | MySQL | `{ENV}_DB_HOST`, `{ENV}_DB_PORT`, `{ENV}_DB_USER`, `{ENV}_DB_PASSWORD`, `{ENV}_DB_SCHEMA`, `{ENV}_DB_VIA_SSH` | `novopay-remote-db-readonly.py --env qa\|uat\|preprod` |
 | App server SSH / applogs | `{ENV}_SSH_HOST`, `{ENV}_SSH_PORT`, `{ENV}_SSH_USER`, `{ENV}_SSH_KEY` **or** `{ENV}_SSH_PASSWORD`, optional `{ENV}_SSH_JUMP_*` | `novopay-remote-ssh.py --env qa\|uat\|preprod` |
-| Superset (QA / UAT) | `{ENV}_SUPERSET_URL`, `{ENV}_SUPERSET_USER`, `{ENV}_SUPERSET_PASSWORD` | Superset REST API (`/api/v1/security/login` then GET only) |
+| Superset (QA / UAT) | `{ENV}_SUPERSET_URL`, `{ENV}_SUPERSET_USER`, `{ENV}_SUPERSET_PASSWORD` | `novopay-superset-readonly.py --env qa\|uat` (login + GET only; `--get <path>`, `--find-sql <text>`) |
 
 Same file holds DB, app-server SSH and Superset. There is no separate SSH-only or Superset-only env file.
 
 ## Superset servers
 
 - QA: `https://ddp-qa-superset.trustt.com` - metadata in QA MySQL `ddp_superset` (`tables` = datasets, `slices` = charts, `dashboards`, `dashboard_roles`).
-- UAT: `https://ddp-uat-superset.trustt.com` - metadata in UAT MySQL `ddp_superset`.
+- UAT: `https://ddp-uat-superset.trustt.com` - **same instance as QA** (verified 2026-10-05: identical DB connections and datasets). UAT MySQL `ddp_superset` is a separate stale copy - trust the API / QA `ddp_superset`.
+- Prod DDP: `https://ddp-superset.novopay.in` (no access). Prod DSA Superset URL is set manually, not via Flyway.
+- In Git Bash, prefix `--get` paths with `//` (e.g. `//api/v1/dashboard/1`) to stop MSYS path rewriting.
 - Not on the QA app box (no superset process there). Admin portal reads `superset.base.url` from `{tenant}_masterdata.configuration`.
 - Admin portal reports (UAM population / activity, DSA dashboards) are Superset virtual datasets, not code. Inspect via `ddp_superset` SELECTs or Superset API GETs.
 - **Read-only always:** never create/edit/delete datasets, charts, dashboards, roles, or run write SQL in SQL Lab - even with admin creds. Same ask-first rule as DB writes.
