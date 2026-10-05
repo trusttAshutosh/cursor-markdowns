@@ -18,8 +18,11 @@ Whenever QA / UAT / preprod DB, SSH, applogs, or Flyway verify is needed: **load
 | --- | --- | --- |
 | MySQL | `{ENV}_DB_HOST`, `{ENV}_DB_PORT`, `{ENV}_DB_USER`, `{ENV}_DB_PASSWORD`, `{ENV}_DB_SCHEMA`, `{ENV}_DB_VIA_SSH` | `novopay-remote-db-readonly.py --env qa\|uat\|preprod` |
 | App server SSH / applogs | `{ENV}_SSH_HOST`, `{ENV}_SSH_PORT`, `{ENV}_SSH_USER`, `{ENV}_SSH_KEY` **or** `{ENV}_SSH_PASSWORD`, optional `{ENV}_SSH_JUMP_*` | `novopay-remote-ssh.py --env qa\|uat\|preprod` |
+| Superset UI / REST API | `{ENV}_SUPERSET_URL`, `{ENV}_SUPERSET_USER`, `{ENV}_SUPERSET_PASSWORD` (QA / UAT) | Superset REST (`/api/v1/security/login`, then GET only) |
 
-Same file holds **both** DB and app-server SSH. There is no separate SSH-only env file.
+Same file holds DB, app-server SSH, and Superset. There is no separate SSH-only or Superset-only env file.
+
+**Superset servers (DDP/DSA admin-portal reports):** QA `https://ddp-qa-superset.trustt.com`, UAT `https://ddp-uat-superset.trustt.com`. Not on the QA app box. Metadata DB is the env MySQL `ddp_superset` schema (`tables` = datasets with `sql`, `slices`, `dashboards`, `dashboard_roles`, `ab_role`) - readable via the DB helper. **Superset is read-only for the agent:** login + GET + chart-data/SQL preview only; never save/edit/delete datasets, charts, dashboards, roles, or run SQL Lab DML - even if the login has write rights. Show proposed dataset SQL to the user instead.
 
 Typical QA mapping (values live in the env file, not here): `QA_DB_*` for MySQL; `QA_SSH_*` for the Linux app box used for `/apps/applogs` greps.
 
