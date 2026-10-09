@@ -1,0 +1,29 @@
+---
+description: When sharing SQL/query packs, one copy-pastable fenced block with numbered comments
+alwaysApply: true
+---
+
+# Share queries format (Ashutosh)
+
+Whenever the user asks to share queries (SQL verify / checklist / seed / UPDATE / grep packs they will paste), use **this shape only**.
+
+## Do
+
+- One fenced `sql` (or `bash` for greps) block. Everything in that one block.
+- Numbered `-- N short purpose` comment on the line **immediately above** each statement.
+- Each statement stays a **one-liner** (fully qualified `schema.table`).
+- Ready to execute. Hardcode known env values. Call out any remaining `<placeholder>` before the block.
+
+```sql
+-- 1 Schema exists
+SHOW DATABASES LIKE 'ddp_task_allocation';
+
+-- 2 TASK-ALLOCATION registered (not localhost)
+SELECT sm.name, sm.endpoint FROM platform_master.service_master sm WHERE sm.name='TASK-ALLOCATION';
+```
+
+## Do not
+
+- Split the pack across chat as separate snippets, tables of SQL, or prose-wrapped queries
+- Pretty-print a statement across multiple lines inside the block
+- Put the number in markdown (`### 1`) instead of an SQL `--` comment
