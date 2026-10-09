@@ -60,7 +60,7 @@ SQL: Always use fully qualified schema_name.table_name. Prefer pasted prod DDL u
 
 Share queries: whenever asked to share queries, one copy-pastable fenced block with a numbered `-- N purpose` comment on the line immediately above each one-line statement. Hardcode known env values; call out remaining placeholders before the block. Do not split the pack across chat.
 
-Grep: When asked for log search commands, always share grep (never rg). Always target server paths under /apps/applogs/common and /apps/applogs/<tenant> with live files like {service}-{tenant}.log; include rotated/archived via *.log* or date globs; use zgrep for .gz. Never default to local workspace or SERVER_LOGS paths unless the user is explicitly on local Bob.
+Grep: When asked for log search commands, always share grep (never rg). One-liners in one fenced bash block with `# N purpose` above each command. **Prod:** central box `/apps/applogs/<node-ip>/{tenant,common}/` on nodes `10.196.134.{101,176,177,103,74,80}` (change this list only when Ashutosh says so). Live `{service}-{tenant}.log` and archived `archived/archived-logs-YYYY-MM/{service}/YYYY-MM-DD-{service}-{tenant}*.log.gz` as separate commands; `zgrep` for .gz. Do not use `/apps/applogs/dsa/` with no node IP for prod. **QA/UAT:** `/apps/applogs/{common|tenant}/` unless a node-prefixed tree is shown. Never default to local workspace or SERVER_LOGS paths unless the user is explicitly on local Bob.
 
 ---
 

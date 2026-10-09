@@ -1,0 +1,38 @@
+---
+description: Prod log greps use the central /apps/applogs/<node-ip>/ layout, not /apps/applogs/dsa/
+alwaysApply: true
+---
+
+# Prod log grep format (Ashutosh)
+
+When sharing **prod** log search commands, use this layout. Change the node list only when Ashutosh says so.
+
+## Box
+
+Central log host. Cwd does not matter if paths are absolute.
+
+- Host example: `ip-10-196-134-114`
+- Root: `/apps/applogs`
+- Nodes (current): `10.196.134.101` `10.196.134.176` `10.196.134.177` `10.196.134.103` `10.196.134.74` `10.196.134.80`
+
+## Do
+
+- `grep` (never `rg`). One-liners. `# N purpose` above each command. One fenced `bash` block.
+- Brace all six nodes and `{dsa,common}` (or the tenant in play).
+- Live and archived as **separate** commands. `zgrep` for `.gz`.
+- Live: `/apps/applogs/10.196.134.{101,176,177,103,74,80}/{dsa,common}/{service}-{tenant}.log`
+- Archived: `/apps/applogs/10.196.134.{101,176,177,103,74,80}/{dsa,common}/archived/archived-logs-YYYY-MM/{service}/YYYY-MM-DD-{service}-{tenant}*.log.gz`
+
+```bash
+# 1 Prod live
+grep -a 'STAN' /apps/applogs/10.196.134.{101,176,177,103,74,80}/{dsa,common}/credit-card-management-dsa.log 2>/dev/null | grep -a 'executeInterfaceService'
+
+# 2 Prod archived that calendar day
+zgrep -a 'STAN' /apps/applogs/10.196.134.{101,176,177,103,74,80}/{dsa,common}/archived/archived-logs-2026-10/credit-card-management/2026-10-05-credit-card-management-dsa*.log.gz 2>/dev/null | grep -a 'executeInterfaceService'
+```
+
+## Do not
+
+- Do not use `/apps/applogs/dsa/` or `/apps/applogs/common/` with **no node IP** for prod.
+- Do not mix live `.log` and archived `.gz` in one command.
+- QA/UAT stay `/apps/applogs/{common|tenant}/` unless Ashutosh shows a node-prefixed tree there too.

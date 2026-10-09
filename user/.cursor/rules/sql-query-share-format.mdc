@@ -10,7 +10,8 @@ Whenever the user asks to share queries (SQL verify / checklist / seed / UPDATE 
 ## Do
 
 - One fenced `sql` (or `bash` for greps) block. Everything in that one block.
-- Numbered `-- N short purpose` comment on the line **immediately above** each statement.
+- Numbered `-- N short purpose` comment on the line **immediately above** each SQL statement. For bash greps use `# N short purpose`.
+- **Prod log greps:** node-prefixed paths in `prod-log-grep-format.mdc`. Do not use `/apps/applogs/dsa/` with no node IP.
 - Each statement stays a **one-liner** (fully qualified `schema.table`).
 - Ready to execute. Hardcode known env values. Call out any remaining `<placeholder>` before the block.
 
