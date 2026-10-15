@@ -1,0 +1,23 @@
+---
+description: Always prove mergeability before gh pr create; never open a CONFLICTING PR
+alwaysApply: true
+---
+
+# Check conflicts before creating a PR
+
+Do this **before** `gh pr create`. Every repo, every base (`ddp-qa`, `ddp-uat`, `ddp-prod`, `ddp-bkup-*`).
+
+## Do
+
+1. `git fetch` the target branch.
+2. Prove the merge is clean with a merge that can emit conflict markers:
+   - `git merge-tree $(git merge-base --octopus origin/<target> HEAD) origin/<target> HEAD`
+   - or `git merge --no-commit` onto a throwaway checkout of the env tip
+3. Create the PR only if that merge has **no** `changed in both`, **no** `<<<<<<<`, and a clean exit.
+4. If GitHub later reports `CONFLICTING` / `DIRTY`, close the PR immediately. Use `ddp-bkup-qa` / `ddp-bkup-uat` (ask before pushing those).
+
+## Do not
+
+- Do not open first and discover conflicts after.
+- Do not trust `git merge-tree --name-only`. It can look clean when there are multiple merge bases while GitHub is `CONFLICTING` (2026-10-15, creditcard PR #2513).
+- Do not leave a conflicting feature → `ddp-qa` / `ddp-uat` PR open.

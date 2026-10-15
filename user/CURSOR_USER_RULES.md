@@ -77,6 +77,12 @@ Use the incident-analysis format when appropriate (phased history, mermaid flow,
 
 ---
 
+## Always check conflicts before creating a PR
+
+Always prove mergeability **before** `gh pr create` (every repo, every base). Fetch the target. Use a merge that can emit conflict markers (`git merge-tree` without `--name-only`, or `git merge --no-commit` onto a throwaway of the env tip). Do not trust `git merge-tree --name-only` (false-clean with multiple merge bases; GitHub can still be `CONFLICTING`). If conflicts, do not create. If an opened PR is `CONFLICTING`/`DIRTY`, close it and use `ddp-bkup-qa`/`ddp-bkup-uat` (ask before pushing those). Never open first and discover conflicts after.
+
+---
+
 ## Test fixes: prefer ddp-qa/ddp-uat, never prod classes
 
 When fixing unit/integration tests (user-asked or agent-initiated):

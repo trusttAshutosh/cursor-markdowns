@@ -66,6 +66,7 @@
 - **QA/UAT promotion:** never resolve merges or push directly to `ddp-qa`/`ddp-uat`. Use the bkup mirror:
   feature → `ddp-bkup-qa|uat` (sync env tip first, then merge feature, `gradlew compileJava --no-daemon`,
   then push `origin/ddp-bkup-*`). Jenkins/user promotes bkup → env. (Detail: `pref-git-workflow` memory.)
+- **Always check conflicts BEFORE creating any PR.** Fetch the target. Prove mergeability with a merge that can emit conflict markers (`git merge-tree` without `--name-only`, or `git merge --no-commit` onto a throwaway of the env tip). Do not trust `git merge-tree --name-only` (false-clean with multiple merge bases; GitHub can still be `CONFLICTING`). If conflicts, do not create. If an opened PR is `CONFLICTING`/`DIRTY`, close it and use `ddp-bkup-qa`/`ddp-bkup-uat` (ask before pushing those).
 - **PR title env prefix (every repo, every PR):** title starts with `[PROD]` for base `ddp-prod`, `[QA]`
   for base `ddp-qa`, `[UAT]` for base `ddp-uat` (including `ddp-bkup-*` → env PRs), e.g.
   `[PROD] fix(loc): ...`. Set it at `gh pr create`; fix the title on any open PR to these bases that lacks it.
