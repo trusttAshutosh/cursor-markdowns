@@ -21,6 +21,12 @@ PR/volume index (do not copy here): [work evidence](https://mdshare.trustt.com/m
 | Agent OS (Cursor, Bob, remote-db, rules) | He built it; `AGENTS.md` is the SoT | `08`; `BOB_GUIDE.md` |
 | Flyway / common-scripts / TaskAlloc exception | Collision history; TaskAlloc DDL not in the JAR | `AGENTS.md`; [HDP-8967](https://novopay.atlassian.net/browse/HDP-8967) |
 | Product onboarding doc + mdshare sync | Master copy in CC repo; mdshare id must stay in sync | `https://mdshare.trustt.com/md/s/7NmufeEoyqRx` |
+| Nested gateway STAN / 12001 | `generateNewStan=true` does not replace an existing STAN; looks like UI double-click | [DPB-2145](https://novopay.atlassian.net/browse/DPB-2145) |
+| KYC Engine duplicate `kyc_detail` | Concurrent initiate; no unique key; status poll dies | [HDP-12080](https://novopay.atlassian.net/browse/HDP-12080) |
+| Aadhaar-mobile fail stored as N | Timeout sent to bank as "not linked" since 7 May 2026 | [HDP-12870](https://novopay.atlassian.net/browse/HDP-12870) |
+| Admin-portal v2 header interceptor | Training narrowed match so BKYC **document** upload drops `x-run-mode` | [HDP-12386](https://novopay.atlassian.net/browse/HDP-12386) |
+| Firestore co-browse hang | UAT 24 Sep 503; keepalive/retry; actor flag default **off** | [HDP-11796](https://novopay.atlassian.net/browse/HDP-11796) |
+| Same-network IP early check | Separate CC vs LOC toggles; FE must pass customer network at first touch | [HDP-6858](https://novopay.atlassian.net/browse/HDP-6858), [HDP-7309](https://novopay.atlassian.net/browse/HDP-7309), [HDP-6859](https://novopay.atlassian.net/browse/HDP-6859) |
 
 ## He unblocks, does not own the code
 
@@ -32,6 +38,9 @@ PR/volume index (do not copy here): [work evidence](https://mdshare.trustt.com/m
 | Add-on CASE-NBR / cust id | Gowtham | He diagnosed blank CASE-NBR = no stored cust id ([HDP-12325](https://novopay.atlassian.net/browse/HDP-12325)) |
 | eKYC log masking in lib | Sanooj assignee | He drove preprod merge notes ([HDP-11645](https://novopay.atlassian.net/browse/HDP-11645)) |
 | Jenkins TaskAlloc env | Arnold | Asked UAT setup ([DEVOPS-22139](https://novopay.atlassian.net/browse/DEVOPS-22139)) |
+| Masters-mgmt Jenkins | [DEVOPS-23427](https://novopay.atlassian.net/browse/DEVOPS-23427) To Do | He opened it 22 Oct; pipeline does not exist yet |
+| DSA corporate approve 12001 | Hareesha | He wrote the RCA; fix ownership is approval/gateway |
+| First-time `checkAgentReactivation` 220000 | Kavya Lingutla | [HDP-11386](https://novopay.atlassian.net/browse/HDP-11386) Open |
 
 ## Repos he lives in (for restore, not a PR count)
 

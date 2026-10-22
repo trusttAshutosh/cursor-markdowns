@@ -27,3 +27,11 @@ Why + what he refused. Implementation is in git.
 | Common-scripts Flyway before feature | Version collisions (HDP-8967) | Author Flyway on feature branch |
 | TaskAlloc DDL only in initial-setup | Boot `flyway_auto_update=0` | Bring back JAR migrations |
 | BKYC Chat weekday post stopped | User request 2026-08-24 | Post to prod BKYC channel |
+| BKYC consent = existing `consent_code`; bio only if AGREED | Locked with Deepankar | `consent_session_id`; gate on SUCCESS |
+| OTP = `submitOtpConsent` INITIATE/CONFIRM | Locked | GENERATE/VALIDATE |
+| Decline reasons in `code_master` `BKYC_DECLINE_REASON` | Locked | New `bkyc_decline_reason_master` |
+| Failed Aadhaar-mobile check fails the step | Do not tell the bank "not linked" | Swallow 4000178 and store N |
+| Concurrent KYC: claim row before bank call | At most one initiate wins | Unique key first (that is a later cleanup) |
+| Firestore: consents flag default on, actor default off | Soak actor | New error code; break 6-arg lib overloads |
+| Add-on submit: Novopay not Net-banking | [HDP-12325](https://novopay.atlassian.net/browse/HDP-12325); DPB-2154 Not An Issue | Re-open DPB-2154 |
+| Never write Jira via Atlassian MCP | It is Deepankar | "The connector is logged in, so it is fine" |

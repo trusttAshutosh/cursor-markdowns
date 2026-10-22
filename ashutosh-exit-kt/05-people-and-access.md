@@ -22,6 +22,12 @@ From tickets he actually unblocked. Not an org chart.
 | Superset FD journey | Saumyaranjan Pradhan | [HDP-11011](https://novopay.atlassian.net/browse/HDP-11011) |
 | Blostem / CC status mapping sign-off | Bank product (name [FILL]) | [HDP-8768](https://novopay.atlassian.net/browse/HDP-8768) |
 | Bank UAT BKYC ops | [FILL] | Only they can run writes; `supersetreadonly` is SELECT only |
+| DSA corporate approve 12001 | Hareesha Balarajappagari | [DPB-2145](https://novopay.atlassian.net/browse/DPB-2145) |
+| First-time agent reactivation 220000 | Kavya Lingutla | [HDP-11386](https://novopay.atlassian.net/browse/HDP-11386) |
+| Hide DB details in report errors | Prabhakar Reddy Mukkadaiah | [HDP-8209](https://novopay.atlassian.net/browse/HDP-8209) |
+| GitHub / Jenkins / VPN access | S M Bhupathi, Lokeswara Reddy Valleti | DEVOPS tickets he opened |
+| Firestore UAT soak | Sanooj M P | Also [HDP-11796](https://novopay.atlassian.net/browse/HDP-11796) assignee |
+| Do **not** write Jira via MCP | Deepankar's Atlassian login | Connector + Browser 1. Drafts only. |
 
 ## Access (point, do not copy secrets)
 
@@ -37,5 +43,7 @@ From tickets he actually unblocked. Not an org chart.
 | GitHub | `trusttAshutosh` | |
 | cursor-markdowns | `trusttAshutosh/cursor-markdowns` | Who pushes after he leaves: [FILL] |
 | LOC bank workbook | `Downloads\LOC APIs mapping v 0.1 (2).xlsx` | Not in any repo |
+| Jira in this Cursor | Atlassian MCP = **Deepankar** | Never write. Paste from Ashutosh browser |
+| QA Redis | tomcat account on app box | Normal SSH user: connection refused on 6379 |
 
 Transfer access **before** last day. Rotate anything that was only his SSH key.

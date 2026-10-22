@@ -3,7 +3,7 @@
 **Live folder:** `C:\Users\ashutosh.kumar\Desktop\ashutosh-exit-kt`  
 **Git backup:** `Desktop/cursor-markdowns/ashutosh-exit-kt`  
 **Started:** 2026-10-22  
-**Last updated:** 2026-10-22 (filled from his work; reconstructable PR/commit/doc text excluded)
+**Last updated:** 2026-10-22 (Feb-Oct sweep of Jira / GitHub / Claude memory / Cursor RCAs)
 
 This is what a successor cannot get from AI reading PRs, commit messages, or docs. Those stay as **references only**.
 

@@ -19,6 +19,7 @@ Do not re-teach Bob. `BOB_GUIDE.md` is the team KT.
 | Auto `bob validate-ticket` | Explicit-only |
 | TaskAlloc Flyway in the JAR | HDP-8967 collision |
 | Rank people by Cursor co-author % | He disables trailers; % != usage |
+| Use Atlassian MCP because it "works" | Signed in as Deepankar; HDP-11225 already mis-attributed |
 
 ## Restore if the laptop dies
 
@@ -45,3 +46,8 @@ Do not re-teach Bob. `BOB_GUIDE.md` is the team KT.
 - mdshare PAT in Cursor MCP config (Grafana docs HDP-11496)
 - Worktrees `.wt-*` that still hold a ticket
 - Who may push cursor-markdowns after he leaves: [FILL]
+- Seqrite hang on ATSLAP-43: do not "fix Gradle"; RCA `docs/RCA_WINDOWS_FILE_HANG_SEQRITE_2026-09-02.md`
+- Gradle loopback: `JAVA_TOOL_OPTIONS=-Djdk.net.unixdomain.tmpdir=C:/Users/ashutosh.kumar/tmpnio`
+- Gateway common-scripts hook: `NOVOPAY_GIT_HOOK_SKIP_PROD_SYNC=1` per commit only, with approval
+- Claude artifact share pin must be moved after every republish
+- Worktrees still in play: `.wt-webapp-hdp-12386`, `.wt-11796*`, `.wt-dpb-2148*`, `.wt-lib-bkyc`

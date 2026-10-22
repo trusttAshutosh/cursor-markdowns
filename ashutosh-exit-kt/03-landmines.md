@@ -95,3 +95,75 @@ Written-in-AGENTS.md traps (visit owner, SHA-256 checksum, merge-tree --name-onl
 - `CompanyMasterService` today **deletes and re-inserts** (ids change). JAR **upserts in place**. Port must update in place.
 - masters-mgmt has **no `ddp-prod`**. SoT is `origin/ddp-qa` (last product commit Jan 2025 until onboarding PRs).
 - **Ref:** [HDP-12841](https://novopay.atlassian.net/browse/HDP-12841)
+
+### Jira / GitHub write goes out as Deepankar
+
+- Atlassian MCP (and Chrome "Browser 1") is signed in as **Deepankar Sarkar**. A description edit on [HDP-11225](https://novopay.atlassian.net/browse/HDP-11225) already landed under his name. Cannot undo audit history.
+- **Never** use Atlassian MCP for writes. Draft in Markdown; Ashutosh pastes from his Jira login. Confirm `gh api user` / git identity before any GitHub write.
+
+### Approve corporate fails 12001 "Duplicate request found"
+
+- Looks like UI double-click. It is nested `storeClientCodeAndClientKey` reusing parent `approveApplication` STAN. `generateNewStan=true` in XML does **not** mint a new STAN if the parent already has one (since 22 Apr 2026).
+- Duplicate-check is STAN-global, not per API. Child may not even insert an RRL row.
+- `X-Forwarded-For NOT FOUND` in the same log is noise.
+- **Ref:** [DPB-2145](https://novopay.atlassian.net/browse/DPB-2145) (Closed; Hareesha). RCA `https://mdshare.trustt.com/md/s/Nj8z0Wjehd9p`
+
+### Aadhaar-mobile timeout sent to bank as "not linked"
+
+- Check failure (timeout / India-stack) is stored as N and the step still succeeds. Bank / VKYC FILLER4 treats non-Y as mismatch. In prod code since 7 May 2026.
+- Correct error 4000178 already exists; CC swallows it.
+- Not [HDP-7629](https://novopay.atlassian.net/browse/HDP-7629) / [HDP-7708](https://novopay.atlassian.net/browse/HDP-7708).
+- **Ref:** [HDP-12870](https://novopay.atlassian.net/browse/HDP-12870)
+
+### `getKycStatus` "Query did not return a unique result"
+
+- `kyc_detail.client_reference_number` has **no unique key**. Two initiates at once both insert. Every later poll fails forever.
+- Race since Sep 2025 BO code; became visible when KYC Engine routed CC through BO ([HDP-7350](https://novopay.atlassian.net/browse/HDP-7350)).
+- Unique key is a **follow-up**, not this ticket. Prod PR [BO #5396](https://github.com/trusttai/trustt-platform-banking-origination/pull/5396) still open.
+- **Ref:** [HDP-12080](https://novopay.atlassian.net/browse/HDP-12080)
+
+### BKYC upload list stuck PROCESSING / download PENDING
+
+- Ingest finished; UI listed **before** counts were written (no later list call). Download used original `storedFileName` (`...000`) not `responseDocumentCode` (`...002`).
+- Preprod BANKMAKER user **19**, corporate 76 CSC. Open, unassigned.
+- **Ref:** [HDP-12140](https://novopay.atlassian.net/browse/HDP-12140)
+
+### BKYC QA upload missing `x-run-mode`
+
+- Training [HDP-11081](https://novopay.atlassian.net/browse/HDP-11081) (7 Oct) narrowed admin-portal interceptor from `v2/` to `/api/novopay/v2/`. Document path `/document/novopay/v2/TASK-ALLOCATION/uploadTaskLeadFile` is skipped. List APIs on the same page still work.
+- QA-only until Training is promoted. Gateway/TaskAlloc are fine. Fix is webapp interceptor. Uncommitted `.wt-webapp-hdp-12386`.
+- **Ref:** [HDP-12386](https://novopay.atlassian.net/browse/HDP-12386)
+
+### Assign SMS never sends on QA (13007)
+
+- `NotificationsSmsClient` posted a flat body to Notifications v1 which requires `{request, headers}`. Every flush `sent=0`; backlog retried on each upload.
+- Quiet hours are **config**, not the clock (`...sms.assign.window.start/end`). Narrowing the window holds SMS for the **whole tenant**.
+- **Ref:** deferred PACK-114 in `proj-hdp-7636-deferred-qa-tests`
+
+### Name-match "outage" test needs writes + a trap
+
+- TASK-ALLOCATION has **no** `hdfc.soa.name.match.service.url` row, so it hits live HDFC UAT. BO/Actor already point at the QA simulator, whose canned response is **always 100%** - once TaskAlloc points there, mismatch cases die.
+- Redis flush: `sudo -u tomcat`, not the normal SSH user (`Connection refused` on 6379).
+- **Ref:** T17 same memory file
+
+### UAT eKYC "Invalid OTP value" after generate succeeds
+
+- Code matches preprod. Likely gen vs val URLs on different backends, or real UIDAI OTP vs "test OTP" on simulator.
+- **Ref:** [HDP-11970](https://novopay.atlassian.net/browse/HDP-11970)
+
+### BKYC prod Flyway rename will fail validate
+
+- Gateway product `V4000032` -> `V4000046` rename: prod already applied `V4000032` and has no `ddp/V4000032`. Rename re-runs CREATE INDEX / breaks validate. Draft [PROD] pack step 6 PR #2500.
+- ddp-prod is Jackson 3; BKYC branch `com.fasterxml.jackson.databind` imports fail after merge.
+
+### Gateway common-scripts commit hook
+
+- api-gateway pre-commit refuses commits when behind `ddp-prod-master`. `ddp-fea-common-scripts` has not tracked it since June 2026. Skip is `NOVOPAY_GIT_HOOK_SKIP_PROD_SYNC=1` **per commit**, with approval. Untracked `git-hooks/*.sh` also block `git switch`.
+
+### Gradle/rm hang on this laptop is Seqrite
+
+- ATSLAP-43 Seqrite EPS minifilter. Thread stuck in `DeleteFile0`; no handle to kill. Do not retry Gradle/Java/Git. RCA `docs/RCA_WINDOWS_FILE_HANG_SEQRITE_2026-09-02.md`.
+
+### Claude artifact pin does not follow republish
+
+- Viewers stay on the old pin until he moves it. Versions cannot be listed or deleted. BKYC run-sheet artifact URL is in `ref-artifact-sharing`.

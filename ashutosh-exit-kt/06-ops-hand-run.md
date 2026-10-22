@@ -20,5 +20,11 @@ Credentials never go here. One-liners if pasted to ops.
 | [HDP-12027](https://novopay.atlassian.net/browse/HDP-12027) | Apply posted SQL on **prod DSA Superset** (not QA). Never write Superset without explicit yes | Dashboard row counts |
 | MMI geocode UAT | Seed `hdfc.map.my.india.*` for TASK-ALLOCATION; ship `bankIntegration*` templates; check `common/` logs | `task.customer_lat` |
 | QA auto-assign test | Zero agents' non-terminal BKYC tasks first; use real office pins | Cap query in `03` |
+| BKYC prod gateway Flyway | Do **not** rename applied `V4000032` to `V4000046` without a history plan | Flyway validate |
+| UAT batch `bkycAutoAssignRefill` stuck STARTED since 21 Sep | Approved UPDATE to FAIL, or batch restart that resets it | Next scheduled run |
+| QA TaskAlloc V000036/37 | FlywayMigrator `enableRepair=true` | History row |
+| QA TaskAlloc Redis config | `sudo -u tomcat` then `sh redis-cli.sh` `select 1` scan-by-fragment DEL | Config takes effect |
+| Nested approve 12001 on DSA prod | Confirm box ignore-list includes `storeClientCodeAndClientKey`; or mint new STAN on nested call | [DPB-2145](https://novopay.atlassian.net/browse/DPB-2145) |
+| Claude artifact republish | Move the **share pin** or viewers stay on the old version | |
 
 Manual Flyway history inserts: pattern in `AGENTS.md`. List of versions he inserted by hand: **[FILL from memory]**.
