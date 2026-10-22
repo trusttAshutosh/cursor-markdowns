@@ -101,3 +101,9 @@ Never run the preexisting unit/integration suite for any repo other than CC (`no
 - **CC:** `gradle test` / existing tests are allowed when proving a CC change.
 - **Every other repo** (task-allocation, Actor, lib, gateway, notifications, …): run **only the test class(es) written in this change** (`./gradlew test --tests com.example.NewTest`). Do not add sibling/preexisting `--tests` "for safety". Do not run unfiltered `gradle test`.
 - Compile (`compileJava`) without tests is fine. If includeBuild/JDK cannot run even the new class, skip and say so - do not expand to other test classes.
+
+---
+
+## New APIs are always v2 REST
+
+Any new HTTP API is v2 REST (`@RestController` + `BaseController.executeWithMdc` under `/api/v2/{apiName}`, gateway `POST /api/v2/{service}/{apiName}`). Do not add a new v1 JTF / orchestration XML API. Existing v1 may keep running; to expose the same feature on REST, add a v2 controller beside it. Business rejects stay HTTP 200 with `response_status.status=FAIL`. SoT: `novopay-platform-lib/infra-platform/docs/v2-rest-api-pattern.md`. Rule: `.cursor/rules/new-apis-are-v2.mdc`.

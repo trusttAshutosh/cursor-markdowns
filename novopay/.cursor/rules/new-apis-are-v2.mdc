@@ -1,0 +1,24 @@
+---
+description: New APIs must be v2 REST, never new v1 JTF/orchestration
+alwaysApply: true
+---
+
+# New APIs are v2
+
+Any **new** HTTP API is v2 REST. Do not add a new v1 JTF / orchestration XML API.
+
+1. **Service:** `@RestController` + `BaseController.executeWithMdc` + DTOs under `/api/v2/{apiName}`.
+2. **Gateway:** `POST /api/v2/{service}/{apiName}` (`GatewayControllerV2`). Do not add `request_forward` / JTF templates for the new API.
+3. **SoT:** `novopay-platform-lib/infra-platform/docs/v2-rest-api-pattern.md`
+4. **Existing v1:** may keep running. To expose the same feature on REST, add a v2 controller beside it. Do not add a second JTF lane.
+5. **JSON:** camelCase unless an external (bank/partner) contract already uses snake_case.
+6. **Business rejects:** HTTP 200 with `response_status.status=FAIL`, not HTTP 500.
+
+```text
+# BAD - new partner API as orchestration XML
+deploy/application/orchestration/common_newPartnerApi.xml
+
+# GOOD - new partner API as v2 REST
+@RequestMapping("/api/v2")
+@PostMapping("/newPartnerApi")
+```
