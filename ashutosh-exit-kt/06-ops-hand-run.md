@@ -1,49 +1,24 @@
-# 06 - Ops he ran by hand
+# 06 - Ops not in Flyway
 
-SQL, Redis/JTF flushes, reprocess steps, manual `flyway_schema_history` inserts. If it is in Flyway, it does not belong here.
+Credentials never go here. One-liners if pasted to ops.
 
-**Never store credentials.** Fully qualified `schema.table`. One-liners.
-
-Share format if this pack is pasted to ops: `.cursor/rules/sql-query-share-format.mdc`.
-
----
-
-## Manual Flyway history inserts
-
-Pattern (checksum must match the built script or boot validation fails):
-
-`INSERT INTO \`schema\`.\`flyway_schema_history\` (...) SELECT ... WHERE NOT EXISTS (... version ...);`
-
-List versions he inserted by hand:
-
-| Env | Schema | Version | Why | Date |
-| --- | --- | --- | --- | --- |
-| [FILL] | | | | |
-
-## Config keys he changed on env without a deploy
-
-Masterdata `configuration` UPDATEs (key exists; value drifted).
-
-| Env | `prop_key` | Why | Ticket |
-| --- | --- | --- | --- |
-| [FILL] | | | |
-
-## Reprocess / repair playbooks (not in git)
-
-| Situation | Steps (plain English) | Prove |
+| Situation | What to do | Prove |
 | --- | --- | --- |
-| Failed BKYC ingest file | [FILL - may be Abhishek] | |
-| Auto-assign missed a pin-matched agent | [FILL] | |
-| Assign SMS did not send | [FILL] | |
-| Gateway v2 401 until restart | `api_usecase_mapping` is in-memory; **api-gateway restart** | |
-| TaskAlloc config not picking new masterdata key | config-cache flush or TaskAlloc restart | |
-| UAM permission granted but API still 403 | re-login / hard-refresh; no auth restart | |
+| New gateway v2 / `api_usecase_mapping` | **Restart api-gateway** (in-memory + missing-mapping cache) | Call via gateway, not only direct service |
+| Partner API 401 `10017` after jar+Flyway ([HDP-8768](https://novopay.atlassian.net/browse/HDP-8768)) | Edit **box** `/apps/novopay-platform-api-gateway/application.properties` skip-list; gateway restart. Not in git | Gateway E2E, not CC-direct |
+| New masterdata BKYC key | TaskAlloc config-cache flush or TaskAlloc restart | |
+| UAM permission granted, API still 403 | Re-login / hard-refresh. No auth restart | |
+| APK BKYC icon after `PRDCT-TASKREQUEST-BKYC` | Agent re-login only | |
+| New row in `service_master` (e.g. TASK-ALLOCATION) | **Restart batch**. Cache-miss builds a broken URL with `[` | Batch history `remarks` |
+| Entitled corporates by code | `UPDATE ...configuration SET prop_value='CORP0007' WHERE prop_key='trustt.taskallocation.bkyc.entitled.corporate.codes' AND service='TASK-ALLOCATION'` then TaskAlloc flush. Deploy **Actor first** | Codes set + old Actor = empty entitled list (fail closed) |
+| Preprod HDP-12000 / similar | Take build of **lib, CC, masterdata** together (his ask to Samyuktha) | |
+| Notifications health | Uncomment `management.health.mail.enabled=false` on the box ([DEVOPS-23239](https://novopay.atlassian.net/browse/DEVOPS-23239)) | |
+| [HDP-8854](https://novopay.atlassian.net/browse/HDP-8854) | De-dupe preprod `CC_REPORT` rows 9450/9451/9452 | Dropdown options |
+| [DPB-2148](https://novopay.atlassian.net/browse/DPB-2148) existing 5 cases | Bank remap 2 submitted ARNs; close 3 unsubmitted (FAIL). SQL via prod change process - he did not run writes | Resume: TICKET_RESUME |
+| DPB-2148 Jira attachment | Remove leaked HDFC Authorization/apiKey log; rotate creds ([HDP-12335](https://novopay.atlassian.net/browse/HDP-12335)) | Attachment gone |
+| [HDP-12874](https://novopay.atlassian.net/browse/HDP-12874) | Do not ship actor code. DBA; old UAT PANs stay hex | New rows decrypt |
+| [HDP-12027](https://novopay.atlassian.net/browse/HDP-12027) | Apply posted SQL on **prod DSA Superset** (not QA). Never write Superset without explicit yes | Dashboard row counts |
+| MMI geocode UAT | Seed `hdfc.map.my.india.*` for TASK-ALLOCATION; ship `bankIntegration*` templates; check `common/` logs | `task.customer_lat` |
+| QA auto-assign test | Zero agents' non-terminal BKYC tasks first; use real office pins | Cap query in `03` |
 
-## Redis / JTF / cache
-
-- [ ] Any key patterns he flushes by hand
-- [ ] Any "delete this session key" he told QA
-
-## [FILL] last 90 days
-
-Dump from memory: anything he ran on QA/UAT/preprod that is not Flyway.
+Manual Flyway history inserts: pattern in `AGENTS.md`. List of versions he inserted by hand: **[FILL from memory]**.

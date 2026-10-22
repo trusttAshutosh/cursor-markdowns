@@ -1,5 +1,6 @@
 # Changelog
 
-Newest first. One line per append.
+Newest first.
 
-- 2026-10-22 - Folder created. Seeded ownership, landmines already in AGENTS.md (as pointers), current WIP, Cursor/Bob OS, people/access placeholders. Skill `ashutosh-exit-kt` added so agents append here.
+- 2026-10-22 - Filled from Ashutosh's actual work (BKYC assign traps, DIY collision, bank UAT vs ddp UAT, silent PAN decrypt, gateway skip-list, people he unblocks). Excluded PR/commit/doc reconstructable text; tickets kept as references only.
+- 2026-10-22 - Folder created.

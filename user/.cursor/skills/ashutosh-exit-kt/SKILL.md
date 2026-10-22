@@ -1,50 +1,56 @@
 ---
 name: ashutosh-exit-kt
 description: >-
-  Maintains Ashutosh Kumar's exit knowledge-transfer folder on Desktop
-  (ashutosh-exit-kt). Appends only what AI cannot reconstruct from git/Jira:
-  unwritten bank/product/QA promises, landmines, unfinished threads, people/access,
-  hand-run ops, and decision why. Use when Ashutosh says update my KT, exit KT,
-  if I leave, handover notes, or when a session surfaces a verbal agreement,
-  production landmine, unique access, or WIP missing from Jira/git.
+  Maintains Ashutosh Kumar's exit KT folder at Desktop/ashutosh-exit-kt.
+  Appends only what AI cannot rebuild from PR titles, PR bodies, commit
+  messages, or existing docs: unwritten agreements, landmines, unfinished
+  status, people/access, hand-run ops, decision why. Use when Ashutosh says
+  update my KT, exit KT, if I leave, or when a session surfaces a verbal
+  agreement, production landmine, unique access, or WIP missing from git.
+  Also run after a ticket milestone (RCA done, env leftover, ops asked).
 ---
 
 # Ashutosh exit KT
 
-Live folder: `C:\Users\ashutosh.kumar\Desktop\ashutosh-exit-kt`  
-Backup: `Desktop/cursor-markdowns/ashutosh-exit-kt` (via `sync-cursor-backup.py`)
+Live: `C:\Users\ashutosh.kumar\Desktop\ashutosh-exit-kt`  
+Backup: `Desktop/cursor-markdowns/ashutosh-exit-kt`
 
-## When to run
+## Filter (do not violate)
 
-- User says "update my KT", "exit KT", "if I leave", or similar
-- End of a session that produced a **durable unwritten** fact (promise, landmine, access, unfinished thread, why-not-how)
+Include: why, rejected alternative, looks-correct-still-fails, env/data/ops not in Flyway, who actually answers, WIP status that is not in git.
 
-Do **not** run for ordinary ticket coding, architecture explanations, or facts already in `AGENTS.md`.
+Exclude (link only): PR title/description, commit message, Jira description, AGENTS.md / BOB_GUIDE / onboarding / TICKET_RESUME body. Volume metrics. How the code works.
 
-## Rules
+If the fact is already in a numbered file, do not duplicate - maybe one changelog line.
 
-1. Append. Do not rewrite the folder. Do not dump architecture.
-2. Never copy secrets (`.env`, passwords, webhooks, tokens). Point at the file path.
-3. ASCII hyphen-minus only. No em/en dashes.
-4. Put the bullet in the **one** matching file:
+## When
 
-| File | What goes there |
+- User says "update my KT" / "exit KT" / "if I leave"
+- Ticket milestone: RCA confirmed, leftover is ops/bank, access discovered, decision locked
+- Do not run after ordinary coding
+
+## How
+
+1. Read `README.md` filter. Pick **one** file.
+2. Append a table row or `_template-entry.md` block. Do not rewrite the whole folder unless the user asked to fill/rebuild (this request).
+3. Top of `CHANGELOG.md`: `- YYYY-MM-DD - <what>`. Bump `Last updated` in `README.md`.
+4. Never copy secrets.
+5. ASCII hyphen-minus only.
+6. After folder or this skill changes: `python Desktop/cursor-markdowns/sync-cursor-backup.py`, then commit and push `cursor-markdowns` (user rule). Skip only if the user said not to.
+
+| File | What |
 | --- | --- |
-| `01-ownership-map.md` | New silent ownership |
-| `02-promises-unwritten.md` | Verbal agreements vs ticket text |
+| `01-ownership-map.md` | New silent go-to area |
+| `02-promises-unwritten.md` | Spec vs what was agreed |
 | `03-landmines.md` | Looks correct, still fails |
 | `04-unfinished.md` | Alive / dead / waiting |
-| `05-people-and-access.md` | Who to ping; access to transfer |
-| `06-ops-hand-run.md` | SQL / flushes not in Flyway |
-| `07-decision-journal.md` | Why + rejected alternative |
-| `08-cursor-bob-os.md` | Agent OS / laptop restore |
-
-5. Use the shape in `_template-entry.md` (or a one-line table row if that file is already a table).
-6. Add one line at the top of `CHANGELOG.md`: `- YYYY-MM-DD - <what>`. Update `Last updated` in `README.md`.
-7. After any skill/folder edit this session: run `python Desktop/cursor-markdowns/sync-cursor-backup.py`, then commit and push `cursor-markdowns` (user rule). Skip only if the user said not to.
+| `05-people-and-access.md` | Who to ping; access |
+| `06-ops-hand-run.md` | Not in Flyway |
+| `07-decision-journal.md` | Why + rejected |
+| `08-cursor-bob-os.md` | Agent OS / laptop |
 
 ## Do not
 
-- Duplicate `AGENTS.md` / `BOB_GUIDE.md` / product onboarding
+- Dump a PR list or "work done this month"
 - Invent bank promises
 - Commit this folder into a Novopay service repo

@@ -1,51 +1,38 @@
 # 01 - Ownership map
 
-What a successor must take from Ashutosh. Code how-it-works is in git.
+Not a list of PRs. A successor asks **him** for these areas because the trap is tribal. How-it-works is in git.
 
-**GitHub:** `trusttAshutosh`  
-**Jira:** Ashutosh Kumar
+PR/volume index (do not copy here): [work evidence](https://mdshare.trustt.com/md/s/pbNeFBryyGmF)
 
-## Must take (walks out with him)
+## Go-to (walks out with him)
 
-| Area | What he uniquely holds | Git already has |
+| Area | Why he is the go-to | Reference, do not re-explain |
 | --- | --- | --- |
-| BKYC auto-assign | Why 10 auto / 15 manual, pincode = office address not agent column, visit owner = `employee.corporate_id` not `user.id` / `actor.id` | Tickets HDP-8949-8953, solution-document |
-| BKYC admin APIs | ADM1 leftover list, ADM2 eligible agents, ADM3 assign/reassign/unassign, ADM6 activity - and that FE screens existed before mutate APIs | HDP-9003-9005, HDP-9551 |
-| BKYC assign SMS | Batch vs manual-window; which notification codes; join `task.customer_mobile` = `sms_log.msisdn` (no task_id FK) | HDP-8954, `BKYC_SMS_SCENARIO_MESSAGES.md` |
-| Bank response CSV after assign | What bank actually consumes vs what we generate | HDP-8956, HDP-8957 |
-| CC / KYC Engine | eKYC vs cKYC only (no Digilocker); `filler1` mobile_match rules; bank-facing evidence must be real applogs | CC repo docs |
-| Product onboarding doc | Master copy in CC repo + mdshare id `6abd71df5c3812e8ca51ab39` must stay in sync | `.cursor/rules/onboarding-doc-mdshare-sync.mdc` |
-| Agent OS | Cursor rules, Bob as proof-only, remote-db.env, continual-learning **off on purpose** | `AGENTS.md`, `BOB_GUIDE.md`, `cursor-markdowns` |
-| Flyway process | Common-scripts first; TaskAlloc DDL only in initial-setup (HDP-8967 collision) | `AGENTS.md` + flyway rules |
-| PR / QA-UAT promote | Never open conflicting feature-to-QA PR; bkup path; never 0-file PR; `[QA]`/`[UAT]`/`[PROD]` title prefix | `AGENTS.md` |
+| BKYC auto-assign + ADM1/2/3/6 + assign SMS | Built the path that fills agents; QA "bugs" are often cap / pin / terminal-flag | [HDP-8949](https://novopay.atlassian.net/browse/HDP-8949) tree; tracker `https://mdshare.trustt.com/md/s/RndrcBu-sg6n` |
+| BKYC entitled corporates | Switched ops from Actor **id** to admin-portal **code**; bank UAT is not ddp UAT | `07`; [HDP-8930](https://novopay.atlassian.net/browse/HDP-8930); [HDP-12336](https://novopay.atlassian.net/browse/HDP-12336) |
+| DIY / unassisted CC | RCA'd same-second ref collision; server-issued ref; 5 prod cases still need bank remap | [DPB-2148](https://novopay.atlassian.net/browse/DPB-2148) `TICKET_RESUME.md` |
+| CC KYC Engine cross-service | Multi-repo wiring + log masking + Final DAP switches; bank evidence = real applogs only | [HDP-7350](https://novopay.atlassian.net/browse/HDP-7350) / [HDP-7351](https://novopay.atlassian.net/browse/HDP-7351), [HDP-11645](https://novopay.atlassian.net/browse/HDP-11645), [HDP-12000](https://novopay.atlassian.net/browse/HDP-12000) |
+| ETB vs NTB on resume Demog | `50003`/`IPA0=N` is not NTB except D101/D106 | [HDP-12387](https://novopay.atlassian.net/browse/HDP-12387) |
+| Consent customer IP | Portal-open IP vs gateway agent IP; CC0005 false same-network | [HDP-5366](https://novopay.atlassian.net/browse/HDP-5366), [HDP-6421](https://novopay.atlassian.net/browse/HDP-6421) |
+| LOC PE-PQ / HIBVPRD | Bank workbook is **not in git**; MEMO-LINE5 layout | `03`; [HDP-7076](https://novopay.atlassian.net/browse/HDP-7076), [HDP-8565](https://novopay.atlassian.net/browse/HDP-8565) |
+| Admin portal UAM reports | SQL lives only on **prod DSA Superset**, not in any repo | [HDP-12027](https://novopay.atlassian.net/browse/HDP-12027) |
+| CC Excel masters via Masters Mgmt | JAR replacement; masters-mgmt SoT is `ddp-qa` (no `ddp-prod`) | [HDP-12841](https://novopay.atlassian.net/browse/HDP-12841) |
+| Partner CC status pull (Blostem) | Mapping still needs bank sign-off; gateway skip-list is **on the box**, not in git | [HDP-8768](https://novopay.atlassian.net/browse/HDP-8768) |
+| Agent OS (Cursor, Bob, remote-db, rules) | He built it; `AGENTS.md` is the SoT | `08`; `BOB_GUIDE.md` |
+| Flyway / common-scripts / TaskAlloc exception | Collision history; TaskAlloc DDL not in the JAR | `AGENTS.md`; [HDP-8967](https://novopay.atlassian.net/browse/HDP-8967) |
+| Product onboarding doc + mdshare sync | Master copy in CC repo; mdshare id must stay in sync | `https://mdshare.trustt.com/md/s/7NmufeEoyqRx` |
 
-## Shared / do not re-KT as "his"
+## He unblocks, does not own the code
 
-| Area | Owner to confirm | Note |
+| Area | Owner | What he actually holds |
 | --- | --- | --- |
-| BKYC ingest + ADM7 upload + close file | Abhishek Puranik (`trustt-abhishek`) - **leaving** | Get his KT separately; Ashutosh is not the ingest owner |
-| BKYC service/schema/consent | Deepankar | |
-| Agent list/detail/bio/submit | Harini | |
-| Admin PWA | Anshu / Salini | |
-| APK | Shailendra / Vinay | |
-| Jenkins TaskAlloc | Arnold | |
+| BKYC ingest / ADM7 / close file / Superset MIS | Abhishek (`trustt-abhishek`) **leaving** | Clarifications (e.g. [HDP-10501](https://novopay.atlassian.net/browse/HDP-10501)); not the file parser |
+| BKYC service spine / consent APIs | Deepankar | Tracker + PR template; Grafana epic [HDP-11496](https://novopay.atlassian.net/browse/HDP-11496) is Deepankar's, Phase 1 moved to Dinesh |
+| Agent list / bio / submit | Harini | |
+| Add-on CASE-NBR / cust id | Gowtham | He diagnosed blank CASE-NBR = no stored cust id ([HDP-12325](https://novopay.atlassian.net/browse/HDP-12325)) |
+| eKYC log masking in lib | Sanooj assignee | He drove preprod merge notes ([HDP-11645](https://novopay.atlassian.net/browse/HDP-11645)) |
+| Jenkins TaskAlloc env | Arnold | Asked UAT setup ([DEVOPS-22139](https://novopay.atlassian.net/browse/DEVOPS-22139)) |
 
-## Repos he actually lives in
+## Repos he lives in (for restore, not a PR count)
 
-Keep this list current. Do not add a repo because he reviewed one PR.
-
-- `novopay-platform-creditcard-management` (and `*-ddp-uat` clone when used)
-- `trustt-platform-task-allocation`
-- `novopay-platform-initial-setup` (TaskAlloc Flyway)
-- `trustt-platform-masterdata` / `novopay-platform-masterdata-management` (common-scripts)
-- `novopay-platform-lib`
-- `novopay-platform-api-gateway`
-- `novopay-platform-actor` (when BKYC/Actor eligibility)
-- `bob-the-builder`
-- `Desktop/novopay` workspace + `Desktop/cursor-markdowns`
-
-## [FILL] areas he still needs to declare
-
-- [ ] Anything he is the silent owner of outside BKYC assign / CC / agent OS (reports? gateway v2? actor UAM?)
-- [ ] Which QA/UAT Jenkins jobs only he knows how to retry
-- [ ] Which mdshare docs he publishes besides onboarding + BKYC tracker
+CC, lib, masterdata, TaskAlloc, actor, gateway, notifications, initial-setup, consents, authorization, batch, banking-origination, masters-mgmt, bob-the-builder, `Desktop/novopay`, `Desktop/cursor-markdowns`.

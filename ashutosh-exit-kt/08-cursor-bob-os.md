@@ -1,49 +1,47 @@
-# 08 - Cursor / Bob / laptop OS
+# 08 - Cursor / Bob / laptop
 
-This is the piece that is most "Ashutosh" and least in any product ticket. Do **not** re-teach Bob from scratch. Point at `BOB_GUIDE.md`.
+Do not re-teach Bob. `BOB_GUIDE.md` is the team KT.
 
----
+## 15-minute successor brief
 
-## What the successor must understand in 15 minutes
+1. Human is orchestrator. Agent codes. Bob **proves** only.
+2. SoT: `Desktop/novopay/AGENTS.md`. Skills: `Desktop/novopay/.cursor/skills/`.
+3. This exit folder is the unwritten layer. Personal skill `~/.cursor/skills/ashutosh-exit-kt/`.
+4. Laptop migrate: `Desktop/cursor-markdowns` → `trusttAshutosh/cursor-markdowns`. `python sync-cursor-backup.py` then commit/push.
+5. Secrets stay on the laptop. `novopay-remote-db.env` is **excluded** from that sync.
 
-1. Ashutosh is the orchestrator. The agent does the work. Bob only **proves**.
-2. Four gates: Plan, Build, Prove, Ship. Human approves those only.
-3. Canonical agent rules: `Desktop/novopay/AGENTS.md` (not a parallel preference list).
-4. Canonical skills: `Desktop/novopay/.cursor/skills/` (not copies in service repos, except CC junction).
-5. Personal skills: `%USERPROFILE%\.cursor\skills\` (this exit-KT skill lives here).
-6. Laptop migrate backup: `Desktop/cursor-markdowns` → GitHub `trusttAshutosh/cursor-markdowns`. Run `python sync-cursor-backup.py` then commit/push.
-7. Secrets stay on the laptop: `novopay-remote-db.env` is in the sync **exclude** list on purpose.
+## Intentional, do not "fix"
 
-## Do not "fix" these; they are intentional
-
-| Tempting cleanup | Why it is on purpose |
+| Tempting cleanup | Why it stays |
 | --- | --- |
-| Re-enable Continual Learning stop hook | Plugin updates restore it; he disables it (`disable-continual-learning-stop.py`) |
-| Call `move_agent_to_root` to tidy workspace | Cursor 3.21.x kills the agent (`abortReasonMessage: migration`) |
-| Auto-run `bob validate-ticket` after every edit | Explicit-only |
-| Put TaskAlloc Flyway back in the service JAR | Boot `flyway_auto_update=0`; HDP-8967 collision |
-| Rank people by Cursor co-author trailers | He disables co-authored; trailer % != usage |
+| Re-enable Continual Learning stop hook | Plugin updates restore it; he disables it |
+| `move_agent_to_root` | Cursor 3.21.x kills the agent |
+| Auto `bob validate-ticket` | Explicit-only |
+| TaskAlloc Flyway in the JAR | HDP-8967 collision |
+| Rank people by Cursor co-author % | He disables trailers; % != usage |
 
-## Restore path if the laptop dies tomorrow
+## Restore if the laptop dies
 
-1. Clone `trusttAshutosh/cursor-markdowns` (this exit-KT folder is synced there as `ashutosh-exit-kt/`).
-2. Restore `user/.cursor` (minus secrets). Recreate `novopay-remote-db.env` from ops, not from git.
+1. Clone cursor-markdowns (this folder is `ashutosh-exit-kt/`).
+2. Restore `user/.cursor` minus secrets. Recreate `novopay-remote-db.env` from ops.
 3. Open `novopay.code-workspace`.
-4. Read `AGENTS.md`, then `BOB_GUIDE.md`.
-5. Do not expect BKYC Chat posts to be running.
+4. Read AGENTS.md, then BOB_GUIDE.md.
+5. Copy LOC workbook from whoever still has `LOC APIs mapping v 0.1 (2).xlsx` - it is not in git.
 
-## Tools he owns that are easy to lose
+## Tools easy to lose
 
 | Tool | Path |
 | --- | --- |
-| Remote DB helper | `%USERPROFILE%\.cursor\novopay-remote-db-readonly.py` |
-| Remote SSH helper | `%USERPROFILE%\.cursor\novopay-remote-ssh.py` |
+| Remote DB / SSH / Superset | `%USERPROFILE%\.cursor\novopay-remote-db-readonly.py` (and ssh / superset siblings) |
 | MarkItDown shim | `%USERPROFILE%\.cursor\tools\markitdown-shim\cli.py` |
 | PR cadence | `Desktop/novopay/tools/pr_cadence_refresh.py` |
+| Work evidence | `Desktop/novopay/tools/personal_work_evidence_refresh.py` |
 | Standup collector | `Desktop/worklogs/_tools/collect_day.py` |
 | BKYC Jira comment pull | `docs/tdd-runs/HDP-7636/pull_bkyc_jira_comments.py` |
 
-## [FILL]
+## Not in git (ask him)
 
-- [ ] Any MCP / plugin he paid for or configured that is not in cursor-markdowns
-- [ ] Who is allowed to push `cursor-markdowns` after he leaves
+- Bank UAT has no agent DB access - discovery is pasted SQL only
+- mdshare PAT in Cursor MCP config (Grafana docs HDP-11496)
+- Worktrees `.wt-*` that still hold a ticket
+- Who may push cursor-markdowns after he leaves: [FILL]
