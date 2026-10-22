@@ -17,6 +17,7 @@ CLAUDE_MEMORY = Path(
 AGENTS_SKILLS = Path(r"C:/Users/ashutosh.kumar/.agents/skills")
 CLAUDE_SKILLS = Path(r"C:/Users/ashutosh.kumar/.claude/skills")
 WORKLOG_COLLECTOR = Path(r"C:/Users/ashutosh.kumar/Desktop/worklogs/_tools/collect_day.py")
+ASHUTOSH_EXIT_KT = Path(r"C:/Users/ashutosh.kumar/Desktop/ashutosh-exit-kt")
 
 # Global ~/.cursor: backup config, skip IDE runtime/cache
 USER_EXCLUDE_DIRS = {
@@ -172,6 +173,7 @@ def main() -> int:
     sync_pair("claude-memory", CLAUDE_MEMORY, ROOT / "claude" / "memory", results)
     sync_pair("agents-skills", AGENTS_SKILLS, ROOT / "agents" / "skills", results)
     sync_pair("claude-skills", CLAUDE_SKILLS, ROOT / "claude" / "skills", results)
+    sync_pair("ashutosh-exit-kt", ASHUTOSH_EXIT_KT, ROOT / "ashutosh-exit-kt", results)
     for label, src, dst in mappings:
         sync_pair(label, src, dst, results)
 
