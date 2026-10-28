@@ -1,9 +1,9 @@
 ---
-description: QA/UAT/preprod remote MySQL and SSH default to read-only. Writes only after the user asks first.
+description: QA/UAT/preprod/perf remote MySQL and SSH default to read-only. Writes only after the user asks first.
 alwaysApply: true
 ---
 
-# Novopay remote QA / UAT / preprod
+# Novopay remote QA / UAT / preprod / perf
 
 ## Autofetch credentials (do not ask the user to paste)
 
@@ -12,13 +12,13 @@ alwaysApply: true
 
 Key-name template only: `%USERPROFILE%\.cursor\novopay-remote-db.env.example`
 
-Whenever QA / UAT / preprod DB, SSH, applogs, or Flyway verify is needed: **load that env file via the helpers below**. Do not ask Ashutosh for hosts, users, passwords, or keys if the file is filled. Never print secret values. If a required key is empty, name the missing key and stop.
+Whenever QA / UAT / preprod / perf DB, SSH, applogs, or Flyway verify is needed: **load that env file via the helpers below**. Do not ask Ashutosh for hosts, users, passwords, or keys if the file is filled. Never print secret values. If a required key is empty, name the missing key and stop.
 
-| Need | Env keys (prefix `QA_` / `UAT_` / `PREPROD_`) | Helper |
+| Need | Env keys (prefix `QA_` / `UAT_` / `PREPROD_` / `PERF_`) | Helper |
 | --- | --- | --- |
-| MySQL | `{ENV}_DB_HOST`, `{ENV}_DB_PORT`, `{ENV}_DB_USER`, `{ENV}_DB_PASSWORD`, `{ENV}_DB_SCHEMA`, `{ENV}_DB_VIA_SSH` | `novopay-remote-db-readonly.py --env qa\|uat\|preprod` |
-| App server SSH / applogs | `{ENV}_SSH_HOST`, `{ENV}_SSH_PORT`, `{ENV}_SSH_USER`, `{ENV}_SSH_KEY` **or** `{ENV}_SSH_PASSWORD`, optional `{ENV}_SSH_JUMP_*` | `novopay-remote-ssh.py --env qa\|uat\|preprod` |
-| Superset (QA / UAT) | `{ENV}_SUPERSET_URL`, `{ENV}_SUPERSET_USER`, `{ENV}_SUPERSET_PASSWORD` | `novopay-superset-readonly.py --env qa\|uat` (login + GET only; `--get <path>`, `--find-sql <text>`) |
+| MySQL | `{ENV}_DB_HOST`, `{ENV}_DB_PORT`, `{ENV}_DB_USER`, `{ENV}_DB_PASSWORD`, `{ENV}_DB_SCHEMA`, `{ENV}_DB_VIA_SSH` | `novopay-remote-db-readonly.py --env qa\|uat\|preprod\|perf` |
+| App server SSH / applogs | `{ENV}_SSH_HOST`, `{ENV}_SSH_PORT`, `{ENV}_SSH_USER`, `{ENV}_SSH_KEY` **or** `{ENV}_SSH_PASSWORD`, optional `{ENV}_SSH_JUMP_*` | `novopay-remote-ssh.py --env qa\|uat\|preprod\|perf` |
+| Superset (QA / UAT / optional perf) | `{ENV}_SUPERSET_URL`, `{ENV}_SUPERSET_USER`, `{ENV}_SUPERSET_PASSWORD` | `novopay-superset-readonly.py --env qa\|uat\|perf` (login + GET only; `--get <path>`, `--find-sql <text>`) |
 
 Same file holds DB, app-server SSH and Superset. There is no separate SSH-only or Superset-only env file.
 
@@ -32,7 +32,7 @@ Same file holds DB, app-server SSH and Superset. There is no separate SSH-only o
 - Admin portal reports (UAM population / activity, DSA dashboards) are Superset virtual datasets, not code. Inspect via `ddp_superset` SELECTs or Superset API GETs.
 - **Never write to any Superset server without Ashutosh's explicit approval** (QA, UAT, prod - any URL). No POST/PUT/DELETE beyond the login call: no creating/editing/deleting datasets, charts, dashboards, roles, users, saved queries, or running write SQL in SQL Lab - even with admin creds. To change something: show the exact change (dataset id + full new SQL, or API call + payload), wait for an explicit yes, run only that one change. Approval is per action - not blanket for later edits.
 
-Typical QA mapping (values live in the env file, not here): `QA_DB_*` for MySQL; `QA_SSH_*` for the Linux app box used for `/apps/applogs` greps.
+Typical mapping (values live in the env file, not here): `{ENV}_DB_*` for MySQL; `{ENV}_SSH_*` for the Linux app box used for `/apps/applogs` greps. Perf uses `--env perf` / `PERF_*`.
 
 ## Default - read-only
 
@@ -44,7 +44,7 @@ QA and preprod DB users **have write grants**. That does not authorize writes by
 
 ## Writes - only when the user asks first
 
-**Never run any INSERT / UPDATE / DELETE / REPLACE / DDL / GRANT / LOAD / CALL / SET GLOBAL on QA, UAT, or preprod unless the user explicitly asked to run that statement** (after seeing the query, or by saying seed/run/execute this SQL).
+**Never run any INSERT / UPDATE / DELETE / REPLACE / DDL / GRANT / LOAD / CALL / SET GLOBAL on QA, UAT, preprod, or perf unless the user explicitly asked to run that statement** (after seeing the query, or by saying seed/run/execute this SQL).
 
 - Run only the approved statement. Do not add sibling writes in the same turn.
 - Do not keep a general write helper. The readonly script stays the default; bypass READ ONLY only for the asked statement.
@@ -52,7 +52,7 @@ QA and preprod DB users **have write grants**. That does not authorize writes by
 
 ## When to use
 
-For RCA, env drift, "what is on QA/UAT/preprod", Flyway verify, or any analysis that needs live data: **run SELECT / log greps yourself**. Do not ask the user to paste query or grep results if this file is filled in.
+For RCA, env drift, "what is on QA/UAT/preprod/perf", Flyway verify, or any analysis that needs live data: **run SELECT / log greps yourself**. Do not ask the user to paste query or grep results if this file is filled in.
 
 ## How
 
@@ -60,11 +60,13 @@ For RCA, env drift, "what is on QA/UAT/preprod", Flyway verify, or any analysis 
 python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env qa      --sql "SELECT 1"
 python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env uat     --sql "SHOW DATABASES"
 python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env preprod --ping
+python %USERPROFILE%\.cursor\novopay-remote-db-readonly.py --env perf    --ping
 python %USERPROFILE%\.cursor\novopay-remote-ssh.py --env qa      --cmd "hostname; whoami"
 python %USERPROFILE%\.cursor\novopay-remote-ssh.py --env preprod --cmd "ls /apps/applogs"
+python %USERPROFILE%\.cursor\novopay-remote-ssh.py --env perf    --cmd "hostname; whoami"
 ```
 
-`--env qa` / `--env uat` / `--env preprod`. SQL must be one statement: `SELECT` / `SHOW` / `DESCRIBE` / `EXPLAIN` / `WITH`. The helper refuses writes.
+`--env qa` / `--env uat` / `--env preprod` / `--env perf`. SQL must be one statement: `SELECT` / `SHOW` / `DESCRIBE` / `EXPLAIN` / `WITH`. The helper refuses writes.
 
 ## Rules
 
