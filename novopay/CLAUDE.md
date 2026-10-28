@@ -85,8 +85,11 @@
 ## Flyway & infra-lib versioning
 
 - **Flyway:** before creating/renaming a migration, resolve the common-script branch
-  (`ddp-fea-common-script[s]`), pick the next unused `V<n>__` against that branch (not just the feature
-  branch), land on common-script first, then cherry-pick to the feature branch. Per-repo, per-migrations-folder.
+ (`ddp-fea-common-script[s]`), pick the next unused `V<n>__` against that branch (not just the feature
+ branch), land on common-script first, then cherry-pick to the feature branch. Per-repo, per-migrations-folder.
+ After push, prove `git merge-base --is-ancestor <sha> origin/ddp-fea-common-scripts`. `--no-verify` does
+ not land a rejected non-ff push. SoT: `novopay-platform-lib/agent/rules/flyway-common-script-versions.mdc`
+ (Claude) and `.cursor/rules/flyway-common-scripts.mdc` (Cursor).
 - **TaskAlloc exception:** DDL/seeds go only in `novopay-platform-initial-setup/flyway/sql/task-allocation/product/`
   (BKYC on `ddp-fea-bkyc`). Service boot does not auto-migrate (`flyway_auto_update=0`). Never add
   `src/main/resources/sql/migrations/` in `trustt-platform-task-allocation`. Next `V*` against that

@@ -1,0 +1,26 @@
+---
+description: Land Flyway on remote ddp-fea-common-scripts first, prove the push, then cherry-pick
+alwaysApply: true
+---
+
+# Flyway common-scripts (Cursor + Claude)
+
+SoT for Claude: `novopay-platform-lib/agent/rules/flyway-common-script-versions.mdc`.
+This file is the Cursor auto-load copy. Same steps in both engines.
+
+## Do
+
+1. `git fetch` that **repo's** `ddp-fea-common-scripts` (name can differ - discover).
+2. Author the `V*` in the **main clone** of that branch (not a worktree; not the feature branch). Next unused seq in that folder on **remote** common-scripts.
+3. Commit on common-scripts and **push**. Then prove:
+   `git fetch origin ddp-fea-common-scripts && git merge-base --is-ancestor <sha> origin/ddp-fea-common-scripts`
+   Must print YES / exit 0. If not, it is **not** landed.
+4. Cherry-pick **that** SHA onto the feature branch (same filename, version, bytes).
+5. Microservice SQL stays in that service (`src/main/resources/sql/migrations/...`). TaskAlloc / `platform_master` stay in initial-setup.
+
+## Do not
+
+- Treat a local common-scripts commit as landed (HDP-12841 masterdata `V5000158`)
+- Use `--no-verify` and assume a rejected non-ff push succeeded
+- Pick `V*` from the feature branch / `ddp-prod-master` alone
+- Skip prove-push because "initial-setup has a hook" - that hook is **initial-setup only**
