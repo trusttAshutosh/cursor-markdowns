@@ -6,22 +6,24 @@ alwaysApply: false
 
 # Onboarding doc - mdshare sync
 
-Master copy: `novopay-platform-creditcard-management/docs/guides/product-onboarding.md` (GitHub `trusttai/trustt-platform-creditcard-management`). Edit on a `ddp-fea-*` branch off `origin/ddp-prod`, PR to `ddp-prod`.
+Master copy: `novopay-platform-creditcard-management/docs/guides/product-onboarding.md` (GitHub `trusttai/trustt-platform-creditcard-management`). Edit on a `ddp-fea-*` branch off `origin/ddp-prod`, PR to `ddp-prod`. Same process for complaint: `docs/guides/complaint-onboarding.md` in `trustt-platform-complaint-mgmt`, branch `ddp-fea-complaint-onboarding-doc`.
 
-mdshare copy (published view): id `6abd71df5c3812e8ca51ab39` - [link](https://mdshare.trustt.com/md/s/7NmufeEoyqRx) (personal workspace)
+mdshare copy (published view): id `6abd71df5c3812e8ca51ab39` - [link](https://mdshare.trustt.com/md/s/7NmufeEoyqRx) (personal workspace). Complaint: [link](https://mdshare.trustt.com/md/s/cppxyk87-IHN).
 
 ## Do
 
-- After **any** edit to the repo file, in the same turn, call mdshare `update_doc` with id `6abd71df5c3812e8ca51ab39` and the **full** new file content (not a diff).
+- Edit the repo file on the existing onboarding feature branch. PR to `ddp-prod` with `[PROD]` in the title.
+- Put the **full file** in the PR description under **Rendered preview of the guide** so reviewers read it rendered (`gh pr create` / `gh pr edit <n> --body-file`).
+- Refresh the **Source** line (prod branch + date) when content is re-derived from prod code. GitHub blob link must point at `ddp-prod`, not `master` or `ddp-prod-master`.
+- Run the joiner loop from the `onboarding-doc` skill until that read is only Good.
+- **After the PR is merged**, call mdshare `update_doc` with the **full** new file content (not a diff), then tell the user the share link still shows the old published version until they press **Publish**.
 - An unpublished draft left by this same sync is fine to overwrite. If `update_doc` returns `DRAFT_DIRTY` (another user's edits), stop and tell the user - do not overwrite someone else's draft.
-- Keep the title unless the user asks to rename it. Keep tags `onboarding`, `cc`, `loc`, `aoc`, `eso`, `product`, `qa`.
-- Refresh the **Source** line (prod branch + date) when content is re-derived from prod code.
-- Tell the user: `update_doc` saves a **draft**; the share link shows it only after they press **Publish** in mdshare.
-- While a PR changing the file is open, refresh its description: keep the summary block on top, then the **Rendered preview of the guide** section with the full file content (`gh pr edit <n> --body-file`), so reviewers read it rendered.
+- Keep the title unless the user asks to rename it. CC tags: `onboarding`, `cc`, `loc`, `aoc`, `eso`, `product`, `qa`.
 - Keep the layout: **Start here** (one-minute summary + per-role reading path), **Part A** (understand the product), **Part B** (reference). When sections move or are added, update the Contents and the reading-path section numbers and any `see N` cross references.
 
 ## Do not
 
+- Do not call mdshare `update_doc` / `create_doc` while the PR is still open. Repo review first, mdshare only after merge.
 - Do not create a new mdshare doc for an edit (no duplicates).
 - Do not edit the mdshare copy without also editing the repo file.
 - Do not keep or recreate a Desktop-level copy (`Desktop/novopay/docs/PRODUCT_ONBOARDING_CC_LOC_AOC.md` was retired).
